@@ -29,5 +29,9 @@ namespace VectorDrawing
 
         }
 
+        private void BrushButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
