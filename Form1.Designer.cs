@@ -42,6 +42,8 @@ namespace VectorDrawing
             this.PolygonButton = new System.Windows.Forms.Button();
             this.RegularPolygonButton = new System.Windows.Forms.Button();
             this.ToolsLabel = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // BrushButton
@@ -175,11 +177,20 @@ namespace VectorDrawing
             this.ToolsLabel.TabIndex = 12;
             this.ToolsLabel.Text = "Инструменты";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(188, 67);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(755, 480);
+            this.pictureBox1.TabIndex = 13;
+            this.pictureBox1.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(955, 572);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.ToolsLabel);
             this.Controls.Add(this.RegularPolygonButton);
             this.Controls.Add(this.PolygonButton);
@@ -195,6 +206,7 @@ namespace VectorDrawing
             this.Controls.Add(this.BrushButton);
             this.Name = "Form1";
             this.Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -215,6 +227,7 @@ namespace VectorDrawing
         private System.Windows.Forms.Button PolygonButton;
         private System.Windows.Forms.Button RegularPolygonButton;
         private System.Windows.Forms.Label ToolsLabel;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 
