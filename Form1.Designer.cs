@@ -184,6 +184,7 @@ namespace VectorDrawing
             this.pictureBox1.Size = new System.Drawing.Size(755, 480);
             this.pictureBox1.TabIndex = 13;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // Form1
             // 
@@ -206,6 +207,7 @@ namespace VectorDrawing
             this.Controls.Add(this.BrushButton);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
