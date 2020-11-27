@@ -10,11 +10,11 @@ using System.Windows.Forms;
 
 namespace VectorDrawing
 {
-    public partial class Form1 : Form
+    public partial class VectorDrawing : Form
     {
         Bitmap bitmap;
         Graphics graphics;
-        public Form1()
+        public VectorDrawing()
         {
             InitializeComponent();
         }
