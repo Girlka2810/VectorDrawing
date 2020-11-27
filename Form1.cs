@@ -24,5 +24,10 @@ namespace VectorDrawing
             bitmap = new Bitmap(pictureBox1.Height, pictureBox1.Width);
             graphics = Graphics.FromImage(bitmap);
         }
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }
