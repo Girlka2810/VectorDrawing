@@ -10,6 +10,7 @@ namespace VectorDrawing.Tools
     interface ITool
     {
         void Paint(Point prev, Point crnt);
-        
+        Pen PenOfTool { get; set; }
+
     }
 }

@@ -29,6 +29,7 @@ namespace VectorDrawing
             bitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
             graphics = Graphics.FromImage(bitmap);
             tool = new Square(bitmap);
+            numericUpDown1.Value = 3;
         }
         private void pictureBox1_Click(object sender, EventArgs e)
         {
@@ -64,6 +65,19 @@ namespace VectorDrawing
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
         {
             mouseDown = false;
+        }
+
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+            tool.PenOfTool.Width = (int)(((NumericUpDown)sender).Value);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (colorDialog1.ShowDialog() == DialogResult.OK)
+            {
+                tool.PenOfTool.Color = colorDialog1.Color;
+            }
         }
     }
 }

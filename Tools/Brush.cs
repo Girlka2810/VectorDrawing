@@ -9,9 +9,12 @@ namespace VectorDrawing.Tools
 {
     public class Brush : ITool
     {
+        public Pen PenOfTool { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
         public void Paint(Point prev, Point crnt)
         {
             throw new NotImplementedException();
         }
+        
     }
 }
