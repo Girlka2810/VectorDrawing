@@ -1,14 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace VectorDrawing.Tools
 {
-    class Brush : ITool
+    public class Brush : ITool
     {
-        public void Paint(int x, int y)
+        public void Paint(Point prev, Point crnt)
         {
             throw new NotImplementedException();
         }

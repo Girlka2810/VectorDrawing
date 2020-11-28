@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Tools\Square.cs" />
     <Compile Include="VectorDrawing.cs">
       <SubType>Form</SubType>
     </Compile>
