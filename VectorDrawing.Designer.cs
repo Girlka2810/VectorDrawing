@@ -43,7 +43,12 @@ namespace VectorDrawing
             this.RegularPolygonButton = new System.Windows.Forms.Button();
             this.ToolsLabel = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.label1 = new System.Windows.Forms.Label();
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // BrushButton
@@ -96,6 +101,7 @@ namespace VectorDrawing
             this.SquareButton.Text = "Квадрат";
             this.SquareButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.SquareButton.UseVisualStyleBackColor = true;
+            this.SquareButton.Click += new System.EventHandler(this.SquareButton_Click);
             // 
             // CircleButton
             // 
@@ -186,12 +192,45 @@ namespace VectorDrawing
             this.pictureBox1.TabIndex = 13;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
+            this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseMove);
+            this.pictureBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseUp);
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(534, 12);
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(70, 20);
+            this.numericUpDown1.TabIndex = 14;
+            this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(391, 17);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(137, 13);
+            this.label1.TabIndex = 15;
+            this.label1.Text = "Толщина линии (пиксели)";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(251, 12);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(112, 23);
+            this.button1.TabIndex = 16;
+            this.button1.Text = "Цвет линий";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // VectorDrawing
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(955, 572);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.ToolsLabel);
             this.Controls.Add(this.RegularPolygonButton);
@@ -210,6 +249,7 @@ namespace VectorDrawing
             this.Text = "VectorDrawing2D";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -231,6 +271,10 @@ namespace VectorDrawing
         private System.Windows.Forms.Button RegularPolygonButton;
         private System.Windows.Forms.Label ToolsLabel;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ColorDialog colorDialog1;
+        private System.Windows.Forms.Button button1;
     }
 }
 
