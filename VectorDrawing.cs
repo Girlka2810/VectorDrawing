@@ -79,5 +79,10 @@ namespace VectorDrawing
                 tool.PenOfTool.Color = colorDialog1.Color;
             }
         }
+
+        private void CircleButton_Click(object sender, EventArgs e)
+        {
+            tool = new Circle(bitmap);
+        }
     }
 }

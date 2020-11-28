@@ -112,6 +112,7 @@ namespace VectorDrawing
             this.CircleButton.Text = "Круг";
             this.CircleButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.CircleButton.UseVisualStyleBackColor = true;
+            this.CircleButton.Click += new System.EventHandler(this.CircleButton_Click);
             // 
             // EllipseButton
             // 
