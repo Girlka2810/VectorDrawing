@@ -15,8 +15,9 @@ namespace VectorDrawing
     {
 
         private AbstractTool _tool;
+        private string _toolName;
         private Pen _pen;
-        private bool _canDraw;
+        public static bool _canDraw;
 
         public VectorDrawingForm()
         {
@@ -42,7 +43,7 @@ namespace VectorDrawing
             switch(name)
             {
                 case "LineButton":
-                    _tool = new Line(_pen);
+                    _toolName = "Line";
                     break;
                 default:
                     _tool = null;
@@ -61,31 +62,31 @@ namespace VectorDrawing
 
         private void OnPictureBoxMouseDown(object sender, MouseEventArgs e)
         {
+            switch (_toolName)
+            {
+                case "Line":
+                    _tool = new Line(_pen);
+                    break;
+            }
             _canDraw = true;
+            _tool?.SetPen(_pen);
             _tool?.ClearPoints();
             _tool?.AddPoint(e.Location);
         }
 
         private void OnThicknessValueChanged(object sender, EventArgs e)
         {
+            _pen = new Pen(_pen.Color);
             _pen.Width = (int)((NumericUpDown)sender).Value;
-            _tool?.SetPen(_pen);
-            if (_tool != null)
-            {
-                Canvas.Draw(_tool);
-            }
         }
 
         private void OnColorFrontButtonClick(object sender, EventArgs e)
         {
             if (colorDialog.ShowDialog() == DialogResult.OK)
             {
-                _pen.Color = colorDialog.Color;
-                _tool?.SetPen(_pen);
-                if(_tool!=null)
-                {
-                    Canvas.Draw(_tool);
-                }    
+                float width = _pen.Width;
+                _pen = new Pen(colorDialog.Color);
+                _pen.Width = width;
             }
         }
 

@@ -25,7 +25,7 @@ namespace VectorDrawing
 
         public static void Create(int width, int height, Color backcolor)
         {
-            _tools = new List<Tools.AbstractTool>(100);
+            _tools = new List<Tools.AbstractTool>();
             Bitmap = new Bitmap(width, height);
             _graphics = Graphics.FromImage(Bitmap);
             _graphics.Clear(Color.Transparent);
@@ -43,11 +43,44 @@ namespace VectorDrawing
 
         public static void Draw(Tools.AbstractTool tool)
         {
-            _tools.Add(tool);
+            if(_tools.Count==100)
+            {
+                return;
+            }
+
             _graphics.Clear(Color.Transparent);
+            AddBuffer(tool);
+            
+            DrawPreviousItems();
+            
             tool.Paint(_graphics);
             
             _render?.Invoke(Bitmap, _backColor);
+        }
+
+        private static void DrawPreviousItems()
+        {
+            foreach (var t in _tools)
+            {
+                 t.Paint(_graphics);
+            }
+        }
+
+        private static void AddBuffer(Tools.AbstractTool tool)
+        {
+            bool isFind = false;
+            foreach (var t in _tools)
+            {
+                if (t == tool)
+                {
+                    isFind = true;
+                }
+            }
+
+            if (!isFind)
+            {
+                _tools.Add(tool);
+            }
         }
     }
 }
