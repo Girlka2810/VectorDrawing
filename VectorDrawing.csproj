@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Tools\Square.cs" />
+    <Compile Include="Tools\StraightLine.cs" />
     <Compile Include="VectorDrawing.cs">
       <SubType>Form</SubType>
     </Compile>

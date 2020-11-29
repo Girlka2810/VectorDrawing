@@ -71,6 +71,7 @@ namespace VectorDrawing
             this.LineButton.Text = "Линия";
             this.LineButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.LineButton.UseVisualStyleBackColor = true;
+            this.LineButton.Click += new System.EventHandler(this.LineButton_Click);
             // 
             // NlineButton
             // 
@@ -200,7 +201,7 @@ namespace VectorDrawing
             // 
             this.numericUpDown1.Location = new System.Drawing.Point(534, 12);
             this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(70, 20);
+            this.numericUpDown1.Size = new System.Drawing.Size(70, 22);
             this.numericUpDown1.TabIndex = 14;
             this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
             // 
@@ -209,7 +210,7 @@ namespace VectorDrawing
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(391, 17);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(137, 13);
+            this.label1.Size = new System.Drawing.Size(146, 13);
             this.label1.TabIndex = 15;
             this.label1.Text = "Толщина линии (пиксели)";
             // 
