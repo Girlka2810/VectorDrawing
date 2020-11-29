@@ -7,29 +7,39 @@ using System.Threading.Tasks;
 
 namespace VectorDrawing.Tools
 {
-    class AbstractTool
+    abstract class AbstractTool
     {
         protected List<Point> _points;
-        
-        public AbstractTool()
+        protected Pen _pen;
+      
+        public AbstractTool(Pen pen)
         {
             _points = new List<Point> { };
+            _pen = pen;
         }
 
-        protected void Paint(Point prev, Point crnt)
+        public void SetPen(Pen pen)
         {
-            throw new NotImplementedException();
+            if(pen.Width>1 && pen.Width <= 100)
+            {
+                _pen = pen;
+            }
+        }
+
+        public abstract void Paint(Graphics graphics);
+
+        public void ClearPoints()
+        {
+            _points = new List<Point> { };
         }
 
         public virtual void AddPoint(Point point)
         {
             if (_points.Count > 1)
             {
-                _points.Insert(1, point);
-                return;
+                _points.RemoveAt(1);
             }
             _points.Add(point);
-            return;
         }
 
 

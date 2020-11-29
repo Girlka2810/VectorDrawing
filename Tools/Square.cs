@@ -21,6 +21,7 @@ namespace VectorDrawing.Tools
 
         public void Paint(Point prev, Point crnt)
         {
+
             _graphics.Clear(Color.White);
             int width = Module(prev.X - crnt.X);
             int height = Module(prev.Y - crnt.Y);
