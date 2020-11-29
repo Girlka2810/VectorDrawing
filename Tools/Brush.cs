@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace VectorDrawing.Tools
 {
-    class Brush : ITool
+    public class Brush : ITool
     {
         Bitmap  mainBm;
         Graphics  graphics;
@@ -17,5 +17,6 @@ namespace VectorDrawing.Tools
            mainBm.SetPixel(x,y,Color.Black);
             
         }
+        
     }
 }
