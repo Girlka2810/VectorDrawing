@@ -79,5 +79,10 @@ namespace VectorDrawing
                 tool.PenOfTool.Color = colorDialog1.Color;
             }
         }
+
+        private void LineButton_Click(object sender, EventArgs e)
+        {
+            tool = new StraightLine(bitmap);
+        }
     }
 }
