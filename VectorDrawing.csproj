@@ -48,8 +48,8 @@
   <ItemGroup>
     <Compile Include="Canvas.cs" />
     <Compile Include="Tools\AbstractTool.cs" />
-    <Compile Include="Tools\Line.cs" />
-    <Compile Include="Tools\Square.cs" />
+    <Compile Include="Tools\LineTool.cs" />
+    <Compile Include="Tools\SquareTool.cs" />
     <Compile Include="VectorDrawingForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -58,7 +58,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Tools\Brush.cs" />
+    <Compile Include="Tools\BrushTool.cs" />
     <EmbeddedResource Include="VectorDrawingForm.resx">
       <DependentUpon>VectorDrawingForm.cs</DependentUpon>
     </EmbeddedResource>

@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace VectorDrawing.Tools
 {
-    class Line : AbstractTool
+    class LineTool : AbstractTool
     {
 
-        public Line(Pen pen) : base(pen)
+        public LineTool(Pen pen) : base(pen)
         {
 
         }

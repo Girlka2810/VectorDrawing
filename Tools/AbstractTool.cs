@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace VectorDrawing.Tools
 {
-    abstract class AbstractTool
+    public abstract class AbstractTool
     {
         protected List<Point> _points;
         protected Pen _pen;

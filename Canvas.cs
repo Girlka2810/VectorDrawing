@@ -12,6 +12,7 @@ namespace VectorDrawing
 
 
         public static Bitmap Bitmap { get; private set; }
+
         private static Action<Bitmap, Color> _render;
         private static Graphics _graphics;
         private static List<Tools.AbstractTool> _tools;
@@ -43,26 +44,28 @@ namespace VectorDrawing
 
         public static void Draw(Tools.AbstractTool tool)
         {
-            if(_tools.Count==100)
+            if (_tools.Count == 100)
             {
                 return;
             }
 
             _graphics.Clear(Color.Transparent);
             AddBuffer(tool);
-            
+
             DrawPreviousItems();
-            
+
             tool.Paint(_graphics);
-            
+
             _render?.Invoke(Bitmap, _backColor);
         }
 
+
+        // TODO: Этот метод максимально хреновый, надо будет переделать.
         private static void DrawPreviousItems()
         {
             foreach (var t in _tools)
             {
-                 t.Paint(_graphics);
+                t.Paint(_graphics);
             }
         }
 

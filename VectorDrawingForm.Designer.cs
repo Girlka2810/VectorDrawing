@@ -209,7 +209,8 @@ namespace VectorDrawing
             // 
             // thickness
             // 
-            this.thickness.Location = new System.Drawing.Point(534, 12);
+            this.thickness.DecimalPlaces = 2;
+            this.thickness.Location = new System.Drawing.Point(543, 14);
             this.thickness.Minimum = new decimal(new int[] {
             1,
             0,
@@ -217,9 +218,9 @@ namespace VectorDrawing
             0});
             this.thickness.Name = "thickness";
             this.thickness.Size = new System.Drawing.Size(70, 22);
-            this.thickness.TabIndex = 14;
+            this.thickness.TabIndex = 13;
             this.thickness.Value = new decimal(new int[] {
-            3,
+            1,
             0,
             0,
             0});
@@ -239,7 +240,7 @@ namespace VectorDrawing
             this.colorFrontButton.Location = new System.Drawing.Point(251, 12);
             this.colorFrontButton.Name = "colorFrontButton";
             this.colorFrontButton.Size = new System.Drawing.Size(112, 23);
-            this.colorFrontButton.TabIndex = 16;
+            this.colorFrontButton.TabIndex = 12;
             this.colorFrontButton.Text = "Цвет линий";
             this.colorFrontButton.UseVisualStyleBackColor = true;
             this.colorFrontButton.Click += new System.EventHandler(this.OnColorFrontButtonClick);
