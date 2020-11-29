@@ -56,6 +56,10 @@ namespace VectorDrawing
             this.BrushButton.Text = "Кисть";
             this.BrushButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BrushButton.UseVisualStyleBackColor = true;
+            this.BrushButton.Click += new System.EventHandler(this.BrushButton_Click);
+            this.BrushButton.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BrushButton_MouseDown);
+            this.BrushButton.MouseMove += new System.Windows.Forms.MouseEventHandler(this.BrushButton_MouseMove);
+            this.BrushButton.MouseUp += new System.Windows.Forms.MouseEventHandler(this.BrushButton_MouseUp);
             // 
             // LineButton
             // 
@@ -180,12 +184,16 @@ namespace VectorDrawing
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.White;
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox1.Location = new System.Drawing.Point(188, 67);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(755, 480);
             this.pictureBox1.TabIndex = 13;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.pictureBox1.Click += new System.EventHandler(this.Form1_Load);
+            this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BrushButton_MouseDown);
+            this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.BrushButton_MouseMove);
+            this.pictureBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.BrushButton_MouseUp);
             // 
             // VectorDrawing
             // 

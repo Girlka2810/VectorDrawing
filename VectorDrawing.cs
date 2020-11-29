@@ -12,26 +12,64 @@ namespace VectorDrawing
 {
     public partial class VectorDrawing : Form
     {
-        Bitmap bitmap;
+        Bitmap mainBm;
         Graphics graphics;
+        Pen brush = new Pen(Color.Black, 4);
+        Color CurrentColor = Color.Black;
+        Point currentPoint;
+        Point prevPoint;
+        bool isPressed = false;
         public VectorDrawing()
         {
             InitializeComponent();
+            graphics = pictureBox1.CreateGraphics();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            bitmap = new Bitmap(pictureBox1.Height, pictureBox1.Width);
-            graphics = Graphics.FromImage(bitmap);
+            
         }
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
         {
+            
+        }
 
+        private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
+        {
+            
         }
 
         private void BrushButton_Click(object sender, EventArgs e)
         {
+            Pen brush = new Pen(CurrentColor);
+        }
+        private void for_paint()
+        {
+            Pen brush = new Pen(CurrentColor);
+            graphics.DrawLine(brush, prevPoint, currentPoint);
+        }
 
+        private void BrushButton_MouseDown(object sender, MouseEventArgs e)
+        {
+            isPressed = true;
+            currentPoint = e.Location;
+
+
+        }
+
+        private void BrushButton_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (isPressed)
+            {
+                prevPoint = currentPoint;
+                currentPoint = e.Location;
+                for_paint();
+            }
+        }
+
+        private void BrushButton_MouseUp(object sender, MouseEventArgs e)
+        {
+            isPressed = false;
         }
     }
 }
