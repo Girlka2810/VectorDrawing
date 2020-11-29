@@ -34,6 +34,11 @@ namespace VectorDrawing
 
         public static void SetRender(Action<Bitmap, Color> render)
         {
+            if (render == null)
+            {
+                throw new NullReferenceException("Render cannot be null.");
+            }
+
             if (_render == null)
             {
                 _render += render;
@@ -42,6 +47,11 @@ namespace VectorDrawing
 
         public static void Draw(Tools.AbstractTool tool)
         {
+            if(tool==null)
+            {
+                throw new NullReferenceException("Tool cannot be null.");
+            }
+
             if (_tools.Count == 100)
             {
                 return;

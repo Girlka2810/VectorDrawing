@@ -15,7 +15,7 @@ namespace VectorDrawing.Tools
         public AbstractTool(Pen pen)
         {
             _points = new List<Point> { };
-            _pen = pen;
+            SetPen(pen);
         }
 
         public void SetPen(Pen pen)
@@ -23,6 +23,10 @@ namespace VectorDrawing.Tools
             if(pen.Width>1 && pen.Width <= 100)
             {
                 _pen = pen;
+            }
+            else
+            {
+                throw new ArgumentException("Pen cannot have width less than 1 and greater than 100");
             }
         }
 
