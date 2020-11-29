@@ -17,7 +17,8 @@ namespace VectorDrawing.Tools
             PenOfTool = new Pen(Color.Black, 3);
         }
         public Pen PenOfTool { get; set; }
-        
+        List<Point> ITool.points { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
         public void Paint(Point prev, Point crnt)
         {
             _graphics.Clear(Color.White);

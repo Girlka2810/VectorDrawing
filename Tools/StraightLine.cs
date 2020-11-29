@@ -10,6 +10,8 @@ namespace VectorDrawing.Tools
     class StraightLine : ITool
     {
         public Pen PenOfTool { get; set; }
+        public List<Point> points { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
         private Graphics _graphics;
 
 

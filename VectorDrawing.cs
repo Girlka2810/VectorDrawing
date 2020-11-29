@@ -13,10 +13,11 @@ namespace VectorDrawing
 {
     public partial class VectorDrawing : Form
     {
-        Bitmap mainBm;
+        Bitmap bitmap;
         Graphics graphics;
         Point prevPoint = new Point();
         ITool tool;
+        AbstractTool tool1;
         bool mouseDown = false;
 
         public VectorDrawing()
@@ -29,42 +30,28 @@ namespace VectorDrawing
         {
             bitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
             graphics = Graphics.FromImage(bitmap);
-            tool = new Square(bitmap);
-            numericUpDown1.Value = 3;
-        }
-        private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
-        {
-            
+            tool1 = new SquareTest(bitmap);
+            //numericUpDown1.Value = 3;
         }
 
-        private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
-        {
-            
-        }
 
         private void BrushButton_Click(object sender, EventArgs e)
         {
-            Pen brush = new Pen(CurrentColor);
+            
         }
         private void for_paint()
         {
-            Pen brush = new Pen(CurrentColor);
-            graphics.DrawLine(brush, prevPoint, currentPoint);
-        }
-
-        private void BrushButton_MouseDown(object sender, MouseEventArgs e)
-        {
-            isPressed = true;
-            currentPoint = e.Location;
-
 
         }
+
+      
 
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
         {
             if (mouseDown)
             {
-                tool.Paint(prevPoint, e.Location);
+                //tool.Paint(prevPoint, e.Location);
+                tool1.AddPoint(e.Location);
                 pictureBox1.Image = bitmap;
             }
         }
@@ -75,14 +62,11 @@ namespace VectorDrawing
             tool = new Square(crnt);
         }
 
-        private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
-        {
-            prevPoint = e.Location;
-            mouseDown = true;
-        }
+
 
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
         {
+            
             mouseDown = false;
         }
 
@@ -96,12 +80,20 @@ namespace VectorDrawing
             if (colorDialog1.ShowDialog() == DialogResult.OK)
             {
                 tool.PenOfTool.Color = colorDialog1.Color;
+
             }
         }
 
         private void LineButton_Click(object sender, EventArgs e)
         {
             tool = new StraightLine(bitmap);
+        }
+
+        private void pictureBox1_MouseDown_1(object sender, MouseEventArgs e)
+        {
+            tool1.AddPoint(e.Location);
+            prevPoint = e.Location;
+            mouseDown = true;
         }
     }
 }

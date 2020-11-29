@@ -12,5 +12,8 @@ namespace VectorDrawing.Tools
         void Paint(Point prev, Point crnt);
         Pen PenOfTool { get; set; }
 
+        List<Point> points { get; set; }
+
+
     }
 }

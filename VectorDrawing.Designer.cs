@@ -62,9 +62,6 @@ namespace VectorDrawing
             this.BrushButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BrushButton.UseVisualStyleBackColor = true;
             this.BrushButton.Click += new System.EventHandler(this.BrushButton_Click);
-            this.BrushButton.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BrushButton_MouseDown);
-            this.BrushButton.MouseMove += new System.Windows.Forms.MouseEventHandler(this.BrushButton_MouseMove);
-            this.BrushButton.MouseUp += new System.Windows.Forms.MouseEventHandler(this.BrushButton_MouseUp);
             // 
             // LineButton
             // 
@@ -197,17 +194,26 @@ namespace VectorDrawing
             this.pictureBox1.Size = new System.Drawing.Size(755, 480);
             this.pictureBox1.TabIndex = 13;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
-            this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
+            this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown_1);
             this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseMove);
             this.pictureBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseUp);
             // 
             // numericUpDown1
             // 
             this.numericUpDown1.Location = new System.Drawing.Point(534, 12);
+            this.numericUpDown1.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.numericUpDown1.Name = "numericUpDown1";
             this.numericUpDown1.Size = new System.Drawing.Size(70, 22);
             this.numericUpDown1.TabIndex = 14;
+            this.numericUpDown1.Value = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
             this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
             // 
             // label1

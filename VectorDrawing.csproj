@@ -46,7 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Tools\AbstractTool.cs" />
     <Compile Include="Tools\Square.cs" />
+    <Compile Include="Tools\SquareTest.cs" />
     <Compile Include="Tools\StraightLine.cs" />
     <Compile Include="VectorDrawing.cs">
       <SubType>Form</SubType>
