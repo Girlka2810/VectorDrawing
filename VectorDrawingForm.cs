@@ -11,7 +11,7 @@ namespace VectorDrawing
         private AbstractTool _tool;
         private string _toolName;
         private Pen _pen;
-        public static bool _canDraw;
+        private static bool _canDraw;
 
         public VectorDrawingForm()
         {
@@ -122,11 +122,9 @@ namespace VectorDrawing
 
         private void OnPictureBoxMouseMove(object sender, MouseEventArgs e)
         {
-            if (_tool != null && _canDraw)
-            {
-                _tool?.AddPoint(CheckPoint(e.Location));
-                Canvas.Draw(_tool);
-            }
+            if (_tool == null || !_canDraw) return;
+            _tool?.AddPoint(CheckPoint(e.Location));
+            Canvas.Draw(_tool);
         }
 
         private void OnPictureBoxMouseDown(object sender, MouseEventArgs e)
@@ -141,8 +139,10 @@ namespace VectorDrawing
 
         private void OnThicknessValueChanged(object sender, EventArgs e)
         {
-            _pen = new Pen(_pen.Color);
-            _pen.Width = (int)((NumericUpDown)sender).Value;
+            _pen = new Pen(_pen.Color)
+            {
+                Width = (int) ((NumericUpDown) sender).Value
+            };
         }
 
         private void OnColorFrontButtonClick(object sender, EventArgs e)
@@ -150,8 +150,10 @@ namespace VectorDrawing
             if (colorDialog.ShowDialog() == DialogResult.OK)
             {
                 float width = _pen.Width;
-                _pen = new Pen(colorDialog.Color);
-                _pen.Width = width;
+                _pen = new Pen(colorDialog.Color)
+                {
+                    Width = width
+                };
             }
         }
 

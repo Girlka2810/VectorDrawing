@@ -13,9 +13,9 @@ namespace VectorDrawing.Tools
 
         public override void Paint(Graphics graphics)
         {
-            if (_points.Count == 2)
+            if (Points.Count == 2)
             {
-                graphics.DrawLine(_pen, _points[0], _points[1]);
+                graphics.DrawLine(Pen, Points[0], Points[1]);
             }
         }
     }

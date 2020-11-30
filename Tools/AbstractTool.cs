@@ -9,12 +9,12 @@ namespace VectorDrawing.Tools
 {
     public abstract class AbstractTool
     {
-        protected List<Point> _points;
-        protected Pen _pen;
+        protected List<Point> Points;
+        protected Pen Pen;
 
-        public AbstractTool(Pen pen)
+        protected AbstractTool(Pen pen)
         {
-            _points = new List<Point> { };
+            Points = new List<Point> { };
             SetPen(pen);
         }
 
@@ -22,7 +22,7 @@ namespace VectorDrawing.Tools
         {
             if (pen.Width >= 1 && pen.Width <= 100)
             {
-                _pen = pen;
+                Pen = pen;
             }
             else
             {
@@ -34,17 +34,17 @@ namespace VectorDrawing.Tools
 
         public void ClearPoints()
         {
-            _points = new List<Point> { };
+            Points = new List<Point> { };
         }
 
         public virtual void AddPoint(Point point)
         {
-            if (_points.Count > 1)
+            if (Points.Count > 1)
             {
-                _points.RemoveAt(1);
+                Points.RemoveAt(1);
             }
 
-            _points.Add(point);
+            Points.Add(point);
         }
     }
 }

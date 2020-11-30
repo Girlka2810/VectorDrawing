@@ -12,12 +12,12 @@ namespace VectorDrawing.Tools
 
         public override void Paint(Graphics graphics)
         {
-            graphics.DrawCurve(_pen, _points.ToArray());
+            graphics.DrawCurve(Pen, Points.ToArray());
         }
 
         public override void AddPoint(Point point)
         {
-            _points.Add(point);
+            Points.Add(point);
         }
     }
 }

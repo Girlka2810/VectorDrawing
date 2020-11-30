@@ -7,9 +7,7 @@ namespace VectorDrawing
 {
     static class Canvas
     {
-
-
-        public static Bitmap Bitmap { get; private set; }
+        private static Bitmap _bitmap;
 
         private static Action<Bitmap, Color> _render;
         private static Graphics _graphics;
@@ -25,10 +23,10 @@ namespace VectorDrawing
         public static void Create(int width, int height, Color backcolor)
         {
             _tools = new List<Tools.AbstractTool>();
-            Bitmap = new Bitmap(width, height);
-            _graphics = Graphics.FromImage(Bitmap);
+            _bitmap = new Bitmap(width, height);
+            _graphics = Graphics.FromImage(_bitmap);
             _graphics.Clear(Color.Transparent);
-            _render?.Invoke(Bitmap, backcolor);
+            _render?.Invoke(_bitmap, backcolor);
             _backColor = backcolor;
         }
 
@@ -64,7 +62,7 @@ namespace VectorDrawing
 
             tool.Paint(_graphics);
 
-            _render?.Invoke(Bitmap, _backColor);
+            _render?.Invoke(_bitmap, _backColor);
         }
 
 
