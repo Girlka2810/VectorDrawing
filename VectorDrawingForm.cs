@@ -129,7 +129,7 @@ namespace VectorDrawing
 
         private void OnPictureBoxMouseDown(object sender, MouseEventArgs e)
         {
-            SetTool();
+            SetTool(1);
             _canDraw = true;
             _tool?.SetPen(_pen);
             _tool?.ClearPoints();
