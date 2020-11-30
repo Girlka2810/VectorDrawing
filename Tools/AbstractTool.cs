@@ -11,7 +11,7 @@ namespace VectorDrawing.Tools
     {
         protected List<Point> _points;
         protected Pen _pen;
-      
+
         public AbstractTool(Pen pen)
         {
             _points = new List<Point> { };
@@ -20,7 +20,7 @@ namespace VectorDrawing.Tools
 
         public void SetPen(Pen pen)
         {
-            if(pen.Width>1 && pen.Width <= 100)
+            if (pen.Width >= 1 && pen.Width <= 100)
             {
                 _pen = pen;
             }
@@ -43,9 +43,8 @@ namespace VectorDrawing.Tools
             {
                 _points.RemoveAt(1);
             }
+
             _points.Add(point);
         }
-
-
     }
 }
