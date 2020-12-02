@@ -45,7 +45,7 @@ namespace VectorDrawing
                     _tool = null;
                     break;
                 case "Nline":
-                    _tool = null;
+                    _tool = new NLineTool(_pen);
                     break;
                 case "Rectangle":
                     _tool = null;
