@@ -10,7 +10,6 @@ namespace VectorDrawing.Canvases
         private Bitmap _mainBitmap;
         private Bitmap _tmpBitmap;
         private Action<Bitmap, Color> _render;
-        private Graphics _graphics;
         private Dictionary<string, AbstractTool> _tools;
         private Color _backColor;
 
@@ -24,9 +23,6 @@ namespace VectorDrawing.Canvases
         {
             _tools = new Dictionary<string, AbstractTool>();
             _mainBitmap = new Bitmap(width, height);
-            _tmpBitmap = (Bitmap)_mainBitmap.Clone();
-            _graphics = Graphics.FromImage(_tmpBitmap);
-            _graphics.Clear(Color.Transparent);
             _render?.Invoke(_tmpBitmap, backcolor);
             _backColor = backcolor;
         }
@@ -40,7 +36,7 @@ namespace VectorDrawing.Canvases
 
             if (_render == null)
             {
-                _render += render;
+                _render = render;
             }
         }
 
@@ -55,20 +51,21 @@ namespace VectorDrawing.Canvases
             {
                 return;
             }
-
-            _graphics.Clear(Color.Transparent);
-            
             AddBuffer(tool);
-
-            tool.Paint(_graphics);
+            _tmpBitmap = (Bitmap)_mainBitmap.Clone();
+            Graphics graphics = Graphics.FromImage(_tmpBitmap);
+            tool.Paint(graphics);
 
             _render?.Invoke(_tmpBitmap, _backColor);
         }
 
-    
        
+        public void FinishFigure()
+        {
+            _mainBitmap = _tmpBitmap;
+        }
 
-        public void AddBuffer(AbstractTool tool)
+        private void AddBuffer(AbstractTool tool)
         {
 
             bool isFind = false;
