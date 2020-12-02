@@ -11,6 +11,7 @@ namespace VectorDrawing
         private AbstractTool _tool;
         private string _toolName;
         private Pen _pen;
+        private Canvases.ICanvas _canvas;
 
 
         public VectorDrawingForm()
@@ -20,8 +21,9 @@ namespace VectorDrawing
 
         private void OnVectorDrawingFormLoad(object sender, EventArgs e)
         {
-            Canvas.SetRender(OnRender);
-            Canvas.Create(pictureBox.Width, pictureBox.Height);
+            _canvas = new Canvases.BitmapCanvas();
+            _canvas.SetRender(OnRender);
+            _canvas.Create(pictureBox.Width, pictureBox.Height);
             _pen = new Pen(Color.Black, 1);
         }
 
@@ -128,8 +130,8 @@ namespace VectorDrawing
         {
             if (_tool == null) return;
             if (!_tool.CheckPointsExist()) return;
-            _tool.TemparyPoint = e.Location;
-            Canvas.Draw(_tool);
+            _tool.TemporaryPoint = e.Location;
+            _canvas.Draw(_tool);
         }
 
         private void OnPictureBoxMouseDown(object sender, MouseEventArgs e)

@@ -17,14 +17,13 @@ namespace VectorDrawing.Tools
 
         public override void Paint(Graphics graphics)
         {
-            if(TemparyPoint!=null && Points.Count==1)
+            Figures.LineFigure line = new Figures.LineFigure();
+            Figures.FigureParameter figureParameter = new Figures.FigureParameter
             {
-                graphics.DrawLine(Pen, Points[0], TemparyPoint);
-            }
-            else if (Points.Count == 2)
-            {
-                graphics.DrawLine(Pen, Points[0], Points[1]);
-            }
+                Points = this.Points.ToArray(),
+                TemporaryPoint = this.TemporaryPoint
+            };
+            graphics.DrawLines(Pen, line.GetPoints(figureParameter));
         }
     }
 }

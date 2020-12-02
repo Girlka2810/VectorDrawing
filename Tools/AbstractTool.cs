@@ -5,10 +5,14 @@ using System.Drawing;
 
 namespace VectorDrawing.Tools
 {
+
+    /// <summary>
+    /// ЗДЕСЬ ОТРИСОВКА!!!!!!!!!!!!!!!!!!!!!!!!!!
+    /// </summary>
     public abstract class AbstractTool
     {
         public abstract int MaxCount { get; }
-        public Point TemparyPoint { get; set; }
+        public Point TemporaryPoint { get; set; }
         protected List<Point> Points;
         protected Pen Pen;
         
