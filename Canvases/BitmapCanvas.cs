@@ -67,6 +67,7 @@ namespace VectorDrawing.Canvases
 
         private void AddBuffer(AbstractTool tool)
         {
+
             bool isFind = false;
             foreach (var t in _tools)
             {
