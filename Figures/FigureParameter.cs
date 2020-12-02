@@ -3,7 +3,7 @@
 
 namespace VectorDrawing.Figures
 {
-    class FigureParameter
+    public class FigureParameter
     {
         public Point[] Points { get; set; }
         public Point TemporaryPoint { get; set; }
