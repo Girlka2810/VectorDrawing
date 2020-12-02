@@ -11,7 +11,7 @@ namespace VectorDrawing.Canvases
         private Bitmap _tmpBitmap;
         private Action<Bitmap, Color> _render;
         private Graphics _graphics;
-        private List<AbstractTool> _tools;
+        private Dictionary<string, AbstractTool> _tools;
         private Color _backColor;
 
 
@@ -22,7 +22,7 @@ namespace VectorDrawing.Canvases
 
         public void Create(int width, int height, Color backcolor)
         {
-            _tools = new List<Tools.AbstractTool>();
+            _tools = new Dictionary<string, AbstractTool>();
             _mainBitmap = new Bitmap(width, height);
             _tmpBitmap = (Bitmap)_mainBitmap.Clone();
             _graphics = Graphics.FromImage(_tmpBitmap);
@@ -60,33 +60,21 @@ namespace VectorDrawing.Canvases
             
             AddBuffer(tool);
 
-            DrawPreviousItems();
-
             tool.Paint(_graphics);
 
             _render?.Invoke(_tmpBitmap, _backColor);
         }
 
-        // TODO: Этот метод максимально хреновый, надо будет переделать.
-        public void RefreshMainBM()
-        {
-            _mainBitmap = (Bitmap)_tmpBitmap.Clone();
-        }
-        // TODO: Этот метод максимально хреновый, надо будет переделать.
-        private void DrawPreviousItems()
-        {
-            foreach (var t in _tools)
-            {
-                t.Paint(_graphics);
-            }
-        }
+    
+       
 
-        private void AddBuffer(Tools.AbstractTool tool)
+        public void AddBuffer(AbstractTool tool)
         {
+
             bool isFind = false;
             foreach (var t in _tools)
             {
-                if (t == tool)
+                if (t.Key == tool.ID)
                 {
                     isFind = true;
                 }
@@ -94,13 +82,8 @@ namespace VectorDrawing.Canvases
 
             if (!isFind)
             {
-                _tools.Add(tool);
+                _tools.Add(tool.ID,tool);
             }
-        }
-
-        void ICanvas.AddBuffer(AbstractTool tool)
-        {
-            throw new NotImplementedException();
         }
     }
 }
