@@ -139,6 +139,7 @@ namespace VectorDrawing
             _tool?.AddPoint(e.Location);
             if(_tool!=null && _tool.CheckMaxQuantityPoints())
             {
+                _canvas.FinishFigure();
                 SetTool();
             }
         }
@@ -163,11 +164,7 @@ namespace VectorDrawing
             }
         }
 
-        private void OnPictureBoxMouseUp(object sender, MouseEventArgs e)
-        {
-            //_canDraw = false;
-            //Canvas.RefreshMainBM();
-        }
+     
 
 
         
