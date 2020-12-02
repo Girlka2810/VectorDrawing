@@ -11,6 +11,7 @@ namespace VectorDrawing.Tools
     /// </summary>
     public abstract class AbstractTool
     {
+        public string ID { get; private set; }
         public abstract int MaxCount { get; }
         public Point TemporaryPoint { get; set; }
         protected List<Point> Points;
@@ -20,6 +21,7 @@ namespace VectorDrawing.Tools
 
         protected AbstractTool(Pen pen)
         {
+            ID = Guid.NewGuid().ToString(); 
             Points = new List<Point> { };
             SetPen(pen);
         }

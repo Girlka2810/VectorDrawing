@@ -13,7 +13,6 @@ namespace VectorDrawing.Canvases
         void Create(int width, int height, Color backcolor);
         void SetRender(Action<Bitmap, Color> render);
         void Draw(Tools.AbstractTool tool);
-        void AddBuffer(Tools.AbstractTool tool)
 
     }
 }
