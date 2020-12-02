@@ -55,7 +55,7 @@ namespace VectorDrawing
                 return;
             }
 
-            _graphics.Clear(Color.Transparent);
+          _graphics.Clear(Color.Transparent);
             AddBuffer(tool);
 
             DrawPreviousItems();
