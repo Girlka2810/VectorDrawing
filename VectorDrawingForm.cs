@@ -54,7 +54,7 @@ namespace VectorDrawing
                     _tool = new SquareTool(_pen);
                     break;
                 case "Circle":
-                    _tool = null;
+                    _tool = new CircleTool(_pen);
                     break;
                 case "Ellipse":
                     _tool = null;

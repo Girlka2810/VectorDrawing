@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Canvases\BitmapCanvas.cs" />
+    <Compile Include="Figures\CircleFigure.cs" />
     <Compile Include="Figures\FigureParameter.cs" />
     <Compile Include="Figures\IFigure.cs" />
     <Compile Include="Figures\LineFigure.cs" />
@@ -54,6 +55,7 @@
     <Compile Include="Figures\NLineFigure.cs" />
     <Compile Include="Figures\SquareFigure.cs" />
     <Compile Include="Tools\AbstractTool.cs" />
+    <Compile Include="Tools\CircleTool.cs" />
     <Compile Include="Tools\LineTool.cs" />
     <Compile Include="Tools\NLineTool.cs" />
     <Compile Include="Tools\SquareTool.cs" />
