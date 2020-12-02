@@ -7,7 +7,8 @@ namespace VectorDrawing
 {
     static class Canvas
     {
-        private static Bitmap _bitmap;
+        private static Bitmap _mainBitmap;
+        private static Bitmap _tmpBitmap;
 
         private static Action<Bitmap, Color> _render;
         private static Graphics _graphics;
@@ -23,10 +24,11 @@ namespace VectorDrawing
         public static void Create(int width, int height, Color backcolor)
         {
             _tools = new List<Tools.AbstractTool>();
-            _bitmap = new Bitmap(width, height);
-            _graphics = Graphics.FromImage(_bitmap);
+            _mainBitmap = new Bitmap(width, height);
+            _tmpBitmap = (Bitmap)_mainBitmap.Clone();
+            _graphics = Graphics.FromImage(_tmpBitmap);
             _graphics.Clear(Color.Transparent);
-            _render?.Invoke(_bitmap, backcolor);
+            _render?.Invoke(_tmpBitmap, backcolor);
             _backColor = backcolor;
         }
 
@@ -55,17 +57,21 @@ namespace VectorDrawing
                 return;
             }
 
-          _graphics.Clear(Color.Transparent);
+            _graphics.Clear(Color.Transparent);
+            
             AddBuffer(tool);
 
             DrawPreviousItems();
 
             tool.Paint(_graphics);
 
-            _render?.Invoke(_bitmap, _backColor);
+            _render?.Invoke(_tmpBitmap, _backColor);
         }
 
-
+        public static void RefreshMainBM()
+        {
+            _mainBitmap = (Bitmap)_tmpBitmap.Clone();
+        }
         // TODO: Этот метод максимально хреновый, надо будет переделать.
         private static void DrawPreviousItems()
         {

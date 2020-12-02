@@ -1,33 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace VectorDrawing.Tools
 {
     public abstract class AbstractTool
     {
+        public abstract int MaxCount { get; }
+        public Point TemparyPoint { get; set; }
         protected List<Point> Points;
         protected Pen Pen;
+        
+
 
         protected AbstractTool(Pen pen)
         {
             Points = new List<Point> { };
             SetPen(pen);
-        }
-
-        public void SetPen(Pen pen)
-        {
-            if (pen.Width >= 1 && pen.Width <= 100)
-            {
-                Pen = pen;
-            }
-            else
-            {
-                throw new ArgumentException("Pen cannot have width less than 1 and greater than 100");
-            }
         }
 
         public abstract void Paint(Graphics graphics);
@@ -45,6 +35,44 @@ namespace VectorDrawing.Tools
             }
 
             Points.Add(point);
+        }
+
+        public bool CheckMaxQuantityPoints()
+        {
+            if(Points.Count==MaxCount)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+
+        public bool CheckPointsExist()
+        {
+            if (Points.Count == 0)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+
+        private void SetPen(Pen pen)
+        {
+            if (pen.Width >= 1 && pen.Width <= 100)
+            {
+                Pen = pen;
+            }
+            else
+            {
+                throw new ArgumentException("Pen cannot have width less than 1 and greater than 100");
+            }
         }
     }
 }

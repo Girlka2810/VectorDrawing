@@ -5,6 +5,8 @@ namespace VectorDrawing.Tools
 {
     class BrushTool : AbstractTool
     {
+        public override int MaxCount => throw new System.NotImplementedException();
+
         public BrushTool(Pen pen) : base(pen)
         {
 
@@ -12,7 +14,7 @@ namespace VectorDrawing.Tools
 
         public override void Paint(Graphics graphics)
         {
-            graphics.DrawCurve(Pen, Points.ToArray());
+            graphics.DrawLines(Pen, Points.ToArray());
         }
 
         public override void AddPoint(Point point)
