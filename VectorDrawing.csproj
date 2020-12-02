@@ -51,8 +51,10 @@
     <Compile Include="Figures\IFigure.cs" />
     <Compile Include="Figures\LineFigure.cs" />
     <Compile Include="Canvases\ICanvas.cs" />
+    <Compile Include="Figures\NLineFigure.cs" />
     <Compile Include="Tools\AbstractTool.cs" />
     <Compile Include="Tools\LineTool.cs" />
+    <Compile Include="Tools\NLineTool.cs" />
     <Compile Include="Tools\SquareTool.cs" />
     <Compile Include="VectorDrawingForm.cs">
       <SubType>Form</SubType>
