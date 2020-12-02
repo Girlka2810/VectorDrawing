@@ -6,17 +6,24 @@ namespace VectorDrawing.Tools
     class LineTool : AbstractTool
     {
 
+        public override int MaxCount => 2;
+
         public LineTool(Pen pen) : base(pen)
         {
 
         }
 
+        
+
         public override void Paint(Graphics graphics)
         {
-            if (Points.Count == 2)
+            Figures.LineFigure line = new Figures.LineFigure();
+            Figures.FigureParameter figureParameter = new Figures.FigureParameter
             {
-                graphics.DrawLine(Pen, Points[0], Points[1]);
-            }
+                Points = this.Points.ToArray(),
+                TemporaryPoint = this.TemporaryPoint
+            };
+            graphics.DrawLines(Pen, line.GetPoints(figureParameter));
         }
     }
 }

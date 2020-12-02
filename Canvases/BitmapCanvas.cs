@@ -1,36 +1,37 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using VectorDrawing.Tools;
 
-
-namespace VectorDrawing
+namespace VectorDrawing.Canvases
 {
-    static class Canvas
+    class BitmapCanvas : ICanvas
     {
-        private static Bitmap _bitmap;
+        private Bitmap _mainBitmap;
+        private Bitmap _tmpBitmap;
+        private Action<Bitmap, Color> _render;
+        private Graphics _graphics;
+        private List<AbstractTool> _tools;
+        private Color _backColor;
 
-        private static Action<Bitmap, Color> _render;
-        private static Graphics _graphics;
-        private static List<Tools.AbstractTool> _tools;
-        private static Color _backColor;
 
-
-        public static void Create(int width, int height)
+        public void Create(int width, int height)
         {
             Create(width, height, Color.White);
         }
 
-        public static void Create(int width, int height, Color backcolor)
+        public void Create(int width, int height, Color backcolor)
         {
             _tools = new List<Tools.AbstractTool>();
-            _bitmap = new Bitmap(width, height);
-            _graphics = Graphics.FromImage(_bitmap);
+            _mainBitmap = new Bitmap(width, height);
+            _tmpBitmap = (Bitmap)_mainBitmap.Clone();
+            _graphics = Graphics.FromImage(_tmpBitmap);
             _graphics.Clear(Color.Transparent);
-            _render?.Invoke(_bitmap, backcolor);
+            _render?.Invoke(_tmpBitmap, backcolor);
             _backColor = backcolor;
         }
 
-        public static void SetRender(Action<Bitmap, Color> render)
+        public void SetRender(Action<Bitmap, Color> render)
         {
             if (render == null)
             {
@@ -43,7 +44,7 @@ namespace VectorDrawing
             }
         }
 
-        public static void Draw(Tools.AbstractTool tool)
+        public void Draw(AbstractTool tool)
         {
             if(tool==null)
             {
@@ -56,18 +57,23 @@ namespace VectorDrawing
             }
 
             _graphics.Clear(Color.Transparent);
+            
             AddBuffer(tool);
 
             DrawPreviousItems();
 
             tool.Paint(_graphics);
 
-            _render?.Invoke(_bitmap, _backColor);
+            _render?.Invoke(_tmpBitmap, _backColor);
         }
 
-
         // TODO: Этот метод максимально хреновый, надо будет переделать.
-        private static void DrawPreviousItems()
+        public void RefreshMainBM()
+        {
+            _mainBitmap = (Bitmap)_tmpBitmap.Clone();
+        }
+        // TODO: Этот метод максимально хреновый, надо будет переделать.
+        private void DrawPreviousItems()
         {
             foreach (var t in _tools)
             {
@@ -75,7 +81,7 @@ namespace VectorDrawing
             }
         }
 
-        private static void AddBuffer(Tools.AbstractTool tool)
+        private void AddBuffer(Tools.AbstractTool tool)
         {
             bool isFind = false;
             foreach (var t in _tools)
@@ -90,6 +96,11 @@ namespace VectorDrawing
             {
                 _tools.Add(tool);
             }
+        }
+
+        void ICanvas.AddBuffer(AbstractTool tool)
+        {
+            throw new NotImplementedException();
         }
     }
 }

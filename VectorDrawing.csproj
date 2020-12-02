@@ -46,7 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Canvas.cs" />
+    <Compile Include="Canvases\BitmapCanvas.cs" />
+    <Compile Include="Figures\FigureParameter.cs" />
+    <Compile Include="Figures\IFigure.cs" />
+    <Compile Include="Figures\LineFigure.cs" />
+    <Compile Include="Canvases\ICanvas.cs" />
     <Compile Include="Tools\AbstractTool.cs" />
     <Compile Include="Tools\LineTool.cs" />
     <Compile Include="Tools\SquareTool.cs" />
