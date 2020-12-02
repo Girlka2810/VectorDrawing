@@ -14,5 +14,7 @@ namespace VectorDrawing.Canvases
         void SetRender(Action<Bitmap, Color> render);
         void Draw(Tools.AbstractTool tool);
 
+        void FinishFigure();
+
     }
 }
