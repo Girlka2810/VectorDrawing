@@ -7,6 +7,7 @@ namespace VectorDrawing.Figures
     {
         public Point[] GetPoints(FigureParameter parameter)
         {
+            if(parameter.Points.Length==0) throw  new NullReferenceException("Points count can't be null");
             if (parameter.Points.Length < 3)
             {
                 Point[] tmp = new Point[parameter.Points.Length+1];
@@ -14,10 +15,9 @@ namespace VectorDrawing.Figures
                 tmp[tmp.Length - 1] = parameter.TemporaryPoint;
                 return tmp;
             }
-            else
-            {
-                return parameter.Points;
-            }
+            
+            return parameter.Points;
+            
         }
     }
 }
