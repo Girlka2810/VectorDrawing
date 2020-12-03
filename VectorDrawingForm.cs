@@ -138,6 +138,7 @@ namespace VectorDrawing
             if (!_tool.CheckPointsExist()) return;
             _tool.TemporaryPoint = e.Location;
             _canvas.Draw(_tool);
+            
         }
 
         private void OnPictureBoxMouseDown(object sender, MouseEventArgs e)
