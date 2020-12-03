@@ -47,10 +47,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Canvases\BitmapCanvas.cs" />
-    <Compile Include="Figures\EllipseFigure.cs" />
-    <Compile Include="Figures\CircleFigure.cs" />
+    <Compile Include="Figures\EllipseFigure\EllipseFigure.cs" />
+    <Compile Include="Figures\EllipseFigure\CircleFigure.cs" />
     <Compile Include="Figures\FigureParameter.cs" />
-    <Compile Include="Figures\IEllipse.cs" />
+    <Compile Include="Figures\EllipseFigure\IEllipse.cs" />
     <Compile Include="Figures\IFigure.cs" />
     <Compile Include="Figures\LineFigure.cs" />
     <Compile Include="Canvases\ICanvas.cs" />
@@ -58,10 +58,10 @@
     <Compile Include="Figures\RectangularTriangleFigure.cs" />
     <Compile Include="Figures\SquareFigure.cs" />
     <Compile Include="Figures\TriangleFigure.cs" />
-    <Compile Include="Tools\AbstractEllipse.cs" />
+    <Compile Include="Tools\EllipseTool\AbstractEllipse.cs" />
     <Compile Include="Tools\AbstractTool.cs" />
-    <Compile Include="Tools\EllipseTool.cs" />
-    <Compile Include="Tools\CircleTool.cs" />
+    <Compile Include="Tools\EllipseTool\EllipseTool.cs" />
+    <Compile Include="Tools\EllipseTool\CircleTool.cs" />
     <Compile Include="Tools\LineTool.cs" />
     <Compile Include="Tools\NLineTool.cs" />
     <Compile Include="Tools\RectangularTriangleTool.cs" />
