@@ -55,6 +55,7 @@
     <Compile Include="Figures\RectangularTriangleFigure.cs" />
     <Compile Include="Figures\SquareFigure.cs" />
     <Compile Include="Tools\AbstractTool.cs" />
+    <Compile Include="Tools\IsoscelesTriangleTool.cs" />
     <Compile Include="Tools\LineTool.cs" />
     <Compile Include="Tools\NLineTool.cs" />
     <Compile Include="Tools\RectangularTriangleTool.cs" />
