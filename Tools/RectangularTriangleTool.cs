@@ -1,4 +1,5 @@
 ﻿using System.Drawing;
+using VectorDrawing.Figures;
 
 namespace VectorDrawing.Tools
 {
@@ -12,7 +13,13 @@ namespace VectorDrawing.Tools
         
         public override void Paint(Graphics graphics)
         {
-            throw new System.NotImplementedException();
+            RectangularTriangleFigure rectangularTriangleFigure = new RectangularTriangleFigure();
+            FigureParameter figureParameter = new FigureParameter
+            {
+                Points = Points.ToArray(),
+                TemporaryPoint = TemporaryPoint,
+            };
+            graphics.DrawPolygon(Pen, rectangularTriangleFigure.GetPoints(figureParameter));
         }
     }
 }

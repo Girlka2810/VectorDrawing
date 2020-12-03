@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 
 namespace VectorDrawing.Figures
 {
@@ -6,7 +7,25 @@ namespace VectorDrawing.Figures
     {
         public Point[] GetPoints(FigureParameter parameter)
         {
-            throw new System.NotImplementedException();
+            if(parameter.Points.Length==0) throw  new NullReferenceException("Points count can't be null");
+            
+            if (parameter.Points.Length == 1)
+            {
+                return new[]
+                {
+                    parameter.Points[0],
+                    new Point(parameter.Points[0].X, parameter.TemporaryPoint.Y),
+                    parameter.TemporaryPoint
+                };
+            }
+
+
+            return new[]
+            {
+                parameter.Points[0],
+                new Point(parameter.Points[0].X, parameter.Points[1].Y),
+                parameter.Points[1],
+            };
         }
     }
 }

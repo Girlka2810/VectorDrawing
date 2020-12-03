@@ -60,7 +60,7 @@ namespace VectorDrawing
                     _tool = null;
                     break;
                 case "Rectangular":
-                    _tool = null;
+                    _tool = new RectangularTriangleTool(_pen);
                     break;
                 case "Triangle":
                     _tool = null;
