@@ -217,7 +217,7 @@ namespace VectorDrawing
             0,
             0});
             this.thickness.Name = "thickness";
-            this.thickness.Size = new System.Drawing.Size(70, 22);
+            this.thickness.Size = new System.Drawing.Size(70, 20);
             this.thickness.TabIndex = 13;
             this.thickness.Value = new decimal(new int[] {
             1,
@@ -231,7 +231,7 @@ namespace VectorDrawing
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(391, 17);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(146, 13);
+            this.label1.Size = new System.Drawing.Size(137, 13);
             this.label1.TabIndex = 15;
             this.label1.Text = "Толщина линии (пиксели)";
             // 
