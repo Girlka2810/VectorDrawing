@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace VectorDrawing.Tools
 {
@@ -19,12 +16,13 @@ namespace VectorDrawing.Tools
             Points = new List<Point> { };
             SetPen(pen);
             Point[] points = Points.ToArray();
-            Center = points.Length != 0 ? points[0]: new Point(0, 0);
+            Center = points.Length != 0 ? points[0]: new Point();
         }
 
         public override void AddPoint(Point point)
         {
             base.AddPoint(point);
+            Center = Points[0];
         }
 
         public void AddRadiuses(Point point)

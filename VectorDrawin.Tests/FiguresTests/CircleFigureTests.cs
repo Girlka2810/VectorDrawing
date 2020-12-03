@@ -16,12 +16,12 @@ namespace VectorDrawin.Tests.FiguresTests
         public void GetCircumscribedRectangleTest(int case_of_params, int case_of_exp_rect)
         {
             CircleFigure circle = new CircleFigure();
-            FigureParameter figureParameter = new FigureParameter
+            EllipseFigureParameter figureParameter = new EllipseFigureParameter
             {
-                Points = StartPointMock(case_of_params),
+                Center = StartPointMock(case_of_params)[0],
                 TemporaryPoint = CrntPointMock(case_of_params)
             };
-            Rectangle actual = circle.GetCircumscribedRectangle(figureParameter);
+            Rectangle actual = circle.GetRectangle(figureParameter);
             Rectangle expected = ExpectedRectangleMock(case_of_exp_rect);
             Assert.AreEqual(expected, actual);
         }
