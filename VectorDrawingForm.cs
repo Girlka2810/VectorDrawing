@@ -11,7 +11,8 @@ namespace VectorDrawing
         private AbstractTool _tool;
         private string _toolName;
         private Pen _pen;
-        private static bool _canDraw;
+        private Canvases.ICanvas _canvas;
+
 
         public VectorDrawingForm()
         {
@@ -20,8 +21,9 @@ namespace VectorDrawing
 
         private void OnVectorDrawingFormLoad(object sender, EventArgs e)
         {
-            Canvas.SetRender(OnRender);
-            Canvas.Create(pictureBox.Width, pictureBox.Height);
+            _canvas = new Canvases.BitmapCanvas();
+            _canvas.SetRender(OnRender);
+            _canvas.Create(pictureBox.Width, pictureBox.Height);
             _pen = new Pen(Color.Black, 1);
         }
 
@@ -40,10 +42,10 @@ namespace VectorDrawing
                     _tool = new LineTool(_pen);
                     break;
                 case "Brush":
-                    _tool = new BrushTool(_pen);
+                    _tool = null;
                     break;
                 case "Nline":
-                    _tool = null;
+                    _tool = new NLineTool(_pen);
                     break;
                 case "Rectangle":
                     _tool = null;
@@ -58,9 +60,12 @@ namespace VectorDrawing
                     _tool = null;
                     break;
                 case "Rectangular":
-                    _tool = null;
+                    _tool = new RectangularTriangleTool(_pen);
                     break;
                 case "Triangle":
+                    _tool = new TriangleTool(_pen);
+                    break;
+                case "AlpelesTriangle":
                     _tool = null;
                     break;
                 case "Polygon":
@@ -70,6 +75,8 @@ namespace VectorDrawing
                     _tool = null;
                     break;
             }
+
+            
         }
 
 
@@ -117,24 +124,28 @@ namespace VectorDrawing
                 default:
                     _tool = null;
                     break;
+                    
             }
+            SetTool();
         }
 
         private void OnPictureBoxMouseMove(object sender, MouseEventArgs e)
         {
-            if (_tool == null || !_canDraw) return;
-            _tool?.AddPoint(CheckPoint(e.Location));
-            Canvas.Draw(_tool);
+            if (_tool == null) return;
+            if (!_tool.CheckPointsExist()) return;
+            _tool.TemporaryPoint = e.Location;
+            _canvas.Draw(_tool);
         }
 
         private void OnPictureBoxMouseDown(object sender, MouseEventArgs e)
         {
-            SetTool();
-            _canDraw = true;
-            _tool?.SetPen(_pen);
-            _tool?.ClearPoints();
-            
-            _tool?.AddPoint(CheckPoint(e.Location));
+            _tool?.AddPoint(e.Location);
+
+            if(_tool!=null && _tool.CheckMaxQuantityPoints())
+            {
+                _canvas.FinishFigure();
+                SetTool();
+            }
         }
 
         private void OnThicknessValueChanged(object sender, EventArgs e)
@@ -157,36 +168,9 @@ namespace VectorDrawing
             }
         }
 
-        private void OnPictureBoxMouseUp(object sender, MouseEventArgs e)
-        {
-            _canDraw = false;
-        }
+     
 
 
-        private Point CheckPoint(Point point)
-        {
-            if (point.X > pictureBox.Width)
-            {
-                point.X = pictureBox.Width;
-            }
-
-            if (point.X < 0)
-            {
-                point.X = 0;
-            }
-
-            if (point.Y > pictureBox.Height)
-            {
-                point.Y = pictureBox.Height;
-            }
-
-            if (point.Y < 0)
-            {
-                point.Y = 0;
-            }
-
-            return point;
-        }
-
+        
     }
 }
