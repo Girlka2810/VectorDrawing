@@ -6,6 +6,7 @@ namespace VectorDrawing.Figures
     {
         public Point[] GetPoints(FigureParameter parameter)
         {
+
             if (parameter.TemporaryPoint != null && parameter.Points.Length == 1)
             {
                 return new Point[] { parameter.Points[0], parameter.TemporaryPoint };

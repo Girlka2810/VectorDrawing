@@ -45,7 +45,13 @@ namespace VectorDrawing.Tools
 
         public bool CheckMaxQuantityPoints()
         {
-            if(Points.Count==MaxCount)
+            if (MaxCount == 0)
+            {
+                return false;
+            }
+            
+
+            if (Points.Count==MaxCount)
             {
                 return true;
             }
