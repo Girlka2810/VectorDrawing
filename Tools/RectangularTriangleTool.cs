@@ -21,5 +21,7 @@ namespace VectorDrawing.Tools
             };
             graphics.DrawPolygon(Pen, rectangularTriangleFigure.GetPoints(figureParameter));
         }
+
+        
     }
 }

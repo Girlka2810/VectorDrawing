@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 
 namespace VectorDrawing.Figures
 {
@@ -6,7 +7,17 @@ namespace VectorDrawing.Figures
     {
         public Point[] GetPoints(FigureParameter parameter)
         {
-            throw new System.NotImplementedException();
+            if (parameter.Points.Length < 3)
+            {
+                Point[] tmp = new Point[parameter.Points.Length+1];
+                Array.Copy(parameter.Points, tmp, parameter.Points.Length);
+                tmp[tmp.Length - 1] = parameter.TemporaryPoint;
+                return tmp;
+            }
+            else
+            {
+                return parameter.Points;
+            }
         }
     }
 }

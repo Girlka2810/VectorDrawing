@@ -63,7 +63,7 @@ namespace VectorDrawing
                     _tool = new RectangularTriangleTool(_pen);
                     break;
                 case "Triangle":
-                    _tool = null;
+                    _tool = new TriangleTool(_pen);
                     break;
                 case "AlpelesTriangle":
                     _tool = null;
@@ -140,6 +140,7 @@ namespace VectorDrawing
         private void OnPictureBoxMouseDown(object sender, MouseEventArgs e)
         {
             _tool?.AddPoint(e.Location);
+
             if(_tool!=null && _tool.CheckMaxQuantityPoints())
             {
                 _canvas.FinishFigure();
