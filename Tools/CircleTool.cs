@@ -1,9 +1,11 @@
 ﻿using System.Drawing;
+using VectorDrawing.Figures;
+using VectorDrawing.Tools;
 
 
 namespace VectorDrawing.Tools
 {
-    public class CircleTool : AbstractTool
+    public class CircleTool : AbsractEllipse
     {
         public override int MaxCount => 2;
 
@@ -14,14 +16,18 @@ namespace VectorDrawing.Tools
 
         public override void Paint(Graphics graphics)
         {
-            Figures.CircleFigure circle = new Figures.CircleFigure();
-            Figures.FigureParameter figureParameter = new Figures.FigureParameter
+            CircleFigure circle = new CircleFigure();
+            EllipseFigureParameter figureParameter = new EllipseFigureParameter
             {
-                Points = this.Points.ToArray(),
+                Center = this.Center,
                 TemporaryPoint = this.TemporaryPoint
             };
-            graphics.DrawEllipse(Pen, circle.GetCircumscribedRectangle(figureParameter));
+            graphics.DrawEllipse(Pen, circle.GetRectangle(figureParameter));
         }
 
     }
 }
+
+
+
+
