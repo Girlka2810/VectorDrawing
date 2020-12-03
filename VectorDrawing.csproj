@@ -54,11 +54,13 @@
     <Compile Include="Figures\NLineFigure.cs" />
     <Compile Include="Figures\RectangularTriangleFigure.cs" />
     <Compile Include="Figures\SquareFigure.cs" />
+    <Compile Include="Figures\TriangleFigure.cs" />
     <Compile Include="Tools\AbstractTool.cs" />
     <Compile Include="Tools\LineTool.cs" />
     <Compile Include="Tools\NLineTool.cs" />
     <Compile Include="Tools\RectangularTriangleTool.cs" />
     <Compile Include="Tools\SquareTool.cs" />
+    <Compile Include="Tools\TriangleTool.cs" />
     <Compile Include="VectorDrawingForm.cs">
       <SubType>Form</SubType>
     </Compile>
