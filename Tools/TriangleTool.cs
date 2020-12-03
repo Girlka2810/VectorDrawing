@@ -22,15 +22,5 @@ namespace VectorDrawing.Tools
             };
             graphics.DrawPolygon(Pen, triangleFigure.GetPoints(figureParameter));
         }
-        
-        public override void AddPoint(Point point)
-        {
-            if (Points.Count > 2)
-            {
-                Points.RemoveAt(2);
-            }
-
-            Points.Add(point);
-        }
     }
 }

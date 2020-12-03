@@ -65,6 +65,9 @@ namespace VectorDrawing
                 case "Triangle":
                     _tool = new TriangleTool(_pen);
                     break;
+                case "AlpelesTriangle":
+                    _tool = null;
+                    break;
                 case "Polygon":
                     _tool = null;
                     break;
