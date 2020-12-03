@@ -65,8 +65,8 @@ namespace VectorDrawing
                 case "Triangle":
                     _tool = new TriangleTool(_pen);
                     break;
-                case "AlpelesTriangle":
-                    _tool = null;
+                case "IsoscelesTriangle":
+                    _tool = new IsoscelesTriangleTool(_pen);
                     break;
                 case "Polygon":
                     _tool = null;
@@ -112,8 +112,8 @@ namespace VectorDrawing
                 case "TriangleButton":
                     _toolName = "Triangle";
                     break;
-                case "AlpelesTriangleButton":
-                    _toolName = "AlpelesTriangle";
+                case "IsoscelesTriangleButton":
+                    _toolName = "IsoscelesTriangle";
                     break;
                 case "PolygonButton":
                     _toolName = "Polygon";

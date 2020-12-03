@@ -49,6 +49,7 @@
     <Compile Include="Canvases\BitmapCanvas.cs" />
     <Compile Include="Figures\FigureParameter.cs" />
     <Compile Include="Figures\IFigure.cs" />
+    <Compile Include="Figures\IsoscelesTriangleFigure.cs" />
     <Compile Include="Figures\LineFigure.cs" />
     <Compile Include="Canvases\ICanvas.cs" />
     <Compile Include="Figures\NLineFigure.cs" />

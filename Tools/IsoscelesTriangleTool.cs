@@ -1,10 +1,11 @@
 ﻿using System.Drawing;
+using VectorDrawing.Figures;
 
 namespace VectorDrawing.Tools
 {
     public class IsoscelesTriangleTool : AbstractTool
     {
-        public override int MaxCount { get; } = 2;
+        public override int MaxCount { get; } = 2; 
         public IsoscelesTriangleTool(Pen pen) : base(pen)
         {
         }
@@ -12,7 +13,13 @@ namespace VectorDrawing.Tools
         
         public override void Paint(Graphics graphics)
         {
-            throw new System.NotImplementedException();
+            IsoscelesTriangleFigure isoscelesTriangleFigure = new IsoscelesTriangleFigure();
+            FigureParameter figureParameter = new FigureParameter
+            {
+                Points = Points.ToArray(),
+                TemporaryPoint = TemporaryPoint,
+            };
+            graphics.DrawPolygon(Pen, isoscelesTriangleFigure.GetPoints(figureParameter));
         }
     }
 }

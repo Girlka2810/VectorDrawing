@@ -38,7 +38,7 @@ namespace VectorDrawing
             this.EllipseButton = new System.Windows.Forms.Button();
             this.RectangularTriangleButton = new System.Windows.Forms.Button();
             this.TriangleButton = new System.Windows.Forms.Button();
-            this.AlpelesTriangleButton = new System.Windows.Forms.Button();
+            this.IsoscelesTriangleButton = new System.Windows.Forms.Button();
             this.PolygonButton = new System.Windows.Forms.Button();
             this.RegularPolygonButton = new System.Windows.Forms.Button();
             this.ToolsLabel = new System.Windows.Forms.Label();
@@ -151,16 +151,16 @@ namespace VectorDrawing
             this.TriangleButton.UseVisualStyleBackColor = true;
             this.TriangleButton.Click += new System.EventHandler(this.OnSelectToolButtonsClick);
             // 
-            // AlpelesTriangleButton
+            // IsoscelesTriangleButton
             // 
-            this.AlpelesTriangleButton.Location = new System.Drawing.Point(12, 360);
-            this.AlpelesTriangleButton.Name = "AlpelesTriangleButton";
-            this.AlpelesTriangleButton.Size = new System.Drawing.Size(170, 26);
-            this.AlpelesTriangleButton.TabIndex = 9;
-            this.AlpelesTriangleButton.Text = "Равнобедренный трегольник";
-            this.AlpelesTriangleButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.AlpelesTriangleButton.UseVisualStyleBackColor = true;
-            this.AlpelesTriangleButton.Click += new System.EventHandler(this.OnSelectToolButtonsClick);
+            this.IsoscelesTriangleButton.Location = new System.Drawing.Point(12, 360);
+            this.IsoscelesTriangleButton.Name = "IsoscelesTriangleButton";
+            this.IsoscelesTriangleButton.Size = new System.Drawing.Size(170, 26);
+            this.IsoscelesTriangleButton.TabIndex = 9;
+            this.IsoscelesTriangleButton.Text = "Равнобедренный трегольник";
+            this.IsoscelesTriangleButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.IsoscelesTriangleButton.UseVisualStyleBackColor = true;
+            this.IsoscelesTriangleButton.Click += new System.EventHandler(this.OnSelectToolButtonsClick);
             // 
             // PolygonButton
             // 
@@ -216,7 +216,7 @@ namespace VectorDrawing
             0,
             0});
             this.thickness.Name = "thickness";
-            this.thickness.Size = new System.Drawing.Size(70, 20);
+            this.thickness.Size = new System.Drawing.Size(70, 22);
             this.thickness.TabIndex = 13;
             this.thickness.Value = new decimal(new int[] {
             1,
@@ -230,7 +230,7 @@ namespace VectorDrawing
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(391, 17);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(137, 13);
+            this.label1.Size = new System.Drawing.Size(146, 13);
             this.label1.TabIndex = 15;
             this.label1.Text = "Толщина линии (пиксели)";
             // 
@@ -256,7 +256,7 @@ namespace VectorDrawing
             this.Controls.Add(this.ToolsLabel);
             this.Controls.Add(this.RegularPolygonButton);
             this.Controls.Add(this.PolygonButton);
-            this.Controls.Add(this.AlpelesTriangleButton);
+            this.Controls.Add(this.IsoscelesTriangleButton);
             this.Controls.Add(this.TriangleButton);
             this.Controls.Add(this.RectangularTriangleButton);
             this.Controls.Add(this.EllipseButton);
@@ -287,7 +287,7 @@ namespace VectorDrawing
         private System.Windows.Forms.Button EllipseButton;
         private System.Windows.Forms.Button RectangularTriangleButton;
         private System.Windows.Forms.Button TriangleButton;
-        private System.Windows.Forms.Button AlpelesTriangleButton;
+        private System.Windows.Forms.Button IsoscelesTriangleButton;
         private System.Windows.Forms.Button PolygonButton;
         private System.Windows.Forms.Button RegularPolygonButton;
         private System.Windows.Forms.Label ToolsLabel;
