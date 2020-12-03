@@ -36,6 +36,7 @@ namespace VectorDrawing
 
         private void SetTool()
         {
+            groupBox1.Visible = false;
             switch (_toolName)
             {
                 case "Line":
@@ -72,6 +73,7 @@ namespace VectorDrawing
                     _tool = null;
                     break;
                 case "RegularPolygon":
+                    groupBox1.Visible = true;
                     _tool = null;
                     break;
             }
@@ -167,9 +169,5 @@ namespace VectorDrawing
             }
         }
 
-     
-
-
-        
     }
 }

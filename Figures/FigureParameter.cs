@@ -13,4 +13,10 @@ namespace VectorDrawing.Figures
         public Point TemporaryPoint { get; set; }
         public Point Center { get; set; }
     }
+    public class RegularPolygonParameter
+    {
+        public int QuantityOfCorners { get; set; }
+        public Point Center { get; set; }
+        public Point TemporaryPoint { get; set; }
+    }
 }
