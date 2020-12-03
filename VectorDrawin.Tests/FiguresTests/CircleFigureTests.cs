@@ -1,8 +1,9 @@
 ﻿using NUnit.Framework;
 using System.Drawing;
 using System;
-using VectorDrawing;
 using VectorDrawing.Figures;
+using VectorDrawing;
+
 
 namespace VectorDrawin.Tests.FiguresTests
 {
