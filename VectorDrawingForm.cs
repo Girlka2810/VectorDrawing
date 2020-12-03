@@ -51,10 +51,10 @@ namespace VectorDrawing
                     _tool = null;
                     break;
                 case "Square":
-                    _tool = null;
+                    _tool = new SquareTool(_pen);
                     break;
                 case "Circle":
-                    _tool = null;
+                    _tool = new CircleTool(_pen);
                     break;
                 case "Ellipse":
                     _tool = new EllipseTool(_pen);
@@ -63,7 +63,7 @@ namespace VectorDrawing
                     _tool = new RectangularTriangleTool(_pen);
                     break;
                 case "Triangle":
-                    _tool = null;
+                    _tool = new TriangleTool(_pen);
                     break;
                 case "AlpelesTriangle":
                     _tool = null;
@@ -78,7 +78,6 @@ namespace VectorDrawing
 
             
         }
-
 
         private void OnSelectToolButtonsClick(object sender, EventArgs e)
         {
@@ -140,6 +139,7 @@ namespace VectorDrawing
         private void OnPictureBoxMouseDown(object sender, MouseEventArgs e)
         {
             _tool?.AddPoint(e.Location);
+
             if(_tool!=null && _tool.CheckMaxQuantityPoints())
             {
                 _canvas.FinishFigure();
