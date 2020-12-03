@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace VectorDrawing.Figures
 {
-    class CircleFigure : IFigure
+    public class CircleFigure : IFigure
     {
         public Point[] GetPoints(FigureParameter parameter)
         {

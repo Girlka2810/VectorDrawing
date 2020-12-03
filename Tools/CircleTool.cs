@@ -3,7 +3,7 @@
 
 namespace VectorDrawing.Tools
 {
-    class CircleTool : AbstractTool
+    public class CircleTool : AbstractTool
     {
         public override int MaxCount => 2;
 
