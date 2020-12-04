@@ -21,50 +21,64 @@ namespace VectorDrawing.Figures
             double delY = parameter.VerticalRadius;
             Point upperLeftPoint = new Point();
 
-
-            //1 - st quarter
-            if (pointEnd.X < point.X && pointEnd.Y < point.Y)
-            {
-                //upperLeftPoint = new Point(pointEnd.X, pointEnd.Y);
-
-                upperLeftPoint = new Point(point.X - (point.X - pointEnd.X), point.Y - (point.Y - pointEnd.Y));
-            }
-            // 2 - nd quarter
-            if (pointEnd.X > point.X && pointEnd.Y < point.Y)
-            {
-                //upperLeftPoint = new Point(point.X, pointEnd.Y);
-
-                upperLeftPoint = new Point(point.X - ( pointEnd.X-point.X) /2, point.Y - (pointEnd.Y - point.Y / 2));
-                //pointEnd = point;
-                //point = upperLeftPoint;
-            }
-            // 3 - d quarter
-            if (pointEnd.X < point.X && pointEnd.Y > point.Y)
-            {
-                 //upperLeftPoint = new Point(pointEnd.X, pointEnd.Y);
-
-                upperLeftPoint = new Point(point.X - (point.X - pointEnd.X), point.Y - (point.Y - pointEnd.Y / 2));
-            }
-            if (pointEnd.X > point.X && pointEnd.Y > point.Y)
-            {
-               // upperLeftPoint = new Point(point.X, point.Y);
-
-                upperLeftPoint = new Point(point.X - (point.X - pointEnd.X) / 2, point.Y - (point.Y - pointEnd.Y) / 2);
-            }
-
             if (parameter.Center.X >= parameter.TemporaryPoint.X)
             {
                 delX = Math.Abs(point.X - pointEnd.X);
                 delY = Math.Abs(point.Y - pointEnd.Y);
-                // upperLeftPoint = new Point(point.X, point.Y);
+                // upperLeftPoint = new Point(point.X - (int)delX, point.Y - (int)delY);
+                if (point.Y > pointEnd.Y)
+                {
+                    upperLeftPoint = new Point(point.X - (int)delX, point.Y - (int)delY);
+                }
+                else
+                {
+                    upperLeftPoint = new Point(point.X - (int)delX, pointEnd.Y - (int)delY);
+                }
             }
             else
             {
                 delX = Math.Abs(pointEnd.X - point.X);
                 delY = Math.Abs(pointEnd.Y - point.Y);
-                // upperLeftPoint = new Point(pointEnd.X, pointEnd.Y);
-
+                if (pointEnd.Y > point.Y)
+                {
+                upperLeftPoint = new Point(pointEnd.X - (int)delX, pointEnd.Y - (int)delY);
+                }
+                else
+                {
+                    upperLeftPoint = new Point(pointEnd.X - (int)delX, point.Y - (int)delY);
+                }
             }
+
+            ////1 - st quarter
+            //if (pointEnd.X < point.X && pointEnd.Y < point.Y)
+            //{
+            //    //upperLeftPoint = new Point(pointEnd.X, pointEnd.Y);
+
+            //    upperLeftPoint = new Point(point.X - (point.X - pointEnd.X), point.Y - (point.Y - pointEnd.Y));
+            //}
+            // 2 - nd quarter
+            //if (pointEnd.X > point.X && pointEnd.Y < point.Y)
+            //{
+            //    //upperLeftPoint = new Point(point.X, pointEnd.Y);
+
+            //    upperLeftPoint = new Point(pointEnd.X - ( pointEnd.X-point.X) , pointEnd.Y - (pointEnd.Y - point.Y)/((pointEnd.Y - point.Y)/2) );
+            //    //pointEnd = point;
+            //    //point = upperLeftPoint;
+            //}
+            // 3 - d quarter
+            //if (pointEnd.X < point.X && pointEnd.Y > point.Y)
+            //{
+            //    //upperLeftPoint = new Point(pointEnd.X, pointEnd.Y);
+
+            //    upperLeftPoint = new Point(pointEnd.X - (pointEnd.X - point.X) / ((pointEnd.X - point.X) / 2), pointEnd.Y - (pointEnd.Y - point.Y) );
+            //}
+            //if (pointEnd.X > point.X && pointEnd.Y > point.Y)
+            //{
+            //    // upperLeftPoint = new Point(point.X, point.Y);
+
+            //    upperLeftPoint = new Point(pointEnd.X - (pointEnd.X - point.X) / ((pointEnd.X - point.X) / 2), pointEnd.Y - (pointEnd.Y - point.Y) / ((pointEnd.Y - point.Y) / 2));
+            //}
+
             // upperLeftPoint = new Point(point.X +(int) delX/2, point.Y + (int)delY/2);
 
             //double r = Math.Sqrt(Math.Pow(delX, 2) + Math.Pow(delY, 2));
