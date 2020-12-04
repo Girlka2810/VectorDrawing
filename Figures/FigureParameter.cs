@@ -8,4 +8,9 @@ namespace VectorDrawing.Figures
         public Point[] Points { get; set; }
         public Point TemporaryPoint { get; set; }
     }
+    public class EllipseFigureParameter
+    {
+        public Point TemporaryPoint { get; set; }
+        public Point Center { get; set; }
+    }
 }

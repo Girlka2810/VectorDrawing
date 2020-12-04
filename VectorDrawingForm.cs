@@ -51,10 +51,10 @@ namespace VectorDrawing
                     _tool = new RectangleTool(_pen);
                     break;
                 case "Square":
-                    _tool = null;
+                    _tool = new SquareTool(_pen);
                     break;
                 case "Circle":
-                    _tool = null;
+                    _tool = new CircleTool(_pen);
                     break;
                 case "Ellipse":
                     _tool = null;
@@ -78,7 +78,6 @@ namespace VectorDrawing
 
             
         }
-
 
         private void OnSelectToolButtonsClick(object sender, EventArgs e)
         {
