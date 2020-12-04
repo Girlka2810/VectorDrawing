@@ -11,26 +11,62 @@ namespace VectorDrawing.Figures
 {
     class EllipseFigure : IEllipse
     {
-       
+
 
         public Rectangle GetRectangle(EllipseFigureParameter parameter)
         {
             Point point = parameter.Center;
             Point pointEnd = parameter.TemporaryPoint;
-                double delX = parameter.HorizontalRadius;
+            double delX = parameter.HorizontalRadius;
             double delY = parameter.VerticalRadius;
+            Point upperLeftPoint = new Point();
 
-            Point upperLeftPoint = new Point(point.X - (point.X-pointEnd.X) / 2, point.Y - (point.Y - pointEnd.Y) / 2);
-            if (parameter.Center.X>= parameter.TemporaryPoint.X)
+
+            //1 - st quarter
+            if (pointEnd.X < point.X && pointEnd.Y < point.Y)
             {
-                delX= Math.Abs(point.X - pointEnd.X);
+                //upperLeftPoint = new Point(pointEnd.X, pointEnd.Y);
+
+                upperLeftPoint = new Point(point.X - (point.X - pointEnd.X), point.Y - (point.Y - pointEnd.Y));
+            }
+            // 2 - nd quarter
+            if (pointEnd.X > point.X && pointEnd.Y < point.Y)
+            {
+                //upperLeftPoint = new Point(point.X, pointEnd.Y);
+
+                upperLeftPoint = new Point(point.X - ( pointEnd.X-point.X) /2, point.Y - (pointEnd.Y - point.Y / 2));
+                //pointEnd = point;
+                //point = upperLeftPoint;
+            }
+            // 3 - d quarter
+            if (pointEnd.X < point.X && pointEnd.Y > point.Y)
+            {
+                 //upperLeftPoint = new Point(pointEnd.X, pointEnd.Y);
+
+                upperLeftPoint = new Point(point.X - (point.X - pointEnd.X), point.Y - (point.Y - pointEnd.Y / 2));
+            }
+            if (pointEnd.X > point.X && pointEnd.Y > point.Y)
+            {
+               // upperLeftPoint = new Point(point.X, point.Y);
+
+                upperLeftPoint = new Point(point.X - (point.X - pointEnd.X) / 2, point.Y - (point.Y - pointEnd.Y) / 2);
+            }
+
+            if (parameter.Center.X >= parameter.TemporaryPoint.X)
+            {
+                delX = Math.Abs(point.X - pointEnd.X);
                 delY = Math.Abs(point.Y - pointEnd.Y);
+                // upperLeftPoint = new Point(point.X, point.Y);
             }
             else
             {
                 delX = Math.Abs(pointEnd.X - point.X);
                 delY = Math.Abs(pointEnd.Y - point.Y);
+                // upperLeftPoint = new Point(pointEnd.X, pointEnd.Y);
+
             }
+            // upperLeftPoint = new Point(point.X +(int) delX/2, point.Y + (int)delY/2);
+
             //double r = Math.Sqrt(Math.Pow(delX, 2) + Math.Pow(delY, 2));
             //// points = new Point[];
             ////for (int i = 1; i <= 50; i++)
@@ -39,9 +75,10 @@ namespace VectorDrawing.Figures
             //int xd = Convert.ToInt32((delX * Math.Cos(angle) + point.X)); // эллипс
             //int yd = Convert.ToInt32((delY * Math.Sin(angle) + point.Y));
             //Point addPoint = new Point(xd, yd);
-            Rectangle rectangle = new Rectangle(upperLeftPoint.X, upperLeftPoint.Y, (int)delX/2, (int)delY/2);
+            //}
+            Rectangle rectangle = new Rectangle(upperLeftPoint.X, upperLeftPoint.Y, (int)delX , (int)delY);
 
-            
+
             return rectangle;
         }
     }
