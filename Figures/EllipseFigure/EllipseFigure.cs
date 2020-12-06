@@ -9,7 +9,7 @@ using VectorDrawing.Figures;
 
 namespace VectorDrawing.Figures
 {
-    class EllipseFigure : IEllipse
+    public class EllipseFigure : IEllipse
     {
 
 

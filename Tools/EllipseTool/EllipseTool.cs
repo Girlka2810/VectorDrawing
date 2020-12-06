@@ -8,7 +8,7 @@ using VectorDrawing.Figures;
 
 namespace VectorDrawing.Tools
 {
-    class EllipseTool : AbsractEllipse
+   public  class EllipseTool : AbsractEllipse
     {
         public override int MaxCount => 2;
 
