@@ -11,7 +11,7 @@ namespace VectorDrawing.Tools
     {
         public int QuantityOfCorners { get; set; }
         public Point Center { get; set; }
-        public override int MaxCount => QuantityOfCorners;
+        public override int MaxCount => 2;
         protected AbstractPolygonTool(Pen pen, int num_of_corners): base(pen)
         {
             ID = Guid.NewGuid().ToString();

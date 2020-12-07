@@ -74,7 +74,7 @@ namespace VectorDrawing
                     break;
                 case "RegularPolygon":
                     groupBox1.Visible = true;
-                    _tool = null;
+                    _tool = new RegularPolygonTool(_pen, Convert.ToInt32(CornerNumericUpDown.Value));
                     break;
             }
 
@@ -169,5 +169,10 @@ namespace VectorDrawing
             }
         }
 
+        private void CornerNumericUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            RegularPolygonTool regularPolygonTool = (RegularPolygonTool)_tool;
+            regularPolygonTool.QuantityOfCorners = (int)((NumericUpDown)sender).Value;
+        }
     }
 }

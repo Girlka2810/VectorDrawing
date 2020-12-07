@@ -48,8 +48,8 @@ namespace VectorDrawing
             this.colorDialog = new System.Windows.Forms.ColorDialog();
             this.colorFrontButton = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.CornerNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.thickness)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -261,6 +261,24 @@ namespace VectorDrawing
             this.groupBox1.Text = "Многоугольник";
             this.groupBox1.Visible = false;
             // 
+            // CornerNumericUpDown
+            // 
+            this.CornerNumericUpDown.Location = new System.Drawing.Point(122, 14);
+            this.CornerNumericUpDown.Minimum = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
+            this.CornerNumericUpDown.Name = "CornerNumericUpDown";
+            this.CornerNumericUpDown.Size = new System.Drawing.Size(71, 20);
+            this.CornerNumericUpDown.TabIndex = 1;
+            this.CornerNumericUpDown.Value = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
+            this.CornerNumericUpDown.ValueChanged += new System.EventHandler(this.CornerNumericUpDown_ValueChanged);
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -269,13 +287,6 @@ namespace VectorDrawing
             this.label2.Size = new System.Drawing.Size(97, 13);
             this.label2.TabIndex = 0;
             this.label2.Text = "Количество углов";
-            // 
-            // CornerNumericUpDown
-            // 
-            this.CornerNumericUpDown.Location = new System.Drawing.Point(122, 14);
-            this.CornerNumericUpDown.Name = "CornerNumericUpDown";
-            this.CornerNumericUpDown.Size = new System.Drawing.Size(71, 20);
-            this.CornerNumericUpDown.TabIndex = 1;
             // 
             // VectorDrawingForm
             // 
