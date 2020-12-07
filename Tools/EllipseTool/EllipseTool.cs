@@ -24,8 +24,8 @@ namespace VectorDrawing.Tools
             {
                 Center = this.Center,
                 TemporaryPoint = this.TemporaryPoint,
-                HorizontalRadius = this.HorizontalRadius,
-                VerticalRadius = this.VerticalRadius
+                HorizontalRadius = this.Width,
+                VerticalRadius = this.Height
 
             };
             graphics.DrawEllipse(Pen, ellipse.GetRectangle(figureParameter));
