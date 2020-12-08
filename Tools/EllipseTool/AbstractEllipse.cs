@@ -7,8 +7,8 @@ namespace VectorDrawing.Tools
     public abstract class AbsractEllipse : AbstractTool
     {
         public Point Center { get; set; }
-        public int HorizontalRadius { get; set; }
-        public int VerticalRadius { get; set; }
+        public int Width { get; set; }
+        public int Height { get; set; }
         
         public AbsractEllipse(Pen pen) : base(pen)
         {
@@ -27,8 +27,8 @@ namespace VectorDrawing.Tools
 
         public void AddRadiuses(Point point)
         {
-            HorizontalRadius = point.X - Center.X;
-            VerticalRadius = point.Y - Center.Y;
+            Width = point.X - Center.X;
+            Height = point.Y - Center.Y;
         }
     }
 }
