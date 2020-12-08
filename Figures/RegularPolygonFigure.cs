@@ -23,6 +23,7 @@ namespace VectorDrawing.Figures
             var angle = Math.PI * 2 / vertexes;
             int deltaX = Math.Abs(center.X - point.X);
             int deltaY = Math.Abs(center.Y - point.Y);
+            double z = 0;
             if (deltaX >= deltaY)
             {
                 deltaX = deltaY;
@@ -34,8 +35,8 @@ namespace VectorDrawing.Figures
             for (int i = 0; i < vertexes; i++)
             {
                 points[i].X = (int)(center.X + radius*Math.Sin(angle*i));
-                points[i].Y = (int)(center.Y + radius*Math.Cos(angle*i));
-
+                points[i].Y = (int)(center.Y - radius*Math.Cos(angle*i));
+                z = z + angle;
             }
             return points;
         }
