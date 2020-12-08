@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace VectorDrawing.Figures
 {
-    class RegularPolygonFigure : IPolygonalFigure
+    public class RegularPolygonFigure : IPolygonalFigure
     {
         /// <summary>
         /// Принимает параметр, содержащий QuantityOfCorners, Center и TemporaryPoint
@@ -31,11 +31,10 @@ namespace VectorDrawing.Figures
             else
                 deltaY = deltaX;
 
-            double radius = Math.Sqrt(deltaX * deltaX + deltaY * deltaY);
             for (int i = 0; i < vertexes; i++)
             {
-                points[i].X = (int)(center.X + radius*Math.Sin(angle*i));
-                points[i].Y = (int)(center.Y - radius*Math.Cos(angle*i));
+                points[i].X = (int)(center.X + deltaX*Math.Sin(z));
+                points[i].Y = (int)(center.Y - deltaY*Math.Cos(z));
                 z = z + angle;
             }
             return points;

@@ -14,17 +14,30 @@ namespace VectorDrawin.Tests.FiguresTests
     class RegularPolygonFigureTests
     {
         [Test, TestCaseSource(typeof(GetPointMock))]
-        public void RegularPolygonFigureTest()
+        public void RegularPolygonFigureTest(int num_of_corners, Point center, Point crnt, Point[] points)
         {
-
+            RegularPolygonFigure regularPolygonFigure = new RegularPolygonFigure();
+            RegularPolygonParameter regularPolygonParameter = new RegularPolygonParameter
+            {
+                QuantityOfCorners = num_of_corners,
+                Center = center,
+                TemporaryPoint = crnt
+            };
+            Point[] actual = regularPolygonFigure.GetPoints(regularPolygonParameter);
+            Point[] expected = points;
+            Assert.AreEqual(expected, actual);
         }
     }
     class GetPointMock : IEnumerable
     {
         public IEnumerator GetEnumerator()
         {
-            yield return new object[] {4, new Point(10, 10), new Point(20, 10), new Point[] { new Point(0, 0), new Point(20, 0),
-            new Point(20,20), new Point(0, 20)} };
+            yield return new object[] { 3, new Point(10, 10), new Point(20, 20), new Point[] { new Point(10, 0),
+            new Point(18, 14), new Point(1, 15) } };
+            yield return new object[] {4, new Point(10, 10), new Point(20, 20), new Point[] { new Point(10, 0), new Point(20, 10),
+            new Point(10,20), new Point(0, 10)} };
+            yield return new object[] {5, new Point(10, 10), new Point(20, 20), new Point[] { new Point(10, 0), new Point(19, 6),
+            new Point(15, 18), new Point(4, 18), new Point(0, 6) } };
         }
     }
 }
