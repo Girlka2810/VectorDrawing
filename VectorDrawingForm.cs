@@ -48,16 +48,16 @@ namespace VectorDrawing
                     _tool = new NLineTool(_pen);
                     break;
                 case "Rectangle":
-                    _tool = null;
+                    _tool = new RectangleTool(_pen);
                     break;
                 case "Square":
-                    _tool = null;
+                    _tool = new SquareTool(_pen);
                     break;
                 case "Circle":
-                    _tool = null;
+                    _tool = new CircleTool(_pen);
                     break;
                 case "Ellipse":
-                    _tool = null;
+                    _tool = new EllipseTool(_pen);
                     break;
                 case "Rectangular":
                     _tool = new RectangularTriangleTool(_pen);
@@ -67,9 +67,6 @@ namespace VectorDrawing
                     break;
                 case "IsoscelesTriangle":
                     _tool = new IsoscelesTriangleTool(_pen);
-                    break;
-                case "AlpelesTriangle":
-                    _tool = null;
                     break;
                 case "Polygon":
                     _tool = null;
