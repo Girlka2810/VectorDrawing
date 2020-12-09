@@ -52,6 +52,7 @@
     <Compile Include="Figures\FigureParameter.cs" />
     <Compile Include="Figures\EllipseFigure\IEllipse.cs" />
     <Compile Include="Figures\IFigure.cs" />
+    <Compile Include="Figures\IsoscelesTriangleFigure.cs" />
     <Compile Include="Figures\LineFigure.cs" />
     <Compile Include="Canvases\ICanvas.cs" />
     <Compile Include="Figures\NLineFigure.cs" />
@@ -63,6 +64,7 @@
     <Compile Include="Tools\AbstractTool.cs" />
     <Compile Include="Tools\EllipseTool\EllipseTool.cs" />
     <Compile Include="Tools\EllipseTool\CircleTool.cs" />
+    <Compile Include="Tools\IsoscelesTriangleTool.cs" />
     <Compile Include="Tools\LineTool.cs" />
     <Compile Include="Tools\NLineTool.cs" />
     <Compile Include="Tools\RectangleTool.cs" />
