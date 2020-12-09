@@ -2,7 +2,7 @@
 
 namespace VectorDrawing.Figures
 {
-    class LineFigure : IFigure
+   public class LineFigure : IFigure
     {
         public Point[] GetPoints(FigureParameter parameter)
         {

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace VectorDrawing.Figures
 {
-    class NLineFigure : IFigure
+    public class NLineFigure : IFigure
     {
         public Point[] GetPoints(FigureParameter parameter)
         {

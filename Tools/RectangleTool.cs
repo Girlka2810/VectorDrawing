@@ -1,29 +1,29 @@
-﻿
+﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace VectorDrawing.Tools
 {
-    public class SquareTool : AbstractTool
+    class RectangleTool : AbstractTool
     {
-
         public override int MaxCount => 2;
 
-        public SquareTool(Pen pen) : base(pen)
+        public RectangleTool(Pen pen) : base(pen)
         {
 
         }
-
-
         public override void Paint(Graphics graphics)
         {
-            Figures.SquareFigure square = new Figures.SquareFigure();
+            Figures.RectangleFigure rectangle = new Figures.RectangleFigure();
             Figures.FigureParameter figureParameter = new Figures.FigureParameter
             {
                 Points = this.Points.ToArray(),
                 TemporaryPoint = this.TemporaryPoint
             };
-            graphics.DrawPolygon(Pen, square.GetPoints(figureParameter));
+            graphics.DrawPolygon(Pen, rectangle.GetPoints(figureParameter));
         }
-
     }
 }
