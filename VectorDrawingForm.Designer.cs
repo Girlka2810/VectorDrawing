@@ -50,6 +50,7 @@ namespace VectorDrawing
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.CornerNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
+            this.Clear = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.thickness)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -288,11 +289,22 @@ namespace VectorDrawing
             this.label2.TabIndex = 0;
             this.label2.Text = "Количество углов";
             // 
+            // Clear
+            // 
+            this.Clear.Location = new System.Drawing.Point(18, 463);
+            this.Clear.Name = "Clear";
+            this.Clear.Size = new System.Drawing.Size(151, 26);
+            this.Clear.TabIndex = 17;
+            this.Clear.Text = "Очистить";
+            this.Clear.UseVisualStyleBackColor = true;
+            this.Clear.Click += new System.EventHandler(this.Clear_Click);
+            // 
             // VectorDrawingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(955, 572);
+            this.Controls.Add(this.Clear);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.colorFrontButton);
             this.Controls.Add(this.label1);
@@ -347,6 +359,7 @@ namespace VectorDrawing
         private System.Windows.Forms.NumericUpDown CornerNumericUpDown;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button Clear;
     }
 }
 

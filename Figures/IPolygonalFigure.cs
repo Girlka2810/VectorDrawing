@@ -9,7 +9,7 @@ namespace VectorDrawing.Figures
 {
     interface IPolygonalFigure
     {
-        Point[] GetPoints(RegularPolygonParameter parameter);
+        PointF[] GetPoints(RegularPolygonParameter parameter);
 
     }
 }

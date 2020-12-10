@@ -174,5 +174,10 @@ namespace VectorDrawing
             RegularPolygonTool regularPolygonTool = (RegularPolygonTool)_tool;
             regularPolygonTool.QuantityOfCorners = (int)((NumericUpDown)sender).Value;
         }
+
+        private void Clear_Click(object sender, EventArgs e)
+        {
+            _canvas.Create(pictureBox.Width, pictureBox.Height);
+        }
     }
 }

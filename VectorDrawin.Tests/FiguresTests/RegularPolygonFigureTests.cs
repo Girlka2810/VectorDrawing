@@ -14,7 +14,7 @@ namespace VectorDrawin.Tests.FiguresTests
     class RegularPolygonFigureTests
     {
         [Test, TestCaseSource(typeof(GetPointMock))]
-        public void RegularPolygonFigureTest(int num_of_corners, Point center, Point crnt, Point[] points)
+        public void RegularPolygonFigureTest(int num_of_corners, Point center, Point crnt, PointF[] points)
         {
             RegularPolygonFigure regularPolygonFigure = new RegularPolygonFigure();
             RegularPolygonParameter regularPolygonParameter = new RegularPolygonParameter
@@ -23,8 +23,8 @@ namespace VectorDrawin.Tests.FiguresTests
                 Center = center,
                 TemporaryPoint = crnt
             };
-            Point[] actual = regularPolygonFigure.GetPoints(regularPolygonParameter);
-            Point[] expected = points;
+            PointF[] actual = regularPolygonFigure.GetPoints(regularPolygonParameter);
+            PointF[] expected = points;
             Assert.AreEqual(expected, actual);
         }
     }
