@@ -11,7 +11,7 @@ using System.Collections;
 
 namespace VectorDrawin.Tests.FiguresTests
 {
-    class IsoscelesTriangleFigureTests:IEnumerable
+    class IsoscelesTriangleFigureTests
         {
        
 
@@ -19,10 +19,10 @@ namespace VectorDrawin.Tests.FiguresTests
         public void IsoscelesTriangleFigureTest(PointF StartPoint, PointF EndPoint, PointF[] Triangle )
         {
             IsoscelesTriangleFigure isoscelesTriangleFigure = new IsoscelesTriangleFigure();
-            FigureParameter parameter = new FigureParameter
+            FigureParameter parameter = new FigureParameter()
             {
-                Points[0] = StartPoint.,
-                Points[2]= EndPoint
+              Points = new PointF[] { StartPoint, EndPoint},
+              TemporaryPoint = EndPoint
             };
             PointF[] actual = isoscelesTriangleFigure.GetPoints(parameter);
             PointF[] expected = Triangle;
