@@ -23,7 +23,7 @@ namespace VectorDrawing.Tools
             graphics.DrawPolygon(Pen, triangleFigure.GetPoints(figureParameter));
         }
         
-        public override void AddPoint(Point point)
+        public override void AddPoint(PointF point)
         {
             if (Points.Count > 2)
             {

@@ -9,6 +9,6 @@ namespace VectorDrawing.Figures
 {
     interface IEllipse
     {
-        Rectangle GetRectangle(EllipseFigureParameter parameter);
+        RectangleF GetRectangle(EllipseFigureParameter parameter);
     }
 }

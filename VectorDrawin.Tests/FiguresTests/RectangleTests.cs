@@ -16,8 +16,8 @@ namespace VectorDrawin.Tests.FiguresTests
         [TestCase(3, 3)]
         public void GetPointsTests(int parametersNumber, int expectedNumber)
         {
-            Point[] expected = ExpectedPointsMock(expectedNumber);
-            Point[] actual = new RectangleFigure().GetPoints(ActualParametrsMock(parametersNumber));
+            PointF[] expected = ExpectedPointsMock(expectedNumber);
+            PointF[] actual = new RectangleFigure().GetPoints(ActualParametrsMock(parametersNumber));
             Assert.AreEqual(expected, actual);
         }
 
@@ -28,21 +28,21 @@ namespace VectorDrawin.Tests.FiguresTests
 
             Assert.Throws<NullReferenceException>(() =>
             {
-                Point[] actual = new RectangleFigure().GetPoints(ActualParametrsMock(parametersNumber));
+                PointF[] actual = new RectangleFigure().GetPoints(ActualParametrsMock(parametersNumber));
             });
         }
 
 
-        Point[] ExpectedPointsMock(int n)
+        PointF[] ExpectedPointsMock(int n)
         {
             switch (n)
             {
                 case 1:
-                    return new Point[] { new Point(1, 2), new Point(1, 6), new Point(5, 6), new Point(5, 2) };
+                    return new PointF[] { new PointF(1, 2), new PointF(1, 6), new PointF(5, 6), new PointF(5, 2) };
                 case 2:
-                    return new Point[] { new Point(3, 4), new Point(3, 8), new Point(6, 8), new Point(6, 4) };
+                    return new PointF[] { new PointF(3, 4), new PointF(3, 8), new PointF(6, 8), new PointF(6, 4) };
                 case 3:
-                    return new Point[] { new Point(3, 4), new Point(3, 4), new Point(3, 4), new Point(3, 4) };
+                    return new PointF[] { new PointF(3, 4), new PointF(3, 4), new PointF(3, 4), new PointF(3, 4) };
                 default:
                     throw new NullReferenceException("No n in the list");
             }
@@ -55,27 +55,27 @@ namespace VectorDrawin.Tests.FiguresTests
                 case 1:
                     return new FigureParameter
                     {
-                        Points = new Point[]
+                        Points = new PointF[]
                     {
-                        new Point(1, 2), new Point(5, 6)
+                        new PointF(1, 2), new PointF(5, 6)
                     }
                     };
                 case 2:
                     return new FigureParameter
                     {
-                        Points = new Point[]
+                        Points = new PointF[]
                         {
-                            new Point(3, 4)                         
+                            new PointF(3, 4)                         
                         },
-                        TemporaryPoint = new Point(6, 8)
+                        TemporaryPoint = new PointF(6, 8)
                     };
                 case 3:
                     return new FigureParameter
                     {
-                        Points = new Point[]
+                        Points = new PointF[]
                         {
-                            new Point(3, 4),
-                            new Point(3, 4),                          
+                            new PointF(3, 4),
+                            new PointF(3, 4),                          
                         }
                     };              
                 case 4:

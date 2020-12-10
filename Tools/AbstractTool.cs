@@ -13,8 +13,8 @@ namespace VectorDrawing.Tools
     {
         public string ID { get; protected set; }
         public abstract int MaxCount { get; }
-        public Point TemporaryPoint { get; set; }
-        protected List<Point> Points;
+        public PointF TemporaryPoint { get; set; }
+        protected List<PointF> Points;
         protected Pen Pen;
         
 
@@ -22,7 +22,7 @@ namespace VectorDrawing.Tools
         protected AbstractTool(Pen pen)
         {
             ID = Guid.NewGuid().ToString(); 
-            Points = new List<Point> { };
+            Points = new List<PointF> { };
             SetPen(pen);
         }
 
@@ -30,10 +30,10 @@ namespace VectorDrawing.Tools
 
         public void ClearPoints()
         {
-            Points = new List<Point> { };
+            Points = new List<PointF> { };
         }
 
-        public virtual void AddPoint(Point point)
+        public virtual void AddPoint(PointF point)
         {
             if (Points.Count > 1)
             {

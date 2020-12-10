@@ -12,7 +12,7 @@ namespace VectorDrawing.Figures
     /// </summary>
     interface IFigure
     {
-        Point[] GetPoints(FigureParameter parameter);
+        PointF[] GetPoints(FigureParameter parameter);
 
     }
 
