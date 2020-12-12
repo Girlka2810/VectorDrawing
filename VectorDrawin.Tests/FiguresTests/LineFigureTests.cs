@@ -1,11 +1,9 @@
 ﻿using NUnit.Framework;
 using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using VectorDrawing.Figures;
+using VectorDrawing.Figures.Parameters;
+using VectorDrawing.Figures.Returns;
 
 namespace VectorDrawin.Tests.FiguresTests
 {
@@ -18,7 +16,8 @@ namespace VectorDrawin.Tests.FiguresTests
         public void GetPointsTests(int parametersNumber, int expectedNumber)
         {
             PointF[] expected = ExpectedPointsOfLineMock(expectedNumber);
-            PointF[] actual = new LineFigure().GetPoints(ActualParametrsOfLineMock(parametersNumber));
+            PointF[] actual = ((CommonReturn)
+                new LineFigure().Get(ActualParametrsOfLineMock(parametersNumber))).Points;
             Assert.AreEqual(expected, actual);
         }
 
@@ -29,7 +28,8 @@ namespace VectorDrawin.Tests.FiguresTests
 
             Assert.Throws<NullReferenceException>(() =>
             {
-                PointF[] actual = new TriangleFigure().GetPoints(ActualParametrsOfLineMock(parametersNumber));
+                PointF[] actual = ((CommonReturn)
+                    new LineFigure().Get(ActualParametrsOfLineMock(parametersNumber))).Points;
             });
         }
 
@@ -51,12 +51,12 @@ namespace VectorDrawin.Tests.FiguresTests
             }
         }
 
-        FigureParameter ActualParametrsOfLineMock(int n)
+        CommonParameter ActualParametrsOfLineMock(int n)
         {
             switch (n)
             {
                 case 1:
-                    return new FigureParameter
+                    return new CommonParameter
                     {
                         Points = new PointF[]
                     {
@@ -65,7 +65,7 @@ namespace VectorDrawin.Tests.FiguresTests
                     }
                     };
                 case 2:
-                    return new FigureParameter
+                    return new CommonParameter
                     {
                         Points = new PointF[]
                         {
@@ -74,7 +74,7 @@ namespace VectorDrawin.Tests.FiguresTests
                         },
                     };
                 case 3:
-                    return new FigureParameter
+                    return new CommonParameter
                     {
                         Points = new PointF[]
                         {
@@ -84,7 +84,7 @@ namespace VectorDrawin.Tests.FiguresTests
                         }
                     };
                 case 4:
-                    return new FigureParameter
+                    return new CommonParameter
                     {
                         Points = new PointF[]
                         {
@@ -94,7 +94,7 @@ namespace VectorDrawin.Tests.FiguresTests
                         
                     };
                 case 5:
-                    return new FigureParameter
+                    return new CommonParameter
                     {
                     };
                 default:

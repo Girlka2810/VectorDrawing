@@ -8,22 +8,24 @@ using System.Text;
 using System.Threading.Tasks;
 using VectorDrawing;
 using VectorDrawing.Figures;
+using VectorDrawing.Figures.Parameters;
+using VectorDrawing.Figures.Returns;
 
 namespace VectorDrawin.Tests.FiguresTests
 {
     class RegularPolygonFigureTests
     {
         [Test, TestCaseSource(typeof(GetPointOfRegularPolygonMock))]
-        public void RegularPolygonFigureTest(int num_of_corners, PointF center, PointF crnt, PointF[] points)
+        public void RegularPolygonFigureTest(int numOfCorners, PointF center, PointF crnt, PointF[] points)
         {
             RegularPolygonFigure regularPolygonFigure = new RegularPolygonFigure();
             RegularPolygonParameter regularPolygonParameter = new RegularPolygonParameter
             {
-                QuantityOfCorners = num_of_corners,
+                QuantityOfCorners = numOfCorners,
                 Center = center,
                 TemporaryPoint = crnt
             };
-            PointF[] actual = regularPolygonFigure.GetPoints(regularPolygonParameter);
+            PointF[] actual = ((CommonReturn)regularPolygonFigure.Get(regularPolygonParameter)).Points;
             PointF[] expected = points;
             Assert.AreEqual(expected, actual);
         }

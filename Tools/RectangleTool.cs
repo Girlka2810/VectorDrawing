@@ -4,6 +4,8 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using VectorDrawing.Figures.Parameters;
+using VectorDrawing.Figures.Returns;
 
 namespace VectorDrawing.Tools
 {
@@ -18,12 +20,12 @@ namespace VectorDrawing.Tools
         public override void Paint(Graphics graphics)
         {
             Figures.RectangleFigure rectangle = new Figures.RectangleFigure();
-            Figures.FigureParameter figureParameter = new Figures.FigureParameter
+            CommonParameter figureParameter = new CommonParameter
             {
                 Points = this.Points.ToArray(),
                 TemporaryPoint = this.TemporaryPoint
             };
-            graphics.DrawPolygon(Pen, rectangle.GetPoints(figureParameter));
+            graphics.DrawPolygon(Pen, ((CommonReturn)rectangle.Get(figureParameter)).Points);
         }
     }
 }

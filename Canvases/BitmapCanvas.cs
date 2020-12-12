@@ -57,6 +57,8 @@ namespace VectorDrawing.Canvases
             tool.Paint(graphics);
 
             _render?.Invoke(_tmpBitmap, _backColor);
+            
+
         }
 
        

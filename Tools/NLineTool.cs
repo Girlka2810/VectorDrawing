@@ -4,6 +4,8 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using VectorDrawing.Figures.Parameters;
+using VectorDrawing.Figures.Returns;
 
 namespace VectorDrawing.Tools
 {
@@ -17,13 +19,13 @@ namespace VectorDrawing.Tools
         public override void Paint(Graphics graphics)
         {
             Figures.NLineFigure NLine = new Figures.NLineFigure();
-            Figures.FigureParameter figureParameter = new Figures.FigureParameter
+            CommonParameter figureParameter = new CommonParameter
             {
-                Points = this.Points.ToArray(),
-                TemporaryPoint = this.TemporaryPoint
+                Points = Points.ToArray(),
+                TemporaryPoint = TemporaryPoint
             };
 
-            graphics.DrawLines(Pen, NLine.GetPoints(figureParameter));
+            graphics.DrawLines(Pen, ((CommonReturn)NLine.Get(figureParameter)).Points);
 
         }
         public override void AddPoint(PointF point)

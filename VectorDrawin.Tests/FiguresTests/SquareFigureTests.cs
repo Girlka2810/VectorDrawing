@@ -7,6 +7,8 @@ using System;
 using System.Drawing;
 using NUnit.Framework;
 using VectorDrawing.Figures;
+using VectorDrawing.Figures.Parameters;
+using VectorDrawing.Figures.Returns;
 
 namespace VectorDrawin.Tests.FiguresTests
 {
@@ -17,17 +19,22 @@ namespace VectorDrawin.Tests.FiguresTests
         [TestCase(3,3)]
         [TestCase(4,4)]
         [TestCase(5,5)]
-        public void GetPointsTest(int case_of_array, int case_of_expected_arr)
+        public void GetPointsTest(int caseOfArray, int caseOfExpectedArr)
         {
             SquareFigure square = new SquareFigure();
-            PointF[] actual = square.GetPoints(ActualParameterMock(case_of_array));
-            PointF[] expected = ExpectedPointsOfSquareFigureMock(case_of_expected_arr);
+            PointF[] actual = ((CommonReturn)
+                square.Get(ActualParameterMock(caseOfArray))).Points;
+            PointF[] expected = ExpectedPointsOfSquareFigureMock(caseOfExpectedArr);
             Assert.AreEqual(expected, actual);
         }
-        public FigureParameter ActualParameterMock(int a)
+        public CommonParameter ActualParameterMock(int a)
         {
-            FigureParameter figureParameter;
-            figureParameter = new FigureParameter { Points = StartPointOfSquareFigureMock(a), TemporaryPoint = CrntPointOfSquareFigureMock(a)};
+            CommonParameter figureParameter;
+            figureParameter = new CommonParameter
+            {
+                Points = StartPointOfSquareFigureMock(a), 
+                TemporaryPoint = CrntPointOfSquareFigureMock(a)
+            };
             return figureParameter;
         }
         public PointF[] ExpectedPointsOfSquareFigureMock(int a)

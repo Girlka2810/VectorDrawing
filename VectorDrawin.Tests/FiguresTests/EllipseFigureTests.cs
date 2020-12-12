@@ -2,7 +2,8 @@
 using System.Drawing;
 using System;
 using VectorDrawing.Figures;
-using VectorDrawing;
+using VectorDrawing.Figures.Parameters;
+using VectorDrawing.Figures.Returns;
 
 namespace VectorDrawin.Tests.FiguresTests
 {
@@ -14,17 +15,17 @@ namespace VectorDrawin.Tests.FiguresTests
         [TestCase(3, 3)]
         [TestCase(4, 4)]
         [TestCase(5, 5)]
-        public void GetEllipseFigureTest(int case_of_params, int case_of_exp_rect)
+        public void GetEllipseFigureTest(int caseOfParams, int caseOfExpectedRectangle)
         {
             EllipseFigure ellipse = new EllipseFigure();
 
-                EllipseFigureParameter figureParameter = new EllipseFigureParameter
-                {
-                    Center = StartPointEllipseFigureMock(case_of_params)[0],
-                    TemporaryPoint = CrntPointEllipseFigureMock(case_of_params)
-                };
-            RectangleF actual = ellipse.GetRectangle(figureParameter);
-            RectangleF expected = ExpectedEllipseFigureMock(case_of_exp_rect);
+            EllipseParameter figureParameter = new EllipseParameter
+            {
+                Center = StartPointEllipseFigureMock(caseOfParams)[0],
+                TemporaryPoint = CrntPointEllipseFigureMock(caseOfParams)
+            };
+            RectangleF actual = ((EllipseReturn) ellipse.Get(figureParameter)).Rectangle;
+            RectangleF expected = ExpectedEllipseFigureMock(caseOfExpectedRectangle);
             Assert.AreEqual(expected, actual);
         }
 

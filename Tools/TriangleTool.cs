@@ -1,5 +1,7 @@
 ﻿using System.Drawing;
 using VectorDrawing.Figures;
+using VectorDrawing.Figures.Parameters;
+using VectorDrawing.Figures.Returns;
 
 namespace VectorDrawing.Tools
 {
@@ -15,12 +17,12 @@ namespace VectorDrawing.Tools
         public override void Paint(Graphics graphics)
         {
             TriangleFigure triangleFigure = new TriangleFigure();
-            FigureParameter figureParameter = new FigureParameter
+            CommonParameter figureParameter = new CommonParameter
             {
                 Points = Points.ToArray(),
                 TemporaryPoint = TemporaryPoint,
             };
-            graphics.DrawPolygon(Pen, triangleFigure.GetPoints(figureParameter));
+            graphics.DrawPolygon(Pen, ((CommonReturn)triangleFigure.Get(figureParameter)).Points);
         }
         
         public override void AddPoint(PointF point)

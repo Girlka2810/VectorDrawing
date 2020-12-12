@@ -1,5 +1,7 @@
 ﻿using System.Drawing;
 using VectorDrawing.Figures;
+using VectorDrawing.Figures.Parameters;
+using VectorDrawing.Figures.Returns;
 
 namespace VectorDrawing.Tools
 {
@@ -14,12 +16,12 @@ namespace VectorDrawing.Tools
         public override void Paint(Graphics graphics)
         {
             IsoscelesTriangleFigure isoscelesTriangleFigure = new IsoscelesTriangleFigure();
-            FigureParameter figureParameter = new FigureParameter
+            CommonParameter figureParameter = new CommonParameter
             {
                 Points = Points.ToArray(),
                 TemporaryPoint = TemporaryPoint,
             };
-            graphics.DrawPolygon(Pen, isoscelesTriangleFigure.GetPoints(figureParameter));
+            graphics.DrawPolygon(Pen, ((CommonReturn)isoscelesTriangleFigure.Get(figureParameter)).Points);
         }
     }
 }

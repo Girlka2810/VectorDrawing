@@ -1,5 +1,7 @@
 ﻿
 using System.Drawing;
+using VectorDrawing.Figures.Parameters;
+using VectorDrawing.Figures.Returns;
 
 namespace VectorDrawing.Tools
 {
@@ -17,12 +19,12 @@ namespace VectorDrawing.Tools
         public override void Paint(Graphics graphics)
         {
             Figures.SquareFigure square = new Figures.SquareFigure();
-            Figures.FigureParameter figureParameter = new Figures.FigureParameter
+            CommonParameter figureParameter = new CommonParameter
             {
                 Points = this.Points.ToArray(),
                 TemporaryPoint = this.TemporaryPoint
             };
-            graphics.DrawPolygon(Pen, square.GetPoints(figureParameter));
+            graphics.DrawPolygon(Pen, ((CommonReturn)square.Get(figureParameter)).Points);
         }
 
     }

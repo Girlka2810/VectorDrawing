@@ -8,6 +8,8 @@ using NUnit.Framework;
 using System.Drawing;
 using VectorDrawing.Figures;
 using System.Collections;
+using VectorDrawing.Figures.Parameters;
+using VectorDrawing.Figures.Returns;
 
 namespace VectorDrawin.Tests.FiguresTests
 {
@@ -19,12 +21,12 @@ namespace VectorDrawin.Tests.FiguresTests
         public void IsoscelesTriangleFigureTest(PointF StartPoint, PointF EndPoint, PointF[] Triangle )
         {
             IsoscelesTriangleFigure isoscelesTriangleFigure = new IsoscelesTriangleFigure();
-            FigureParameter parameter = new FigureParameter()
+            CommonParameter parameter = new CommonParameter()
             {
               Points = new PointF[] { StartPoint, EndPoint},
               TemporaryPoint = EndPoint
             };
-            PointF[] actual = isoscelesTriangleFigure.GetPoints(parameter);
+            PointF[] actual = ((CommonReturn)isoscelesTriangleFigure.Get(parameter)).Points;
             PointF[] expected = Triangle;
             Assert.AreEqual(actual, expected);
         }

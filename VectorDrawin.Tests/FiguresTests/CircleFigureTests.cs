@@ -2,7 +2,8 @@
 using System.Drawing;
 using System;
 using VectorDrawing.Figures;
-using VectorDrawing;
+using VectorDrawing.Figures.Parameters;
+using VectorDrawing.Figures.Returns;
 
 
 namespace VectorDrawin.Tests.FiguresTests
@@ -14,16 +15,16 @@ namespace VectorDrawin.Tests.FiguresTests
         [TestCase(3, 3)]
         [TestCase(4, 4)]
         [TestCase(5, 5)]
-        public void GetCircumscribedRectangleTest(int case_of_params, int case_of_exp_rect)
+        public void GetCircumscribedRectangleTest(int caseOfParams, int caseOfExpectedRectangle)
         {
             CircleFigure circle = new CircleFigure();
-            EllipseFigureParameter figureParameter = new EllipseFigureParameter
+            EllipseParameter figureParameter = new EllipseParameter
             {
-                Center = StartPointCircumscribedRectangleMock(case_of_params)[0],
-                TemporaryPoint = CrntPointCircumscribedRectangleMock(case_of_params)
+                Center = StartPointCircumscribedRectangleMock(caseOfParams)[0],
+                TemporaryPoint = CrntPointCircumscribedRectangleMock(caseOfParams)
             };
-            RectangleF actual = circle.GetRectangle(figureParameter);
-            RectangleF expected = ExpectedRectangleCircumscribedRectangleMock(case_of_exp_rect);
+            RectangleF actual = ((EllipseReturn)circle.Get(figureParameter)).Rectangle;
+            RectangleF expected = ExpectedRectangleCircumscribedRectangleMock(caseOfExpectedRectangle);
             Assert.AreEqual(expected, actual);
         }
 

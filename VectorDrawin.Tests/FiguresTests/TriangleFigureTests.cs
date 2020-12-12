@@ -2,6 +2,8 @@
 using System.Drawing;
 using NUnit.Framework;
 using VectorDrawing.Figures;
+using VectorDrawing.Figures.Parameters;
+using VectorDrawing.Figures.Returns;
 
 namespace VectorDrawin.Tests.FiguresTests
 {
@@ -14,7 +16,8 @@ namespace VectorDrawin.Tests.FiguresTests
         public void GetPointsTests(int parametersNumber, int expectedNumber)
         {
             PointF[] expected = ExpectedPointsOfTriangleFigureMock(expectedNumber);
-            PointF[] actual = new TriangleFigure().GetPoints(ActualParametrsOfTriangleFigureMock(parametersNumber));
+            PointF[] actual = ((CommonReturn)
+                new TriangleFigure().Get(ActualParametrsOfTriangleFigureMock(parametersNumber))).Points;
             Assert.AreEqual(expected,actual);
         }
         
@@ -25,7 +28,8 @@ namespace VectorDrawin.Tests.FiguresTests
 
             Assert.Throws<NullReferenceException>(() =>
             {
-                PointF[] actual = new TriangleFigure().GetPoints(ActualParametrsOfTriangleFigureMock(parametersNumber));
+                PointF[] actual = ((CommonReturn)
+                    new TriangleFigure().Get(ActualParametrsOfTriangleFigureMock(parametersNumber))).Points;
             });
         }
         
@@ -45,18 +49,18 @@ namespace VectorDrawin.Tests.FiguresTests
             }
         }
         
-        FigureParameter ActualParametrsOfTriangleFigureMock(int n)
+        CommonParameter ActualParametrsOfTriangleFigureMock(int n)
         {
             switch (n)
             {
                 case 1:
-                    return new FigureParameter {Points = new PointF[]
+                    return new CommonParameter {Points = new PointF[]
                     {
                         new PointF(1, 2), new PointF(3, 4)
                     }
                     };
                 case 2:
-                    return new FigureParameter {Points = new PointF[]
+                    return new CommonParameter {Points = new PointF[]
                         {
                             new PointF(3, 4), 
                             new PointF(3,3)
@@ -64,7 +68,7 @@ namespace VectorDrawin.Tests.FiguresTests
                         TemporaryPoint = new PointF(1,2)
                     };
                 case 3:
-                    return new FigureParameter {Points = new PointF[]
+                    return new CommonParameter {Points = new PointF[]
                         {
                             new PointF(3, 4), 
                             new PointF(3,3),
@@ -72,14 +76,14 @@ namespace VectorDrawin.Tests.FiguresTests
                         }
                     };
                 case 4:
-                    return new FigureParameter {Points = new PointF[]
+                    return new CommonParameter {Points = new PointF[]
                         {
                             new PointF(1, 2)
                         },
                         TemporaryPoint = new PointF(3, 4)
                     };
                 case 5:
-                    return new FigureParameter {
+                    return new CommonParameter {
                     };
                 default:
                     throw new NullReferenceException("No n in the list");
