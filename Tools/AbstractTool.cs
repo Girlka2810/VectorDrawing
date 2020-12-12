@@ -85,6 +85,7 @@ namespace VectorDrawing.Tools
                     {
                         return false;
                     }
+                     return true;
                 }
             }
             return false;
