@@ -5,16 +5,22 @@ namespace VectorDrawing.Figures
 {
     public class FigureParameter
     {
-        public Point[] Points { get; set; }
-        public Point TemporaryPoint { get; set; }
+        public PointF[] Points { get; set; }
+        public PointF TemporaryPoint { get; set; }
     }
     public class EllipseFigureParameter
     {
 
-        public Point TemporaryPoint { get; set; }
-        public Point Center { get; set; }
-        public int HorizontalRadius { get;  set; }
-        public int VerticalRadius { get; set; }
+        public PointF TemporaryPoint { get; set; }
+        public PointF Center { get; set; }
+        public float HorizontalRadius { get;  set; }
+        public float VerticalRadius { get; set; }
 
+    }
+    public class RegularPolygonParameter
+    {
+        public int QuantityOfCorners { get; set; }
+        public PointF Center { get; set; }
+        public PointF TemporaryPoint { get; set; }
     }
 }

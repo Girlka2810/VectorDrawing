@@ -17,7 +17,7 @@ namespace VectorDrawing.Tools
             graphics.DrawLines(Pen, Points.ToArray());
         }
 
-        public override void AddPoint(Point point)
+        public override void AddPoint(PointF point)
         {
             Points.Add(point);
         }

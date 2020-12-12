@@ -36,6 +36,7 @@ namespace VectorDrawing
 
         private void SetTool()
         {
+            groupBox1.Visible = false;
             switch (_toolName)
             {
                 case "Line":
@@ -65,19 +66,21 @@ namespace VectorDrawing
                 case "Triangle":
                     _tool = new TriangleTool(_pen);
                     break;
-                case "AlpelesTriangle":
-                    _tool = null;
+                case "IsoscelesTriangle":
+                    _tool = new IsoscelesTriangleTool(_pen);
                     break;
                 case "Polygon":
                     _tool = null;
                     break;
                 case "RegularPolygon":
-                    _tool = null;
+                    groupBox1.Visible = true;
+                    _tool = new RegularPolygonTool(_pen, Convert.ToInt32(CornerNumericUpDown.Value));
                     break;
             }
 
             
         }
+
 
         private void OnSelectToolButtonsClick(object sender, EventArgs e)
         {
@@ -111,8 +114,8 @@ namespace VectorDrawing
                 case "TriangleButton":
                     _toolName = "Triangle";
                     break;
-                case "AlpelesTriangleButton":
-                    _toolName = "AlpelesTriangle";
+                case "IsoscelesTriangleButton":
+                    _toolName = "IsoscelesTriangle";
                     break;
                 case "PolygonButton":
                     _toolName = "Polygon";
@@ -134,6 +137,7 @@ namespace VectorDrawing
             if (!_tool.CheckPointsExist()) return;
             _tool.TemporaryPoint = e.Location;
             _canvas.Draw(_tool);
+            
         }
 
         private void OnPictureBoxMouseDown(object sender, MouseEventArgs e)
@@ -142,6 +146,7 @@ namespace VectorDrawing
 
             if(_tool!=null && _tool.CheckMaxQuantityPoints())
             {
+                _canvas.Draw(_tool);
                 _canvas.FinishFigure();
                 SetTool();
             }
@@ -167,9 +172,16 @@ namespace VectorDrawing
             }
         }
 
-     
+        private void CornerNumericUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            RegularPolygonTool regularPolygonTool = (RegularPolygonTool)_tool;
+            regularPolygonTool.QuantityOfCorners = (int)((NumericUpDown)sender).Value;
+        }
 
+        private void Clear_Click(object sender, EventArgs e)
+        {
+            _canvas.Create(pictureBox.Width, pictureBox.Height);
+        }
 
-        
     }
 }

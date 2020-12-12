@@ -38,7 +38,7 @@ namespace VectorDrawing
             this.EllipseButton = new System.Windows.Forms.Button();
             this.RectangularTriangleButton = new System.Windows.Forms.Button();
             this.TriangleButton = new System.Windows.Forms.Button();
-            this.AlpelesTriangleButton = new System.Windows.Forms.Button();
+            this.IsoscelesTriangleButton = new System.Windows.Forms.Button();
             this.PolygonButton = new System.Windows.Forms.Button();
             this.RegularPolygonButton = new System.Windows.Forms.Button();
             this.ToolsLabel = new System.Windows.Forms.Label();
@@ -47,8 +47,14 @@ namespace VectorDrawing
             this.label1 = new System.Windows.Forms.Label();
             this.colorDialog = new System.Windows.Forms.ColorDialog();
             this.colorFrontButton = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.CornerNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.label2 = new System.Windows.Forms.Label();
+            this.Clear = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.thickness)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CornerNumericUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // BrushButton
@@ -151,16 +157,16 @@ namespace VectorDrawing
             this.TriangleButton.UseVisualStyleBackColor = true;
             this.TriangleButton.Click += new System.EventHandler(this.OnSelectToolButtonsClick);
             // 
-            // AlpelesTriangleButton
+            // IsoscelesTriangleButton
             // 
-            this.AlpelesTriangleButton.Location = new System.Drawing.Point(12, 360);
-            this.AlpelesTriangleButton.Name = "AlpelesTriangleButton";
-            this.AlpelesTriangleButton.Size = new System.Drawing.Size(170, 26);
-            this.AlpelesTriangleButton.TabIndex = 9;
-            this.AlpelesTriangleButton.Text = "Равнобедренный трегольник";
-            this.AlpelesTriangleButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.AlpelesTriangleButton.UseVisualStyleBackColor = true;
-            this.AlpelesTriangleButton.Click += new System.EventHandler(this.OnSelectToolButtonsClick);
+            this.IsoscelesTriangleButton.Location = new System.Drawing.Point(12, 360);
+            this.IsoscelesTriangleButton.Name = "IsoscelesTriangleButton";
+            this.IsoscelesTriangleButton.Size = new System.Drawing.Size(170, 26);
+            this.IsoscelesTriangleButton.TabIndex = 9;
+            this.IsoscelesTriangleButton.Text = "Равнобедренный трегольник";
+            this.IsoscelesTriangleButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.IsoscelesTriangleButton.UseVisualStyleBackColor = true;
+            this.IsoscelesTriangleButton.Click += new System.EventHandler(this.OnSelectToolButtonsClick);
             // 
             // PolygonButton
             // 
@@ -244,11 +250,61 @@ namespace VectorDrawing
             this.colorFrontButton.UseVisualStyleBackColor = true;
             this.colorFrontButton.Click += new System.EventHandler(this.OnColorFrontButtonClick);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.CornerNumericUpDown);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Location = new System.Drawing.Point(631, 9);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(171, 40);
+            this.groupBox1.TabIndex = 16;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Многоугольник";
+            // 
+            // CornerNumericUpDown
+            // 
+            this.CornerNumericUpDown.Location = new System.Drawing.Point(114, 14);
+            this.CornerNumericUpDown.Minimum = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
+            this.CornerNumericUpDown.Name = "CornerNumericUpDown";
+            this.CornerNumericUpDown.Size = new System.Drawing.Size(47, 20);
+            this.CornerNumericUpDown.TabIndex = 1;
+            this.CornerNumericUpDown.Value = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
+            this.CornerNumericUpDown.ValueChanged += new System.EventHandler(this.CornerNumericUpDown_ValueChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(11, 19);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(97, 13);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Количество углов";
+            // 
+            // Clear
+            // 
+            this.Clear.Location = new System.Drawing.Point(22, 464);
+            this.Clear.Name = "Clear";
+            this.Clear.Size = new System.Drawing.Size(147, 23);
+            this.Clear.TabIndex = 17;
+            this.Clear.Text = "Очистить";
+            this.Clear.UseVisualStyleBackColor = true;
+            this.Clear.Click += new System.EventHandler(this.Clear_Click);
+            // 
             // VectorDrawingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(955, 572);
+            this.Controls.Add(this.Clear);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.colorFrontButton);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.thickness);
@@ -256,7 +312,7 @@ namespace VectorDrawing
             this.Controls.Add(this.ToolsLabel);
             this.Controls.Add(this.RegularPolygonButton);
             this.Controls.Add(this.PolygonButton);
-            this.Controls.Add(this.AlpelesTriangleButton);
+            this.Controls.Add(this.IsoscelesTriangleButton);
             this.Controls.Add(this.TriangleButton);
             this.Controls.Add(this.RectangularTriangleButton);
             this.Controls.Add(this.EllipseButton);
@@ -271,6 +327,9 @@ namespace VectorDrawing
             this.Load += new System.EventHandler(this.OnVectorDrawingFormLoad);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.thickness)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CornerNumericUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -287,7 +346,7 @@ namespace VectorDrawing
         private System.Windows.Forms.Button EllipseButton;
         private System.Windows.Forms.Button RectangularTriangleButton;
         private System.Windows.Forms.Button TriangleButton;
-        private System.Windows.Forms.Button AlpelesTriangleButton;
+        private System.Windows.Forms.Button IsoscelesTriangleButton;
         private System.Windows.Forms.Button PolygonButton;
         private System.Windows.Forms.Button RegularPolygonButton;
         private System.Windows.Forms.Label ToolsLabel;
@@ -296,6 +355,10 @@ namespace VectorDrawing
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ColorDialog colorDialog;
         private System.Windows.Forms.Button colorFrontButton;
+        private System.Windows.Forms.NumericUpDown CornerNumericUpDown;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button Clear;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }
 

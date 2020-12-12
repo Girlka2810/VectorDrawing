@@ -13,13 +13,13 @@ namespace VectorDrawing.Figures
     {
 
 
-        public Rectangle GetRectangle(EllipseFigureParameter parameter)
+        public RectangleF GetRectangle(EllipseFigureParameter parameter)
         {
-            Point point = parameter.Center;
-            Point pointEnd = parameter.TemporaryPoint;
+            PointF point = parameter.Center;
+            PointF pointEnd = parameter.TemporaryPoint;
             double delX = parameter.HorizontalRadius;
             double delY = parameter.VerticalRadius;
-            Point upperLeftPoint = new Point();
+            PointF upperLeftPoint = new Point();
 
             if (parameter.Center.X >= parameter.TemporaryPoint.X)
             {
@@ -27,11 +27,11 @@ namespace VectorDrawing.Figures
                 delY = Math.Abs(point.Y - pointEnd.Y);
                 if (point.Y > pointEnd.Y)
                 {
-                    upperLeftPoint = new Point(point.X - (int)delX, point.Y - (int)delY);
+                    upperLeftPoint = new PointF(point.X - (int)delX, point.Y - (int)delY);
                 }
                 else
                 {
-                    upperLeftPoint = new Point(point.X - (int)delX, pointEnd.Y - (int)delY);
+                    upperLeftPoint = new PointF(point.X - (int)delX, pointEnd.Y - (int)delY);
                 }
             }
             else
@@ -40,14 +40,14 @@ namespace VectorDrawing.Figures
                 delY = Math.Abs(pointEnd.Y - point.Y);
                 if (pointEnd.Y > point.Y)
                 {
-                upperLeftPoint = new Point(pointEnd.X - (int)delX, pointEnd.Y - (int)delY);
+                upperLeftPoint = new PointF(pointEnd.X - (int)delX, pointEnd.Y - (int)delY);
                 }
                 else
                 {
-                    upperLeftPoint = new Point(pointEnd.X - (int)delX, point.Y - (int)delY);
+                    upperLeftPoint = new PointF(pointEnd.X - (int)delX, point.Y - (int)delY);
                 }
             }
-            Rectangle rectangle = new Rectangle(upperLeftPoint.X, upperLeftPoint.Y, (int)delX , (int)delY);
+            RectangleF rectangle = new RectangleF(upperLeftPoint.X, upperLeftPoint.Y, (int)delX , (int)delY);
             return rectangle;
         }
 

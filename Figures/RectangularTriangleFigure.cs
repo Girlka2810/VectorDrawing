@@ -5,7 +5,7 @@ namespace VectorDrawing.Figures
 {
     public class RectangularTriangleFigure : IFigure
     {
-        public Point[] GetPoints(FigureParameter parameter)
+        public PointF[] GetPoints(FigureParameter parameter)
         {
             if(parameter.Points.Length==0) throw  new NullReferenceException("Points count can't be null");
             
@@ -14,7 +14,7 @@ namespace VectorDrawing.Figures
                 return new[]
                 {
                     parameter.Points[0],
-                    new Point(parameter.Points[0].X, parameter.TemporaryPoint.Y),
+                    new PointF(parameter.Points[0].X, parameter.TemporaryPoint.Y),
                     parameter.TemporaryPoint
                 };
             }
@@ -23,7 +23,7 @@ namespace VectorDrawing.Figures
             return new[]
             {
                 parameter.Points[0],
-                new Point(parameter.Points[0].X, parameter.Points[1].Y),
+                new PointF(parameter.Points[0].X, parameter.Points[1].Y),
                 parameter.Points[1],
             };
         }

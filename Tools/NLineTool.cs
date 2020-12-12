@@ -26,7 +26,7 @@ namespace VectorDrawing.Tools
             graphics.DrawLines(Pen, NLine.GetPoints(figureParameter));
 
         }
-        public override void AddPoint(Point point)
+        public override void AddPoint(PointF point)
         {
             Points.Add(point);
         }

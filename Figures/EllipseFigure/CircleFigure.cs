@@ -9,16 +9,16 @@ namespace VectorDrawing.Figures
 {
     public class CircleFigure : IEllipse
     {
-        public Rectangle GetRectangle(EllipseFigureParameter parameter)
+        public RectangleF GetRectangle(EllipseFigureParameter parameter)
         {
-            Point prev = parameter.Center;
-            Point crnt = parameter.TemporaryPoint;
-            int deltaX = Math.Abs(prev.X - crnt.X);
-            int deltaY = Math.Abs(prev.Y - crnt.Y);
-            int radius = (int)Math.Sqrt(deltaY * deltaY + deltaX * deltaX);
-            Size size = new Size(radius * 2, radius * 2);
-            Point center = new Point(prev.X - radius, prev.Y - radius);
-            Rectangle rectangle = new Rectangle(center, size);
+            PointF prev = parameter.Center;
+            PointF crnt = parameter.TemporaryPoint;
+            float deltaX = Math.Abs(prev.X - crnt.X);
+            float deltaY = Math.Abs(prev.Y - crnt.Y);
+            float radius = (float)Math.Sqrt(deltaY * deltaY + deltaX * deltaX);
+            SizeF size = new SizeF(radius * 2, radius * 2);
+            PointF center = new PointF(prev.X - radius, prev.Y - radius);
+            RectangleF rectangle = new RectangleF(center, size);
             return rectangle;
         }
     }

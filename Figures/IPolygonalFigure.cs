@@ -7,8 +7,9 @@ using System.Threading.Tasks;
 
 namespace VectorDrawing.Figures
 {
-    interface IEllipse
+    interface IPolygonalFigure
     {
-        RectangleF GetRectangle(EllipseFigureParameter parameter);
+        PointF[] GetPoints(RegularPolygonParameter parameter);
+
     }
 }
