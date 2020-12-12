@@ -21,7 +21,7 @@ namespace VectorDrawin.Tests.FiguresTests
             IsoscelesTriangleFigure isoscelesTriangleFigure = new IsoscelesTriangleFigure();
             FigureParameter parameter = new FigureParameter()
             {
-              Points = new PointF[] { StartPoint, EndPoint},
+              Points = new PointF[] { StartPoint},
               TemporaryPoint = EndPoint
             };
             PointF[] actual = isoscelesTriangleFigure.GetPoints(parameter);

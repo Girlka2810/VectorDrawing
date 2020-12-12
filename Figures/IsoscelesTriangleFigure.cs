@@ -8,7 +8,7 @@ namespace VectorDrawing.Figures
     {
         public PointF[] GetPoints(FigureParameter parameter)
         {
-            if (parameter.Points.Length == 1)
+            if (parameter.Points.Length == 1 && parameter.Points.Length <= 3)
             {
                 PointF[] tmp = new PointF[parameter.Points.Length + 2];
                 Array.Copy(parameter.Points, tmp, parameter.Points.Length);
@@ -28,10 +28,8 @@ namespace VectorDrawing.Figures
                     }
                 return tmp;
             }
-            else
-            {
-                return parameter.Points;
-            }
+            return parameter.Points;
+            
 
 
 
