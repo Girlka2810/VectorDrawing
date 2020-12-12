@@ -33,11 +33,11 @@ namespace VectorDrawin.Tests.FiguresTests
          public IEnumerator GetEnumerator()
         {
             yield return new object[] { 3, new PointF(10, 10), new PointF(20, 20), new PointF[] { new PointF(10, 0),
-            new Point(1, 15), new PointF(18, 14)} };
-            yield return new object[] {4, new PointF(10, 10), new PointF(20, 20), new PointF[] { new PointF(10, 0), new PointF(20, 10),
-            new PointF(10,20), new PointF(0, 10)} };
-            yield return new object[] {5, new PointF(10, 10), new PointF(20, 20), new PointF[] { new PointF(10, 0), new PointF(19, 6),
-            new PointF(15, 18), new PointF(4, 18), new PointF(0, 6) } };
+            new PointF((float)1.339746, 15), new PointF((float)18.6602535, 15)} };
+            yield return new object[] {4, new PointF(10, 10), new PointF(20, 20), new PointF[] { new PointF(10, 0), new PointF(0, 10),
+            new PointF(10,20), new PointF(20, 10)} };
+            //yield return new object[] {5, new PointF(10, 10), new PointF(20, 20), new PointF[] { new PointF(10, 0), new PointF((float)0.4894348, (float)6.90983),
+            //new PointF(15, 18), new PointF(4, 18), new PointF(0, 6) } };
         }
     }
 }
