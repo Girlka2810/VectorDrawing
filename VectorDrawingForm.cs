@@ -144,6 +144,7 @@ namespace VectorDrawing
 
             if(_tool!=null && _tool.CheckMaxQuantityPoints())
             {
+                _canvas.Draw(_tool);
                 _canvas.FinishFigure();
                 SetTool();
             }
