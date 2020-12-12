@@ -62,6 +62,8 @@
     <Compile Include="Figures\RegularPolygonFigure.cs" />
     <Compile Include="Figures\SquareFigure.cs" />
     <Compile Include="Figures\TriangleFigure.cs" />
+    <Compile Include="Tools\Brushes\BasicBrush.cs" />
+    <Compile Include="Tools\Brushes\IBrush.cs" />
     <Compile Include="Tools\EllipseTool\AbstractEllipse.cs" />
     <Compile Include="Tools\AbstractPolygonTool.cs" />
     <Compile Include="Tools\AbstractTool.cs" />
@@ -109,6 +111,5 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

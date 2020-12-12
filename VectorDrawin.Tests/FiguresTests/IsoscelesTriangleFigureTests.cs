@@ -12,10 +12,10 @@ using System.Collections;
 namespace VectorDrawin.Tests.FiguresTests
 {
     class IsoscelesTriangleFigureTests
-        {
+    {
        
 
-        [Test,TestCaseSource(typeof (GetPointMock))]
+        [Test,TestCaseSource(typeof (GetPointIsoscelesTriangleFigureTestMock))]
         public void IsoscelesTriangleFigureTest(PointF StartPoint, PointF EndPoint, PointF[] Triangle )
         {
             IsoscelesTriangleFigure isoscelesTriangleFigure = new IsoscelesTriangleFigure();
@@ -29,7 +29,7 @@ namespace VectorDrawin.Tests.FiguresTests
             Assert.AreEqual(actual, expected);
         }
     }
-    class GetPointMock : IEnumerable
+    class GetPointIsoscelesTriangleFigureTestMock : IEnumerable
     {
         public IEnumerator GetEnumerator()
         {
