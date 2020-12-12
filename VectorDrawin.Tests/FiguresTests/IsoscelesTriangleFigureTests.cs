@@ -28,13 +28,15 @@ namespace VectorDrawin.Tests.FiguresTests
             PointF[] expected = Triangle;
             Assert.AreEqual(actual, expected);
         }
-        
     }
     class GetPointMock : IEnumerable
     {
         public IEnumerator GetEnumerator()
         {
-            yield return new object[] {new PointF(10,10),new PointF(20,20), new PointF[] { new PointF(10,10),new PointF(20,20),new PointF (15,10)} };
+            yield return new object[] { new PointF(10, 10), new PointF(20, 20), new PointF[] { new PointF(10, 10), new PointF(20, 10), new PointF(15, 20) } };
+            yield return new object[] { new PointF(20, 20), new PointF(10, 10), new PointF[] { new PointF(20, 20), new PointF(10, 20), new PointF(15, 10) } };
+            yield return new object[] { new PointF(10, 20), new PointF(20, 10), new PointF[] { new PointF(10, 20), new PointF(20, 20), new PointF(15, 10) } };
+            yield return new object[] { new PointF(20, 10), new PointF(10, 20), new PointF[] { new PointF(20, 10), new PointF(10, 10), new PointF(15, 20) } };
         }
     }
 }
