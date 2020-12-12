@@ -84,8 +84,6 @@ namespace VectorDrawin.Tests.CanvasesTests
                         {
                             new PointF(1, 1),
                             new PointF(1, 1),
-                            new PointF(1, 1),
-                            new PointF(1, 1),
                         }, new Pen(Color.Aqua, 12)),
                     CreateTool.Line(
                         new List<PointF>()
@@ -131,8 +129,6 @@ namespace VectorDrawin.Tests.CanvasesTests
                         {
                             new PointF(1, 1),
                             new PointF(1, 1),
-                            new PointF(1, 1),
-                            new PointF(1, 1),
                         }, new Pen(Color.Aqua, 12)),
                     CreateTool.RegularPolygon(
                         new List<PointF>()
@@ -156,8 +152,6 @@ namespace VectorDrawin.Tests.CanvasesTests
                     CreateTool.Square(
                         new List<PointF>()
                         {
-                            new PointF(1, 1),
-                            new PointF(1, 1),
                             new PointF(1, 1),
                             new PointF(1, 1),
                         }, new Pen(Color.Aqua, 12)),

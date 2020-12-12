@@ -20,7 +20,10 @@ namespace VectorDrawing.Tools
         
         public RectangleTool(List<PointF> points, Pen pen) : base(points, pen)
         {
-
+            if (points.Count > 2)
+            {
+                throw new IndexOutOfRangeException();
+            }
         }
         public override void Paint(Graphics graphics)
         {

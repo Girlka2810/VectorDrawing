@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using VectorDrawing.Figures;
 using VectorDrawing.Figures.Parameters;
@@ -14,7 +15,10 @@ namespace VectorDrawing.Tools.Polygons
         
         public RegularPolygonTool(List<PointF> points, Pen pen) : base(points, pen)
         {
-         
+            if (points.Count > 2)
+            {
+                throw new IndexOutOfRangeException();
+            }
         }
 
         public override void Paint(Graphics graphics)

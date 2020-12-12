@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using VectorDrawing.Figures;
 using VectorDrawing.Figures.Parameters;
@@ -16,7 +17,10 @@ namespace VectorDrawing.Tools
 
         public TriangleTool(List<PointF> points, Pen pen) : base(points, pen)
         {
-
+            if (points.Count > 3)
+            {
+                throw new IndexOutOfRangeException();
+            }
         }
         
         public override void Paint(Graphics graphics)
