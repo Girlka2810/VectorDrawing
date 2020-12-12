@@ -15,7 +15,7 @@ namespace VectorDrawin.Tests.FiguresTests
         {
        
 
-        [Test,TestCaseSource(typeof (GetPointOfIsoscelesTriangleFigureMock))]
+        [Test,TestCaseSource(typeof (GetPointsForTriangleMock))]
         public void IsoscelesTriangleFigureTest(PointF StartPoint, PointF EndPoint, PointF[] Triangle )
         {
             IsoscelesTriangleFigure isoscelesTriangleFigure = new IsoscelesTriangleFigure();
@@ -29,7 +29,7 @@ namespace VectorDrawin.Tests.FiguresTests
             Assert.AreEqual(actual, expected);
         }
     }
-    class GetPointOfIsoscelesTriangleFigureMock : IEnumerable
+    class GetPointsForTriangleMock : IEnumerable
     {
         public IEnumerator GetEnumerator()
         {

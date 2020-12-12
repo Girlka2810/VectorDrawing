@@ -82,5 +82,10 @@ namespace VectorDrawing.Canvases
                 _tools.Add(tool.ID,tool);
             }
         }
+        public void Clear(int width, int height)
+        {
+            _tmpBitmap = new Bitmap(width, height);
+            _mainBitmap = _tmpBitmap;
+        }
     }
 }
