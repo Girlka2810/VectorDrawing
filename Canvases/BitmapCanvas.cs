@@ -57,14 +57,41 @@ namespace VectorDrawing.Canvases
             tool.Paint(graphics);
 
             _render?.Invoke(_tmpBitmap, _backColor);
-            
-
         }
 
        
         public void FinishFigure()
         {
             _mainBitmap = _tmpBitmap;
+        }
+        
+        public void Clear(int width, int height)
+        {
+            _tmpBitmap = new Bitmap(width, height);
+            _mainBitmap = _tmpBitmap;
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (obj is List<AbstractTool> tools)
+            {
+                if (tools.Count == _tools.Count)
+                {
+                    foreach (var tool in tools)
+                    {
+                        foreach (var localTool in _tools)
+                        {
+                            if (!tool.Equals(localTool.Value))
+                            {
+                                return false;
+                            }
+                        }
+                    }
+
+                    return true;
+                }
+            }
+            return false;
         }
 
         private void AddBuffer(AbstractTool tool)
@@ -84,10 +111,6 @@ namespace VectorDrawing.Canvases
                 _tools.Add(tool.ID,tool);
             }
         }
-        public void Clear(int width, int height)
-        {
-            _tmpBitmap = new Bitmap(width, height);
-            _mainBitmap = _tmpBitmap;
-        }
+        
     }
 }

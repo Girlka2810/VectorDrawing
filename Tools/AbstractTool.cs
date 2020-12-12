@@ -27,11 +27,7 @@ namespace VectorDrawing.Tools
         }
 
         public abstract void Paint(Graphics graphics);
-
-        public void ClearPoints()
-        {
-            Points = new List<PointF> { };
-        }
+        
 
         public virtual void AddPoint(PointF point)
         {
@@ -72,6 +68,21 @@ namespace VectorDrawing.Tools
             {
                 return true;
             }
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (obj is AbstractTool tool)
+            {
+                if (tool.Points.Count == Points.Count)
+                {
+                    if (!Points.Equals(tool.Points) && TemporaryPoint!=tool.TemporaryPoint)
+                    {
+                        return false;
+                    }
+                }
+            }
+            return false;
         }
 
         protected void SetPen(Pen pen)
