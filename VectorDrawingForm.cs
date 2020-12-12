@@ -46,7 +46,7 @@ namespace VectorDrawing
                     _tool = new LineTool(_pen);
                     break;
                 case Enums.ToolsName.Brush:
-                    _tool = null;
+                    _tool =new BasicBrush(_pen);
                     break;
                 case Enums.ToolsName.Nline:
                     _tool = new NLineTool(_pen);
