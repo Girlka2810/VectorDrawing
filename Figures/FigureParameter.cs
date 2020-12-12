@@ -17,4 +17,10 @@ namespace VectorDrawing.Figures
         public int VerticalRadius { get; set; }
 
     }
+    public class RegularPolygonParameter
+    {
+        public int QuantityOfCorners { get; set; }
+        public Point Center { get; set; }
+        public Point TemporaryPoint { get; set; }
+    }
 }
