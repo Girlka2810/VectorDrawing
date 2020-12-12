@@ -9,7 +9,7 @@ namespace VectorDrawing
     {
 
         private AbstractTool _tool;
-        private string _toolName;
+        private Enums.ToolsName _toolName;
         private Pen _pen;
         private Canvases.ICanvas _canvas;
 
@@ -39,40 +39,40 @@ namespace VectorDrawing
             groupBox1.Visible = false;
             switch (_toolName)
             {
-                case "Line":
+                case Enums.ToolsName.Line:
                     _tool = new LineTool(_pen);
                     break;
-                case "Brush":
+                case Enums.ToolsName.Brush:
                     _tool = null;
                     break;
-                case "Nline":
+                case Enums.ToolsName.Nline:
                     _tool = new NLineTool(_pen);
                     break;
-                case "Rectangle":
+                case Enums.ToolsName.Rectangle:
                     _tool = new RectangleTool(_pen);
                     break;
-                case "Square":
+                case Enums.ToolsName.Square:
                     _tool = new SquareTool(_pen);
                     break;
-                case "Circle":
+                case Enums.ToolsName.Circle:
                     _tool = new CircleTool(_pen);
                     break;
-                case "Ellipse":
+                case Enums.ToolsName.Ellipse:
                     _tool = new EllipseTool(_pen);
                     break;
-                case "Rectangular":
+                case Enums.ToolsName.Rectangular:
                     _tool = new RectangularTriangleTool(_pen);
                     break;
-                case "Triangle":
+                case Enums.ToolsName.Triangle:
                     _tool = new TriangleTool(_pen);
                     break;
-                case "IsoscelesTriangle":
+                case Enums.ToolsName.IsoscelesTriangle:
                     _tool = new IsoscelesTriangleTool(_pen);
                     break;
-                case "Polygon":
+                case Enums.ToolsName.Polygon:
                     _tool = null;
                     break;
-                case "RegularPolygon":
+                case Enums.ToolsName.RegularPolygon:
                     groupBox1.Visible = true;
                     _tool = new RegularPolygonTool(_pen, Convert.ToInt32(CornerNumericUpDown.Value));
                     break;
@@ -88,40 +88,40 @@ namespace VectorDrawing
             switch (name)
             {
                 case "LineButton":
-                    _toolName = "Line";
+                    _toolName = Enums.ToolsName.Line;
                     break;
                 case "BrushButton":
-                    _toolName = "Brush";
+                    _toolName = Enums.ToolsName.Brush;
                     break;
                 case "NlineButton":
-                    _toolName = "Nline";
+                    _toolName = Enums.ToolsName.Nline;
                     break;
                 case "RectangleButton":
-                    _toolName = "Rectangle";
+                    _toolName = Enums.ToolsName.Rectangle;
                     break;
                 case "SquareButton":
-                    _toolName = "Square";
+                    _toolName = Enums.ToolsName.Square;
                     break;
                 case "CircleButton":
-                    _toolName = "Circle";
+                    _toolName = Enums.ToolsName.Circle;
                     break;
                 case "EllipseButton":
-                    _toolName = "Ellipse";
+                    _toolName = Enums.ToolsName.Ellipse;
                     break;
                 case "RectangularTriangleButton":
-                    _toolName = "Rectangular";
+                    _toolName = Enums.ToolsName.Rectangular;
                     break;
                 case "TriangleButton":
-                    _toolName = "Triangle";
+                    _toolName = Enums.ToolsName.Triangle;
                     break;
                 case "IsoscelesTriangleButton":
-                    _toolName = "IsoscelesTriangle";
+                    _toolName = Enums.ToolsName.IsoscelesTriangle;
                     break;
                 case "PolygonButton":
-                    _toolName = "Polygon";
+                    _toolName = Enums.ToolsName.Polygon;
                     break;
                 case "RegularPolygonButton":
-                    _toolName = "RegularPolygon";
+                    _toolName = Enums.ToolsName.RegularPolygon;
                     break;
                 default:
                     _tool = null;
