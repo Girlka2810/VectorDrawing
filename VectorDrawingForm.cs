@@ -79,7 +79,7 @@ namespace VectorDrawing
                     break;
                 case Enums.ToolsName.RegularPolygon:
                     anglesForPolygonGroupBox.Visible = true;
-                    _tool = new RegularPolygonTool(_pen, Convert.ToInt32(CornerNumericUpDown.Value));
+                    _tool = new RegularPolygonTool(_pen);
                     break;
             }
 

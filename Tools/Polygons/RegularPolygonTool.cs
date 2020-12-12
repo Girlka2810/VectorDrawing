@@ -9,7 +9,7 @@ namespace VectorDrawing.Tools.Polygons
 {
     public class RegularPolygonTool : AbstractPolygonTool
     {
-        public RegularPolygonTool(Pen pen, int numOfCorners) : base(pen, numOfCorners)
+        public RegularPolygonTool(Pen pen) : base(pen)
         {
         }
         
