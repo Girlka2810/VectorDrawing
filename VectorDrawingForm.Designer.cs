@@ -236,7 +236,7 @@ namespace VectorDrawing
             0,
             0});
             this.thickness.Name = "thickness";
-            this.thickness.Size = new System.Drawing.Size(70, 22);
+            this.thickness.Size = new System.Drawing.Size(70, 20);
             this.thickness.TabIndex = 13;
             this.thickness.Value = new decimal(new int[] {
             1,
@@ -250,7 +250,7 @@ namespace VectorDrawing
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(391, 17);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(146, 13);
+            this.label1.Size = new System.Drawing.Size(137, 13);
             this.label1.TabIndex = 15;
             this.label1.Text = "Толщина линии (пиксели)";
             // 
@@ -285,7 +285,7 @@ namespace VectorDrawing
             0,
             0});
             this.CornerNumericUpDown.Name = "CornerNumericUpDown";
-            this.CornerNumericUpDown.Size = new System.Drawing.Size(47, 22);
+            this.CornerNumericUpDown.Size = new System.Drawing.Size(47, 20);
             this.CornerNumericUpDown.TabIndex = 1;
             this.CornerNumericUpDown.Value = new decimal(new int[] {
             3,
@@ -299,7 +299,7 @@ namespace VectorDrawing
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(11, 19);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(101, 13);
+            this.label2.Size = new System.Drawing.Size(97, 13);
             this.label2.TabIndex = 0;
             this.label2.Text = "Количество углов";
             // 
