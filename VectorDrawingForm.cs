@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+using VectorDrawing.Canvases;
 using VectorDrawing.Tools;
+using VectorDrawing.Tools.Brushes;
 
 namespace VectorDrawing
 {
@@ -12,6 +14,7 @@ namespace VectorDrawing
         private string _toolName;
         private Pen _pen;
         private Canvases.ICanvas _canvas;
+        private bool _isMouseDown = false;
 
 
         public VectorDrawingForm()
@@ -43,7 +46,7 @@ namespace VectorDrawing
                     _tool = new LineTool(_pen);
                     break;
                 case "Brush":
-                    _tool = null;
+                    _tool = new BasicBrush(_pen);
                     break;
                 case "Nline":
                     _tool = new NLineTool(_pen);
@@ -134,6 +137,13 @@ namespace VectorDrawing
         private void OnPictureBoxMouseMove(object sender, MouseEventArgs e)
         {
             if (_tool == null) return;
+            if (_tool is IBrush && _isMouseDown)
+            {
+                _tool.AddPoint(e.Location);
+                _canvas.Draw(_tool);
+                return; 
+            }
+            
             if (!_tool.CheckPointsExist()) return;
             _tool.TemporaryPoint = e.Location;
             _canvas.Draw(_tool);
@@ -142,6 +152,7 @@ namespace VectorDrawing
 
         private void OnPictureBoxMouseDown(object sender, MouseEventArgs e)
         {
+            _isMouseDown = true;
             _tool?.AddPoint(e.Location);
 
             if(_tool!=null && _tool.CheckMaxQuantityPoints())
@@ -180,8 +191,21 @@ namespace VectorDrawing
 
         private void Clear_Click(object sender, EventArgs e)
         {
-            _canvas.Create(pictureBox.Width, pictureBox.Height);
+            _canvas.Clear(pictureBox.Width, pictureBox.Height);
         }
 
+        private void OnPictureBoxMouseUp(object sender, MouseEventArgs e)
+        {
+            _isMouseDown = false;
+            if (_tool is IBrush)
+            {
+                _canvas.FinishFigure();
+                SetTool();
+            }
+        }
+        private void MoveModeButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
