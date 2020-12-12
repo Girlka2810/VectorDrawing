@@ -86,7 +86,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Tools\BrushTool.cs" />
     <EmbeddedResource Include="VectorDrawingForm.resx">
       <DependentUpon>VectorDrawingForm.cs</DependentUpon>
     </EmbeddedResource>
