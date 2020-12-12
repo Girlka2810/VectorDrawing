@@ -51,6 +51,7 @@ namespace VectorDrawing
             this.CornerNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
             this.Clear = new System.Windows.Forms.Button();
+            this.MoveModeButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.thickness)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -298,11 +299,22 @@ namespace VectorDrawing
             this.Clear.UseVisualStyleBackColor = true;
             this.Clear.Click += new System.EventHandler(this.Clear_Click);
             // 
+            // MoveModeButton
+            // 
+            this.MoveModeButton.Location = new System.Drawing.Point(22, 507);
+            this.MoveModeButton.Name = "MoveModeButton";
+            this.MoveModeButton.Size = new System.Drawing.Size(146, 22);
+            this.MoveModeButton.TabIndex = 18;
+            this.MoveModeButton.Text = "Переместить";
+            this.MoveModeButton.UseVisualStyleBackColor = true;
+            this.MoveModeButton.Click += new System.EventHandler(this.MoveModeButton_Click);
+            // 
             // VectorDrawingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(955, 572);
+            this.Controls.Add(this.MoveModeButton);
             this.Controls.Add(this.Clear);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.colorFrontButton);
@@ -359,6 +371,7 @@ namespace VectorDrawing
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button Clear;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button MoveModeButton;
     }
 }
 

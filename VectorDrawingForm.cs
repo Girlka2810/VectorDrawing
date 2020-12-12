@@ -180,8 +180,12 @@ namespace VectorDrawing
 
         private void Clear_Click(object sender, EventArgs e)
         {
-            _canvas.Create(pictureBox.Width, pictureBox.Height);
+            _canvas.Clear(pictureBox.Width, pictureBox.Height);
         }
 
+        private void MoveModeButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
