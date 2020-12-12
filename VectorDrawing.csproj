@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Canvases\BitmapCanvas.cs" />
+    <Compile Include="Enums\ToolsName.cs" />
     <Compile Include="Figures\EllipseFigure\EllipseFigure.cs" />
     <Compile Include="Figures\EllipseFigure\CircleFigure.cs" />
     <Compile Include="Figures\FigureParameter.cs" />
