@@ -13,7 +13,7 @@ namespace VectorDrawin.Tests.FiguresTests
 {
     class RegularPolygonFigureTests
     {
-        [Test, TestCaseSource(typeof(GetPointOfIsoscelesTriangleFigureMock))]
+        [Test, TestCaseSource(typeof(GetPointOfRegularPolygonMock))]
         public void RegularPolygonFigureTest(int num_of_corners, Point center, Point crnt, PointF[] points)
         {
             RegularPolygonFigure regularPolygonFigure = new RegularPolygonFigure();
