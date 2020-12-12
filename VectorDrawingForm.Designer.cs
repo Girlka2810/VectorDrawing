@@ -47,14 +47,14 @@ namespace VectorDrawing
             this.label1 = new System.Windows.Forms.Label();
             this.colorDialog = new System.Windows.Forms.ColorDialog();
             this.colorFrontButton = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.anglesForPolygonGroupBox = new System.Windows.Forms.GroupBox();
             this.CornerNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
             this.Clear = new System.Windows.Forms.Button();
             this.MoveModeButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.thickness)).BeginInit();
-            this.groupBox1.SuspendLayout();
+            this.anglesForPolygonGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CornerNumericUpDown)).BeginInit();
             this.SuspendLayout();
             // 
@@ -65,6 +65,7 @@ namespace VectorDrawing
             this.BrushButton.Name = "BrushButton";
             this.BrushButton.Size = new System.Drawing.Size(171, 26);
             this.BrushButton.TabIndex = 0;
+            this.BrushButton.TabStop = false;
             this.BrushButton.Text = "Кисть";
             this.BrushButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BrushButton.UseVisualStyleBackColor = true;
@@ -76,6 +77,7 @@ namespace VectorDrawing
             this.LineButton.Name = "LineButton";
             this.LineButton.Size = new System.Drawing.Size(171, 28);
             this.LineButton.TabIndex = 1;
+            this.LineButton.TabStop = false;
             this.LineButton.Text = "Линия";
             this.LineButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.LineButton.UseVisualStyleBackColor = true;
@@ -87,6 +89,7 @@ namespace VectorDrawing
             this.NlineButton.Name = "NlineButton";
             this.NlineButton.Size = new System.Drawing.Size(171, 26);
             this.NlineButton.TabIndex = 2;
+            this.NlineButton.TabStop = false;
             this.NlineButton.Text = "Кривая линия";
             this.NlineButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.NlineButton.UseVisualStyleBackColor = true;
@@ -98,6 +101,7 @@ namespace VectorDrawing
             this.RectangleButton.Name = "RectangleButton";
             this.RectangleButton.Size = new System.Drawing.Size(170, 26);
             this.RectangleButton.TabIndex = 3;
+            this.RectangleButton.TabStop = false;
             this.RectangleButton.Text = "Прямоугольник";
             this.RectangleButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.RectangleButton.UseVisualStyleBackColor = true;
@@ -109,6 +113,7 @@ namespace VectorDrawing
             this.SquareButton.Name = "SquareButton";
             this.SquareButton.Size = new System.Drawing.Size(171, 26);
             this.SquareButton.TabIndex = 4;
+            this.SquareButton.TabStop = false;
             this.SquareButton.Text = "Квадрат";
             this.SquareButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.SquareButton.UseVisualStyleBackColor = true;
@@ -120,6 +125,7 @@ namespace VectorDrawing
             this.CircleButton.Name = "CircleButton";
             this.CircleButton.Size = new System.Drawing.Size(170, 26);
             this.CircleButton.TabIndex = 5;
+            this.CircleButton.TabStop = false;
             this.CircleButton.Text = "Круг";
             this.CircleButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.CircleButton.UseVisualStyleBackColor = true;
@@ -131,6 +137,7 @@ namespace VectorDrawing
             this.EllipseButton.Name = "EllipseButton";
             this.EllipseButton.Size = new System.Drawing.Size(170, 26);
             this.EllipseButton.TabIndex = 6;
+            this.EllipseButton.TabStop = false;
             this.EllipseButton.Text = "Эллипс";
             this.EllipseButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.EllipseButton.UseVisualStyleBackColor = true;
@@ -142,6 +149,7 @@ namespace VectorDrawing
             this.RectangularTriangleButton.Name = "RectangularTriangleButton";
             this.RectangularTriangleButton.Size = new System.Drawing.Size(170, 26);
             this.RectangularTriangleButton.TabIndex = 7;
+            this.RectangularTriangleButton.TabStop = false;
             this.RectangularTriangleButton.Text = "Прямоугольный треугольник";
             this.RectangularTriangleButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.RectangularTriangleButton.UseVisualStyleBackColor = true;
@@ -153,6 +161,7 @@ namespace VectorDrawing
             this.TriangleButton.Name = "TriangleButton";
             this.TriangleButton.Size = new System.Drawing.Size(170, 26);
             this.TriangleButton.TabIndex = 8;
+            this.TriangleButton.TabStop = false;
             this.TriangleButton.Text = "Треугольник";
             this.TriangleButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.TriangleButton.UseVisualStyleBackColor = true;
@@ -164,6 +173,7 @@ namespace VectorDrawing
             this.IsoscelesTriangleButton.Name = "IsoscelesTriangleButton";
             this.IsoscelesTriangleButton.Size = new System.Drawing.Size(170, 26);
             this.IsoscelesTriangleButton.TabIndex = 9;
+            this.IsoscelesTriangleButton.TabStop = false;
             this.IsoscelesTriangleButton.Text = "Равнобедренный трегольник";
             this.IsoscelesTriangleButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.IsoscelesTriangleButton.UseVisualStyleBackColor = true;
@@ -175,6 +185,7 @@ namespace VectorDrawing
             this.PolygonButton.Name = "PolygonButton";
             this.PolygonButton.Size = new System.Drawing.Size(170, 26);
             this.PolygonButton.TabIndex = 10;
+            this.PolygonButton.TabStop = false;
             this.PolygonButton.Text = "Многоугольник";
             this.PolygonButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.PolygonButton.UseVisualStyleBackColor = true;
@@ -186,6 +197,7 @@ namespace VectorDrawing
             this.RegularPolygonButton.Name = "RegularPolygonButton";
             this.RegularPolygonButton.Size = new System.Drawing.Size(170, 26);
             this.RegularPolygonButton.TabIndex = 11;
+            this.RegularPolygonButton.TabStop = false;
             this.RegularPolygonButton.Text = "Правильный многоугольник";
             this.RegularPolygonButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.RegularPolygonButton.UseVisualStyleBackColor = true;
@@ -252,16 +264,17 @@ namespace VectorDrawing
             this.colorFrontButton.UseVisualStyleBackColor = true;
             this.colorFrontButton.Click += new System.EventHandler(this.OnColorFrontButtonClick);
             // 
-            // groupBox1
+            // anglesForPolygonGroupBox
             // 
-            this.groupBox1.Controls.Add(this.CornerNumericUpDown);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Location = new System.Drawing.Point(631, 9);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(171, 40);
-            this.groupBox1.TabIndex = 16;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Многоугольник";
+            this.anglesForPolygonGroupBox.Controls.Add(this.CornerNumericUpDown);
+            this.anglesForPolygonGroupBox.Controls.Add(this.label2);
+            this.anglesForPolygonGroupBox.Location = new System.Drawing.Point(631, 9);
+            this.anglesForPolygonGroupBox.Name = "anglesForPolygonGroupBox";
+            this.anglesForPolygonGroupBox.Size = new System.Drawing.Size(171, 40);
+            this.anglesForPolygonGroupBox.TabIndex = 16;
+            this.anglesForPolygonGroupBox.TabStop = false;
+            this.anglesForPolygonGroupBox.Text = "Многоугольник";
+            this.anglesForPolygonGroupBox.Visible = false;
             // 
             // CornerNumericUpDown
             // 
@@ -296,6 +309,7 @@ namespace VectorDrawing
             this.Clear.Name = "Clear";
             this.Clear.Size = new System.Drawing.Size(147, 23);
             this.Clear.TabIndex = 17;
+            this.Clear.TabStop = false;
             this.Clear.Text = "Очистить";
             this.Clear.UseVisualStyleBackColor = true;
             this.Clear.Click += new System.EventHandler(this.OnClearClick);
@@ -306,6 +320,7 @@ namespace VectorDrawing
             this.MoveModeButton.Name = "MoveModeButton";
             this.MoveModeButton.Size = new System.Drawing.Size(146, 22);
             this.MoveModeButton.TabIndex = 18;
+            this.MoveModeButton.TabStop = false;
             this.MoveModeButton.Text = "Переместить";
             this.MoveModeButton.UseVisualStyleBackColor = true;
             this.MoveModeButton.Click += new System.EventHandler(this.OnMoveModeButtonClick);
@@ -317,7 +332,7 @@ namespace VectorDrawing
             this.ClientSize = new System.Drawing.Size(955, 572);
             this.Controls.Add(this.MoveModeButton);
             this.Controls.Add(this.Clear);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.anglesForPolygonGroupBox);
             this.Controls.Add(this.colorFrontButton);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.thickness);
@@ -340,8 +355,8 @@ namespace VectorDrawing
             this.Load += new System.EventHandler(this.OnVectorDrawingFormLoad);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.thickness)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.anglesForPolygonGroupBox.ResumeLayout(false);
+            this.anglesForPolygonGroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CornerNumericUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -371,7 +386,7 @@ namespace VectorDrawing
         private System.Windows.Forms.NumericUpDown CornerNumericUpDown;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button Clear;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox anglesForPolygonGroupBox;
         private System.Windows.Forms.Button MoveModeButton;
     }
 }

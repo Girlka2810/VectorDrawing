@@ -41,7 +41,7 @@ namespace VectorDrawing
 
         private void SetTool()
         {
-            groupBox1.Visible = false;
+            anglesForPolygonGroupBox.Visible = false;
             switch (_toolName)
             {
                 case Enums.ToolsName.Line:
@@ -78,7 +78,7 @@ namespace VectorDrawing
                     _tool = null;
                     break;
                 case Enums.ToolsName.RegularPolygon:
-                    groupBox1.Visible = true;
+                    anglesForPolygonGroupBox.Visible = true;
                     _tool = new RegularPolygonTool(_pen, Convert.ToInt32(CornerNumericUpDown.Value));
                     break;
             }
@@ -157,6 +157,7 @@ namespace VectorDrawing
         private void OnLineButtonClick(object sender, EventArgs e)
         {
             _toolName = Enums.ToolsName.Line;
+            pictureBox.Focus();
             SetTool();
         }
         
