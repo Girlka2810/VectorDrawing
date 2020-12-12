@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
-using VectorDrawing.Canvases;
 using VectorDrawing.Tools;
-using VectorDrawing.Tools.Brushes;
 
 namespace VectorDrawing
 {
@@ -11,10 +9,9 @@ namespace VectorDrawing
     {
 
         private AbstractTool _tool;
-        private string _toolName;
+        private Enums.ToolsName _toolName;
         private Pen _pen;
         private Canvases.ICanvas _canvas;
-        private bool _isMouseDown = false;
 
 
         public VectorDrawingForm()
@@ -42,40 +39,40 @@ namespace VectorDrawing
             groupBox1.Visible = false;
             switch (_toolName)
             {
-                case "Line":
+                case Enums.ToolsName.Line:
                     _tool = new LineTool(_pen);
                     break;
-                case "Brush":
-                    _tool = new BasicBrush(_pen);
-                    break;
-                case "Nline":
-                    _tool = new NLineTool(_pen);
-                    break;
-                case "Rectangle":
-                    _tool = new RectangleTool(_pen);
-                    break;
-                case "Square":
-                    _tool = new SquareTool(_pen);
-                    break;
-                case "Circle":
-                    _tool = new CircleTool(_pen);
-                    break;
-                case "Ellipse":
-                    _tool = new EllipseTool(_pen);
-                    break;
-                case "Rectangular":
-                    _tool = new RectangularTriangleTool(_pen);
-                    break;
-                case "Triangle":
-                    _tool = new TriangleTool(_pen);
-                    break;
-                case "IsoscelesTriangle":
-                    _tool = new IsoscelesTriangleTool(_pen);
-                    break;
-                case "Polygon":
+                case Enums.ToolsName.Brush:
                     _tool = null;
                     break;
-                case "RegularPolygon":
+                case Enums.ToolsName.Nline:
+                    _tool = new NLineTool(_pen);
+                    break;
+                case Enums.ToolsName.Rectangle:
+                    _tool = new RectangleTool(_pen);
+                    break;
+                case Enums.ToolsName.Square:
+                    _tool = new SquareTool(_pen);
+                    break;
+                case Enums.ToolsName.Circle:
+                    _tool = new CircleTool(_pen);
+                    break;
+                case Enums.ToolsName.Ellipse:
+                    _tool = new EllipseTool(_pen);
+                    break;
+                case Enums.ToolsName.Rectangular:
+                    _tool = new RectangularTriangleTool(_pen);
+                    break;
+                case Enums.ToolsName.Triangle:
+                    _tool = new TriangleTool(_pen);
+                    break;
+                case Enums.ToolsName.IsoscelesTriangle:
+                    _tool = new IsoscelesTriangleTool(_pen);
+                    break;
+                case Enums.ToolsName.Polygon:
+                    _tool = null;
+                    break;
+                case Enums.ToolsName.RegularPolygon:
                     groupBox1.Visible = true;
                     _tool = new RegularPolygonTool(_pen, Convert.ToInt32(CornerNumericUpDown.Value));
                     break;
@@ -91,40 +88,40 @@ namespace VectorDrawing
             switch (name)
             {
                 case "LineButton":
-                    _toolName = "Line";
+                    _toolName = Enums.ToolsName.Line;
                     break;
                 case "BrushButton":
-                    _toolName = "Brush";
+                    _toolName = Enums.ToolsName.Brush;
                     break;
                 case "NlineButton":
-                    _toolName = "Nline";
+                    _toolName = Enums.ToolsName.Nline;
                     break;
                 case "RectangleButton":
-                    _toolName = "Rectangle";
+                    _toolName = Enums.ToolsName.Rectangle;
                     break;
                 case "SquareButton":
-                    _toolName = "Square";
+                    _toolName = Enums.ToolsName.Square;
                     break;
                 case "CircleButton":
-                    _toolName = "Circle";
+                    _toolName = Enums.ToolsName.Circle;
                     break;
                 case "EllipseButton":
-                    _toolName = "Ellipse";
+                    _toolName = Enums.ToolsName.Ellipse;
                     break;
                 case "RectangularTriangleButton":
-                    _toolName = "Rectangular";
+                    _toolName = Enums.ToolsName.Rectangular;
                     break;
                 case "TriangleButton":
-                    _toolName = "Triangle";
+                    _toolName = Enums.ToolsName.Triangle;
                     break;
                 case "IsoscelesTriangleButton":
-                    _toolName = "IsoscelesTriangle";
+                    _toolName = Enums.ToolsName.IsoscelesTriangle;
                     break;
                 case "PolygonButton":
-                    _toolName = "Polygon";
+                    _toolName = Enums.ToolsName.Polygon;
                     break;
                 case "RegularPolygonButton":
-                    _toolName = "RegularPolygon";
+                    _toolName = Enums.ToolsName.RegularPolygon;
                     break;
                 default:
                     _tool = null;
@@ -137,13 +134,6 @@ namespace VectorDrawing
         private void OnPictureBoxMouseMove(object sender, MouseEventArgs e)
         {
             if (_tool == null) return;
-            if (_tool is IBrush && _isMouseDown)
-            {
-                _tool.AddPoint(e.Location);
-                _canvas.Draw(_tool);
-                return; 
-            }
-            
             if (!_tool.CheckPointsExist()) return;
             _tool.TemporaryPoint = e.Location;
             _canvas.Draw(_tool);
@@ -152,7 +142,6 @@ namespace VectorDrawing
 
         private void OnPictureBoxMouseDown(object sender, MouseEventArgs e)
         {
-            _isMouseDown = true;
             _tool?.AddPoint(e.Location);
 
             if(_tool!=null && _tool.CheckMaxQuantityPoints())
@@ -194,14 +183,5 @@ namespace VectorDrawing
             _canvas.Create(pictureBox.Width, pictureBox.Height);
         }
 
-        private void OnPictureBoxMouseUp(object sender, MouseEventArgs e)
-        {
-            _isMouseDown = false;
-            if (_tool is IBrush)
-            {
-                _canvas.FinishFigure();
-                SetTool();
-            }
-        }
     }
 }
