@@ -68,7 +68,7 @@ namespace VectorDrawing
             this.BrushButton.Text = "Кисть";
             this.BrushButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BrushButton.UseVisualStyleBackColor = true;
-            this.BrushButton.Click += new System.EventHandler(this.OnSelectToolButtonsClick);
+            this.BrushButton.Click += new System.EventHandler(this.OnBrushButtonClick);
             // 
             // LineButton
             // 
@@ -79,7 +79,7 @@ namespace VectorDrawing
             this.LineButton.Text = "Линия";
             this.LineButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.LineButton.UseVisualStyleBackColor = true;
-            this.LineButton.Click += new System.EventHandler(this.OnSelectToolButtonsClick);
+            this.LineButton.Click += new System.EventHandler(this.OnLineButtonClick);
             // 
             // NlineButton
             // 
@@ -90,7 +90,7 @@ namespace VectorDrawing
             this.NlineButton.Text = "Кривая линия";
             this.NlineButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.NlineButton.UseVisualStyleBackColor = true;
-            this.NlineButton.Click += new System.EventHandler(this.OnSelectToolButtonsClick);
+            this.NlineButton.Click += new System.EventHandler(this.OnNlineButtonClick);
             // 
             // RectangleButton
             // 
@@ -101,7 +101,7 @@ namespace VectorDrawing
             this.RectangleButton.Text = "Прямоугольник";
             this.RectangleButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.RectangleButton.UseVisualStyleBackColor = true;
-            this.RectangleButton.Click += new System.EventHandler(this.OnSelectToolButtonsClick);
+            this.RectangleButton.Click += new System.EventHandler(this.OnRectangleButtonClick);
             // 
             // SquareButton
             // 
@@ -112,7 +112,7 @@ namespace VectorDrawing
             this.SquareButton.Text = "Квадрат";
             this.SquareButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.SquareButton.UseVisualStyleBackColor = true;
-            this.SquareButton.Click += new System.EventHandler(this.OnSelectToolButtonsClick);
+            this.SquareButton.Click += new System.EventHandler(this.OnSquareButtonClick);
             // 
             // CircleButton
             // 
@@ -123,7 +123,7 @@ namespace VectorDrawing
             this.CircleButton.Text = "Круг";
             this.CircleButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.CircleButton.UseVisualStyleBackColor = true;
-            this.CircleButton.Click += new System.EventHandler(this.OnSelectToolButtonsClick);
+            this.CircleButton.Click += new System.EventHandler(this.OnCircleButtonClick);
             // 
             // EllipseButton
             // 
@@ -134,7 +134,7 @@ namespace VectorDrawing
             this.EllipseButton.Text = "Эллипс";
             this.EllipseButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.EllipseButton.UseVisualStyleBackColor = true;
-            this.EllipseButton.Click += new System.EventHandler(this.OnSelectToolButtonsClick);
+            this.EllipseButton.Click += new System.EventHandler(this.OnEllipseButtonClick);
             // 
             // RectangularTriangleButton
             // 
@@ -145,7 +145,7 @@ namespace VectorDrawing
             this.RectangularTriangleButton.Text = "Прямоугольный треугольник";
             this.RectangularTriangleButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.RectangularTriangleButton.UseVisualStyleBackColor = true;
-            this.RectangularTriangleButton.Click += new System.EventHandler(this.OnSelectToolButtonsClick);
+            this.RectangularTriangleButton.Click += new System.EventHandler(this.OnRectangularTriangleButtonClick);
             // 
             // TriangleButton
             // 
@@ -156,7 +156,7 @@ namespace VectorDrawing
             this.TriangleButton.Text = "Треугольник";
             this.TriangleButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.TriangleButton.UseVisualStyleBackColor = true;
-            this.TriangleButton.Click += new System.EventHandler(this.OnSelectToolButtonsClick);
+            this.TriangleButton.Click += new System.EventHandler(this.OnTriangleButtonClick);
             // 
             // IsoscelesTriangleButton
             // 
@@ -167,7 +167,7 @@ namespace VectorDrawing
             this.IsoscelesTriangleButton.Text = "Равнобедренный трегольник";
             this.IsoscelesTriangleButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.IsoscelesTriangleButton.UseVisualStyleBackColor = true;
-            this.IsoscelesTriangleButton.Click += new System.EventHandler(this.OnSelectToolButtonsClick);
+            this.IsoscelesTriangleButton.Click += new System.EventHandler(this.OnIsoscelesTriangleButtonClick);
             // 
             // PolygonButton
             // 
@@ -178,7 +178,7 @@ namespace VectorDrawing
             this.PolygonButton.Text = "Многоугольник";
             this.PolygonButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.PolygonButton.UseVisualStyleBackColor = true;
-            this.PolygonButton.Click += new System.EventHandler(this.OnSelectToolButtonsClick);
+            this.PolygonButton.Click += new System.EventHandler(this.OnPolygonButtonClick);
             // 
             // RegularPolygonButton
             // 
@@ -189,7 +189,7 @@ namespace VectorDrawing
             this.RegularPolygonButton.Text = "Правильный многоугольник";
             this.RegularPolygonButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.RegularPolygonButton.UseVisualStyleBackColor = true;
-            this.RegularPolygonButton.Click += new System.EventHandler(this.OnSelectToolButtonsClick);
+            this.RegularPolygonButton.Click += new System.EventHandler(this.OnRegularPolygonButtonClick);
             // 
             // ToolsLabel
             // 
@@ -279,7 +279,7 @@ namespace VectorDrawing
             0,
             0,
             0});
-            this.CornerNumericUpDown.ValueChanged += new System.EventHandler(this.CornerNumericUpDown_ValueChanged);
+            this.CornerNumericUpDown.ValueChanged += new System.EventHandler(this.OnCornersNumericUpDownValueChanged);
             // 
             // label2
             // 
@@ -298,7 +298,7 @@ namespace VectorDrawing
             this.Clear.TabIndex = 17;
             this.Clear.Text = "Очистить";
             this.Clear.UseVisualStyleBackColor = true;
-            this.Clear.Click += new System.EventHandler(this.Clear_Click);
+            this.Clear.Click += new System.EventHandler(this.OnClearClick);
             // 
             // MoveModeButton
             // 
@@ -308,7 +308,7 @@ namespace VectorDrawing
             this.MoveModeButton.TabIndex = 18;
             this.MoveModeButton.Text = "Переместить";
             this.MoveModeButton.UseVisualStyleBackColor = true;
-            this.MoveModeButton.Click += new System.EventHandler(this.MoveModeButton_Click);
+            this.MoveModeButton.Click += new System.EventHandler(this.OnMoveModeButtonClick);
             // 
             // VectorDrawingForm
             // 

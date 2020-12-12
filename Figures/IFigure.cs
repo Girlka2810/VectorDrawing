@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Drawing;
+using VectorDrawing.Figures.Parameters;
+using VectorDrawing.Figures.Returns;
 
 namespace VectorDrawing.Figures
 {
@@ -12,7 +9,7 @@ namespace VectorDrawing.Figures
     /// </summary>
     interface IFigure
     {
-        PointF[] GetPoints(FigureParameter parameter);
+        FigureReturn Get(FigureParameter parameter);
 
     }
 

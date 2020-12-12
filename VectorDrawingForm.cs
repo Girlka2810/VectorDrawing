@@ -4,6 +4,8 @@ using System.Windows.Forms;
 using VectorDrawing.Canvases;
 using VectorDrawing.Tools;
 using VectorDrawing.Tools.Brushes;
+using VectorDrawing.Tools.Ellipse;
+using VectorDrawing.Tools.Polygons;
 
 namespace VectorDrawing
 {
@@ -13,7 +15,7 @@ namespace VectorDrawing
         private AbstractTool _tool;
         private Enums.ToolsName _toolName;
         private Pen _pen;
-        private Canvases.ICanvas _canvas;
+        private ICanvas _canvas;
         private bool _isMouseDown = false;
 
 
@@ -84,56 +86,6 @@ namespace VectorDrawing
             
         }
 
-
-        private void OnSelectToolButtonsClick(object sender, EventArgs e)
-        {
-            string name = ((Button)sender).Name;
-            switch (name)
-            {
-                case "LineButton":
-                    _toolName = Enums.ToolsName.Line;
-                    break;
-                case "BrushButton":
-                    _toolName = Enums.ToolsName.Brush;
-                    break;
-                case "NlineButton":
-                    _toolName = Enums.ToolsName.Nline;
-                    break;
-                case "RectangleButton":
-                    _toolName = Enums.ToolsName.Rectangle;
-                    break;
-                case "SquareButton":
-                    _toolName = Enums.ToolsName.Square;
-                    break;
-                case "CircleButton":
-                    _toolName = Enums.ToolsName.Circle;
-                    break;
-                case "EllipseButton":
-                    _toolName = Enums.ToolsName.Ellipse;
-                    break;
-                case "RectangularTriangleButton":
-                    _toolName = Enums.ToolsName.Rectangular;
-                    break;
-                case "TriangleButton":
-                    _toolName = Enums.ToolsName.Triangle;
-                    break;
-                case "IsoscelesTriangleButton":
-                    _toolName = Enums.ToolsName.IsoscelesTriangle;
-                    break;
-                case "PolygonButton":
-                    _toolName = Enums.ToolsName.Polygon;
-                    break;
-                case "RegularPolygonButton":
-                    _toolName = Enums.ToolsName.RegularPolygon;
-                    break;
-                default:
-                    _tool = null;
-                    break;
-                    
-            }
-            SetTool();
-        }
-
         private void OnPictureBoxMouseMove(object sender, MouseEventArgs e)
         {
             if (_tool == null) return;
@@ -183,13 +135,13 @@ namespace VectorDrawing
             }
         }
 
-        private void CornerNumericUpDown_ValueChanged(object sender, EventArgs e)
+        private void OnCornersNumericUpDownValueChanged(object sender, EventArgs e)
         {
             RegularPolygonTool regularPolygonTool = (RegularPolygonTool)_tool;
             regularPolygonTool.QuantityOfCorners = (int)((NumericUpDown)sender).Value;
         }
 
-        private void Clear_Click(object sender, EventArgs e)
+        private void OnClearClick(object sender, EventArgs e)
         {
             _canvas.Clear(pictureBox.Width, pictureBox.Height);
         }
@@ -203,9 +155,82 @@ namespace VectorDrawing
                 SetTool();
             }
         }
-        private void MoveModeButton_Click(object sender, EventArgs e)
+        private void OnMoveModeButtonClick(object sender, EventArgs e)
         {
 
         }
+        
+        private void OnLineButtonClick(object sender, EventArgs e)
+        {
+            _toolName = Enums.ToolsName.Line;
+            SetTool();
+        }
+        
+        private void OnBrushButtonClick(object sender, EventArgs e)
+        {
+            _toolName = Enums.ToolsName.Brush;
+            SetTool();
+        }
+        
+        private void OnNlineButtonClick(object sender, EventArgs e)
+        {
+            _toolName = Enums.ToolsName.Nline;
+            SetTool();
+        }
+        
+        private void OnRectangleButtonClick(object sender, EventArgs e)
+        {
+            _toolName = Enums.ToolsName.Rectangle;
+            SetTool();
+        }
+        
+        private void OnSquareButtonClick(object sender, EventArgs e)
+        {
+            _toolName = Enums.ToolsName.Square;
+            SetTool();
+        }
+        
+        private void OnCircleButtonClick(object sender, EventArgs e)
+        {
+            _toolName = Enums.ToolsName.Circle;
+            SetTool();
+        }
+        
+        private void OnEllipseButtonClick(object sender, EventArgs e)
+        {
+            _toolName = Enums.ToolsName.Ellipse;
+            SetTool();
+        }
+        
+        private void OnRectangularTriangleButtonClick(object sender, EventArgs e)
+        {
+            _toolName = Enums.ToolsName.Rectangular;
+            SetTool();
+        }
+        
+        private void OnTriangleButtonClick(object sender, EventArgs e)
+        {
+            _toolName = Enums.ToolsName.Triangle;
+            SetTool();
+        }
+        
+        private void OnIsoscelesTriangleButtonClick(object sender, EventArgs e)
+        {
+            _toolName = Enums.ToolsName.IsoscelesTriangle;
+            SetTool();
+        }
+        
+        private void OnPolygonButtonClick(object sender, EventArgs e)
+        {
+            _toolName = Enums.ToolsName.Polygon;
+            SetTool();
+        }
+        
+        private void OnRegularPolygonButtonClick(object sender, EventArgs e)
+        {
+            _toolName = Enums.ToolsName.RegularPolygon;
+            SetTool();
+        }
+        
     }
 }

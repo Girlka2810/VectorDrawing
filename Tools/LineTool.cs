@@ -1,13 +1,21 @@
-﻿using System.Drawing;
+﻿using System.Collections.Generic;
+using System.Drawing;
+using VectorDrawing.Figures.Parameters;
+using VectorDrawing.Figures.Returns;
 
 
 namespace VectorDrawing.Tools
 {
-    class LineTool : AbstractTool
+    public class LineTool : AbstractTool
     {
 
         public override int MaxCount => 2;
 
+        public LineTool(List<PointF> points, Pen pen) : base(points, pen)
+        {
+
+        }
+        
         public LineTool(Pen pen) : base(pen)
         {
 
@@ -18,12 +26,12 @@ namespace VectorDrawing.Tools
         public override void Paint(Graphics graphics)
         {
             Figures.LineFigure line = new Figures.LineFigure();
-            Figures.FigureParameter figureParameter = new Figures.FigureParameter
+            CommonParameter figureParameter = new CommonParameter
             {
-                Points = this.Points.ToArray(),
-                TemporaryPoint = this.TemporaryPoint
+                Points = Points.ToArray(),
+                TemporaryPoint = TemporaryPoint
             };
-            graphics.DrawLines(Pen, line.GetPoints(figureParameter));
+            graphics.DrawLines(Pen, ((CommonReturn)line.Get(figureParameter)).Points);
         }
     }
 }

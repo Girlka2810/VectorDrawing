@@ -4,27 +4,51 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using VectorDrawing.Figures.Parameters;
+using VectorDrawing.Figures.Returns;
 
 namespace VectorDrawing.Figures
 {
     public class RectangleFigure : IFigure
     {
-        public PointF[] GetPoints(FigureParameter parameter)
+
+
+        public FigureReturn Get(FigureParameter parameter)
         {
-            if(parameter.TemporaryPoint != null && parameter.Points.Length == 1)
+            if (parameter is CommonParameter figureParameter)
             {
-                return new PointF[] { parameter.Points[0], new PointF(parameter.Points[0].X, parameter.TemporaryPoint.Y), parameter.TemporaryPoint, new PointF(parameter.TemporaryPoint.X, parameter.Points[0].Y) };
+                if (figureParameter.Points.Length == 1)
+                {
+                    return new CommonReturn()
+                    {
+                        Points = new PointF[]
+                        {
+                            figureParameter.Points[0],
+                            new PointF(figureParameter.Points[0].X,
+                                figureParameter.TemporaryPoint.Y),
+                            figureParameter.TemporaryPoint,
+                            new PointF(parameter.TemporaryPoint.X,
+                                figureParameter.Points[0].Y)
+                        }
+                    };
+                }
+                else if (figureParameter.Points.Length == 2)
+                {
+                    return new CommonReturn()
+                    {
+                        Points = new PointF[]
+                        {
+                            figureParameter.Points[0],
+                            new PointF(figureParameter.Points[0].X,
+                                figureParameter.Points[1].Y),
+                            figureParameter.Points[1],
+                            new PointF(figureParameter.Points[1].X,
+                                figureParameter.Points[0].Y)
+                        }
+                    };
+                }
             }
-            else if(parameter.Points.Length == 2)
-            {
-                return new PointF[] { parameter.Points[0], new PointF(parameter.Points[0].X, parameter.Points[1].Y), parameter.Points[1], new PointF(parameter.Points[1].X, parameter.Points[0].Y) };
-            }
-            else
-            {
-                throw new NullReferenceException("Points can't be null!");
-            }
-            
-           
+            throw new NullReferenceException("Points can't be null!");
         }
     }
 }

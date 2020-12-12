@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 using VectorDrawing.Tools;
 
 namespace VectorDrawing.Canvases
 {
-    class BitmapCanvas : ICanvas
+    public class BitmapCanvas : ICanvas
     {
         private Bitmap _mainBitmap;
         private Bitmap _tmpBitmap;
@@ -13,7 +14,20 @@ namespace VectorDrawing.Canvases
         private Dictionary<string, AbstractTool> _tools;
         private Color _backColor;
 
-
+        public BitmapCanvas()
+        {
+            
+        }
+        
+        public BitmapCanvas(AbstractTool[] tools)
+        {
+            _tools = new Dictionary<string, AbstractTool>();
+            for (int i = 0; i < tools.Length; i++)
+            {
+                _tools.Add(tools[i].ID, tools[i]);
+            }
+        }
+        
         public void Create(int width, int height)
         {
             Create(width, height, Color.White);
@@ -64,28 +78,39 @@ namespace VectorDrawing.Canvases
         {
             _mainBitmap = _tmpBitmap;
         }
-
-        private void AddBuffer(AbstractTool tool)
-        {
-
-            bool isFind = false;
-            foreach (var t in _tools)
-            {
-                if (t.Key == tool.ID)
-                {
-                    isFind = true;
-                }
-            }
-
-            if (!isFind)
-            {
-                _tools.Add(tool.ID,tool);
-            }
-        }
+        
         public void Clear(int width, int height)
         {
             _tmpBitmap = new Bitmap(width, height);
             _mainBitmap = _tmpBitmap;
         }
+
+        public override bool Equals(object obj)
+        {
+            if (obj is BitmapCanvas canvas)
+            {
+                if (canvas._tools.Count == _tools.Count)
+                {
+                    foreach (var value in _tools)
+                    {
+                        if (!canvas._tools.ContainsKey(value.Key))
+                        {
+                            return false;
+                        }
+                    }
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        private void AddBuffer(AbstractTool tool)
+        {
+            if (!_tools.ContainsKey(tool.ID))
+            {
+                _tools.Add(tool.ID,tool);
+            }
+        }
+        
     }
 }

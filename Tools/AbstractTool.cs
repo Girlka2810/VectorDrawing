@@ -18,7 +18,13 @@ namespace VectorDrawing.Tools
         protected Pen Pen;
         
 
-
+        public AbstractTool(List<PointF> points, Pen pen)
+        {
+            ID = Guid.NewGuid().ToString(); 
+            Points = points;
+            SetPen(pen);
+        }
+        
         protected AbstractTool(Pen pen)
         {
             ID = Guid.NewGuid().ToString(); 
@@ -27,11 +33,7 @@ namespace VectorDrawing.Tools
         }
 
         public abstract void Paint(Graphics graphics);
-
-        public void ClearPoints()
-        {
-            Points = new List<PointF> { };
-        }
+        
 
         public virtual void AddPoint(PointF point)
         {
@@ -72,6 +74,23 @@ namespace VectorDrawing.Tools
             {
                 return true;
             }
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (obj is AbstractTool tool)
+            {
+                if (tool.Points.Count == Points.Count)
+                {
+                    if (!Points.Equals(tool.Points) 
+                        && TemporaryPoint!=tool.TemporaryPoint
+                        && !Pen.Equals(tool.Pen))
+                    {
+                        return false;
+                    }
+                }
+            }
+            return false;
         }
 
         protected void SetPen(Pen pen)
