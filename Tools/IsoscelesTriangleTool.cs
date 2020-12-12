@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using VectorDrawing.Figures;
 using VectorDrawing.Figures.Parameters;
@@ -15,7 +16,11 @@ namespace VectorDrawing.Tools
         
         public IsoscelesTriangleTool(List<PointF> points, Pen pen) : base(points, pen)
         {
-
+            if (points.Count > 2)
+            {
+                throw new IndexOutOfRangeException();
+            }
+            
         }
 
         

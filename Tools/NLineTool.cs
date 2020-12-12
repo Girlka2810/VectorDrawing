@@ -19,7 +19,7 @@ namespace VectorDrawing.Tools
         
         public NLineTool(List<PointF> points, Pen pen) : base(points, pen)
         {
-
+        
         }
         
         public override void Paint(Graphics graphics)
