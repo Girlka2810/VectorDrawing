@@ -13,8 +13,8 @@ namespace VectorDrawin.Tests.FiguresTests
 {
     class RegularPolygonFigureTests
     {
-        [Test, TestCaseSource(typeof(GetPointMock))]
-        public void RegularPolygonFigureTest(int num_of_corners, PointF center, PointF crnt, PointF[] points)
+        [Test, TestCaseSource(typeof(GetPointOfIsoscelesTriangleFigureMock))]
+        public void RegularPolygonFigureTest(int num_of_corners, Point center, Point crnt, PointF[] points)
         {
             RegularPolygonFigure regularPolygonFigure = new RegularPolygonFigure();
             RegularPolygonParameter regularPolygonParameter = new RegularPolygonParameter
@@ -28,16 +28,16 @@ namespace VectorDrawin.Tests.FiguresTests
             Assert.AreEqual(expected, actual);
         }
     }
-    class GetPointMock : IEnumerable
+    class GetPointOfRegularPolygonMock : IEnumerable
     {
-         public IEnumerator GetEnumerator()
+        public IEnumerator GetEnumerator()
         {
-            yield return new object[] { 3, new PointF(10, 10), new PointF(20, 20), new PointF[] { new PointF(10, 0),
-            new Point(1, 15), new PointF(18, 14)} };
-            yield return new object[] {4, new PointF(10, 10), new PointF(20, 20), new PointF[] { new PointF(10, 0), new PointF(20, 10),
-            new PointF(10,20), new PointF(0, 10)} };
-            yield return new object[] {5, new PointF(10, 10), new PointF(20, 20), new PointF[] { new PointF(10, 0), new PointF(19, 6),
-            new PointF(15, 18), new PointF(4, 18), new PointF(0, 6) } };
+            yield return new object[] { 3, new Point(10, 10), new Point(20, 20), new Point[] { new Point(10, 0),
+            new Point(18, 14), new Point(1, 15) } };
+            yield return new object[] {4, new Point(10, 10), new Point(20, 20), new Point[] { new Point(10, 0), new Point(20, 10),
+            new Point(10,20), new Point(0, 10)} };
+            yield return new object[] {5, new Point(10, 10), new Point(20, 20), new Point[] { new Point(10, 0), new Point(19, 6),
+            new Point(15, 18), new Point(4, 18), new Point(0, 6) } };
         }
     }
 }
