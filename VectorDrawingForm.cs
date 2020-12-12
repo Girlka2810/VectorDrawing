@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 using VectorDrawing.Tools;
+using VectorDrawing.Tools.Brushes;
 
 namespace VectorDrawing
 {
@@ -12,6 +13,7 @@ namespace VectorDrawing
         private Enums.ToolsName _toolName;
         private Pen _pen;
         private Canvases.ICanvas _canvas;
+        private bool _mouseDown = false;
 
 
         public VectorDrawingForm()
@@ -43,7 +45,7 @@ namespace VectorDrawing
                     _tool = new LineTool(_pen);
                     break;
                 case Enums.ToolsName.Brush:
-                    _tool = null;
+                    _tool = new BasicBrush(_pen);
                     break;
                 case Enums.ToolsName.Nline:
                     _tool = new NLineTool(_pen);
@@ -134,6 +136,12 @@ namespace VectorDrawing
         private void OnPictureBoxMouseMove(object sender, MouseEventArgs e)
         {
             if (_tool == null) return;
+            if (_tool is IBrush && _mouseDown)
+            {
+                _tool.AddPoint(e.Location);
+                _canvas.Draw(_tool);
+                return;
+            }
             if (!_tool.CheckPointsExist()) return;
             _tool.TemporaryPoint = e.Location;
             _canvas.Draw(_tool);
@@ -143,7 +151,7 @@ namespace VectorDrawing
         private void OnPictureBoxMouseDown(object sender, MouseEventArgs e)
         {
             _tool?.AddPoint(e.Location);
-
+            _mouseDown = true;
             if(_tool!=null && _tool.CheckMaxQuantityPoints())
             {
                 _canvas.Draw(_tool);
@@ -185,7 +193,12 @@ namespace VectorDrawing
 
         private void MoveModeButton_Click(object sender, EventArgs e)
         {
+            
+        }
 
+        private void OnPictureBoxMouseUp(object sender, MouseEventArgs e)
+        {
+            _mouseDown = false;
         }
     }
 }
