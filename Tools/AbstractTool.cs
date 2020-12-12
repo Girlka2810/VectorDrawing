@@ -6,9 +6,6 @@ using System.Drawing;
 namespace VectorDrawing.Tools
 {
 
-    /// <summary>
-    /// ЗДЕСЬ ОТРИСОВКА!!!!!!!!!!!!!!!!!!!!!!!!!!
-    /// </summary>
     public abstract class AbstractTool
     {
         public string ID { get; protected set; }
