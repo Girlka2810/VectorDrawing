@@ -274,6 +274,7 @@ namespace VectorDrawing
             this.anglesForPolygonGroupBox.TabIndex = 16;
             this.anglesForPolygonGroupBox.TabStop = false;
             this.anglesForPolygonGroupBox.Text = "Многоугольник";
+            this.anglesForPolygonGroupBox.Visible = false;
             // 
             // CornerNumericUpDown
             // 
