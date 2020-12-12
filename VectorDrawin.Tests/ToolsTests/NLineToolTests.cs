@@ -1,23 +1,22 @@
-﻿using System;
-using System.Collections;
+﻿using NUnit.Framework;
+using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using NUnit.Framework;
 using VectorDrawing.Tools;
-using System.Drawing;
 
 namespace VectorDrawin.Tests.ToolsTests
 {
-    public class LineToolTests
+    class NLineToolTests
     {
         [Test, TestCaseSource(typeof(GetPointsMock))]
-        public void LineToolTest(List<PointF> points)
+        public void NLineToolTest(List<PointF> points)
         {
             Pen pen = new Pen(Color.BlueViolet);
-            LineTool actual = new LineTool(pen);
-            LineTool expected = new LineTool(points, pen);
+            NLineTool actual = new NLineTool(pen);
+            NLineTool expected = new NLineTool(points, pen);
             for (int i = 0; i < points.Count; i++)
             {
                 actual.AddPoint(points[i]);
@@ -25,6 +24,4 @@ namespace VectorDrawin.Tests.ToolsTests
             Assert.AreEqual(expected, actual);
         }
     }
-
-   
 }
