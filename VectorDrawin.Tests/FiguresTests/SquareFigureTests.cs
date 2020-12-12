@@ -21,16 +21,16 @@ namespace VectorDrawin.Tests.FiguresTests
         {
             SquareFigure square = new SquareFigure();
             PointF[] actual = square.GetPoints(ActualParameterMock(case_of_array));
-            PointF[] expected = ExpectedPointsMock(case_of_expected_arr);
+            PointF[] expected = ExpectedPointsOfSquareFigureMock(case_of_expected_arr);
             Assert.AreEqual(expected, actual);
         }
         public FigureParameter ActualParameterMock(int a)
         {
             FigureParameter figureParameter;
-            figureParameter = new FigureParameter { Points = StartPointMock(a), TemporaryPoint = CrntPointMock(a)};
+            figureParameter = new FigureParameter { Points = StartPointOfSquareFigureMock(a), TemporaryPoint = CrntPointOfSquareFigureMock(a)};
             return figureParameter;
         }
-        public PointF[] ExpectedPointsMock(int a)
+        public PointF[] ExpectedPointsOfSquareFigureMock(int a)
         {
             PointF[] points;
             switch (a)
@@ -54,7 +54,7 @@ namespace VectorDrawin.Tests.FiguresTests
                     throw new ArgumentOutOfRangeException();
             }
         }
-        public PointF[] StartPointMock(int a)
+        public PointF[] StartPointOfSquareFigureMock(int a)
         {
             PointF[] points;
             switch(a)
@@ -78,7 +78,7 @@ namespace VectorDrawin.Tests.FiguresTests
                     throw new ArgumentOutOfRangeException();
             }
         }
-        public PointF CrntPointMock(int a)
+        public PointF CrntPointOfSquareFigureMock(int a)
         {
             PointF point;
             switch(a)

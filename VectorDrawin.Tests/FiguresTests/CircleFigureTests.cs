@@ -19,15 +19,15 @@ namespace VectorDrawin.Tests.FiguresTests
             CircleFigure circle = new CircleFigure();
             EllipseFigureParameter figureParameter = new EllipseFigureParameter
             {
-                Center = StartPointMock(case_of_params)[0],
-                TemporaryPoint = CrntPointMock(case_of_params)
+                Center = StartPointCircumscribedRectangleMock(case_of_params)[0],
+                TemporaryPoint = CrntPointCircumscribedRectangleMock(case_of_params)
             };
             RectangleF actual = circle.GetRectangle(figureParameter);
-            RectangleF expected = ExpectedRectangleMock(case_of_exp_rect);
+            RectangleF expected = ExpectedRectangleCircumscribedRectangleMock(case_of_exp_rect);
             Assert.AreEqual(expected, actual);
         }
 
-        public PointF CrntPointMock(int a)
+        public PointF CrntPointCircumscribedRectangleMock(int a)
         {
             PointF point;
             switch (a)
@@ -51,7 +51,7 @@ namespace VectorDrawin.Tests.FiguresTests
                     throw new ArgumentOutOfRangeException();
             }
         }
-        public PointF[] StartPointMock(int a)
+        public PointF[] StartPointCircumscribedRectangleMock(int a)
         {
             PointF[] points;
             switch (a)
@@ -75,7 +75,7 @@ namespace VectorDrawin.Tests.FiguresTests
                     throw new ArgumentOutOfRangeException();
             }
         }
-        public RectangleF ExpectedRectangleMock(int a)
+        public RectangleF ExpectedRectangleCircumscribedRectangleMock(int a)
         {
             RectangleF rectangle;
             switch (a)
