@@ -9,6 +9,16 @@ namespace VectorDrawing.Tools
         public PointF Center { get; private set; }
         public float Width { get; set; }
         public float Height { get; set; }
+
+
+        public AbsractEllipse(List<PointF> points, Pen pen) : base(pen)
+        {
+            for (int i = 0; i < points.Count; i++)
+            {
+                AddPoint(points[i]);
+            }
+            
+        }
         
         public AbsractEllipse(Pen pen) : base(pen)
         {

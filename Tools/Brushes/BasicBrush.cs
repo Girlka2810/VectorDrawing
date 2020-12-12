@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System.Collections.Generic;
+using System.Drawing;
 
 namespace VectorDrawing.Tools.Brushes
 {
@@ -6,6 +7,11 @@ namespace VectorDrawing.Tools.Brushes
     {
         public BasicBrush(Pen pen) : base(pen)
         {
+        }
+        
+        public BasicBrush(List<PointF> points, Pen pen) : base(points, pen)
+        {
+
         }
 
         public override int MaxCount { get; } = 0;

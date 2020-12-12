@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 using VectorDrawing.Tools;
 
 namespace VectorDrawing.Canvases
 {
-    class BitmapCanvas : ICanvas
+    public class BitmapCanvas : ICanvas
     {
         private Bitmap _mainBitmap;
         private Bitmap _tmpBitmap;
@@ -13,7 +14,20 @@ namespace VectorDrawing.Canvases
         private Dictionary<string, AbstractTool> _tools;
         private Color _backColor;
 
-
+        public BitmapCanvas()
+        {
+            
+        }
+        
+        public BitmapCanvas(AbstractTool[] tools)
+        {
+            _tools = new Dictionary<string, AbstractTool>();
+            for (int i = 0; i < tools.Length; i++)
+            {
+                _tools.Add(tools[i].ID, tools[i]);
+            }
+        }
+        
         public void Create(int width, int height)
         {
             Create(width, height, Color.White);
@@ -73,21 +87,17 @@ namespace VectorDrawing.Canvases
 
         public override bool Equals(object obj)
         {
-            if (obj is List<AbstractTool> tools)
+            if (obj is BitmapCanvas canvas)
             {
-                if (tools.Count == _tools.Count)
+                if (canvas._tools.Count == _tools.Count)
                 {
-                    foreach (var tool in tools)
+                    foreach (var value in _tools)
                     {
-                        foreach (var localTool in _tools)
+                        if (!canvas._tools.ContainsKey(value.Key))
                         {
-                            if (!tool.Equals(localTool.Value))
-                            {
-                                return false;
-                            }
+                            return false;
                         }
                     }
-
                     return true;
                 }
             }
@@ -96,17 +106,7 @@ namespace VectorDrawing.Canvases
 
         private void AddBuffer(AbstractTool tool)
         {
-
-            bool isFind = false;
-            foreach (var t in _tools)
-            {
-                if (t.Key == tool.ID)
-                {
-                    isFind = true;
-                }
-            }
-
-            if (!isFind)
+            if (!_tools.ContainsKey(tool.ID))
             {
                 _tools.Add(tool.ID,tool);
             }

@@ -4,18 +4,28 @@ using System.Drawing;
 
 namespace VectorDrawing.Tools.Polygons
 {
-    abstract class AbstractPolygonTool : AbstractTool
+    public abstract class AbstractPolygonTool : AbstractTool
     {
         public int QuantityOfCorners { get; set; }
         public PointF Center { get; set; }
         public override int MaxCount => 2;
-        protected AbstractPolygonTool(Pen pen, int num_of_corners): base(pen)
+        
+        
+        public AbstractPolygonTool(List<PointF> points, Pen pen) : base(pen)
+        {
+            for (int i = 0; i < points.Count; i++)
+            {
+                AddPoint(points[i]);
+            }
+        }
+        
+        protected AbstractPolygonTool(Pen pen, int numOfCorners): base(pen)
         {
             ID = Guid.NewGuid().ToString();
             Points = new List<PointF> { };
             SetPen(pen);
             PointF[] points = Points.ToArray();
-            QuantityOfCorners = num_of_corners;
+            QuantityOfCorners = numOfCorners;
         }
         public override void AddPoint(PointF point)
         {

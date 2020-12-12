@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System.Collections.Generic;
+using System.Drawing;
 using VectorDrawing.Figures;
 using VectorDrawing.Figures.Parameters;
 using VectorDrawing.Figures.Returns;
@@ -13,6 +14,10 @@ namespace VectorDrawing.Tools
         {
         }
 
+        public TriangleTool(List<PointF> points, Pen pen) : base(points, pen)
+        {
+
+        }
         
         public override void Paint(Graphics graphics)
         {
@@ -24,6 +29,8 @@ namespace VectorDrawing.Tools
             };
             graphics.DrawPolygon(Pen, ((CommonReturn)triangleFigure.Get(figureParameter)).Points);
         }
+        
+        
         
         public override void AddPoint(PointF point)
         {

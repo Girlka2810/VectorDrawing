@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System.Collections.Generic;
+using System.Drawing;
 using VectorDrawing.Figures;
 using VectorDrawing.Figures.Parameters;
 using VectorDrawing.Figures.Returns;
@@ -11,6 +12,11 @@ namespace VectorDrawing.Tools
         
         public RectangularTriangleTool(Pen pen) : base(pen)
         {
+        }
+        
+        public RectangularTriangleTool(List<PointF> points, Pen pen) : base(points, pen)
+        {
+
         }
         
         public override void Paint(Graphics graphics)

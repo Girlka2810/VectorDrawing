@@ -9,13 +9,19 @@ using VectorDrawing.Figures.Returns;
 
 namespace VectorDrawing.Tools
 {
-    class NLineTool : AbstractTool
+    public class NLineTool : AbstractTool
     {
         public override int MaxCount => 0;
 
         public NLineTool(Pen pen) : base(pen)
         {
         }
+        
+        public NLineTool(List<PointF> points, Pen pen) : base(points, pen)
+        {
+
+        }
+        
         public override void Paint(Graphics graphics)
         {
             Figures.NLineFigure NLine = new Figures.NLineFigure();

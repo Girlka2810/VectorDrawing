@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System.Collections.Generic;
+using System.Drawing;
 using VectorDrawing.Figures;
 using VectorDrawing.Figures.Parameters;
 using VectorDrawing.Figures.Returns;
@@ -13,7 +14,13 @@ namespace VectorDrawing.Tools.Ellipse
         {
 
         }
+        
+        public CircleTool(List<PointF> points, Pen pen) : base(points,pen)
+        {
 
+        }
+        
+        
         public override void Paint(Graphics graphics)
         {
             CircleFigure circle = new CircleFigure();

@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System.Collections.Generic;
+using System.Drawing;
 using VectorDrawing.Figures;
 using VectorDrawing.Figures.Parameters;
 using VectorDrawing.Figures.Returns;
@@ -10,6 +11,11 @@ namespace VectorDrawing.Tools.Ellipse
         public override int MaxCount => 2;
 
         public EllipseTool(Pen pen) : base(pen)
+        {
+
+        }
+        
+        public EllipseTool(List<PointF> points, Pen pen) : base(points,pen)
         {
 
         }

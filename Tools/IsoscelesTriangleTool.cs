@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System.Collections.Generic;
+using System.Drawing;
 using VectorDrawing.Figures;
 using VectorDrawing.Figures.Parameters;
 using VectorDrawing.Figures.Returns;
@@ -10,6 +11,11 @@ namespace VectorDrawing.Tools
         public override int MaxCount { get; } = 2; 
         public IsoscelesTriangleTool(Pen pen) : base(pen)
         {
+        }
+        
+        public IsoscelesTriangleTool(List<PointF> points, Pen pen) : base(points, pen)
+        {
+
         }
 
         

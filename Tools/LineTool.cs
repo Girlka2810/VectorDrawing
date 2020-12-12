@@ -1,15 +1,21 @@
-﻿using System.Drawing;
+﻿using System.Collections.Generic;
+using System.Drawing;
 using VectorDrawing.Figures.Parameters;
 using VectorDrawing.Figures.Returns;
 
 
 namespace VectorDrawing.Tools
 {
-    class LineTool : AbstractTool
+    public class LineTool : AbstractTool
     {
 
         public override int MaxCount => 2;
 
+        public LineTool(List<PointF> points, Pen pen) : base(points, pen)
+        {
+
+        }
+        
         public LineTool(Pen pen) : base(pen)
         {
 

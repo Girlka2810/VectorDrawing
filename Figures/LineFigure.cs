@@ -14,7 +14,7 @@ namespace VectorDrawing.Figures
                 {
                     return new CommonReturn()
                     {
-                        Points = new PointF[] { figureParameter.Points[0], figureParameter.TemporaryPoint }
+                        Points = new [] { figureParameter.Points[0], figureParameter.TemporaryPoint }
                     };
                 }
                 else if (figureParameter.Points.Length == 2)
@@ -22,7 +22,7 @@ namespace VectorDrawing.Figures
                     
                     return new CommonReturn()
                     {
-                        Points = new PointF[] { figureParameter.Points[0], figureParameter.Points[1] }
+                        Points = new [] { figureParameter.Points[0], figureParameter.Points[1] }
                     };
                 }
                 

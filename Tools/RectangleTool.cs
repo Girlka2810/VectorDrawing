@@ -9,11 +9,16 @@ using VectorDrawing.Figures.Returns;
 
 namespace VectorDrawing.Tools
 {
-    class RectangleTool : AbstractTool
+    public class RectangleTool : AbstractTool
     {
         public override int MaxCount => 2;
 
         public RectangleTool(Pen pen) : base(pen)
+        {
+
+        }
+        
+        public RectangleTool(List<PointF> points, Pen pen) : base(points, pen)
         {
 
         }

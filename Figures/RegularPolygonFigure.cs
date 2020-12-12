@@ -45,7 +45,9 @@ namespace VectorDrawing.Figures
                 a = b;
             }
             else
+            {
                 b = a;
+            }
         }
 
     }
