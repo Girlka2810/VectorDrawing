@@ -17,8 +17,8 @@ namespace VectorDrawin.Tests.FiguresTests
         [TestCase(4, 4)]
         public void GetPointsTests(int parametersNumber, int expectedNumber)
         {
-            PointF[] expected = ExpectedPointsMock(expectedNumber);
-            PointF[] actual = new NLineFigure().GetPoints(ActualParametrsMock(parametersNumber));
+            PointF[] expected = ExpectedPointsOfNLineMock(expectedNumber);
+            PointF[] actual = new NLineFigure().GetPoints(ActualParametrsOfNLineMock(parametersNumber));
             Assert.AreEqual(expected, actual);
         }
 
@@ -29,11 +29,11 @@ namespace VectorDrawin.Tests.FiguresTests
 
             Assert.Throws<NullReferenceException>(() =>
             {
-                PointF[] actual = new TriangleFigure().GetPoints(ActualParametrsMock(parametersNumber));
+                PointF[] actual = new TriangleFigure().GetPoints(ActualParametrsOfNLineMock(parametersNumber));
             });
         }
 
-        PointF[] ExpectedPointsMock(int n)
+        PointF[] ExpectedPointsOfNLineMock(int n)
         {
             switch (n)
             {
@@ -49,7 +49,7 @@ namespace VectorDrawin.Tests.FiguresTests
                     throw new NullReferenceException("No n in the list");
             }
         }
-        FigureParameter ActualParametrsMock(int n)
+        FigureParameter ActualParametrsOfNLineMock(int n)
         {
             switch (n)
             {

@@ -15,8 +15,8 @@ namespace VectorDrawin.Tests.FiguresTests
         [TestCase(4,2)]
         public void GetPointsTests(int parametersNumber, int expectedNumber)
         {
-            PointF[] expected = ExpectedPointsMock(expectedNumber);
-            PointF[] actual = new RectangularTriangleFigure().GetPoints(ActualParametrsMock(parametersNumber));
+            PointF[] expected = ExpectedPointsOfRectangularTriangleFigureMock(expectedNumber);
+            PointF[] actual = new RectangularTriangleFigure().GetPoints(ActualParametrsOfRectangularTriangleFigureMock(parametersNumber));
             Assert.AreEqual(expected,actual);
         }
         
@@ -27,12 +27,12 @@ namespace VectorDrawin.Tests.FiguresTests
 
             Assert.Throws<NullReferenceException>(() =>
             {
-                PointF[] actual = new RectangularTriangleFigure().GetPoints(ActualParametrsMock(parametersNumber));
+                PointF[] actual = new RectangularTriangleFigure().GetPoints(ActualParametrsOfRectangularTriangleFigureMock(parametersNumber));
             });
         }
         
         
-        PointF[] ExpectedPointsMock(int n)
+        PointF[] ExpectedPointsOfRectangularTriangleFigureMock(int n)
         {
             switch (n)
             {
@@ -45,7 +45,7 @@ namespace VectorDrawin.Tests.FiguresTests
             }
         }
         
-        FigureParameter ActualParametrsMock(int n)
+        FigureParameter ActualParametrsOfRectangularTriangleFigureMock(int n)
         {
             switch (n)
             {

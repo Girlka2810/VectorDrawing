@@ -13,7 +13,7 @@ namespace VectorDrawin.Tests.FiguresTests
 {
     class RegularPolygonFigureTests
     {
-        [Test, TestCaseSource(typeof(GetPointMock))]
+        [Test, TestCaseSource(typeof(GetPointOfIsoscelesTriangleFigureMock))]
         public void RegularPolygonFigureTest(int num_of_corners, Point center, Point crnt, PointF[] points)
         {
             RegularPolygonFigure regularPolygonFigure = new RegularPolygonFigure();
@@ -28,7 +28,7 @@ namespace VectorDrawin.Tests.FiguresTests
             Assert.AreEqual(expected, actual);
         }
     }
-    class GetPointMock : IEnumerable
+    class GetPointOfRegularPolygonMock : IEnumerable
     {
         public IEnumerator GetEnumerator()
         {
