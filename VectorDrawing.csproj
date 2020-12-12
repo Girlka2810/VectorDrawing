@@ -48,6 +48,8 @@
   <ItemGroup>
     <Compile Include="Canvases\BitmapCanvas.cs" />
     <Compile Include="Enums\ToolsName.cs" />
+    <Compile Include="FactoriesTools\IFactoryTool.cs" />
+    <Compile Include="FactoriesTools\IsoscelesTriangleFactoryTool.cs" />
     <Compile Include="Figures\CircleFigure.cs" />
     <Compile Include="Figures\EllipseFigure.cs" />
     <Compile Include="Figures\IFigure.cs" />
