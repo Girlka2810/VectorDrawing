@@ -117,21 +117,15 @@ namespace VectorDrawing
 
         private void OnThicknessValueChanged(object sender, EventArgs e)
         {
-            _pen = new Pen(_pen.Color)
-            {
-                Width = (int) ((NumericUpDown) sender).Value
-            };
+            _pen.Width = (int) ((NumericUpDown) sender).Value;
+          
         }
 
         private void OnColorFrontButtonClick(object sender, EventArgs e)
         {
             if (colorDialog.ShowDialog() == DialogResult.OK)
             {
-                float width = _pen.Width;
-                _pen = new Pen(colorDialog.Color)
-                {
-                    Width = width
-                };
+                _pen.Color = colorDialog.Color;
             }
         }
 
