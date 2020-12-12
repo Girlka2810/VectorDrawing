@@ -76,7 +76,9 @@ namespace VectorDrawing.Tools
             {
                 if (tool.Points.Count == Points.Count)
                 {
-                    if (!Points.Equals(tool.Points) && TemporaryPoint!=tool.TemporaryPoint)
+                    if (!Points.Equals(tool.Points) 
+                        && TemporaryPoint!=tool.TemporaryPoint
+                        && !Pen.Equals(tool.Pen))
                     {
                         return false;
                     }
