@@ -83,6 +83,7 @@ namespace VectorDrawing.Canvases
         {
             _tmpBitmap = new Bitmap(_tmpBitmap.Width, _tmpBitmap.Height);
             _mainBitmap = _tmpBitmap;
+            _tools = new Dictionary<string, AbstractTool>();
             return _mainBitmap;
         }
 
