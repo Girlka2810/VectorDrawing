@@ -10,7 +10,16 @@ namespace VectorDrawing.Tools
     public class SquareTool : AbstractTool
     {
 
-        public override int MaxCount => 2;
+        public override int MaxCount => 4;
+        public override void AddPoint(PointF point)
+        {
+            if (Points.Count > 3)
+            {
+                Points.RemoveAt(3);
+            }
+
+            Points.Add(point);
+        }
 
         public SquareTool(Pen pen) : base(pen)
         {
@@ -34,7 +43,13 @@ namespace VectorDrawing.Tools
                 Points = this.Points.ToArray(),
                 TemporaryPoint = this.TemporaryPoint
             };
-            graphics.DrawPolygon(Pen, ((CommonReturn)square.Get(figureParameter)).Points);
+            PointF[] pointsArr = ((CommonReturn)square.Get(figureParameter)).Points;
+            graphics.DrawPolygon(Pen, pointsArr);
+            Points = new List<PointF>();
+            for (int i = 0; i < pointsArr.Length; i++)
+            {
+                AddPoint(pointsArr[i]);
+            }
         }
 
     }

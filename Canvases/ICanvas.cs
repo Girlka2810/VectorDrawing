@@ -15,6 +15,7 @@ namespace VectorDrawing.Canvases
         void Draw(Tools.AbstractTool tool);
         void Clear(int width, int height);
         void FinishFigure();
+        Dictionary<string, Tools.AbstractTool> GetDictionary();
 
     }
 }

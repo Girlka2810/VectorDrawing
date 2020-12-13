@@ -82,7 +82,7 @@ namespace VectorDrawing.Canvases
         public void Clear(int width, int height)
         {
             _tmpBitmap = new Bitmap(width, height);
-            _mainBitmap = _tmpBitmap;
+            FinishFigure();
         }
 
         public override bool Equals(object obj)
@@ -102,6 +102,10 @@ namespace VectorDrawing.Canvases
                 }
             }
             return false;
+        }
+        public Dictionary<string, AbstractTool> GetDictionary()
+        {
+            return _tools;
         }
 
         private void AddBuffer(AbstractTool tool)

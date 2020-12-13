@@ -90,7 +90,28 @@ namespace VectorDrawing.Tools
             }
             return false;
         }
-
+        public virtual void Move(PointF delta)
+        {
+            for (int i = 0; i < Points.Count; i++)
+            {
+                PointF p = Points[i];
+                Points[i] = new PointF(p.X + delta.X, p.Y + delta.Y);
+            }
+        }
+        public virtual bool IsItYou(PointF point)
+        {
+            PointF prevP = Points[3];
+            foreach (PointF p in Points)
+            {
+                if (Contain(prevP, p, point, Pen.Width))
+                {
+                    return true;
+                }
+                prevP = p;
+            }
+            return false;
+        }
+        
         protected void SetPen(Pen pen)
         {
             if (pen.Width >= 1 && pen.Width <= 100)
@@ -101,6 +122,26 @@ namespace VectorDrawing.Tools
             {
                 throw new ArgumentException("Pen cannot have width less than 1 and greater than 100");
             }
+        }
+        protected bool Contain(PointF start, PointF end, PointF checkPoint, double accuracy)
+        {
+            double x1 = start.X;
+            double y1 = start.Y;
+            double x2 = end.X;
+            double y2 = end.Y;
+            double x = checkPoint.X;
+            double y = checkPoint.Y;
+
+            if (CheckInside(x, x1, x2, accuracy) && CheckInside(y, y1, y2, accuracy))
+                return Math.Abs((x - x1) * (y2 - y1) - (y - y1) * (x2 - x1)) < accuracy / 2 * Math.Sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));
+            else return false;
+        }
+
+        protected bool CheckInside(double x, double a, double b, double accuracy)
+        {
+            if ((x > a - accuracy && x < b + accuracy) || (x > b - accuracy && x < a + accuracy))
+                return true;
+            else return false;
         }
     }
 }
