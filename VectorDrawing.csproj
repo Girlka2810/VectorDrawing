@@ -48,6 +48,18 @@
   <ItemGroup>
     <Compile Include="Canvases\BitmapCanvas.cs" />
     <Compile Include="Enums\ToolsName.cs" />
+    <Compile Include="FactoriesTools\BrushFactoryTool.cs" />
+    <Compile Include="FactoriesTools\CircleFactoryTool.cs" />
+    <Compile Include="FactoriesTools\EllipseFactoryTool.cs" />
+    <Compile Include="FactoriesTools\IFactoryTool.cs" />
+    <Compile Include="FactoriesTools\IsoscelesTriangleFactoryTool.cs" />
+    <Compile Include="FactoriesTools\LineFactoryTool.cs" />
+    <Compile Include="FactoriesTools\NLineFactoryTool.cs" />
+    <Compile Include="FactoriesTools\RectangleFactoryTool.cs" />
+    <Compile Include="FactoriesTools\RectangularTriangleFactoryTool.cs" />
+    <Compile Include="FactoriesTools\RegularPolygonFactoryTool.cs" />
+    <Compile Include="FactoriesTools\SquareFactoryTool.cs" />
+    <Compile Include="FactoriesTools\TriangleFactoryTool.cs" />
     <Compile Include="Figures\CircleFigure.cs" />
     <Compile Include="Figures\EllipseFigure.cs" />
     <Compile Include="Figures\IFigure.cs" />

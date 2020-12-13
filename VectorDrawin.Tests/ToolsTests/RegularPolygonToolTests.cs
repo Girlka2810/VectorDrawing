@@ -12,7 +12,7 @@ namespace VectorDrawin.Tests.ToolsTests
         public void RegularPolygonToolTestWhithThreePoints(List<PointF> points)
         {
             Pen pen = new Pen(Color.BlueViolet);
-            RegularPolygonTool actual = new RegularPolygonTool(pen, 3);
+            RegularPolygonTool actual = new RegularPolygonTool(pen);
             RegularPolygonTool expected = new RegularPolygonTool(points, pen);
             for (int i = 0; i < points.Count; i++)
             {
@@ -24,7 +24,7 @@ namespace VectorDrawin.Tests.ToolsTests
         public void RegularPolygonToolTestWhithFourPoints(List<PointF> points)
         {
             Pen pen = new Pen(Color.BlueViolet);
-            RegularPolygonTool actual = new RegularPolygonTool(pen, 4);
+            RegularPolygonTool actual = new RegularPolygonTool(pen);
             RegularPolygonTool expected = new RegularPolygonTool(points, pen);
             for (int i = 0; i < points.Count; i++)
             {
