@@ -210,6 +210,7 @@ namespace VectorDrawing
             this.pictureBox.Size = new System.Drawing.Size(755, 480);
             this.pictureBox.TabIndex = 13;
             this.pictureBox.TabStop = false;
+            this.pictureBox.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseDoubleClick);
             this.pictureBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.OnPictureBoxMouseDown);
             this.pictureBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.OnPictureBoxMouseMove);
             this.pictureBox.MouseUp += new System.Windows.Forms.MouseEventHandler(this.OnPictureBoxMouseUp);
@@ -338,6 +339,7 @@ namespace VectorDrawing
             this.Name = "VectorDrawingForm";
             this.Text = "VectorDrawing2D";
             this.Load += new System.EventHandler(this.OnVectorDrawingFormLoad);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.VectorDrawingForm_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.thickness)).EndInit();
             this.groupBox1.ResumeLayout(false);
