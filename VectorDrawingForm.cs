@@ -2,9 +2,9 @@
 using System.Drawing;
 using System.Windows.Forms;
 using VectorDrawing.Canvases;
+using VectorDrawing.FactoriesTools;
 using VectorDrawing.Tools;
 using VectorDrawing.Tools.Brushes;
-using VectorDrawing.Tools.Ellipse;
 using VectorDrawing.Tools.Polygons;
 
 namespace VectorDrawing
@@ -13,10 +13,11 @@ namespace VectorDrawing
     {
 
         private AbstractTool _tool;
-        private Enums.ToolsName _toolName;
+        private IFactoryTool _factoryTool;
         private Pen _pen;
         private ICanvas _canvas;
-        private bool _isMouseDown = false;
+        private bool _isMouseDown;
+        
 
 
         public VectorDrawingForm()
@@ -26,7 +27,7 @@ namespace VectorDrawing
 
         private void OnVectorDrawingFormLoad(object sender, EventArgs e)
         {
-            _canvas = new Canvases.BitmapCanvas();
+            _canvas = new BitmapCanvas();
             _canvas.SetRender(OnRender);
             _canvas.Create(pictureBox.Width, pictureBox.Height);
             _pen = new Pen(Color.Black, 1);
@@ -37,54 +38,9 @@ namespace VectorDrawing
             pictureBox.Image = bitmap;
             pictureBox.BackColor = color;
         }
-
-
-        private void SetTool()
-        {
-            groupBox1.Visible = false;
-            switch (_toolName)
-            {
-                case Enums.ToolsName.Line:
-                    _tool = new LineTool(_pen);
-                    break;
-                case Enums.ToolsName.Brush:
-                    _tool =new BasicBrush(_pen);
-                    break;
-                case Enums.ToolsName.Nline:
-                    _tool = new NLineTool(_pen);
-                    break;
-                case Enums.ToolsName.Rectangle:
-                    _tool = new RectangleTool(_pen);
-                    break;
-                case Enums.ToolsName.Square:
-                    _tool = new SquareTool(_pen);
-                    break;
-                case Enums.ToolsName.Circle:
-                    _tool = new CircleTool(_pen);
-                    break;
-                case Enums.ToolsName.Ellipse:
-                    _tool = new EllipseTool(_pen);
-                    break;
-                case Enums.ToolsName.Rectangular:
-                    _tool = new RectangularTriangleTool(_pen);
-                    break;
-                case Enums.ToolsName.Triangle:
-                    _tool = new TriangleTool(_pen);
-                    break;
-                case Enums.ToolsName.IsoscelesTriangle:
-                    _tool = new IsoscelesTriangleTool(_pen);
-                    break;
-                case Enums.ToolsName.Polygon:
-                    _tool = new PolygonTool(_pen);
-                    break;
-                case Enums.ToolsName.RegularPolygon:
-                    groupBox1.Visible = true;
-                    _tool = new RegularPolygonTool(_pen, Convert.ToInt32(CornerNumericUpDown.Value));
-                    break;
-            }
-
-            
-        }
+        
+        
+        
 
         private void OnPictureBoxMouseMove(object sender, MouseEventArgs e)
         {
@@ -111,7 +67,7 @@ namespace VectorDrawing
             {
                 _canvas.Draw(_tool);
                 _canvas.FinishFigure();
-                SetTool();
+                CreateFigure();
             }
         }
 
@@ -146,85 +102,110 @@ namespace VectorDrawing
             if (_tool is IBrush)
             {
                 _canvas.FinishFigure();
-                SetTool();
+                CreateFigure();
             }
         }
+
         private void OnMoveModeButtonClick(object sender, EventArgs e)
         {
-
         }
+
+        private void CreateFigure()
+        {
+            _pen = new Pen(_pen.Color, _pen.Width);
+            _tool = _factoryTool.Create(_pen);
+            if (_tool is RegularPolygonTool regularPolygonTool)
+            {
+                regularPolygonTool.QuantityOfCorners = (int)cornerNumericUpDown.Value;
+            }
+        }
+        
         
         private void OnLineButtonClick(object sender, EventArgs e)
         {
-            _toolName = Enums.ToolsName.Line;
-            SetTool();
+            _factoryTool = new LineFactoryTool();
+            CreateFigure();
         }
         
         private void OnBrushButtonClick(object sender, EventArgs e)
         {
-            _toolName = Enums.ToolsName.Brush;
-            SetTool();
+            _factoryTool = new BrushFactoryTool();
+            CreateFigure();
         }
         
         private void OnNlineButtonClick(object sender, EventArgs e)
         {
-            _toolName = Enums.ToolsName.Nline;
-            SetTool();
+            _factoryTool = new NLineFactoryTool();
+            CreateFigure();
         }
         
         private void OnRectangleButtonClick(object sender, EventArgs e)
         {
-            _toolName = Enums.ToolsName.Rectangle;
-            SetTool();
+            _factoryTool = new RectangleFactoryTool();
+            CreateFigure();
         }
         
         private void OnSquareButtonClick(object sender, EventArgs e)
         {
-            _toolName = Enums.ToolsName.Square;
-            SetTool();
+            _factoryTool = new SquareFactoryTool();
+            CreateFigure();
         }
         
         private void OnCircleButtonClick(object sender, EventArgs e)
         {
-            _toolName = Enums.ToolsName.Circle;
-            SetTool();
+            _factoryTool = new CircleFactoryTool();
+            CreateFigure();
         }
         
         private void OnEllipseButtonClick(object sender, EventArgs e)
         {
-            _toolName = Enums.ToolsName.Ellipse;
-            SetTool();
+            _factoryTool = new EllipseFactoryTool();
+            CreateFigure();
         }
         
         private void OnRectangularTriangleButtonClick(object sender, EventArgs e)
         {
-            _toolName = Enums.ToolsName.Rectangular;
-            SetTool();
+            _factoryTool = new RectangularTriangleFactoryTool();
+            CreateFigure();
         }
         
         private void OnTriangleButtonClick(object sender, EventArgs e)
         {
-            _toolName = Enums.ToolsName.Triangle;
-            SetTool();
+            _factoryTool = new TriangleFactoryTool();
+            CreateFigure();
         }
         
         private void OnIsoscelesTriangleButtonClick(object sender, EventArgs e)
         {
-            _toolName = Enums.ToolsName.IsoscelesTriangle;
-            SetTool();
+            _factoryTool = new IsoscelesTriangleFactoryTool();
+            CreateFigure();
         }
+        
+        
         
         private void OnPolygonButtonClick(object sender, EventArgs e)
         {
-            _toolName = Enums.ToolsName.Polygon;
-            SetTool();
+         
         }
         
         private void OnRegularPolygonButtonClick(object sender, EventArgs e)
         {
-            _toolName = Enums.ToolsName.RegularPolygon;
-            SetTool();
+            _factoryTool = new RegularPolygonFactoryTool();
+            CreateFigure();
+            anglesForPolygonGroupBox.Visible = true;
+            ((RegularPolygonTool)_tool).QuantityOfCorners = (int)cornerNumericUpDown.Value;
+            
         }
+
+        private void OnPictureBoxMouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            _tool?.AddPoint(e.Location);
+            _canvas.Draw(_tool);
+            _canvas.FinishFigure();
+            CreateFigure();
+
+        }
+
         
     }
 }

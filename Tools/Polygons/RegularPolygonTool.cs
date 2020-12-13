@@ -9,7 +9,7 @@ namespace VectorDrawing.Tools.Polygons
 {
     public class RegularPolygonTool : AbstractPolygonTool
     {
-        public RegularPolygonTool(Pen pen, int numOfCorners) : base(pen, numOfCorners)
+        public RegularPolygonTool(Pen pen) : base(pen)
         {
         }
         
@@ -30,7 +30,7 @@ namespace VectorDrawing.Tools.Polygons
                 Center = this.Center,
                 TemporaryPoint = this.TemporaryPoint
             };
-            var ss = ((CommonReturn) polygon.Get(figureParameter));
+           
             graphics.DrawPolygon(Pen, ((CommonReturn)polygon.Get(figureParameter)).Points);
         }
     }

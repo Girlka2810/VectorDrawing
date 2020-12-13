@@ -4,7 +4,6 @@ using System.Drawing;
 using NUnit.Framework;
 using VectorDrawing.Canvases;
 using VectorDrawing.Tools;
-using VectorDrawing.Tools.Brushes;
 
 namespace VectorDrawin.Tests.CanvasesTests
 {

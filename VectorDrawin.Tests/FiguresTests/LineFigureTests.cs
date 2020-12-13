@@ -28,8 +28,7 @@ namespace VectorDrawin.Tests.FiguresTests
 
             Assert.Throws<NullReferenceException>(() =>
             {
-                PointF[] actual = ((CommonReturn)
-                    new LineFigure().Get(ActualParametrsOfLineMock(parametersNumber))).Points;
+                new LineFigure().Get(ActualParametrsOfLineMock(parametersNumber));
             });
         }
 
@@ -39,13 +38,13 @@ namespace VectorDrawin.Tests.FiguresTests
             switch (n)
             {
                 case 1:
-                    return new PointF[] { new PointF(1, 2), new PointF(3, 4) };
+                    return new [] { new PointF(1, 2), new PointF(3, 4) };
                 case 2:
-                    return new PointF[] { new PointF(3, 4), new PointF(5, 3) };
+                    return new [] { new PointF(3, 4), new PointF(5, 3) };
                 case 3:
-                    return new PointF[] { new PointF(0, 2), new PointF(3, 4) };
+                    return new [] { new PointF(0, 2), new PointF(3, 4) };
                 case 4:
-                    return new PointF[] { new PointF(-10, 21), new PointF(30, 40) };
+                    return new [] { new PointF(-10, 21), new PointF(30, 40) };
                 default:
                     throw new NullReferenceException("No n in the list");
             }
@@ -58,7 +57,7 @@ namespace VectorDrawin.Tests.FiguresTests
                 case 1:
                     return new CommonParameter
                     {
-                        Points = new PointF[]
+                        Points = new []
                     {
                         new PointF(1, 2),
                         new PointF(3, 4)
@@ -67,7 +66,7 @@ namespace VectorDrawin.Tests.FiguresTests
                 case 2:
                     return new CommonParameter
                     {
-                        Points = new PointF[]
+                        Points = new []
                         {
                             new PointF(3, 4),
                             new PointF(5,3)
@@ -76,7 +75,7 @@ namespace VectorDrawin.Tests.FiguresTests
                 case 3:
                     return new CommonParameter
                     {
-                        Points = new PointF[]
+                        Points = new []
                         {
                             new PointF(0, 2),
                             new PointF(3,4),
@@ -86,7 +85,7 @@ namespace VectorDrawin.Tests.FiguresTests
                 case 4:
                     return new CommonParameter
                     {
-                        Points = new PointF[]
+                        Points = new []
                         {
                             new PointF(-10, 21),
                             new PointF(30, 40)
@@ -94,9 +93,7 @@ namespace VectorDrawin.Tests.FiguresTests
                         
                     };
                 case 5:
-                    return new CommonParameter
-                    {
-                    };
+                    return new CommonParameter();
                 default:
                     throw new NullReferenceException("No n in the list");
             }

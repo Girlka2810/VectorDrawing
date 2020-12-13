@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
 using VectorDrawing.Tools;
 
 namespace VectorDrawing.Canvases
@@ -13,6 +12,7 @@ namespace VectorDrawing.Canvases
         private Action<Bitmap, Color> _render;
         private Dictionary<string, AbstractTool> _tools;
         private Color _backColor;
+        private AbstractTool _tool;
 
         public BitmapCanvas()
         {
@@ -65,7 +65,8 @@ namespace VectorDrawing.Canvases
             {
                 return;
             }
-            AddBuffer(tool);
+
+            _tool = tool;
             _tmpBitmap = (Bitmap)_mainBitmap.Clone();
             Graphics graphics = Graphics.FromImage(_tmpBitmap);
             tool.Paint(graphics);
@@ -76,7 +77,12 @@ namespace VectorDrawing.Canvases
        
         public void FinishFigure()
         {
-            _mainBitmap = _tmpBitmap;
+            if (_tool != null)
+            {
+                AddBuffer(_tool);
+                _mainBitmap = _tmpBitmap;
+                _tool = null;
+            }
         }
         
         public void Clear(int width, int height)

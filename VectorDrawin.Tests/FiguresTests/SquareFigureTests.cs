@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System;
 using System.Drawing;
 using NUnit.Framework;
 using VectorDrawing.Figures;
@@ -43,19 +38,19 @@ namespace VectorDrawin.Tests.FiguresTests
             switch (a)
             {
                 case 1:
-                    points = new PointF[] { new PointF(0, 0), new PointF(10,0), new PointF(10,10), new PointF(0,10) };
+                    points = new [] { new PointF(0, 0), new PointF(10,0), new PointF(10,10), new PointF(0,10) };
                     return points;
                 case 2:
-                    points = new PointF[] { new PointF(10, 10), new PointF(20, 10), new PointF(20, 0), new PointF(10, 0) };
+                    points = new [] { new PointF(10, 10), new PointF(20, 10), new PointF(20, 0), new PointF(10, 0) };
                     return points;
                 case 3:
-                    points = new PointF[] { new PointF(10, 10), new PointF(0, 10), new PointF(0 ,0), new PointF(10, 0) };
+                    points = new [] { new PointF(10, 10), new PointF(0, 10), new PointF(0 ,0), new PointF(10, 0) };
                     return points;
                 case 4:
-                    points = new PointF[] { new PointF(10, 10), new PointF(20, 10), new PointF(20 ,20), new PointF(10, 20) };
+                    points = new [] { new PointF(10, 10), new PointF(20, 10), new PointF(20 ,20), new PointF(10, 20) };
                     return points;
                 case 5:
-                    points = new PointF[] { new PointF(10, 10), new PointF(20, 10), new PointF(20, 20), new PointF(10, 20) };
+                    points = new [] { new PointF(10, 10), new PointF(20, 10), new PointF(20, 20), new PointF(10, 20) };
                     return points;
                 default:
                     throw new ArgumentOutOfRangeException();
@@ -67,19 +62,19 @@ namespace VectorDrawin.Tests.FiguresTests
             switch(a)
             {
                 case 1:
-                    points = new PointF[] { new PointF(0, 0) };
+                    points = new [] { new PointF(0, 0) };
                     return points;
                 case 2:
-                    points = new PointF[] { new PointF(10,10) };
+                    points = new [] { new PointF(10,10) };
                     return points;
                 case 3:
-                    points = new PointF[] { new PointF(10, 10) };
+                    points = new [] { new PointF(10, 10) };
                     return points;
                 case 4:
-                    points = new PointF[] { new PointF(10, 10) };
+                    points = new [] { new PointF(10, 10) };
                     return points;
                 case 5:
-                    points = new PointF[] { new PointF(10, 10) };
+                    points = new [] { new PointF(10, 10) };
                     return points;
                 default:
                     throw new ArgumentOutOfRangeException();

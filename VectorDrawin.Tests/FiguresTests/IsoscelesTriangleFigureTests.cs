@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections;
 using NUnit.Framework;
 using System.Drawing;
 using VectorDrawing.Figures;
-using System.Collections;
 using VectorDrawing.Figures.Parameters;
 using VectorDrawing.Figures.Returns;
 
@@ -18,16 +12,16 @@ namespace VectorDrawin.Tests.FiguresTests
        
 
         [Test,TestCaseSource(typeof (GetPointOfIsoscelesTriangleFigureMock))]
-        public void IsoscelesTriangleFigureTest(PointF StartPoint, PointF EndPoint, PointF[] Triangle )
+        public void IsoscelesTriangleFigureTest(PointF startPoint, PointF endPoint, PointF[] triangle )
         {
             IsoscelesTriangleFigure isoscelesTriangleFigure = new IsoscelesTriangleFigure();
             CommonParameter parameter = new CommonParameter()
             {
-              Points = new PointF[] { StartPoint, EndPoint},
-              TemporaryPoint = EndPoint
+              Points = new [] { startPoint, endPoint},
+              TemporaryPoint = endPoint
             };
             PointF[] actual = ((CommonReturn)isoscelesTriangleFigure.Get(parameter)).Points;
-            PointF[] expected = Triangle;
+            PointF[] expected = triangle;
             Assert.AreEqual(actual, expected);
         }
     }
@@ -35,10 +29,10 @@ namespace VectorDrawin.Tests.FiguresTests
     {
         public IEnumerator GetEnumerator()
         {
-            yield return new object[] { new PointF(10, 10), new PointF(20, 20), new PointF[] { new PointF(10, 10), new PointF(20, 10), new PointF(15, 20) } };
-            yield return new object[] { new PointF(20, 20), new PointF(10, 10), new PointF[] { new PointF(20, 20), new PointF(10, 20), new PointF(15, 10) } };
-            yield return new object[] { new PointF(10, 20), new PointF(20, 10), new PointF[] { new PointF(10, 20), new PointF(20, 20), new PointF(15, 10) } };
-            yield return new object[] { new PointF(20, 10), new PointF(10, 20), new PointF[] { new PointF(20, 10), new PointF(10, 10), new PointF(15, 20) } };
+            yield return new object[] { new PointF(10, 10), new PointF(20, 20), new [] { new PointF(10, 10), new PointF(20, 10), new PointF(15, 20) } };
+            yield return new object[] { new PointF(20, 20), new PointF(10, 10), new [] { new PointF(20, 20), new PointF(10, 20), new PointF(15, 10) } };
+            yield return new object[] { new PointF(10, 20), new PointF(20, 10), new [] { new PointF(10, 20), new PointF(20, 20), new PointF(15, 10) } };
+            yield return new object[] { new PointF(20, 10), new PointF(10, 20), new [] { new PointF(20, 10), new PointF(10, 10), new PointF(15, 20) } };
         }
     }
 }

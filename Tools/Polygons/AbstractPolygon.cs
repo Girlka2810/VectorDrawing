@@ -19,15 +19,13 @@ namespace VectorDrawing.Tools.Polygons
             }
         }
         
-        protected AbstractPolygonTool(Pen pen, int numOfCorners): base(pen)
+        protected AbstractPolygonTool(Pen pen): base(pen)
         {
             ID = Guid.NewGuid().ToString();
-            Points = new List<PointF> { };
+            Points = new List<PointF>();
             SetPen(pen);
-            PointF[] points = Points.ToArray();
-            QuantityOfCorners = numOfCorners;
         }
-        public override void AddPoint(PointF point)
+        public sealed override void AddPoint(PointF point)
         {
             base.AddPoint(point);
             Center = Points[0];
