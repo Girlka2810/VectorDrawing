@@ -59,19 +59,19 @@ namespace VectorDrawin.Tests.FiguresTests
             switch (a)
             {
                 case 1:
-                    points = new PointF[] { new PointF(0, 0) };
+                    points = new [] { new PointF(0, 0) };
                     return points;
                 case 2:
-                    points = new PointF[] { new PointF(10, 10) };
+                    points = new [] { new PointF(10, 10) };
                     return points;
                 case 3:
-                    points = new PointF[] { new PointF(25, 10) };
+                    points = new [] { new PointF(25, 10) };
                     return points;
                 case 4:
-                    points = new PointF[] { new PointF(25, 20) };
+                    points = new [] { new PointF(25, 20) };
                     return points;
                 case 5:
-                    points = new PointF[] { new PointF(10, 20) };
+                    points = new [] { new PointF(10, 20) };
                     return points;
                 default:
                     throw new ArgumentOutOfRangeException();

@@ -1,10 +1,6 @@
 ﻿using NUnit.Framework;
 using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using VectorDrawing.Figures;
 using VectorDrawing.Figures.Parameters;
 using VectorDrawing.Figures.Returns;
@@ -28,7 +24,6 @@ namespace VectorDrawin.Tests.FiguresTests
         [TestCase(4)]
         public void GetPointsNegativeTests(int parametersNumber)
         {
-
             Assert.Throws<NullReferenceException>(() =>
             {
                 new RectangleFigure().Get(ActualParametrsOfRectangleMock(parametersNumber));
@@ -41,11 +36,11 @@ namespace VectorDrawin.Tests.FiguresTests
             switch (n)
             {
                 case 1:
-                    return new PointF[] { new PointF(1, 2), new PointF(1, 6), new PointF(5, 6), new PointF(5, 2) };
+                    return new[] {new PointF(1, 2), new PointF(1, 6), new PointF(5, 6), new PointF(5, 2)};
                 case 2:
-                    return new PointF[] { new PointF(3, 4), new PointF(3, 8), new PointF(6, 8), new PointF(6, 4) };
+                    return new[] {new PointF(3, 4), new PointF(3, 8), new PointF(6, 8), new PointF(6, 4)};
                 case 3:
-                    return new PointF[] { new PointF(3, 4), new PointF(3, 4), new PointF(3, 4), new PointF(3, 4) };
+                    return new[] {new PointF(3, 4), new PointF(3, 4), new PointF(3, 4), new PointF(3, 4)};
                 default:
                     throw new NullReferenceException("No n in the list");
             }
@@ -58,33 +53,31 @@ namespace VectorDrawin.Tests.FiguresTests
                 case 1:
                     return new CommonParameter
                     {
-                        Points = new PointF[]
-                    {
-                        new PointF(1, 2), new PointF(5, 6)
-                    }
+                        Points = new[]
+                        {
+                            new PointF(1, 2), new PointF(5, 6)
+                        }
                     };
                 case 2:
                     return new CommonParameter
                     {
-                        Points = new PointF[]
+                        Points = new[]
                         {
-                            new PointF(3, 4)                         
+                            new PointF(3, 4)
                         },
                         TemporaryPoint = new PointF(6, 8)
                     };
                 case 3:
                     return new CommonParameter
                     {
-                        Points = new PointF[]
+                        Points = new[]
                         {
                             new PointF(3, 4),
-                            new PointF(3, 4),                          
+                            new PointF(3, 4),
                         }
-                    };              
-                case 4:
-                    return new CommonParameter
-                    {
                     };
+                case 4:
+                    return new CommonParameter();
                 default:
                     throw new NullReferenceException("No n in the list");
             }

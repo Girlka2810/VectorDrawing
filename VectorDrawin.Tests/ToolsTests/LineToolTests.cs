@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using NUnit.Framework;
 using VectorDrawing.Tools;
 using System.Drawing;
+using VectorDrawin.Tests.ToolsTests.Mocks;
 
 namespace VectorDrawin.Tests.ToolsTests
 {

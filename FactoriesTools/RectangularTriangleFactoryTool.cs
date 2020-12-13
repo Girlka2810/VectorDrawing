@@ -1,5 +1,4 @@
 ﻿using VectorDrawing.Tools;
-using VectorDrawing.Tools.Polygons;
 using System.Drawing;
 
 

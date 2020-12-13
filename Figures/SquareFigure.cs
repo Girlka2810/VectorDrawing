@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using VectorDrawing.Figures.Parameters;
 using VectorDrawing.Figures.Returns;
 
@@ -33,7 +29,7 @@ namespace VectorDrawing.Figures
                 else
                     crnt.Y = crnt.Y >= prev.Y ? prev.Y + width : prev.Y - width;
 
-                points = new PointF[]
+                points = new []
                 {
                     prev,
                     new PointF(crnt.X, prev.Y),

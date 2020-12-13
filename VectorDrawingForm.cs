@@ -5,7 +5,6 @@ using VectorDrawing.Canvases;
 using VectorDrawing.FactoriesTools;
 using VectorDrawing.Tools;
 using VectorDrawing.Tools.Brushes;
-using VectorDrawing.Tools.Ellipse;
 using VectorDrawing.Tools.Polygons;
 
 namespace VectorDrawing
@@ -17,7 +16,7 @@ namespace VectorDrawing
         private IFactoryTool _factoryTool;
         private Pen _pen;
         private ICanvas _canvas;
-        private bool _isMouseDown = false;
+        private bool _isMouseDown;
         
 
 

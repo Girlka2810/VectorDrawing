@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using VectorDrawing.Figures.Parameters;
 using VectorDrawing.Figures.Returns;
 
@@ -21,7 +17,7 @@ namespace VectorDrawing.Figures
                 {
                     return new CommonReturn()
                     {
-                        Points = new PointF[]
+                        Points = new []
                         {
                             figureParameter.Points[0],
                             new PointF(figureParameter.Points[0].X,
@@ -36,7 +32,7 @@ namespace VectorDrawing.Figures
                 {
                     return new CommonReturn()
                     {
-                        Points = new PointF[]
+                        Points = new []
                         {
                             figureParameter.Points[0],
                             new PointF(figureParameter.Points[0].X,
