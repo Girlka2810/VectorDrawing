@@ -116,7 +116,7 @@ namespace VectorDrawing
             _tool = _factoryTool.Create(_pen);
             if (_tool is RegularPolygonTool regularPolygonTool)
             {
-                regularPolygonTool.QuantityOfCorners = (int)CornerNumericUpDown.Value;
+                regularPolygonTool.QuantityOfCorners = (int)cornerNumericUpDown.Value;
             }
         }
         
@@ -181,11 +181,21 @@ namespace VectorDrawing
             CreateFigure();
         }
         
+        
+        
         private void OnPolygonButtonClick(object sender, EventArgs e)
         {
          
         }
         
+        private void OnRegularPolygonButtonClick(object sender, EventArgs e)
+        {
+            _factoryTool = new RegularPolygonFactoryTool();
+            CreateFigure();
+            anglesForPolygonGroupBox.Visible = true;
+            ((RegularPolygonTool)_tool).QuantityOfCorners = (int)cornerNumericUpDown.Value;
+            
+        }
 
         private void OnPictureBoxMouseDoubleClick(object sender, MouseEventArgs e)
         {
@@ -196,13 +206,6 @@ namespace VectorDrawing
 
         }
 
-        private void OnRegularPolygonButtonClick(object sender, EventArgs e)
-        {
-            _factoryTool = new RegularPolygonFactoryTool();
-            CreateFigure();
-            anglesForPolygonGroupBox.Visible = true;
-            ((RegularPolygonTool)_tool).QuantityOfCorners = (int)CornerNumericUpDown.Value;
-            
-        }
+        
     }
 }
