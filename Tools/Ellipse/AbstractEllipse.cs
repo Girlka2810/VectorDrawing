@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 
-namespace VectorDrawing.Tools
+namespace VectorDrawing.Tools.Ellipse
 {
     public abstract class AbsractEllipse : AbstractTool
     {
@@ -23,13 +23,13 @@ namespace VectorDrawing.Tools
         public AbsractEllipse(Pen pen) : base(pen)
         {
             ID = Guid.NewGuid().ToString();
-            Points = new List<PointF> { };
+            Points = new List<PointF>( );
             SetPen(pen);
             PointF[] points = Points.ToArray();
             Center = points.Length != 0 ? points[0]: new PointF();
         }
 
-        public override void AddPoint(PointF point)
+        public sealed override void AddPoint(PointF point)
         {
             base.AddPoint(point);
             Center = Points[0];

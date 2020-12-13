@@ -25,7 +25,7 @@ namespace VectorDrawing.Tools
         protected AbstractTool(Pen pen)
         {
             ID = Guid.NewGuid().ToString(); 
-            Points = new List<PointF> { };
+            Points = new List<PointF>( );
             SetPen(pen);
         }
 

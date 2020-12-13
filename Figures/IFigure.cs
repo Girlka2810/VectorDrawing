@@ -1,4 +1,4 @@
-﻿using System.Drawing;
+﻿
 using VectorDrawing.Figures.Parameters;
 using VectorDrawing.Figures.Returns;
 

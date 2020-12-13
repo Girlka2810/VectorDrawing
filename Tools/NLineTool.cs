@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using VectorDrawing.Figures.Parameters;
 using VectorDrawing.Figures.Returns;
 
@@ -24,14 +20,14 @@ namespace VectorDrawing.Tools
         
         public override void Paint(Graphics graphics)
         {
-            Figures.NLineFigure NLine = new Figures.NLineFigure();
+            Figures.NLineFigure nLine = new Figures.NLineFigure();
             CommonParameter figureParameter = new CommonParameter
             {
                 Points = Points.ToArray(),
                 TemporaryPoint = TemporaryPoint
             };
 
-            graphics.DrawLines(Pen, ((CommonReturn)NLine.Get(figureParameter)).Points);
+            graphics.DrawLines(Pen, ((CommonReturn)nLine.Get(figureParameter)).Points);
 
         }
         public override void AddPoint(PointF point)

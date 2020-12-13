@@ -1,11 +1,7 @@
 ﻿using NUnit.Framework;
-using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using VectorDrawing.Tools;
+using VectorDrawin.Tests.ToolsTests.Mocks;
 using VectorDrawing.Tools.Ellipse;
 
 namespace VectorDrawin.Tests.ToolsTests

@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace VectorDrawin.Tests.ToolsTests
+namespace VectorDrawin.Tests.ToolsTests.Mocks
 {
     public class GetPointsMock : IEnumerable
     {
@@ -14,10 +10,7 @@ namespace VectorDrawin.Tests.ToolsTests
         {
             yield return new object[]
             {
-                new List<PointF>
-                {
-                   
-                }
+                new List<PointF>()
             };
             yield return new object[]
             {

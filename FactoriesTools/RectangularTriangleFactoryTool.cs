@@ -1,11 +1,10 @@
 ﻿using VectorDrawing.Tools;
-using VectorDrawing.Tools.Polygons;
 using System.Drawing;
 
 
 namespace VectorDrawing.FactoriesTools
 {
-    class RectangularTriangleFactoryTool
+    class RectangularTriangleFactoryTool : IFactoryTool
     {
         public AbstractTool Create(Pen pen)
         {
