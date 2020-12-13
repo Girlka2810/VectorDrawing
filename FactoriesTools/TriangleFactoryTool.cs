@@ -3,7 +3,7 @@ using System.Drawing;
 
 namespace VectorDrawing.FactoriesTools
 {
-    class TriangleFactoryTool
+    class TriangleFactoryTool : IFactoryTool
     {
         public AbstractTool Create(Pen pen)
         {
