@@ -71,11 +71,12 @@ namespace VectorDrawing
                     if (_tool != null)
                     {
                         PointF point = e.Location;
-                         PointF delta = new PointF(point.X - _tool.TemporaryPoint.X,
-                            point.Y - _tool.TemporaryPoint.Y );
+                         PointF delta = new PointF(point.X - _tool.TmpMovePoint.X,
+                            point.Y - _tool.TmpMovePoint.Y );
                         _tool.Move(delta);
-                        _canvas.Draw(_tool);
                        _tool.TemporaryPoint = e.Location;
+                        _canvas.Update();
+                        //_canvas.Draw(_tool);
                     }
                     break;
             }
@@ -113,8 +114,9 @@ namespace VectorDrawing
                         if (currentTool.IsItYou(e.Location))
                         {
                             _tool = currentTool;
-                            _tool.TemporaryPoint = e.Location;
+                           // _tool.TmpMovePoint = e.Location;
                             dict.Remove(IDS[i]);
+                            _canvas.DrawAll();
                         }
                     }
                     break;

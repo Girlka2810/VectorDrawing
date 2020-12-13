@@ -11,6 +11,7 @@ namespace VectorDrawing.Tools
         public string ID { get; protected set; }
         public abstract int MaxCount { get; }
         public PointF TemporaryPoint { get; set; }
+        public PointF TmpMovePoint { get; set; }
         protected List<PointF> Points;
         protected Pen Pen;
         
@@ -98,6 +99,12 @@ namespace VectorDrawing.Tools
                 Points[i] = new PointF(p.X + delta.X, p.Y + delta.Y);
             }
         }
+        public virtual void Update(Graphics graphics)
+        {
+            graphics.DrawPolygon(Pen, Points.ToArray());
+
+        }
+
         public virtual bool IsItYou(PointF point)
         {
             PointF prevP = Points[3];

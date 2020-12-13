@@ -52,5 +52,10 @@ namespace VectorDrawing.Tools
             }
         }
 
+        public override void Update(Graphics graphics)
+        {
+            graphics.DrawPolygon(Pen, Points.ToArray());
+        }
+        
     }
 }
