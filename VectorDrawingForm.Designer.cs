@@ -40,7 +40,7 @@ namespace VectorDrawing
             this.triangleButton = new System.Windows.Forms.Button();
             this.isoscelesTriangleButton = new System.Windows.Forms.Button();
             this.polygonButton = new System.Windows.Forms.Button();
-            this.RegularPolygonButton = new System.Windows.Forms.Button();
+            this.regularPolygonButton = new System.Windows.Forms.Button();
             this.ToolsLabel = new System.Windows.Forms.Label();
             this.pictureBox = new System.Windows.Forms.PictureBox();
             this.thickness = new System.Windows.Forms.NumericUpDown();
@@ -191,16 +191,16 @@ namespace VectorDrawing
             this.polygonButton.UseVisualStyleBackColor = true;
             this.polygonButton.Click += new System.EventHandler(this.OnPolygonButtonClick);
             // 
-            // RegularPolygonButton
+            // regularPolygonButton
             // 
-            this.RegularPolygonButton.Location = new System.Drawing.Point(12, 424);
-            this.RegularPolygonButton.Name = "RegularPolygonButton";
-            this.RegularPolygonButton.Size = new System.Drawing.Size(170, 26);
-            this.RegularPolygonButton.TabIndex = 11;
-            this.RegularPolygonButton.TabStop = false;
-            this.RegularPolygonButton.Text = "Правильный многоугольник";
-            this.RegularPolygonButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.RegularPolygonButton.UseVisualStyleBackColor = true;
+            this.regularPolygonButton.Location = new System.Drawing.Point(12, 424);
+            this.regularPolygonButton.Name = "regularPolygonButton";
+            this.regularPolygonButton.Size = new System.Drawing.Size(170, 26);
+            this.regularPolygonButton.TabIndex = 11;
+            this.regularPolygonButton.TabStop = false;
+            this.regularPolygonButton.Text = "Правильный многоугольник";
+            this.regularPolygonButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.regularPolygonButton.UseVisualStyleBackColor = true;
             // 
             // ToolsLabel
             // 
@@ -338,7 +338,7 @@ namespace VectorDrawing
             this.Controls.Add(this.thickness);
             this.Controls.Add(this.pictureBox);
             this.Controls.Add(this.ToolsLabel);
-            this.Controls.Add(this.RegularPolygonButton);
+            this.Controls.Add(this.regularPolygonButton);
             this.Controls.Add(this.polygonButton);
             this.Controls.Add(this.isoscelesTriangleButton);
             this.Controls.Add(this.triangleButton);
@@ -376,7 +376,7 @@ namespace VectorDrawing
         private System.Windows.Forms.Button triangleButton;
         private System.Windows.Forms.Button isoscelesTriangleButton;
         private System.Windows.Forms.Button polygonButton;
-        private System.Windows.Forms.Button RegularPolygonButton;
+        private System.Windows.Forms.Button regularPolygonButton;
         private System.Windows.Forms.Label ToolsLabel;
         private System.Windows.Forms.PictureBox pictureBox;
         private System.Windows.Forms.NumericUpDown thickness;
