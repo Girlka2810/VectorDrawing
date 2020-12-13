@@ -5,7 +5,6 @@ using VectorDrawing.Canvases;
 using VectorDrawing.FactoriesTools;
 using VectorDrawing.Tools;
 using VectorDrawing.Tools.Brushes;
-using VectorDrawing.Tools.Ellipse;
 using VectorDrawing.Tools.Polygons;
 using VectorDrawing.Enums;
 using System.Collections.Generic;
@@ -240,12 +239,14 @@ namespace VectorDrawing
          
         }
         
-        private void OnRegularPolygonButtonClick(object sender, EventArgs e)
+
+        private void OnPictureBoxMouseDoubleClick(object sender, MouseEventArgs e)
         {
-            anglesForPolygonGroupBox.Visible = true;
-            _factoryTool = new RegularPolygonFactoryTool();
+            _tool?.AddPoint(e.Location);
+            _canvas.Draw(_tool);
+            _canvas.FinishFigure();
             CreateFigure();
+
         }
-        
     }
 }
