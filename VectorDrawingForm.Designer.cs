@@ -201,6 +201,7 @@ namespace VectorDrawing
             this.regularPolygonButton.Text = "Правильный многоугольник";
             this.regularPolygonButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.regularPolygonButton.UseVisualStyleBackColor = true;
+            this.regularPolygonButton.Click += new System.EventHandler(this.OnRegularPolygonButtonClick);
             // 
             // ToolsLabel
             // 

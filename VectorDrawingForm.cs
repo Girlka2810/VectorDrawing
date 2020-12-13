@@ -18,7 +18,7 @@ namespace VectorDrawing
         private IFactoryTool _factoryTool;
         private Pen _pen;
         private ICanvas _canvas;
-        private bool _isMouseDown = false;
+        private bool _isMouseDown;
         private Mode _mode;
         
 
@@ -241,7 +241,15 @@ namespace VectorDrawing
          
         }
         
-
+        private void OnRegularPolygonButtonClick(object sender, EventArgs e)
+        {
+            _factoryTool = new RegularPolygonFactoryTool();
+            CreateFigure();
+            anglesForPolygonGroupBox.Visible = true;
+            ((RegularPolygonTool)_tool).QuantityOfCorners = (int)cornerNumericUpDown.Value;
+            
+        }
+        
         private void OnPictureBoxMouseDoubleClick(object sender, MouseEventArgs e)
         {
             _tool?.AddPoint(e.Location);
