@@ -75,7 +75,7 @@ namespace VectorDrawing
                     _tool = new IsoscelesTriangleTool(_pen);
                     break;
                 case Enums.ToolsName.Polygon:
-                    _tool = null;
+                    _tool = new PolygonTool(_pen);
                     break;
                 case Enums.ToolsName.RegularPolygon:
                     groupBox1.Visible = true;
