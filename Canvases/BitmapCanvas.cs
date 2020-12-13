@@ -79,12 +79,10 @@ namespace VectorDrawing.Canvases
             _mainBitmap = _tmpBitmap;
         }
         
-        public Bitmap Clear()
+        public void Clear(int width, int height)
         {
-            _tmpBitmap = new Bitmap(_tmpBitmap.Width, _tmpBitmap.Height);
-            _mainBitmap = _tmpBitmap;
-            _tools = new Dictionary<string, AbstractTool>();
-            return _mainBitmap;
+            _tmpBitmap = new Bitmap(width, height);
+            FinishFigure();
         }
 
         public override bool Equals(object obj)
