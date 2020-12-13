@@ -201,7 +201,6 @@ namespace VectorDrawing
             this.RegularPolygonButton.Text = "Правильный многоугольник";
             this.RegularPolygonButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.RegularPolygonButton.UseVisualStyleBackColor = true;
-            this.RegularPolygonButton.Click += new System.EventHandler(this.OnRegularPolygonButtonClick);
             // 
             // ToolsLabel
             // 
@@ -222,6 +221,7 @@ namespace VectorDrawing
             this.pictureBox.Size = new System.Drawing.Size(755, 480);
             this.pictureBox.TabIndex = 13;
             this.pictureBox.TabStop = false;
+            this.pictureBox.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.OnPictureBoxMouseDoubleClick);
             this.pictureBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.OnPictureBoxMouseDown);
             this.pictureBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.OnPictureBoxMouseMove);
             this.pictureBox.MouseUp += new System.Windows.Forms.MouseEventHandler(this.OnPictureBoxMouseUp);
