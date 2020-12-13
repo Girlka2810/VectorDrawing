@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using VectorDrawing.Figures;
+using VectorDrawing.Figures.Parameters;
+using VectorDrawing.Figures.Returns;
 
 
 namespace VectorDrawing.Tools
@@ -32,6 +35,7 @@ namespace VectorDrawing.Tools
         }
 
         public abstract void Paint(Graphics graphics);
+        public abstract FigureParameter GenerateParametrs();
         
 
         public virtual void AddPoint(PointF point)
@@ -75,6 +79,11 @@ namespace VectorDrawing.Tools
             }
         }
 
+        public virtual void SavePoints()
+        {
+            EndShapePoints = ((CommonReturn)Figure.Get(GenerateParametrs())).Points;
+        }
+
         public override bool Equals(object obj)
         {
             if (obj is AbstractTool tool)
@@ -92,20 +101,7 @@ namespace VectorDrawing.Tools
             }
             return false;
         }
-        public virtual void Move(PointF delta)
-        {
-            for (int i = 0; i < Points.Count; i++)
-            {
-                PointF p = Points[i];
-                Points[i] = new PointF(p.X + delta.X, p.Y + delta.Y);
-            }
-        }
-        public virtual void Update(Graphics graphics)
-        {
-            graphics.DrawPolygon(Pen, Points.ToArray());
-
-        }
-
+       
         protected void SetPen(Pen pen)
         {
             if (pen.Width >= 1 && pen.Width <= 100)

@@ -34,5 +34,16 @@ namespace VectorDrawing.Tools
             };
             graphics.DrawPolygon(Pen, ((CommonReturn)isoscelesTriangleFigure.Get(figureParameter)).Points);
         }
+
+        public override void SavePoints()
+        {
+            IsoscelesTriangleFigure isoscelesTriangleFigure = new IsoscelesTriangleFigure();
+            CommonParameter figureParameter = new CommonParameter
+            {
+                Points = Points.ToArray(),
+                TemporaryPoint = TemporaryPoint,
+            };
+            EndShapePoints = ((CommonReturn)isoscelesTriangleFigure.Get(figureParameter)).Points;
+        }
     }
 }

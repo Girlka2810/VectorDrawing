@@ -123,14 +123,7 @@ namespace VectorDrawing.Canvases
                 keyValuePair.Value.Paint(graphics);
             }
         }
-        public void Update()
-        {
-            Graphics graphics = Graphics.FromImage(_mainBitmap);
-            foreach (KeyValuePair<string, AbstractTool> keyValuePair in _tools)
-            {
-                keyValuePair.Value.Update(graphics);
-            }
-        }
+        
         private void AddBuffer(AbstractTool tool)
         {
             if (!_tools.ContainsKey(tool.ID))
