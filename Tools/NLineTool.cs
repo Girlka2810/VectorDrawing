@@ -8,7 +8,6 @@ namespace VectorDrawing.Tools
     public class NLineTool : AbstractTool
     {
         public override int MaxCount => 0;
-
         public NLineTool(Pen pen) : base(pen)
         {
         }
@@ -26,7 +25,6 @@ namespace VectorDrawing.Tools
                 Points = Points.ToArray(),
                 TemporaryPoint = TemporaryPoint
             };
-
             graphics.DrawLines(Pen, ((CommonReturn)nLine.Get(figureParameter)).Points);
 
         }

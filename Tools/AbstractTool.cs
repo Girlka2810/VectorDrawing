@@ -13,6 +13,7 @@ namespace VectorDrawing.Tools
         public PointF TemporaryPoint { get; set; }
         public PointF TmpMovePoint { get; set; }
         protected List<PointF> Points;
+        protected PointF[] EndShapePoints;
         protected Pen Pen;
         
 
@@ -86,7 +87,7 @@ namespace VectorDrawing.Tools
                     {
                         return false;
                     }
-                     return true;
+                    return true;
                 }
             }
             return false;
@@ -105,20 +106,6 @@ namespace VectorDrawing.Tools
 
         }
 
-        public virtual bool IsItYou(PointF point)
-        {
-            PointF prevP = Points[3];
-            foreach (PointF p in Points)
-            {
-                if (Contain(prevP, p, point, Pen.Width))
-                {
-                    return true;
-                }
-                prevP = p;
-            }
-            return false;
-        }
-        
         protected void SetPen(Pen pen)
         {
             if (pen.Width >= 1 && pen.Width <= 100)

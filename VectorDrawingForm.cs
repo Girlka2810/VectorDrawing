@@ -50,7 +50,6 @@ namespace VectorDrawing
         {
             switch (_mode)
             {
-
                 case Mode.Draw:
                     {
                         if (_tool == null) return;
