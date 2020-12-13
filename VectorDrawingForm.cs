@@ -16,7 +16,7 @@ namespace VectorDrawing
         private IFactoryTool _factoryTool;
         private Pen _pen;
         private ICanvas _canvas;
-        private bool _isMouseDown = false;
+        private bool _isMouseDown;
         
 
 
@@ -165,7 +165,7 @@ namespace VectorDrawing
         
         private void OnRectangularTriangleButtonClick(object sender, EventArgs e)
         {
-            _factoryTool = new RectangleFactoryTool();
+            _factoryTool = new RectangularTriangleFactoryTool();
             CreateFigure();
         }
         
@@ -194,6 +194,15 @@ namespace VectorDrawing
             _canvas.FinishFigure();
             CreateFigure();
 
+        }
+
+        private void OnRegularPolygonButtonClick(object sender, EventArgs e)
+        {
+            _factoryTool = new RegularPolygonFactoryTool();
+            CreateFigure();
+            anglesForPolygonGroupBox.Visible = true;
+            ((RegularPolygonTool)_tool).QuantityOfCorners = (int)CornerNumericUpDown.Value;
+            
         }
     }
 }
