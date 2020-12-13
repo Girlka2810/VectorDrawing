@@ -187,23 +187,14 @@ namespace VectorDrawing
          
         }
         
-        private void OnRegularPolygonButtonClick(object sender, EventArgs e)
-        {
-<<<<<<< Updated upstream
-            anglesForPolygonGroupBox.Visible = true;
-            _factoryTool = new RegularPolygonFactoryTool();
-            CreateFigure();
-=======
-            _toolName = Enums.ToolsName.RegularPolygon;
-            SetTool();
-        }    
+
         private void pictureBox_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             _tool?.AddPoint(e.Location);
             _canvas.Draw(_tool);
             _canvas.FinishFigure();
-            SetTool();
->>>>>>> Stashed changes
+            CreateFigure();
+
         }
     }
 }
