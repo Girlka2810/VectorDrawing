@@ -30,7 +30,6 @@ namespace VectorDrawing
             _canvas.SetRender(OnRender);
             _canvas.Create(pictureBox.Width, pictureBox.Height);
             _pen = new Pen(Color.Black, 1);
-            KeyPreview = true;
         }
 
         private void OnRender(Bitmap bitmap, Color color)
@@ -217,14 +216,8 @@ namespace VectorDrawing
         
         private void OnPolygonButtonClick(object sender, EventArgs e)
         {
-<<<<<<< Updated upstream
             _toolName = Enums.ToolsName.Polygon;
             SetTool();
-=======
-            _factoryTool = new PolygonFactoryTool();
-            CreateFigure();
-
->>>>>>> Stashed changes
         }
         
         private void OnRegularPolygonButtonClick(object sender, EventArgs e)
@@ -232,24 +225,6 @@ namespace VectorDrawing
             _toolName = Enums.ToolsName.RegularPolygon;
             SetTool();
         }
-        private void VectorDrawingForm_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Q)
-            {
-                _tool?.AddPoint(_tool.TemporaryPoint);
-                _canvas.Draw(_tool);
-                _canvas.FinishFigure();
-                CreateFigure();
-            
-            }             
-        }
-
-        private void pictureBox_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-            _tool?.AddPoint(e.Location);
-            _canvas.Draw(_tool);
-            _canvas.FinishFigure();
-            CreateFigure();
-        }
+        
     }
 }
