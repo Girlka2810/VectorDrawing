@@ -29,18 +29,18 @@ namespace VectorDrawing
         /// </summary>
         private void InitializeComponent()
         {
-            this.BrushButton = new System.Windows.Forms.Button();
-            this.LineButton = new System.Windows.Forms.Button();
-            this.NlineButton = new System.Windows.Forms.Button();
-            this.RectangleButton = new System.Windows.Forms.Button();
-            this.SquareButton = new System.Windows.Forms.Button();
-            this.CircleButton = new System.Windows.Forms.Button();
-            this.EllipseButton = new System.Windows.Forms.Button();
-            this.RectangularTriangleButton = new System.Windows.Forms.Button();
-            this.TriangleButton = new System.Windows.Forms.Button();
-            this.IsoscelesTriangleButton = new System.Windows.Forms.Button();
-            this.PolygonButton = new System.Windows.Forms.Button();
-            this.RegularPolygonButton = new System.Windows.Forms.Button();
+            this.brushButton = new System.Windows.Forms.Button();
+            this.lineButton = new System.Windows.Forms.Button();
+            this.nlineButton = new System.Windows.Forms.Button();
+            this.rectangleButton = new System.Windows.Forms.Button();
+            this.squareButton = new System.Windows.Forms.Button();
+            this.circleButton = new System.Windows.Forms.Button();
+            this.ellipseButton = new System.Windows.Forms.Button();
+            this.rectangularTriangleButton = new System.Windows.Forms.Button();
+            this.triangleButton = new System.Windows.Forms.Button();
+            this.isoscelesTriangleButton = new System.Windows.Forms.Button();
+            this.polygonButton = new System.Windows.Forms.Button();
+            this.regularPolygonButton = new System.Windows.Forms.Button();
             this.ToolsLabel = new System.Windows.Forms.Label();
             this.pictureBox = new System.Windows.Forms.PictureBox();
             this.thickness = new System.Windows.Forms.NumericUpDown();
@@ -48,150 +48,150 @@ namespace VectorDrawing
             this.colorDialog = new System.Windows.Forms.ColorDialog();
             this.colorFrontButton = new System.Windows.Forms.Button();
             this.anglesForPolygonGroupBox = new System.Windows.Forms.GroupBox();
-            this.CornerNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.cornerNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
-            this.Clear = new System.Windows.Forms.Button();
-            this.MoveModeButton = new System.Windows.Forms.Button();
+            this.clearButton = new System.Windows.Forms.Button();
+            this.moveModeButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.thickness)).BeginInit();
             this.anglesForPolygonGroupBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.CornerNumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cornerNumericUpDown)).BeginInit();
             this.SuspendLayout();
             // 
-            // BrushButton
+            // brushButton
             // 
-            this.BrushButton.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.BrushButton.Location = new System.Drawing.Point(11, 67);
-            this.BrushButton.Name = "BrushButton";
-            this.BrushButton.Size = new System.Drawing.Size(171, 26);
-            this.BrushButton.TabIndex = 0;
-            this.BrushButton.TabStop = false;
-            this.BrushButton.Text = "Кисть";
-            this.BrushButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BrushButton.UseVisualStyleBackColor = true;
-            this.BrushButton.Click += new System.EventHandler(this.OnBrushButtonClick);
+            this.brushButton.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.brushButton.Location = new System.Drawing.Point(11, 67);
+            this.brushButton.Name = "brushButton";
+            this.brushButton.Size = new System.Drawing.Size(171, 26);
+            this.brushButton.TabIndex = 0;
+            this.brushButton.TabStop = false;
+            this.brushButton.Text = "Кисть";
+            this.brushButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.brushButton.UseVisualStyleBackColor = true;
+            this.brushButton.Click += new System.EventHandler(this.OnBrushButtonClick);
             // 
-            // LineButton
+            // lineButton
             // 
-            this.LineButton.Location = new System.Drawing.Point(11, 102);
-            this.LineButton.Name = "LineButton";
-            this.LineButton.Size = new System.Drawing.Size(171, 28);
-            this.LineButton.TabIndex = 1;
-            this.LineButton.TabStop = false;
-            this.LineButton.Text = "Линия";
-            this.LineButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.LineButton.UseVisualStyleBackColor = true;
-            this.LineButton.Click += new System.EventHandler(this.OnLineButtonClick);
+            this.lineButton.Location = new System.Drawing.Point(11, 102);
+            this.lineButton.Name = "lineButton";
+            this.lineButton.Size = new System.Drawing.Size(171, 28);
+            this.lineButton.TabIndex = 1;
+            this.lineButton.TabStop = false;
+            this.lineButton.Text = "Линия";
+            this.lineButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lineButton.UseVisualStyleBackColor = true;
+            this.lineButton.Click += new System.EventHandler(this.OnLineButtonClick);
             // 
-            // NlineButton
+            // nlineButton
             // 
-            this.NlineButton.Location = new System.Drawing.Point(11, 136);
-            this.NlineButton.Name = "NlineButton";
-            this.NlineButton.Size = new System.Drawing.Size(171, 26);
-            this.NlineButton.TabIndex = 2;
-            this.NlineButton.TabStop = false;
-            this.NlineButton.Text = "Кривая линия";
-            this.NlineButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.NlineButton.UseVisualStyleBackColor = true;
-            this.NlineButton.Click += new System.EventHandler(this.OnNlineButtonClick);
+            this.nlineButton.Location = new System.Drawing.Point(11, 136);
+            this.nlineButton.Name = "nlineButton";
+            this.nlineButton.Size = new System.Drawing.Size(171, 26);
+            this.nlineButton.TabIndex = 2;
+            this.nlineButton.TabStop = false;
+            this.nlineButton.Text = "Кривая линия";
+            this.nlineButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.nlineButton.UseVisualStyleBackColor = true;
+            this.nlineButton.Click += new System.EventHandler(this.OnNlineButtonClick);
             // 
-            // RectangleButton
+            // rectangleButton
             // 
-            this.RectangleButton.Location = new System.Drawing.Point(12, 168);
-            this.RectangleButton.Name = "RectangleButton";
-            this.RectangleButton.Size = new System.Drawing.Size(170, 26);
-            this.RectangleButton.TabIndex = 3;
-            this.RectangleButton.TabStop = false;
-            this.RectangleButton.Text = "Прямоугольник";
-            this.RectangleButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.RectangleButton.UseVisualStyleBackColor = true;
-            this.RectangleButton.Click += new System.EventHandler(this.OnRectangleButtonClick);
+            this.rectangleButton.Location = new System.Drawing.Point(12, 168);
+            this.rectangleButton.Name = "rectangleButton";
+            this.rectangleButton.Size = new System.Drawing.Size(170, 26);
+            this.rectangleButton.TabIndex = 3;
+            this.rectangleButton.TabStop = false;
+            this.rectangleButton.Text = "Прямоугольник";
+            this.rectangleButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.rectangleButton.UseVisualStyleBackColor = true;
+            this.rectangleButton.Click += new System.EventHandler(this.OnRectangleButtonClick);
             // 
-            // SquareButton
+            // squareButton
             // 
-            this.SquareButton.Location = new System.Drawing.Point(11, 200);
-            this.SquareButton.Name = "SquareButton";
-            this.SquareButton.Size = new System.Drawing.Size(171, 26);
-            this.SquareButton.TabIndex = 4;
-            this.SquareButton.TabStop = false;
-            this.SquareButton.Text = "Квадрат";
-            this.SquareButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.SquareButton.UseVisualStyleBackColor = true;
-            this.SquareButton.Click += new System.EventHandler(this.OnSquareButtonClick);
+            this.squareButton.Location = new System.Drawing.Point(11, 200);
+            this.squareButton.Name = "squareButton";
+            this.squareButton.Size = new System.Drawing.Size(171, 26);
+            this.squareButton.TabIndex = 4;
+            this.squareButton.TabStop = false;
+            this.squareButton.Text = "Квадрат";
+            this.squareButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.squareButton.UseVisualStyleBackColor = true;
+            this.squareButton.Click += new System.EventHandler(this.OnSquareButtonClick);
             // 
-            // CircleButton
+            // circleButton
             // 
-            this.CircleButton.Location = new System.Drawing.Point(12, 232);
-            this.CircleButton.Name = "CircleButton";
-            this.CircleButton.Size = new System.Drawing.Size(170, 26);
-            this.CircleButton.TabIndex = 5;
-            this.CircleButton.TabStop = false;
-            this.CircleButton.Text = "Круг";
-            this.CircleButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.CircleButton.UseVisualStyleBackColor = true;
-            this.CircleButton.Click += new System.EventHandler(this.OnCircleButtonClick);
+            this.circleButton.Location = new System.Drawing.Point(12, 232);
+            this.circleButton.Name = "circleButton";
+            this.circleButton.Size = new System.Drawing.Size(170, 26);
+            this.circleButton.TabIndex = 5;
+            this.circleButton.TabStop = false;
+            this.circleButton.Text = "Круг";
+            this.circleButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.circleButton.UseVisualStyleBackColor = true;
+            this.circleButton.Click += new System.EventHandler(this.OnCircleButtonClick);
             // 
-            // EllipseButton
+            // ellipseButton
             // 
-            this.EllipseButton.Location = new System.Drawing.Point(12, 264);
-            this.EllipseButton.Name = "EllipseButton";
-            this.EllipseButton.Size = new System.Drawing.Size(170, 26);
-            this.EllipseButton.TabIndex = 6;
-            this.EllipseButton.TabStop = false;
-            this.EllipseButton.Text = "Эллипс";
-            this.EllipseButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.EllipseButton.UseVisualStyleBackColor = true;
-            this.EllipseButton.Click += new System.EventHandler(this.OnEllipseButtonClick);
+            this.ellipseButton.Location = new System.Drawing.Point(12, 264);
+            this.ellipseButton.Name = "ellipseButton";
+            this.ellipseButton.Size = new System.Drawing.Size(170, 26);
+            this.ellipseButton.TabIndex = 6;
+            this.ellipseButton.TabStop = false;
+            this.ellipseButton.Text = "Эллипс";
+            this.ellipseButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ellipseButton.UseVisualStyleBackColor = true;
+            this.ellipseButton.Click += new System.EventHandler(this.OnEllipseButtonClick);
             // 
-            // RectangularTriangleButton
+            // rectangularTriangleButton
             // 
-            this.RectangularTriangleButton.Location = new System.Drawing.Point(12, 296);
-            this.RectangularTriangleButton.Name = "RectangularTriangleButton";
-            this.RectangularTriangleButton.Size = new System.Drawing.Size(170, 26);
-            this.RectangularTriangleButton.TabIndex = 7;
-            this.RectangularTriangleButton.TabStop = false;
-            this.RectangularTriangleButton.Text = "Прямоугольный треугольник";
-            this.RectangularTriangleButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.RectangularTriangleButton.UseVisualStyleBackColor = true;
-            this.RectangularTriangleButton.Click += new System.EventHandler(this.OnRectangularTriangleButtonClick);
+            this.rectangularTriangleButton.Location = new System.Drawing.Point(12, 296);
+            this.rectangularTriangleButton.Name = "rectangularTriangleButton";
+            this.rectangularTriangleButton.Size = new System.Drawing.Size(170, 26);
+            this.rectangularTriangleButton.TabIndex = 7;
+            this.rectangularTriangleButton.TabStop = false;
+            this.rectangularTriangleButton.Text = "Прямоугольный треугольник";
+            this.rectangularTriangleButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.rectangularTriangleButton.UseVisualStyleBackColor = true;
+            this.rectangularTriangleButton.Click += new System.EventHandler(this.OnRectangularTriangleButtonClick);
             // 
-            // TriangleButton
+            // triangleButton
             // 
-            this.TriangleButton.Location = new System.Drawing.Point(12, 328);
-            this.TriangleButton.Name = "TriangleButton";
-            this.TriangleButton.Size = new System.Drawing.Size(170, 26);
-            this.TriangleButton.TabIndex = 8;
-            this.TriangleButton.TabStop = false;
-            this.TriangleButton.Text = "Треугольник";
-            this.TriangleButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.TriangleButton.UseVisualStyleBackColor = true;
-            this.TriangleButton.Click += new System.EventHandler(this.OnTriangleButtonClick);
+            this.triangleButton.Location = new System.Drawing.Point(12, 328);
+            this.triangleButton.Name = "triangleButton";
+            this.triangleButton.Size = new System.Drawing.Size(170, 26);
+            this.triangleButton.TabIndex = 8;
+            this.triangleButton.TabStop = false;
+            this.triangleButton.Text = "Треугольник";
+            this.triangleButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.triangleButton.UseVisualStyleBackColor = true;
+            this.triangleButton.Click += new System.EventHandler(this.OnTriangleButtonClick);
             // 
-            // IsoscelesTriangleButton
+            // isoscelesTriangleButton
             // 
-            this.IsoscelesTriangleButton.Location = new System.Drawing.Point(12, 360);
-            this.IsoscelesTriangleButton.Name = "IsoscelesTriangleButton";
-            this.IsoscelesTriangleButton.Size = new System.Drawing.Size(170, 26);
-            this.IsoscelesTriangleButton.TabIndex = 9;
-            this.IsoscelesTriangleButton.TabStop = false;
-            this.IsoscelesTriangleButton.Text = "Равнобедренный трегольник";
-            this.IsoscelesTriangleButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.IsoscelesTriangleButton.UseVisualStyleBackColor = true;
-            this.IsoscelesTriangleButton.Click += new System.EventHandler(this.OnIsoscelesTriangleButtonClick);
+            this.isoscelesTriangleButton.Location = new System.Drawing.Point(12, 360);
+            this.isoscelesTriangleButton.Name = "isoscelesTriangleButton";
+            this.isoscelesTriangleButton.Size = new System.Drawing.Size(170, 26);
+            this.isoscelesTriangleButton.TabIndex = 9;
+            this.isoscelesTriangleButton.TabStop = false;
+            this.isoscelesTriangleButton.Text = "Равнобедренный трегольник";
+            this.isoscelesTriangleButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.isoscelesTriangleButton.UseVisualStyleBackColor = true;
+            this.isoscelesTriangleButton.Click += new System.EventHandler(this.OnIsoscelesTriangleButtonClick);
             // 
-            // PolygonButton
+            // polygonButton
             // 
-            this.PolygonButton.Location = new System.Drawing.Point(12, 392);
-            this.PolygonButton.Name = "PolygonButton";
-            this.PolygonButton.Size = new System.Drawing.Size(170, 26);
-            this.PolygonButton.TabIndex = 10;
-            this.PolygonButton.TabStop = false;
-            this.PolygonButton.Text = "Многоугольник";
-            this.PolygonButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.PolygonButton.UseVisualStyleBackColor = true;
-            this.PolygonButton.Click += new System.EventHandler(this.OnPolygonButtonClick);
+            this.polygonButton.Location = new System.Drawing.Point(12, 392);
+            this.polygonButton.Name = "polygonButton";
+            this.polygonButton.Size = new System.Drawing.Size(170, 26);
+            this.polygonButton.TabIndex = 10;
+            this.polygonButton.TabStop = false;
+            this.polygonButton.Text = "Многоугольник";
+            this.polygonButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.polygonButton.UseVisualStyleBackColor = true;
+            this.polygonButton.Click += new System.EventHandler(this.OnPolygonButtonClick);
             // 
-            // RegularPolygonButton
+            // regularPolygonButton
             // 
             this.RegularPolygonButton.Location = new System.Drawing.Point(12, 424);
             this.RegularPolygonButton.Name = "RegularPolygonButton";
@@ -236,7 +236,7 @@ namespace VectorDrawing
             0,
             0});
             this.thickness.Name = "thickness";
-            this.thickness.Size = new System.Drawing.Size(70, 20);
+            this.thickness.Size = new System.Drawing.Size(70, 22);
             this.thickness.TabIndex = 13;
             this.thickness.Value = new decimal(new int[] {
             1,
@@ -250,7 +250,7 @@ namespace VectorDrawing
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(391, 17);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(137, 13);
+            this.label1.Size = new System.Drawing.Size(146, 13);
             this.label1.TabIndex = 15;
             this.label1.Text = "Толщина линии (пиксели)";
             // 
@@ -266,7 +266,7 @@ namespace VectorDrawing
             // 
             // anglesForPolygonGroupBox
             // 
-            this.anglesForPolygonGroupBox.Controls.Add(this.CornerNumericUpDown);
+            this.anglesForPolygonGroupBox.Controls.Add(this.cornerNumericUpDown);
             this.anglesForPolygonGroupBox.Controls.Add(this.label2);
             this.anglesForPolygonGroupBox.Location = new System.Drawing.Point(631, 9);
             this.anglesForPolygonGroupBox.Name = "anglesForPolygonGroupBox";
@@ -276,80 +276,80 @@ namespace VectorDrawing
             this.anglesForPolygonGroupBox.Text = "Многоугольник";
             this.anglesForPolygonGroupBox.Visible = false;
             // 
-            // CornerNumericUpDown
+            // cornerNumericUpDown
             // 
-            this.CornerNumericUpDown.Location = new System.Drawing.Point(114, 14);
-            this.CornerNumericUpDown.Minimum = new decimal(new int[] {
+            this.cornerNumericUpDown.Location = new System.Drawing.Point(114, 14);
+            this.cornerNumericUpDown.Minimum = new decimal(new int[] {
             3,
             0,
             0,
             0});
-            this.CornerNumericUpDown.Name = "CornerNumericUpDown";
-            this.CornerNumericUpDown.Size = new System.Drawing.Size(47, 20);
-            this.CornerNumericUpDown.TabIndex = 1;
-            this.CornerNumericUpDown.Value = new decimal(new int[] {
+            this.cornerNumericUpDown.Name = "cornerNumericUpDown";
+            this.cornerNumericUpDown.Size = new System.Drawing.Size(47, 22);
+            this.cornerNumericUpDown.TabIndex = 1;
+            this.cornerNumericUpDown.Value = new decimal(new int[] {
             3,
             0,
             0,
             0});
-            this.CornerNumericUpDown.ValueChanged += new System.EventHandler(this.OnCornersNumericUpDownValueChanged);
+            this.cornerNumericUpDown.ValueChanged += new System.EventHandler(this.OnCornersNumericUpDownValueChanged);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(11, 19);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(97, 13);
+            this.label2.Size = new System.Drawing.Size(101, 13);
             this.label2.TabIndex = 0;
             this.label2.Text = "Количество углов";
             // 
-            // Clear
+            // clearButton
             // 
-            this.Clear.Location = new System.Drawing.Point(22, 464);
-            this.Clear.Name = "Clear";
-            this.Clear.Size = new System.Drawing.Size(147, 23);
-            this.Clear.TabIndex = 17;
-            this.Clear.TabStop = false;
-            this.Clear.Text = "Очистить";
-            this.Clear.UseVisualStyleBackColor = true;
-            this.Clear.Click += new System.EventHandler(this.OnClearClick);
+            this.clearButton.Location = new System.Drawing.Point(22, 464);
+            this.clearButton.Name = "clearButton";
+            this.clearButton.Size = new System.Drawing.Size(147, 23);
+            this.clearButton.TabIndex = 17;
+            this.clearButton.TabStop = false;
+            this.clearButton.Text = "Очистить";
+            this.clearButton.UseVisualStyleBackColor = true;
+            this.clearButton.Click += new System.EventHandler(this.OnClearClick);
             // 
-            // MoveModeButton
+            // moveModeButton
             // 
-            this.MoveModeButton.Location = new System.Drawing.Point(22, 507);
-            this.MoveModeButton.Name = "MoveModeButton";
-            this.MoveModeButton.Size = new System.Drawing.Size(146, 22);
-            this.MoveModeButton.TabIndex = 18;
-            this.MoveModeButton.TabStop = false;
-            this.MoveModeButton.Text = "Переместить";
-            this.MoveModeButton.UseVisualStyleBackColor = true;
-            this.MoveModeButton.Click += new System.EventHandler(this.OnMoveModeButtonClick);
+            this.moveModeButton.Location = new System.Drawing.Point(22, 507);
+            this.moveModeButton.Name = "moveModeButton";
+            this.moveModeButton.Size = new System.Drawing.Size(146, 22);
+            this.moveModeButton.TabIndex = 18;
+            this.moveModeButton.TabStop = false;
+            this.moveModeButton.Text = "Переместить";
+            this.moveModeButton.UseVisualStyleBackColor = true;
+            this.moveModeButton.Click += new System.EventHandler(this.OnMoveModeButtonClick);
             // 
             // VectorDrawingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(955, 572);
-            this.Controls.Add(this.MoveModeButton);
-            this.Controls.Add(this.Clear);
+            this.Controls.Add(this.moveModeButton);
+            this.Controls.Add(this.clearButton);
             this.Controls.Add(this.anglesForPolygonGroupBox);
             this.Controls.Add(this.colorFrontButton);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.thickness);
             this.Controls.Add(this.pictureBox);
             this.Controls.Add(this.ToolsLabel);
-            this.Controls.Add(this.RegularPolygonButton);
-            this.Controls.Add(this.PolygonButton);
-            this.Controls.Add(this.IsoscelesTriangleButton);
-            this.Controls.Add(this.TriangleButton);
-            this.Controls.Add(this.RectangularTriangleButton);
-            this.Controls.Add(this.EllipseButton);
-            this.Controls.Add(this.CircleButton);
-            this.Controls.Add(this.SquareButton);
-            this.Controls.Add(this.RectangleButton);
-            this.Controls.Add(this.NlineButton);
-            this.Controls.Add(this.LineButton);
-            this.Controls.Add(this.BrushButton);
+            this.Controls.Add(this.regularPolygonButton);
+            this.Controls.Add(this.polygonButton);
+            this.Controls.Add(this.isoscelesTriangleButton);
+            this.Controls.Add(this.triangleButton);
+            this.Controls.Add(this.rectangularTriangleButton);
+            this.Controls.Add(this.ellipseButton);
+            this.Controls.Add(this.circleButton);
+            this.Controls.Add(this.squareButton);
+            this.Controls.Add(this.rectangleButton);
+            this.Controls.Add(this.nlineButton);
+            this.Controls.Add(this.lineButton);
+            this.Controls.Add(this.brushButton);
             this.Name = "VectorDrawingForm";
             this.Text = "VectorDrawing2D";
             this.Load += new System.EventHandler(this.OnVectorDrawingFormLoad);
@@ -357,7 +357,7 @@ namespace VectorDrawing
             ((System.ComponentModel.ISupportInitialize)(this.thickness)).EndInit();
             this.anglesForPolygonGroupBox.ResumeLayout(false);
             this.anglesForPolygonGroupBox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.CornerNumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cornerNumericUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -365,29 +365,29 @@ namespace VectorDrawing
 
         #endregion
 
-        private System.Windows.Forms.Button BrushButton;
-        private System.Windows.Forms.Button LineButton;
-        private System.Windows.Forms.Button NlineButton;
-        private System.Windows.Forms.Button RectangleButton;
-        private System.Windows.Forms.Button SquareButton;
-        private System.Windows.Forms.Button CircleButton;
-        private System.Windows.Forms.Button EllipseButton;
-        private System.Windows.Forms.Button RectangularTriangleButton;
-        private System.Windows.Forms.Button TriangleButton;
-        private System.Windows.Forms.Button IsoscelesTriangleButton;
-        private System.Windows.Forms.Button PolygonButton;
-        private System.Windows.Forms.Button RegularPolygonButton;
+        private System.Windows.Forms.Button brushButton;
+        private System.Windows.Forms.Button lineButton;
+        private System.Windows.Forms.Button nlineButton;
+        private System.Windows.Forms.Button rectangleButton;
+        private System.Windows.Forms.Button squareButton;
+        private System.Windows.Forms.Button circleButton;
+        private System.Windows.Forms.Button ellipseButton;
+        private System.Windows.Forms.Button rectangularTriangleButton;
+        private System.Windows.Forms.Button triangleButton;
+        private System.Windows.Forms.Button isoscelesTriangleButton;
+        private System.Windows.Forms.Button polygonButton;
+        private System.Windows.Forms.Button regularPolygonButton;
         private System.Windows.Forms.Label ToolsLabel;
         private System.Windows.Forms.PictureBox pictureBox;
         private System.Windows.Forms.NumericUpDown thickness;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ColorDialog colorDialog;
         private System.Windows.Forms.Button colorFrontButton;
-        private System.Windows.Forms.NumericUpDown CornerNumericUpDown;
+        private System.Windows.Forms.NumericUpDown cornerNumericUpDown;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button Clear;
+        private System.Windows.Forms.Button clearButton;
         private System.Windows.Forms.GroupBox anglesForPolygonGroupBox;
-        private System.Windows.Forms.Button MoveModeButton;
+        private System.Windows.Forms.Button moveModeButton;
     }
 }
 

@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 
-
-namespace VectorDrawin.Tests.ToolsTests
+namespace VectorDrawin.Tests.ToolsTests.Mocks
 {
     class GetFourPointsMock: IEnumerable
     {

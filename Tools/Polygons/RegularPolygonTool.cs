@@ -30,7 +30,7 @@ namespace VectorDrawing.Tools.Polygons
                 Center = this.Center,
                 TemporaryPoint = this.TemporaryPoint
             };
-            var ss = ((CommonReturn) polygon.Get(figureParameter));
+           
             graphics.DrawPolygon(Pen, ((CommonReturn)polygon.Get(figureParameter)).Points);
         }
     }

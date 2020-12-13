@@ -169,7 +169,7 @@ namespace VectorDrawing
             _tool = _factoryTool.Create(_pen);
             if (_tool is RegularPolygonTool regularPolygonTool)
             {
-                regularPolygonTool.QuantityOfCorners = (int)CornerNumericUpDown.Value;
+                regularPolygonTool.QuantityOfCorners = (int)cornerNumericUpDown.Value;
             }
         }
         
@@ -218,7 +218,7 @@ namespace VectorDrawing
         
         private void OnRectangularTriangleButtonClick(object sender, EventArgs e)
         {
-            _factoryTool = new RectangleFactoryTool();
+            _factoryTool = new RectangularTriangleFactoryTool();
             CreateFigure();
         }
         
@@ -233,6 +233,8 @@ namespace VectorDrawing
             _factoryTool = new IsoscelesTriangleFactoryTool();
             CreateFigure();
         }
+        
+        
         
         private void OnPolygonButtonClick(object sender, EventArgs e)
         {
