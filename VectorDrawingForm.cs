@@ -44,9 +44,6 @@ namespace VectorDrawing
             pictureBox.BackColor = color;
         }
 
-
-
-
         private void OnPictureBoxMouseMove(object sender, MouseEventArgs e)
         {
             switch (_mode)
@@ -256,11 +253,13 @@ namespace VectorDrawing
         
         private void OnPictureBoxMouseDoubleClick(object sender, MouseEventArgs e)
         {
-            _tool?.AddPoint(e.Location);
-            _canvas.Draw(_tool);
-            _canvas.FinishFigure();
-            CreateFigure();
-
+            if (_mode == Mode.Draw)
+            {
+                _tool?.AddPoint(e.Location);
+                _canvas.Draw(_tool);
+                _canvas.FinishFigure();
+                CreateFigure();
+            }
         }
     }
 }

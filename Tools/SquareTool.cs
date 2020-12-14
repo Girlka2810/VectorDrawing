@@ -12,7 +12,7 @@ namespace VectorDrawing.Tools
     {
 
         private IFigure _figure;
-        public override int MaxCount => 4;
+        public override int MaxCount => 2;
         public override void AddPoint(PointF point)
         {
             if (Points.Count > 3)
@@ -44,11 +44,11 @@ namespace VectorDrawing.Tools
             FigureParameter figureParameter = GenerateParametrs();
             PointF[] pointsArr = ((CommonReturn)square.Get(figureParameter)).Points;
             graphics.DrawPolygon(Pen, pointsArr);
-            Points = new List<PointF>();
-            for (int i = 0; i < pointsArr.Length; i++)
-            {
-                AddPoint(pointsArr[i]);
-            }
+            //Points = new List<PointF>();
+            //for (int i = 0; i < pointsArr.Length; i++)
+            //{
+            //    AddPoint(pointsArr[i]);
+            //}
         }
 
         public void Update(Graphics graphics)

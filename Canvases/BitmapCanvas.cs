@@ -85,8 +85,8 @@ namespace VectorDrawing.Canvases
         {
             if (_tool != null)
             {
-               if (_tool is SquareTool) _tool.SavePoints();
                 AddBuffer(_tool);
+               if (_tool is SquareTool) _tool.SavePoints();
                 _mainBitmap = _tmpBitmap;
                 _tool = null;
             }
