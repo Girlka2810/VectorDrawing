@@ -56,6 +56,10 @@ namespace VectorDrawing.Tools
             graphics.DrawPolygon(Pen, Points.ToArray());
         }
 
+        public override void SavePoints()
+        {
+            EndShapePoints = ((CommonReturn)_figure.Get(GenerateParametrs())).Points;
+        }
         protected override FigureParameter GenerateParametrs()
         {
             CommonParameter figureParameter = new CommonParameter
