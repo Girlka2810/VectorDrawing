@@ -52,6 +52,8 @@ namespace VectorDrawing
             this.label2 = new System.Windows.Forms.Label();
             this.clearButton = new System.Windows.Forms.Button();
             this.moveModeButton = new System.Windows.Forms.Button();
+            this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
+            this.saveButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.thickness)).BeginInit();
             this.anglesForPolygonGroupBox.SuspendLayout();
@@ -237,7 +239,7 @@ namespace VectorDrawing
             0,
             0});
             this.thickness.Name = "thickness";
-            this.thickness.Size = new System.Drawing.Size(70, 22);
+            this.thickness.Size = new System.Drawing.Size(70, 20);
             this.thickness.TabIndex = 13;
             this.thickness.Value = new decimal(new int[] {
             1,
@@ -251,7 +253,7 @@ namespace VectorDrawing
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(391, 17);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(146, 13);
+            this.label1.Size = new System.Drawing.Size(137, 13);
             this.label1.TabIndex = 15;
             this.label1.Text = "Толщина линии (пиксели)";
             // 
@@ -286,7 +288,7 @@ namespace VectorDrawing
             0,
             0});
             this.cornerNumericUpDown.Name = "cornerNumericUpDown";
-            this.cornerNumericUpDown.Size = new System.Drawing.Size(47, 22);
+            this.cornerNumericUpDown.Size = new System.Drawing.Size(47, 20);
             this.cornerNumericUpDown.TabIndex = 1;
             this.cornerNumericUpDown.Value = new decimal(new int[] {
             3,
@@ -300,7 +302,7 @@ namespace VectorDrawing
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(11, 19);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(101, 13);
+            this.label2.Size = new System.Drawing.Size(97, 13);
             this.label2.TabIndex = 0;
             this.label2.Text = "Количество углов";
             // 
@@ -326,11 +328,22 @@ namespace VectorDrawing
             this.moveModeButton.UseVisualStyleBackColor = true;
             this.moveModeButton.Click += new System.EventHandler(this.OnMoveModeButtonClick);
             // 
+            // saveButton
+            // 
+            this.saveButton.Location = new System.Drawing.Point(821, 12);
+            this.saveButton.Name = "saveButton";
+            this.saveButton.Size = new System.Drawing.Size(112, 23);
+            this.saveButton.TabIndex = 19;
+            this.saveButton.Text = "Сохранить";
+            this.saveButton.UseVisualStyleBackColor = true;
+            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
+            // 
             // VectorDrawingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(955, 572);
+            this.Controls.Add(this.saveButton);
             this.Controls.Add(this.moveModeButton);
             this.Controls.Add(this.clearButton);
             this.Controls.Add(this.anglesForPolygonGroupBox);
@@ -389,6 +402,8 @@ namespace VectorDrawing
         private System.Windows.Forms.Button clearButton;
         private System.Windows.Forms.GroupBox anglesForPolygonGroupBox;
         private System.Windows.Forms.Button moveModeButton;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog;
+        private System.Windows.Forms.Button saveButton;
     }
 }
 

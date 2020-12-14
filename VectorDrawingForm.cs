@@ -261,5 +261,30 @@ namespace VectorDrawing
                 CreateFigure();
             }
         }
+
+        private void saveButton_Click(object sender, EventArgs e)
+        {
+            if (pictureBox.Image!=null)
+            {
+                SaveFileDialog sfd = new SaveFileDialog();
+                sfd.Title = "Сохранить картинку как...";
+                sfd.OverwritePrompt = true;
+                sfd.CheckPathExists = true;
+                sfd.Filter = "Image Files(*.BMP)|*.BMP|Image Files(*.JPG)|*.JPG| Image Files(*.PNG)|*.PNG|" +
+                    "Image Files(*.SVG)|*.SVG|All Files(*.*)|*.*";
+                sfd.ShowHelp = true;
+                if(sfd.ShowDialog()==DialogResult.OK)
+                {
+                    try
+                    {
+                        pictureBox.Image.Save(sfd.FileName);
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Невозможно сохранить изображение","Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
     }
 }
