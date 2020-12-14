@@ -10,7 +10,7 @@ namespace VectorDrawing.Canvases
         void Create(int width, int height, Color backcolor);
         void SetRender(Action<Bitmap, Color> render);
         void Draw(Tools.AbstractTool tool);
-        void Clear(int width, int height);
+        void Clear();
         void FinishFigure();
         void DrawAll();
         void UpdateDictionary(List<Tools.AbstractTool> list);

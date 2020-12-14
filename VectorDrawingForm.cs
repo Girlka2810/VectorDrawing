@@ -147,7 +147,7 @@ namespace VectorDrawing
 
         private void OnClearClick(object sender, EventArgs e)
         {
-            _canvas.Clear(pictureBox.Width, pictureBox.Height);
+            _canvas.Clear();
         }
 
         private void OnPictureBoxMouseUp(object sender, MouseEventArgs e)
@@ -241,7 +241,8 @@ namespace VectorDrawing
         
         private void OnPolygonButtonClick(object sender, EventArgs e)
         {
-         
+            _factoryTool = new PolygonFactoryTool();
+            CreateFigure();
         }
         
         private void OnRegularPolygonButtonClick(object sender, EventArgs e)
