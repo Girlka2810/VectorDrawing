@@ -55,6 +55,7 @@
     <Compile Include="FactoriesTools\IsoscelesTriangleFactoryTool.cs" />
     <Compile Include="FactoriesTools\LineFactoryTool.cs" />
     <Compile Include="FactoriesTools\NLineFactoryTool.cs" />
+    <Compile Include="FactoriesTools\PolygonFactoryTool.cs" />
     <Compile Include="FactoriesTools\RectangleFactoryTool.cs" />
     <Compile Include="FactoriesTools\RectangularTriangleFactoryTool.cs" />
     <Compile Include="FactoriesTools\RegularPolygonFactoryTool.cs" />
