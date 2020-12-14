@@ -185,7 +185,8 @@ namespace VectorDrawing
         
         private void OnPolygonButtonClick(object sender, EventArgs e)
         {
-         
+            _factoryTool = new PolygonFactoryTool();
+            CreateFigure();
         }
         
         private void OnRegularPolygonButtonClick(object sender, EventArgs e)

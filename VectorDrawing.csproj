@@ -55,6 +55,7 @@
     <Compile Include="FactoriesTools\IsoscelesTriangleFactoryTool.cs" />
     <Compile Include="FactoriesTools\LineFactoryTool.cs" />
     <Compile Include="FactoriesTools\NLineFactoryTool.cs" />
+    <Compile Include="FactoriesTools\PolygonFactoryTool.cs" />
     <Compile Include="FactoriesTools\RectangleFactoryTool.cs" />
     <Compile Include="FactoriesTools\RectangularTriangleFactoryTool.cs" />
     <Compile Include="FactoriesTools\RegularPolygonFactoryTool.cs" />
@@ -71,6 +72,7 @@
     <Compile Include="Figures\Parameters\EllipseParameter.cs" />
     <Compile Include="Figures\Parameters\FigureParameter.cs" />
     <Compile Include="Figures\Parameters\RegularPolygonParameter.cs" />
+    <Compile Include="Figures\PolygonFigure.cs" />
     <Compile Include="Figures\RectangleFigure.cs" />
     <Compile Include="Figures\RectangularTriangleFigure.cs" />
     <Compile Include="Figures\RegularPolygonFigure.cs" />
@@ -88,6 +90,7 @@
     <Compile Include="Tools\IsoscelesTriangleTool.cs" />
     <Compile Include="Tools\LineTool.cs" />
     <Compile Include="Tools\NLineTool.cs" />
+    <Compile Include="Tools\PolygonTool.cs" />
     <Compile Include="Tools\Polygons\AbstractPolygon.cs" />
     <Compile Include="Tools\Polygons\RegularPolygonTool.cs" />
     <Compile Include="Tools\RectangleTool.cs" />
