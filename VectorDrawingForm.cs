@@ -145,6 +145,7 @@ namespace VectorDrawing
         private void OnClearClick(object sender, EventArgs e)
         {
             _canvas.Clear();
+            GC.Collect();
         }
 
         private void OnPictureBoxMouseUp(object sender, MouseEventArgs e)
@@ -296,6 +297,7 @@ namespace VectorDrawing
                 try
                 {
                     pictureBox.Image = new Bitmap(ofd.FileName);
+                    _canvas.LoadBitMap((Bitmap)pictureBox.Image);
                 }
                 catch
                 {
@@ -304,6 +306,12 @@ namespace VectorDrawing
             }
 
 
+        }
+
+        private void pictureBox_SizeChanged(object sender, EventArgs e)
+        {
+            _canvas.Create(pictureBox.Width, pictureBox.Height);
+            _canvas.DrawAll();
         }
     }
 }

@@ -133,7 +133,6 @@ namespace VectorDrawing.Canvases
 
         public void DrawAll()
         {
-            _mainBitmap = new Bitmap(_mainBitmap.Width, _mainBitmap.Height);
             Graphics graphics = Graphics.FromImage(_mainBitmap);
             foreach(KeyValuePair<string, AbstractTool> keyValuePair in _tools)
             {
@@ -147,6 +146,10 @@ namespace VectorDrawing.Canvases
             {
                 _tools.Add(abstractTools[i].ID, abstractTools[i]);
             }
+        }
+        public void LoadBitMap(Bitmap bitmap)
+        {
+            _mainBitmap = bitmap;
         }
         
         private void AddBuffer(AbstractTool tool)

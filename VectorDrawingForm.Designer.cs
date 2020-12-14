@@ -227,9 +227,9 @@ namespace VectorDrawing
             this.pictureBox.MinimumSize = new System.Drawing.Size(746, 459);
             this.pictureBox.Name = "pictureBox";
             this.pictureBox.Size = new System.Drawing.Size(746, 459);
-            this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox.TabIndex = 13;
             this.pictureBox.TabStop = false;
+            this.pictureBox.SizeChanged += new System.EventHandler(this.pictureBox_SizeChanged);
             this.pictureBox.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.OnPictureBoxMouseDoubleClick);
             this.pictureBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.OnPictureBoxMouseDown);
             this.pictureBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.OnPictureBoxMouseMove);
