@@ -15,6 +15,7 @@ namespace VectorDrawing
     {
 
         private AbstractTool _tool;
+        private List<AbstractTool> _tools;
         private IFactoryTool _factoryTool;
         private Pen _pen;
         private ICanvas _canvas;
@@ -66,58 +67,61 @@ namespace VectorDrawing
                     }
                     break;
                 case Mode.Move:
-                    if (_tool != null)
-                    {
-                        PointF point = e.Location;
-                         PointF delta = new PointF(point.X - _tool.TmpMovePoint.X,
-                            point.Y - _tool.TmpMovePoint.Y );
-                        _tool.Move(delta);
-                       _tool.TemporaryPoint = e.Location;
-                        _canvas.Update();
-                        //_canvas.Draw(_tool);
-                    }
+                    
+                //    if (_tool != null)
+                //    {
+                //        PointF point = e.Location;
+                //         PointF delta = new PointF(point.X - _tool.TmpMovePoint.X,
+                //            point.Y - _tool.TmpMovePoint.Y );
+                //        _tool.Move(delta);
+                //       _tool.TemporaryPoint = e.Location;
+                //        _canvas.Update();
+                //        //_canvas.Draw(_tool);
+                //    }
                     break;
             }
         }
 
         private void OnPictureBoxMouseDown(object sender, MouseEventArgs e)
         {
-            switch(_mode)
+            if (_mode == Mode.Draw)
             {
-                case Mode.Draw:
-                    {
-                        _isMouseDown = true;
-                        _tool?.AddPoint(e.Location);
+                _isMouseDown = true;
+                _tool?.AddPoint(e.Location);
 
-                        if (_tool != null && _tool.CheckMaxQuantityPoints())
+                if (_tool != null && _tool.CheckMaxQuantityPoints())
+                {
+                    _canvas.Draw(_tool);
+                    _canvas.FinishFigure();
+                    CreateFigure();
+                }
+            }
+            else
+            {
+                switch (_mode)
+                {
+                    case Mode.Move:
+                        _tool = null;
+                        _tools = _canvas.GetTools();
+                        foreach (AbstractTool tool in _tools)
                         {
-                            _canvas.Draw(_tool);
-                            _canvas.FinishFigure();
-                            CreateFigure();
+                            if (tool.IsItYou(e.Location))
+                            {
+                                _tool = tool;
+                                _tools.Remove(tool);
+                                _canvas.UpdateDictionary(_tools);
+                                _canvas.DrawAll();
+
+                                _pen.Color = tool.Pen.Color;
+                                _pen.Width = tool.Pen.Width;
+
+                                break;
+                            }
                         }
-                    }
-                    break;
-                case Mode.Move:
-                    _tool = null;
-                    Dictionary<string, AbstractTool> dict = _canvas.GetDictionary();
-                    AbstractTool currentTool;
-                    List<string> IDS = new List<string>();
-                    foreach(KeyValuePair<string, AbstractTool> keyValue in dict)
-                    {
-                        IDS.Add(keyValue.Key);
-                    }
-                    for (int i = 0; i < dict.Count; i++)
-                    {
-                        currentTool = dict[IDS[i]];
-                        if (currentTool.IsItYou(e.Location))
-                        {
-                            _tool = currentTool;
-                           // _tool.TmpMovePoint = e.Location;
-                            dict.Remove(IDS[i]);
-                            _canvas.DrawAll();
-                        }
-                    }
-                    break;
+                        break;
+                    case Mode.Rotate:
+                        break;
+                }
             }
         }
 

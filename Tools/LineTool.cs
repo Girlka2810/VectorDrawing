@@ -37,5 +37,10 @@ namespace VectorDrawing.Tools
             };
             graphics.DrawLines(Pen, ((CommonReturn)line.Get(figureParameter)).Points);
         }
+
+        public override FigureParameter GenerateParametrs()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

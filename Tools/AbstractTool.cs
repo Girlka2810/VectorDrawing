@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using VectorDrawing.FactoriesTools;
 using VectorDrawing.Figures;
 using VectorDrawing.Figures.Parameters;
 using VectorDrawing.Figures.Returns;
@@ -14,10 +15,10 @@ namespace VectorDrawing.Tools
         public string ID { get; protected set; }
         public abstract int MaxCount { get; }
         public PointF TemporaryPoint { get; set; }
-        public PointF TmpMovePoint { get; set; }
         protected List<PointF> Points;
         protected PointF[] EndShapePoints;
-        protected Pen Pen;
+        protected IFigure _figure;
+        public Pen Pen { get; set; }
         
 
         public AbstractTool(List<PointF> points, Pen pen)
@@ -81,7 +82,7 @@ namespace VectorDrawing.Tools
 
         public virtual void SavePoints()
         {
-            EndShapePoints = ((CommonReturn)Figure.Get(GenerateParametrs())).Points;
+            EndShapePoints = ((CommonReturn)_figure.Get(GenerateParametrs())).Points;
         }
 
         public override bool Equals(object obj)
@@ -101,7 +102,21 @@ namespace VectorDrawing.Tools
             }
             return false;
         }
-       
+        public bool IsItYou(PointF point)
+        {
+            PointF prevP = EndShapePoints[3];
+            foreach (PointF p in EndShapePoints)
+            {
+                if (Contain(prevP, p, point, Pen.Width))
+                {
+                    return true;
+                }
+                prevP = p;
+            }
+            return false;
+        }
+
+
         protected void SetPen(Pen pen)
         {
             if (pen.Width >= 1 && pen.Width <= 100)

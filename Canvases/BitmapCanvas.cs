@@ -85,6 +85,16 @@ namespace VectorDrawing.Canvases
             }
         }
         
+        public List<AbstractTool> GetTools()
+        {
+            List<AbstractTool> abstractTools = new List<AbstractTool>();
+            foreach(KeyValuePair<string, AbstractTool> keyValuePair in _tools)
+            {
+                abstractTools.Add(keyValuePair.Value);
+            }
+            return abstractTools;
+        }
+        
         public void Clear(int width, int height)
         {
             _tmpBitmap = new Bitmap(width, height);
@@ -121,6 +131,14 @@ namespace VectorDrawing.Canvases
             foreach(KeyValuePair<string, AbstractTool> keyValuePair in _tools)
             {
                 keyValuePair.Value.Paint(graphics);
+            }
+        }
+        public void UpdateDictionary(List<AbstractTool> abstractTools)
+        {
+            _tools = new Dictionary<string, AbstractTool>();
+            for (int i = 0; i < abstractTools.Count; i++)
+            {
+                _tools.Add(abstractTools[i].ID, abstractTools[i]);
             }
         }
         
