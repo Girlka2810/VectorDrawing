@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using VectorDrawing.Figures;
 using VectorDrawing.Figures.Parameters;
 using VectorDrawing.Figures.Returns;
 
@@ -29,7 +30,7 @@ namespace VectorDrawing.Tools
 
         public override void Paint(Graphics graphics)
         {
-            Figures.LineFigure line = new Figures.LineFigure();
+            LineFigure line = new LineFigure();
             CommonParameter figureParameter = new CommonParameter
             {
                 Points = Points.ToArray(),

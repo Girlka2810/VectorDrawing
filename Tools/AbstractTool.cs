@@ -17,7 +17,6 @@ namespace VectorDrawing.Tools
         public PointF TemporaryPoint { get; set; }
         protected List<PointF> Points;
         protected PointF[] EndShapePoints;
-        protected IFigure _figure;
         public Pen Pen { get; set; }
         
 
@@ -82,7 +81,7 @@ namespace VectorDrawing.Tools
 
         public virtual void SavePoints()
         {
-            EndShapePoints = ((CommonReturn)_figure.Get(GenerateParametrs())).Points;
+            EndShapePoints = ((CommonReturn)Figure.Get(GenerateParametrs())).Points;
         }
 
         public override bool Equals(object obj)

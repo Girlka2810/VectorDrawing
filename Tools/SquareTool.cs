@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using VectorDrawing.Figures;
 using VectorDrawing.Figures.Parameters;
 using VectorDrawing.Figures.Returns;
 
@@ -10,6 +11,7 @@ namespace VectorDrawing.Tools
     public class SquareTool : AbstractTool
     {
 
+        private IFigure _figure;
         public override int MaxCount => 4;
         public override void AddPoint(PointF point)
         {
@@ -37,7 +39,8 @@ namespace VectorDrawing.Tools
 
         public override void Paint(Graphics graphics)
         {
-            Figures.SquareFigure square = new Figures.SquareFigure();
+            SquareFigure square = new SquareFigure();
+            _figure = square;
             CommonParameter figureParameter = new CommonParameter
             {
                 Points = this.Points.ToArray(),
