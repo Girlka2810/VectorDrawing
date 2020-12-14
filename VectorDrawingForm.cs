@@ -94,7 +94,7 @@ namespace VectorDrawing
 
         private void OnClearClick(object sender, EventArgs e)
         {
-            pictureBox.Image = _canvas.Clear();
+            _canvas.Clear();
         }
 
         private void OnPictureBoxMouseUp(object sender, MouseEventArgs e)
