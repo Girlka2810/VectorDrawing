@@ -218,11 +218,15 @@ namespace VectorDrawing
             // 
             // pictureBox
             // 
+            this.pictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox.BackColor = System.Drawing.Color.White;
             this.pictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox.Location = new System.Drawing.Point(188, 67);
+            this.pictureBox.MinimumSize = new System.Drawing.Size(746, 459);
             this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(755, 480);
+            this.pictureBox.Size = new System.Drawing.Size(746, 459);
             this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox.TabIndex = 13;
             this.pictureBox.TabStop = false;
@@ -332,7 +336,8 @@ namespace VectorDrawing
             // 
             // saveButton
             // 
-            this.saveButton.Location = new System.Drawing.Point(822, 36);
+            this.saveButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.saveButton.Location = new System.Drawing.Point(813, 36);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(112, 23);
             this.saveButton.TabIndex = 19;
@@ -342,7 +347,8 @@ namespace VectorDrawing
             // 
             // openButton
             // 
-            this.openButton.Location = new System.Drawing.Point(822, 7);
+            this.openButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.openButton.Location = new System.Drawing.Point(813, 7);
             this.openButton.Name = "openButton";
             this.openButton.Size = new System.Drawing.Size(112, 23);
             this.openButton.TabIndex = 20;
@@ -354,7 +360,7 @@ namespace VectorDrawing
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(955, 572);
+            this.ClientSize = new System.Drawing.Size(946, 551);
             this.Controls.Add(this.openButton);
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.moveModeButton);
@@ -377,6 +383,7 @@ namespace VectorDrawing
             this.Controls.Add(this.nlineButton);
             this.Controls.Add(this.lineButton);
             this.Controls.Add(this.brushButton);
+            this.MinimumSize = new System.Drawing.Size(962, 590);
             this.Name = "VectorDrawingForm";
             this.Text = "VectorDrawing2D";
             this.Load += new System.EventHandler(this.OnVectorDrawingFormLoad);
