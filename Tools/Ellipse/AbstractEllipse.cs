@@ -47,6 +47,18 @@ namespace VectorDrawing.Tools.Ellipse
             arr[3] = new PointF(rect.Location.X + rect.Width, rect.Location.Y + rect.Height);
             return arr;
         }
+        protected RectangleF ConvertFromPointsToRectangle(PointF[] points)
+        {
+            float width = Math.Abs(points[0].X - points[1].X);
+            float height = Math.Abs(points[0].Y - points[4].Y);
+            SizeF size = new SizeF(width, height);
+            RectangleF rect = new RectangleF(points[0], size);
+            return rect;
+        }
+        public void Update(Graphics graphics)
+        {
+            graphics.DrawEllipse(Pen, ConvertFromPointsToRectangle(EndShapePoints));
+        }
         public override void SavePoints()
         {
             EndShapePoints = ConvertFromRectangleToPoints(((EllipseReturn)
