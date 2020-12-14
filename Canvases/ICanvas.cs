@@ -14,6 +14,7 @@ namespace VectorDrawing.Canvases
         void FinishFigure();
         void DrawAll();
         void UpdateDictionary(List<Tools.AbstractTool> list);
+        void LoadBitMap(Bitmap bitmap);
         List<Tools.AbstractTool> GetTools();
        // Dictionary<string, Tools.AbstractTool> GetDictionary();
 

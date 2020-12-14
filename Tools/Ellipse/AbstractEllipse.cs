@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using VectorDrawing.Figures.Returns;
+using VectorDrawing.RectangleConverts;
 
 namespace VectorDrawing.Tools.Ellipse
 {
@@ -9,6 +11,7 @@ namespace VectorDrawing.Tools.Ellipse
         public PointF Center { get; private set; }
         public float Width { get; set; }
         public float Height { get; set; }
+
 
 
         public AbsractEllipse(List<PointF> points, Pen pen) : base(pen)
@@ -35,6 +38,24 @@ namespace VectorDrawing.Tools.Ellipse
             Center = Points[0];
         }
 
-
+        public void Update(Graphics graphics)
+        {
+            //graphics.DrawEllipse(Pen, ConvertFromPointsToRectangle(EndShapePoints));
+        }
+        public override void SavePoints()
+        {
+            throw new NotImplementedException();
+        }
+        
+        public void SavePoints(IConvert convert)
+        {
+            EndShapePoints = convert.ToPoints(((EllipseReturn)
+                Figure.Get(GenerateParametrs())).Rectangle);
+            Points = null;
+        }
+        
+        
+        
+        
     }
 }
