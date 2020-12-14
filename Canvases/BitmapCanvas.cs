@@ -40,7 +40,13 @@ namespace VectorDrawing.Canvases
             _render?.Invoke(_tmpBitmap, backcolor);
             _backColor = backcolor;
         }
-
+        public void Clear()
+        {
+            _tools = new Dictionary<string, AbstractTool>();
+            _mainBitmap = new Bitmap(_mainBitmap.Width, _mainBitmap.Height);
+            _backColor = Color.White;
+            _render?.Invoke(_mainBitmap, _backColor);
+        }
         public void SetRender(Action<Bitmap, Color> render)
         {
             if (render == null)
@@ -79,8 +85,8 @@ namespace VectorDrawing.Canvases
         {
             if (_tool != null)
             {
-               if (_tool is SquareTool) _tool.SavePoints();
                 AddBuffer(_tool);
+               if (_tool is SquareTool) _tool.SavePoints();
                 _mainBitmap = _tmpBitmap;
                 _tool = null;
             }
@@ -125,9 +131,8 @@ namespace VectorDrawing.Canvases
             return _tools;
         }
 
-        public void DrawAll()
+        public void DrawAll()    
         {
-            _mainBitmap = new Bitmap(_mainBitmap.Width, _mainBitmap.Height);
             Graphics graphics = Graphics.FromImage(_mainBitmap);
             foreach(KeyValuePair<string, AbstractTool> keyValuePair in _tools)
             {
@@ -141,6 +146,10 @@ namespace VectorDrawing.Canvases
             {
                 _tools.Add(abstractTools[i].ID, abstractTools[i]);
             }
+        }
+        public void LoadBitMap(Bitmap bitmap)
+        {
+            _mainBitmap = bitmap;
         }
         
         private void AddBuffer(AbstractTool tool)

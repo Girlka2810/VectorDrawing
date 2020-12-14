@@ -44,9 +44,6 @@ namespace VectorDrawing
             pictureBox.BackColor = color;
         }
 
-
-
-
         private void OnPictureBoxMouseMove(object sender, MouseEventArgs e)
         {
             switch (_mode)
@@ -147,7 +144,8 @@ namespace VectorDrawing
 
         private void OnClearClick(object sender, EventArgs e)
         {
-            _canvas.Clear(pictureBox.Width, pictureBox.Height);
+            _canvas.Clear();
+            GC.Collect();
         }
 
         private void OnPictureBoxMouseUp(object sender, MouseEventArgs e)
@@ -241,7 +239,8 @@ namespace VectorDrawing
         
         private void OnPolygonButtonClick(object sender, EventArgs e)
         {
-         
+            _factoryTool = new PolygonFactoryTool();
+            CreateFigure();
         }
         
         private void OnRegularPolygonButtonClick(object sender, EventArgs e)
@@ -255,11 +254,46 @@ namespace VectorDrawing
         
         private void OnPictureBoxMouseDoubleClick(object sender, MouseEventArgs e)
         {
-            _tool?.AddPoint(e.Location);
-            _canvas.Draw(_tool);
-            _canvas.FinishFigure();
-            CreateFigure();
+            if (_mode == Mode.Draw)
+            {
+                _tool?.AddPoint(e.Location);
+                _canvas.Draw(_tool);
+                _canvas.FinishFigure();
+                CreateFigure();
+            }
+        }
 
+        private void OnSaveButtonClick(object sender, EventArgs e)
+        {
+            if (pictureBox.Image!=null)
+            {
+                SaveFileDialog fileDialog = new SaveFileDialog();
+                fileDialog.Title = "Сохранить картинку как...";
+                fileDialog.OverwritePrompt = true;
+                fileDialog.CheckPathExists = true;
+                fileDialog.Filter = "Image Files(*.BMP)|*.BMP|Image Files(*.JPG)|*.JPG| Image Files(*.PNG)|*.PNG|" +
+                    "Image Files(*.SVG)|*.SVG|All Files(*.*)|*.*";
+                fileDialog.ShowHelp = true;
+                if(fileDialog.ShowDialog()==DialogResult.OK)
+                {
+                    try
+                    {
+                        pictureBox.Image.Save(fileDialog.FileName);
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Невозможно сохранить изображение","Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
+
+        
+
+        private void OnPictureBoxSizeChanged(object sender, EventArgs e)
+        {
+            _canvas.Create(pictureBox.Width, pictureBox.Height);
+            _canvas.DrawAll();
         }
     }
 }
