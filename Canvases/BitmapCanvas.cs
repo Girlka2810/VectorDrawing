@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using VectorDrawing.RectangleConverts;
 using VectorDrawing.Tools;
+using VectorDrawing.Tools.Ellipse;
 
 namespace VectorDrawing.Canvases
 {
@@ -86,7 +88,14 @@ namespace VectorDrawing.Canvases
             if (_tool != null)
             {
                 AddBuffer(_tool);
-               if (_tool is SquareTool) _tool.SavePoints();
+                if (_tool is AbsractEllipse ellipse)
+                {
+                    ellipse.SavePoints(new BasicConvert());
+                }
+                else
+                {
+                    _tool.SavePoints();
+                }
                 _mainBitmap = _tmpBitmap;
                 _tool = null;
             }

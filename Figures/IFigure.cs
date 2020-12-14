@@ -4,7 +4,7 @@ using VectorDrawing.Figures.Returns;
 
 namespace VectorDrawing.Figures
 {
-    interface IFigure
+    public interface IFigure
     {
         FigureReturn Get(FigureParameter parameter);
 

@@ -9,14 +9,15 @@ namespace VectorDrawing.Tools.Polygons
 {
     public class RegularPolygonTool : AbstractPolygonTool
     {
-        private IFigure _figure;
 
         public RegularPolygonTool(Pen pen) : base(pen)
         {
+            Figure = new RegularPolygonFigure();
         }
         
         public RegularPolygonTool(List<PointF> points, Pen pen) : base(points, pen)
         {
+            Figure = new RegularPolygonFigure();
             if (points.Count > 2)
             {
                 throw new IndexOutOfRangeException();
@@ -25,10 +26,7 @@ namespace VectorDrawing.Tools.Polygons
 
         public override void Paint(Graphics graphics)
         {
-            RegularPolygonFigure polygon = new RegularPolygonFigure();
-            _figure = polygon;
-            FigureParameter figureParameter = GenerateParametrs();
-            graphics.DrawPolygon(Pen, ((CommonReturn)polygon.Get(figureParameter)).Points);
+            graphics.DrawPolygon(Pen, ((CommonReturn)Figure.Get(GenerateParametrs())).Points);
         }
 
         protected override FigureParameter GenerateParametrs()

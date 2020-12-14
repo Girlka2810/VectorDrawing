@@ -10,14 +10,15 @@ namespace VectorDrawing.Tools
     public class TriangleTool : AbstractTool
     {
         public override int MaxCount { get; } = 3;
-        private IFigure _figure;
 
         public TriangleTool(Pen pen) : base(pen)
         {
+            Figure = new TriangleFigure(); 
         }
 
         public TriangleTool(List<PointF> points, Pen pen) : base(points, pen)
         {
+            Figure = new TriangleFigure(); 
             if (points.Count > 3)
             {
                 throw new IndexOutOfRangeException();
@@ -26,10 +27,7 @@ namespace VectorDrawing.Tools
         
         public override void Paint(Graphics graphics)
         {
-            TriangleFigure triangleFigure = new TriangleFigure();
-            _figure = triangleFigure;
-            FigureParameter figureParameter = GenerateParametrs();
-            graphics.DrawPolygon(Pen, ((CommonReturn)triangleFigure.Get(figureParameter)).Points);
+            graphics.DrawPolygon(Pen, ((CommonReturn)Figure.Get(GenerateParametrs())).Points);
         }
         
         
@@ -44,14 +42,6 @@ namespace VectorDrawing.Tools
             Points.Add(point);
         }
 
-        protected override FigureParameter GenerateParametrs()
-        {
-            CommonParameter figureParameter = new CommonParameter
-            {
-                Points = Points.ToArray(),
-                TemporaryPoint = TemporaryPoint,
-            };
-            return figureParameter;
-        }
+        
     }
 }

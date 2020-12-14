@@ -10,15 +10,15 @@ namespace VectorDrawing.Tools.Ellipse
    public  class EllipseTool : AbsractEllipse
     {
         public override int MaxCount => 2;
-        private IFigure _figure;
 
         public EllipseTool(Pen pen) : base(pen)
         {
-
+            Figure = new EllipseFigure();
         }
         
         public EllipseTool(List<PointF> points, Pen pen) : base(points,pen)
         {    
+            Figure = new EllipseFigure();
             if (points.Count > 2)
             {
                 throw new IndexOutOfRangeException();
@@ -27,10 +27,7 @@ namespace VectorDrawing.Tools.Ellipse
 
         public override void Paint(Graphics graphics)
         {
-            EllipseFigure ellipse = new EllipseFigure();
-            _figure = ellipse;
-            FigureParameter figureParameter = GenerateParametrs();
-            graphics.DrawEllipse(Pen, ((EllipseReturn)ellipse.Get(figureParameter)).Rectangle);
+            graphics.DrawEllipse(Pen, ((EllipseReturn)Figure.Get(GenerateParametrs())).Rectangle);
         }
 
         protected override FigureParameter GenerateParametrs()

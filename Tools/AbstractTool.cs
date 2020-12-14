@@ -15,10 +15,12 @@ namespace VectorDrawing.Tools
         public string ID { get; protected set; }
         public abstract int MaxCount { get; }
         public PointF TemporaryPoint { get; set; }
+        public Pen Pen { get; private set; }
+        
         protected List<PointF> Points;
         protected PointF[] EndShapePoints;
-        private IFigure _figure;
-        public Pen Pen { get; set; }
+        protected IFigure Figure;
+        
         
 
         public AbstractTool(List<PointF> points, Pen pen)
@@ -36,8 +38,7 @@ namespace VectorDrawing.Tools
         }
 
         public abstract void Paint(Graphics graphics);
-        //public abstract FigureParameter GenerateParametrs();
-        
+
 
         public virtual void AddPoint(PointF point)
         {
@@ -82,9 +83,17 @@ namespace VectorDrawing.Tools
 
         public virtual void SavePoints()
         {
-            EndShapePoints = ((CommonReturn)_figure.Get(GenerateParametrs())).Points;
+            EndShapePoints = ((CommonReturn)Figure.Get(GenerateParametrs())).Points;
+            Points = null;
         }
-
+        protected virtual FigureParameter GenerateParametrs()
+        {
+            return new CommonParameter
+            {
+                Points = Points.ToArray(),
+                TemporaryPoint = TemporaryPoint
+            };
+        }
         public override bool Equals(object obj)
         {
             if (obj is AbstractTool tool)
@@ -102,6 +111,10 @@ namespace VectorDrawing.Tools
             }
             return false;
         }
+        
+        
+        
+        
         public bool IsItYou(PointF point)
         {
             PointF prevP = EndShapePoints[3];
@@ -116,7 +129,7 @@ namespace VectorDrawing.Tools
             return false;
         }
 
-        protected abstract FigureParameter GenerateParametrs();
+        
         protected void SetPen(Pen pen)
         {
             if (pen.Width >= 1 && pen.Width <= 100)

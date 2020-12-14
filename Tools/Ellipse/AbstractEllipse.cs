@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using VectorDrawing.Figures;
 using VectorDrawing.Figures.Returns;
+using VectorDrawing.RectangleConverts;
 
 namespace VectorDrawing.Tools.Ellipse
 {
@@ -11,7 +11,7 @@ namespace VectorDrawing.Tools.Ellipse
         public PointF Center { get; private set; }
         public float Width { get; set; }
         public float Height { get; set; }
-        private IFigure _figure;
+
 
 
         public AbsractEllipse(List<PointF> points, Pen pen) : base(pen)
@@ -38,31 +38,24 @@ namespace VectorDrawing.Tools.Ellipse
             Center = Points[0];
         }
 
-        protected PointF[] ConvertFromRectangleToPoints(RectangleF rect)
-        {
-            PointF[] arr = new PointF[4];
-            arr[0] = rect.Location;
-            arr[1] = new PointF(rect.Location.X + rect.Width, rect.Location.Y);
-            arr[2] = new PointF(rect.Location.X, rect.Location.Y + rect.Height);
-            arr[3] = new PointF(rect.Location.X + rect.Width, rect.Location.Y + rect.Height);
-            return arr;
-        }
-        protected RectangleF ConvertFromPointsToRectangle(PointF[] points)
-        {
-            float width = Math.Abs(points[0].X - points[1].X);
-            float height = Math.Abs(points[0].Y - points[4].Y);
-            SizeF size = new SizeF(width, height);
-            RectangleF rect = new RectangleF(points[0], size);
-            return rect;
-        }
         public void Update(Graphics graphics)
         {
-            graphics.DrawEllipse(Pen, ConvertFromPointsToRectangle(EndShapePoints));
+            //graphics.DrawEllipse(Pen, ConvertFromPointsToRectangle(EndShapePoints));
         }
         public override void SavePoints()
         {
-            EndShapePoints = ConvertFromRectangleToPoints(((EllipseReturn)
-                _figure.Get(GenerateParametrs())).Rectangle);
+            throw new NotImplementedException();
         }
+        
+        public void SavePoints(IConvert convert)
+        {
+            EndShapePoints = convert.ToPoints(((EllipseReturn)
+                Figure.Get(GenerateParametrs())).Rectangle);
+            Points = null;
+        }
+        
+        
+        
+        
     }
 }
