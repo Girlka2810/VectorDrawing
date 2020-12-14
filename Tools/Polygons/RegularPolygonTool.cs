@@ -9,6 +9,8 @@ namespace VectorDrawing.Tools.Polygons
 {
     public class RegularPolygonTool : AbstractPolygonTool
     {
+        private IFigure _figure;
+
         public RegularPolygonTool(Pen pen) : base(pen)
         {
         }
@@ -24,14 +26,20 @@ namespace VectorDrawing.Tools.Polygons
         public override void Paint(Graphics graphics)
         {
             RegularPolygonFigure polygon = new RegularPolygonFigure();
+            _figure = polygon;
+            FigureParameter figureParameter = GenerateParametrs();
+            graphics.DrawPolygon(Pen, ((CommonReturn)polygon.Get(figureParameter)).Points);
+        }
+
+        protected override FigureParameter GenerateParametrs()
+        {
             RegularPolygonParameter figureParameter = new RegularPolygonParameter
             {
                 QuantityOfCorners = this.QuantityOfCorners,
                 Center = this.Center,
                 TemporaryPoint = this.TemporaryPoint
             };
-           
-            graphics.DrawPolygon(Pen, ((CommonReturn)polygon.Get(figureParameter)).Points);
+            return figureParameter;
         }
     }
 }

@@ -17,6 +17,7 @@ namespace VectorDrawing.Tools
         public PointF TemporaryPoint { get; set; }
         protected List<PointF> Points;
         protected PointF[] EndShapePoints;
+        private IFigure _figure;
         public Pen Pen { get; set; }
         
 
@@ -26,7 +27,7 @@ namespace VectorDrawing.Tools
             Points = points;
             SetPen(pen);
         }
-        
+
         protected AbstractTool(Pen pen)
         {
             ID = Guid.NewGuid().ToString(); 
@@ -35,7 +36,7 @@ namespace VectorDrawing.Tools
         }
 
         public abstract void Paint(Graphics graphics);
-        public abstract FigureParameter GenerateParametrs();
+        //public abstract FigureParameter GenerateParametrs();
         
 
         public virtual void AddPoint(PointF point)
@@ -81,7 +82,7 @@ namespace VectorDrawing.Tools
 
         public virtual void SavePoints()
         {
-            EndShapePoints = ((CommonReturn)Figure.Get(GenerateParametrs())).Points;
+            EndShapePoints = ((CommonReturn)_figure.Get(GenerateParametrs())).Points;
         }
 
         public override bool Equals(object obj)
@@ -115,7 +116,7 @@ namespace VectorDrawing.Tools
             return false;
         }
 
-
+        protected abstract FigureParameter GenerateParametrs();
         protected void SetPen(Pen pen)
         {
             if (pen.Width >= 1 && pen.Width <= 100)

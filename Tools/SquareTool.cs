@@ -41,11 +41,7 @@ namespace VectorDrawing.Tools
         {
             SquareFigure square = new SquareFigure();
             _figure = square;
-            CommonParameter figureParameter = new CommonParameter
-            {
-                Points = this.Points.ToArray(),
-                TemporaryPoint = this.TemporaryPoint
-            };
+            FigureParameter figureParameter = GenerateParametrs();
             PointF[] pointsArr = ((CommonReturn)square.Get(figureParameter)).Points;
             graphics.DrawPolygon(Pen, pointsArr);
             Points = new List<PointF>();
@@ -60,9 +56,14 @@ namespace VectorDrawing.Tools
             graphics.DrawPolygon(Pen, Points.ToArray());
         }
 
-        public override FigureParameter GenerateParametrs()
+        protected override FigureParameter GenerateParametrs()
         {
-            throw new NotImplementedException();
+            CommonParameter figureParameter = new CommonParameter
+            {
+                Points = this.Points.ToArray(),
+                TemporaryPoint = this.TemporaryPoint
+            };
+            return figureParameter;
         }
     }
 }

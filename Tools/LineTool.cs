@@ -10,7 +10,7 @@ namespace VectorDrawing.Tools
 {
     public class LineTool : AbstractTool
     {
-
+        private IFigure _figure;
         public override int MaxCount => 2;
 
         public LineTool(List<PointF> points, Pen pen) : base(points, pen)
@@ -26,22 +26,22 @@ namespace VectorDrawing.Tools
 
         }
 
-        
-
         public override void Paint(Graphics graphics)
         {
             LineFigure line = new LineFigure();
+            _figure = line;
+            FigureParameter figureParameter = GenerateParametrs();
+            graphics.DrawLines(Pen, ((CommonReturn)line.Get(figureParameter)).Points);
+        }
+
+        protected override FigureParameter GenerateParametrs()
+        {
             CommonParameter figureParameter = new CommonParameter
             {
                 Points = Points.ToArray(),
                 TemporaryPoint = TemporaryPoint
             };
-            graphics.DrawLines(Pen, ((CommonReturn)line.Get(figureParameter)).Points);
-        }
-
-        public override FigureParameter GenerateParametrs()
-        {
-            throw new NotImplementedException();
+            return figureParameter;
         }
     }
 }

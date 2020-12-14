@@ -9,7 +9,9 @@ namespace VectorDrawing.Tools
 {
     public class IsoscelesTriangleTool : AbstractTool
     {
-        public override int MaxCount { get; } = 2; 
+        public override int MaxCount { get; } = 2;
+        private IFigure _figure;
+
         public IsoscelesTriangleTool(Pen pen) : base(pen)
         {
         }
@@ -27,23 +29,19 @@ namespace VectorDrawing.Tools
         public override void Paint(Graphics graphics)
         {
             IsoscelesTriangleFigure isoscelesTriangleFigure = new IsoscelesTriangleFigure();
-            CommonParameter figureParameter = new CommonParameter
-            {
-                Points = Points.ToArray(),
-                TemporaryPoint = TemporaryPoint,
-            };
+            _figure = isoscelesTriangleFigure;
+            FigureParameter figureParameter = GenerateParametrs();
             graphics.DrawPolygon(Pen, ((CommonReturn)isoscelesTriangleFigure.Get(figureParameter)).Points);
         }
 
-        public override void SavePoints()
+        protected override FigureParameter GenerateParametrs()
         {
-            IsoscelesTriangleFigure isoscelesTriangleFigure = new IsoscelesTriangleFigure();
             CommonParameter figureParameter = new CommonParameter
             {
                 Points = Points.ToArray(),
                 TemporaryPoint = TemporaryPoint,
             };
-            EndShapePoints = ((CommonReturn)isoscelesTriangleFigure.Get(figureParameter)).Points;
+            return figureParameter;
         }
     }
 }

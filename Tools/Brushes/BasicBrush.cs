@@ -24,14 +24,14 @@ namespace VectorDrawing.Tools.Brushes
             }
         }
 
-        public override FigureParameter GenerateParametrs()
-        {
-            throw new System.NotImplementedException();
-        }
-
         public override void AddPoint(PointF point)
         {
             Points.Add(point);
+        }
+
+        protected override FigureParameter GenerateParametrs()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

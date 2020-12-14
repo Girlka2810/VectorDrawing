@@ -79,6 +79,7 @@ namespace VectorDrawing.Canvases
         {
             if (_tool != null)
             {
+               // _tool.SavePoints();
                 AddBuffer(_tool);
                 _mainBitmap = _tmpBitmap;
                 _tool = null;
