@@ -40,7 +40,13 @@ namespace VectorDrawing.Canvases
             _render?.Invoke(_tmpBitmap, backcolor);
             _backColor = backcolor;
         }
-
+        public void Clear()
+        {
+            _tools = new Dictionary<string, AbstractTool>();
+            _mainBitmap = new Bitmap(_mainBitmap.Width, _mainBitmap.Height);
+            _backColor = Color.White;
+            _render?.Invoke(_mainBitmap, _backColor);
+        }
         public void SetRender(Action<Bitmap, Color> render)
         {
             if (render == null)
@@ -85,11 +91,7 @@ namespace VectorDrawing.Canvases
             }
         }
         
-        public void Clear(int width, int height)
-        {
-            _tmpBitmap = new Bitmap(width, height);
-            _mainBitmap = _tmpBitmap;
-        }
+       
 
         public override bool Equals(object obj)
         {
