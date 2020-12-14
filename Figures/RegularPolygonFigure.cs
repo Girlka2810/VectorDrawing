@@ -37,11 +37,12 @@ namespace VectorDrawing.Figures
         {
             if (a >= b)
             {
-                a = b;
+               
+                b = a;
             }
             else
             {
-                b = a;
+                 a = b;
             }
         }
 
