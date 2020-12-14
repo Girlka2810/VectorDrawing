@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Drawing;
+using VectorDrawing.Figures.Parameters;
 
 namespace VectorDrawing.Tools.Brushes
 {
@@ -26,6 +27,11 @@ namespace VectorDrawing.Tools.Brushes
         public override void AddPoint(PointF point)
         {
             Points.Add(point);
+        }
+
+        protected override FigureParameter GenerateParametrs()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

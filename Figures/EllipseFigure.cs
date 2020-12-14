@@ -46,7 +46,6 @@ namespace VectorDrawing.Figures
                 }
 
                 RectangleF rectangle = new RectangleF(upperLeftPoint.X, upperLeftPoint.Y, (int) delX, (int) delY);
-                
                 return new EllipseReturn() {Rectangle = rectangle};
             }
             return new FigureReturn();

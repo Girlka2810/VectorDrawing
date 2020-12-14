@@ -86,12 +86,27 @@ namespace VectorDrawing.Canvases
             if (_tool != null)
             {
                 AddBuffer(_tool);
+               if (_tool is SquareTool) _tool.SavePoints();
                 _mainBitmap = _tmpBitmap;
                 _tool = null;
             }
         }
         
-       
+        public List<AbstractTool> GetTools()
+        {
+            List<AbstractTool> abstractTools = new List<AbstractTool>();
+            foreach(KeyValuePair<string, AbstractTool> keyValuePair in _tools)
+            {
+                abstractTools.Add(keyValuePair.Value);
+            }
+            return abstractTools;
+        }
+        
+        public void Clear(int width, int height)
+        {
+            _tmpBitmap = new Bitmap(width, height);
+            FinishFigure();
+        }
 
         public override bool Equals(object obj)
         {
@@ -111,7 +126,29 @@ namespace VectorDrawing.Canvases
             }
             return false;
         }
+        public Dictionary<string, AbstractTool> GetDictionary()
+        {
+            return _tools;
+        }
 
+        public void DrawAll()
+        {
+            _mainBitmap = new Bitmap(_mainBitmap.Width, _mainBitmap.Height);
+            Graphics graphics = Graphics.FromImage(_mainBitmap);
+            foreach(KeyValuePair<string, AbstractTool> keyValuePair in _tools)
+            {
+                keyValuePair.Value.Paint(graphics);
+            }
+        }
+        public void UpdateDictionary(List<AbstractTool> abstractTools)
+        {
+            _tools = new Dictionary<string, AbstractTool>();
+            for (int i = 0; i < abstractTools.Count; i++)
+            {
+                _tools.Add(abstractTools[i].ID, abstractTools[i]);
+            }
+        }
+        
         private void AddBuffer(AbstractTool tool)
         {
             if (!_tools.ContainsKey(tool.ID))

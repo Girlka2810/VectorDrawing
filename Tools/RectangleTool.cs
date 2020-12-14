@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using VectorDrawing.Figures;
 using VectorDrawing.Figures.Parameters;
 using VectorDrawing.Figures.Returns;
 
@@ -9,6 +10,7 @@ namespace VectorDrawing.Tools
     public class RectangleTool : AbstractTool
     {
         public override int MaxCount => 2;
+        private IFigure _figure;
 
         public RectangleTool(Pen pen) : base(pen)
         {
@@ -24,13 +26,20 @@ namespace VectorDrawing.Tools
         }
         public override void Paint(Graphics graphics)
         {
-            Figures.RectangleFigure rectangle = new Figures.RectangleFigure();
+            RectangleFigure rectangle = new RectangleFigure();
+            _figure = rectangle;
+            FigureParameter figureParameter = GenerateParametrs();
+            graphics.DrawPolygon(Pen, ((CommonReturn)rectangle.Get(figureParameter)).Points);
+        }
+
+        protected override FigureParameter GenerateParametrs()
+        {
             CommonParameter figureParameter = new CommonParameter
             {
                 Points = this.Points.ToArray(),
                 TemporaryPoint = this.TemporaryPoint
             };
-            graphics.DrawPolygon(Pen, ((CommonReturn)rectangle.Get(figureParameter)).Points);
+            return figureParameter;
         }
     }
 }

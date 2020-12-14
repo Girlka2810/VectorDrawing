@@ -33,5 +33,10 @@ namespace VectorDrawing.Tools
         {
             Points.Add(point);
         }
+
+        protected override FigureParameter GenerateParametrs()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

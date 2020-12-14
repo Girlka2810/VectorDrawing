@@ -10,6 +10,7 @@ namespace VectorDrawing.Tools.Ellipse
     public class CircleTool : AbsractEllipse
     {
         public override int MaxCount => 2;
+        private IFigure _figure;
 
         public CircleTool(Pen pen) : base(pen)
         {
@@ -28,14 +29,20 @@ namespace VectorDrawing.Tools.Ellipse
         public override void Paint(Graphics graphics)
         {
             CircleFigure circle = new CircleFigure();
+            _figure = circle;
+            FigureParameter figureParameter = GenerateParametrs();
+            graphics.DrawEllipse(Pen, ((EllipseReturn)circle.Get(figureParameter)).Rectangle);
+        }
+
+        protected override FigureParameter GenerateParametrs()
+        {
             EllipseParameter figureParameter = new EllipseParameter
             {
                 Center = Center,
                 TemporaryPoint = TemporaryPoint
             };
-            graphics.DrawEllipse(Pen, ((EllipseReturn)circle.Get(figureParameter)).Rectangle);
+            return figureParameter;
         }
-
     }
 }
 

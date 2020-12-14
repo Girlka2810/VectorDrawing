@@ -6,6 +6,8 @@ using VectorDrawing.FactoriesTools;
 using VectorDrawing.Tools;
 using VectorDrawing.Tools.Brushes;
 using VectorDrawing.Tools.Polygons;
+using VectorDrawing.Enums;
+using System.Collections.Generic;
 
 namespace VectorDrawing
 {
@@ -13,10 +15,12 @@ namespace VectorDrawing
     {
 
         private AbstractTool _tool;
+        private List<AbstractTool> _tools;
         private IFactoryTool _factoryTool;
         private Pen _pen;
         private ICanvas _canvas;
         private bool _isMouseDown;
+        private Mode _mode;
         
 
 
@@ -31,6 +35,7 @@ namespace VectorDrawing
             _canvas.SetRender(OnRender);
             _canvas.Create(pictureBox.Width, pictureBox.Height);
             _pen = new Pen(Color.Black, 1);
+            _mode = Mode.Draw;
         }
 
         private void OnRender(Bitmap bitmap, Color color)
@@ -38,36 +43,82 @@ namespace VectorDrawing
             pictureBox.Image = bitmap;
             pictureBox.BackColor = color;
         }
-        
-        
-        
 
         private void OnPictureBoxMouseMove(object sender, MouseEventArgs e)
         {
-            if (_tool == null) return;
-            if (_tool is IBrush && _isMouseDown)
+            switch (_mode)
             {
-                _tool.AddPoint(e.Location);
-                _canvas.Draw(_tool);
-                return; 
+                case Mode.Draw:
+                    {
+                        if (_tool == null) return;
+                        if (_tool is IBrush && _isMouseDown)
+                        {
+                            _tool.AddPoint(e.Location);
+                            _canvas.Draw(_tool);
+                            return;
+                        }
+
+                        if (!_tool.CheckPointsExist()) return;
+                        _tool.TemporaryPoint = e.Location;
+                        _canvas.Draw(_tool);
+                    }
+                    break;
+                case Mode.Move:
+                    
+                //    if (_tool != null)
+                //    {
+                //        PointF point = e.Location;
+                //         PointF delta = new PointF(point.X - _tool.TmpMovePoint.X,
+                //            point.Y - _tool.TmpMovePoint.Y );
+                //        _tool.Move(delta);
+                //       _tool.TemporaryPoint = e.Location;
+                //        _canvas.Update();
+                //        //_canvas.Draw(_tool);
+                //    }
+                    break;
             }
-            
-            if (!_tool.CheckPointsExist()) return;
-            _tool.TemporaryPoint = e.Location;
-            _canvas.Draw(_tool);
-            
         }
 
         private void OnPictureBoxMouseDown(object sender, MouseEventArgs e)
         {
-            _isMouseDown = true;
-            _tool?.AddPoint(e.Location);
-
-            if(_tool!=null && _tool.CheckMaxQuantityPoints())
+            if (_mode == Mode.Draw)
             {
-                _canvas.Draw(_tool);
-                _canvas.FinishFigure();
-                CreateFigure();
+                _isMouseDown = true;
+                _tool?.AddPoint(e.Location);
+
+                if (_tool != null && _tool.CheckMaxQuantityPoints())
+                {
+                    _canvas.Draw(_tool);
+                    _canvas.FinishFigure();
+                    CreateFigure();
+                }
+            }
+            else
+            {
+                switch (_mode)
+                {
+                    case Mode.Move:
+                        _tool = null;
+                        _tools = _canvas.GetTools();
+                        foreach (AbstractTool tool in _tools)
+                        {
+                            if (tool.IsItYou(e.Location))
+                            {
+                                _tool = tool;
+                                _tools.Remove(tool);
+                                _canvas.UpdateDictionary(_tools);
+                                _canvas.DrawAll();
+
+                                _pen.Color = tool.Pen.Color;
+                                _pen.Width = tool.Pen.Width;
+
+                                break;
+                            }
+                        }
+                        break;
+                    case Mode.Rotate:
+                        break;
+                }
             }
         }
 
@@ -108,6 +159,8 @@ namespace VectorDrawing
 
         private void OnMoveModeButtonClick(object sender, EventArgs e)
         {
+            _mode = Mode.Move;
+            _tool = null;
         }
 
         private void CreateFigure()
@@ -197,16 +250,16 @@ namespace VectorDrawing
             ((RegularPolygonTool)_tool).QuantityOfCorners = (int)cornerNumericUpDown.Value;
             
         }
-
+        
         private void OnPictureBoxMouseDoubleClick(object sender, MouseEventArgs e)
         {
-            _tool?.AddPoint(e.Location);
-            _canvas.Draw(_tool);
-            _canvas.FinishFigure();
-            CreateFigure();
-
+            if (_mode == Mode.Draw)
+            {
+                _tool?.AddPoint(e.Location);
+                _canvas.Draw(_tool);
+                _canvas.FinishFigure();
+                CreateFigure();
+            }
         }
-
-        
     }
 }

@@ -46,7 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Actions\IAction.cs" />
     <Compile Include="Canvases\BitmapCanvas.cs" />
+    <Compile Include="Enums\Mode.cs" />
     <Compile Include="Enums\ToolsName.cs" />
     <Compile Include="FactoriesTools\BrushFactoryTool.cs" />
     <Compile Include="FactoriesTools\CircleFactoryTool.cs" />
