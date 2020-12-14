@@ -19,12 +19,12 @@ namespace VectorDrawing.Figures
                 float deltaX = Math.Abs(center.X - point.X);
                 float deltaY = Math.Abs(center.Y - point.Y);
                 double z = 0;
-                Equalization(ref deltaX, ref deltaY);
+                float radius = Equalization(deltaX, deltaY);
 
                 for (int i = 0; i < vertexes; i++)
                 {
-                    points[i].X = (float)(center.X - deltaX*Math.Sin(z));
-                    points[i].Y = (float)(center.Y - deltaY*Math.Cos(z));
+                    points[i].X = (float)(center.X - radius*Math.Sin(z));
+                    points[i].Y = (float)(center.Y - radius*Math.Cos(z));
                     z = z + angle;
                 }
                 return new CommonReturn() {Points = points};
@@ -33,17 +33,18 @@ namespace VectorDrawing.Figures
             return new FigureReturn();
         }
         
-        private void Equalization(ref float a, ref float b)
+        private float Equalization(float dx, float dy)
         {
-            if (a >= b)
-            {
-               
-                b = a;
-            }
-            else
-            {
-                 a = b;
-            }
+            //if (dx >= dy)
+            //{
+            //    return dx;
+            //}
+            //else
+            //{
+            //    return dy;
+            //}
+            float radius = (float)Math.Sqrt(dx * dx + dy * dy);
+            return radius;
         }
 
     }
