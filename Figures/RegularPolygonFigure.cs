@@ -35,14 +35,6 @@ namespace VectorDrawing.Figures
         
         private float Equalization(float dx, float dy)
         {
-            //if (dx >= dy)
-            //{
-            //    return dx;
-            //}
-            //else
-            //{
-            //    return dy;
-            //}
             float radius = (float)Math.Sqrt(dx * dx + dy * dy);
             return radius;
         }
