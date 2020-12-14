@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using VectorDrawing.FactoriesTools;
 using VectorDrawing.Figures;
 using VectorDrawing.Figures.Parameters;
@@ -38,6 +39,9 @@ namespace VectorDrawing.Tools
         }
 
         public abstract void Paint(Graphics graphics);
+
+        public abstract void Paint(Graphics graphics, PointF[] points);
+
 
 
         public virtual void AddPoint(PointF point)

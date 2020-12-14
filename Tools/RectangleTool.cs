@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using VectorDrawing.Figures;
 using VectorDrawing.Figures.Parameters;
 using VectorDrawing.Figures.Returns;
@@ -30,6 +31,9 @@ namespace VectorDrawing.Tools
             graphics.DrawPolygon(Pen, ((CommonReturn)Figure.Get(GenerateParametrs())).Points);
         }
 
-       
+        public override void Paint(Graphics graphics, PointF[] points)
+        {
+            graphics.DrawPolygon(Pen, points);
+        }
     }
 }

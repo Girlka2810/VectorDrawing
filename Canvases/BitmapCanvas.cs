@@ -96,7 +96,10 @@ namespace VectorDrawing.Canvases
                 {
                     _tool.SavePoints();
                 }
+
+               
                 _mainBitmap = _tmpBitmap;
+                _render?.Invoke(_tmpBitmap, _backColor);
                 _tool = null;
             }
         }

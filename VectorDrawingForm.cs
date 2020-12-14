@@ -35,7 +35,7 @@ namespace VectorDrawing
             _canvas.SetRender(OnRender);
             _canvas.Create(pictureBox.Width, pictureBox.Height);
             _pen = new Pen(Color.Black, 1);
-            _mode = Mode.Draw;
+            
         }
 
         private void OnRender(Bitmap bitmap, Color color)
@@ -166,6 +166,7 @@ namespace VectorDrawing
 
         private void CreateFigure()
         {
+            _mode = Mode.Draw;
             _pen = new Pen(_pen.Color, _pen.Width);
             _tool = _factoryTool.Create(_pen);
             if (_tool is RegularPolygonTool regularPolygonTool)
@@ -234,9 +235,7 @@ namespace VectorDrawing
             _factoryTool = new IsoscelesTriangleFactoryTool();
             CreateFigure();
         }
-        
-        
-        
+
         private void OnPolygonButtonClick(object sender, EventArgs e)
         {
             _factoryTool = new PolygonFactoryTool();
