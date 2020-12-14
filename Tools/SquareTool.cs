@@ -10,8 +10,6 @@ namespace VectorDrawing.Tools
 {
     public class SquareTool : AbstractTool
     {
-
-        private IFigure _figure;
         public override int MaxCount => 2;
         public override void AddPoint(PointF point)
         {
@@ -25,12 +23,13 @@ namespace VectorDrawing.Tools
 
         public SquareTool(Pen pen) : base(pen)
         {
-
+            Figure = new SquareFigure();
         }
 
         
         public SquareTool(List<PointF> points, Pen pen) : base(points, pen)
         {
+            Figure = new SquareFigure();
             if (points.Count > 2)
             {
                 throw new IndexOutOfRangeException();
@@ -39,35 +38,9 @@ namespace VectorDrawing.Tools
 
         public override void Paint(Graphics graphics)
         {
-            SquareFigure square = new SquareFigure();
-            _figure = square;
-            FigureParameter figureParameter = GenerateParametrs();
-            PointF[] pointsArr = ((CommonReturn)square.Get(figureParameter)).Points;
+            PointF[] pointsArr = ((CommonReturn)Figure.Get(GenerateParametrs())).Points;
             graphics.DrawPolygon(Pen, pointsArr);
-            //Points = new List<PointF>();
-            //for (int i = 0; i < pointsArr.Length; i++)
-            //{
-            //    AddPoint(pointsArr[i]);
-            //}
         }
 
-        public void Update(Graphics graphics)
-        {
-            graphics.DrawPolygon(Pen, Points.ToArray());
-        }
-
-        public override void SavePoints()
-        {
-            EndShapePoints = ((CommonReturn)_figure.Get(GenerateParametrs())).Points;
-        }
-        protected override FigureParameter GenerateParametrs()
-        {
-            CommonParameter figureParameter = new CommonParameter
-            {
-                Points = this.Points.ToArray(),
-                TemporaryPoint = this.TemporaryPoint
-            };
-            return figureParameter;
-        }
     }
 }

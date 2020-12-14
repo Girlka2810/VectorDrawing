@@ -6,8 +6,11 @@ namespace VectorDrawing.Tools.Brushes
 {
     public class BasicBrush : AbstractTool, IBrush
     {
+        public override int MaxCount { get; } = 0;
+        
         public BasicBrush(Pen pen) : base(pen)
         {
+            
         }
         
         public BasicBrush(List<PointF> points, Pen pen) : base(points, pen)
@@ -15,7 +18,7 @@ namespace VectorDrawing.Tools.Brushes
 
         }
 
-        public override int MaxCount { get; } = 0;
+       
         public override void Paint(Graphics graphics)
         {
             if (Points.Count != 1)
@@ -29,9 +32,10 @@ namespace VectorDrawing.Tools.Brushes
             Points.Add(point);
         }
 
-        protected override FigureParameter GenerateParametrs()
+        public override void SavePoints()
         {
-            throw new System.NotImplementedException();
+            EndShapePoints = Points.ToArray();
+            Points = null;
         }
     }
 }

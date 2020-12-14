@@ -145,6 +145,7 @@ namespace VectorDrawing
         private void OnClearClick(object sender, EventArgs e)
         {
             _canvas.Clear();
+            GC.Collect();
         }
 
         private void OnPictureBoxMouseUp(object sender, MouseEventArgs e)
@@ -260,6 +261,39 @@ namespace VectorDrawing
                 _canvas.FinishFigure();
                 CreateFigure();
             }
+        }
+
+        private void OnSaveButtonClick(object sender, EventArgs e)
+        {
+            if (pictureBox.Image!=null)
+            {
+                SaveFileDialog fileDialog = new SaveFileDialog();
+                fileDialog.Title = "Сохранить картинку как...";
+                fileDialog.OverwritePrompt = true;
+                fileDialog.CheckPathExists = true;
+                fileDialog.Filter = "Image Files(*.BMP)|*.BMP|Image Files(*.JPG)|*.JPG| Image Files(*.PNG)|*.PNG|" +
+                    "Image Files(*.SVG)|*.SVG|All Files(*.*)|*.*";
+                fileDialog.ShowHelp = true;
+                if(fileDialog.ShowDialog()==DialogResult.OK)
+                {
+                    try
+                    {
+                        pictureBox.Image.Save(fileDialog.FileName);
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Невозможно сохранить изображение","Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
+
+        
+
+        private void OnPictureBoxSizeChanged(object sender, EventArgs e)
+        {
+            _canvas.Create(pictureBox.Width, pictureBox.Height);
+            _canvas.DrawAll();
         }
     }
 }

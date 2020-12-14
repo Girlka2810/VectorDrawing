@@ -52,6 +52,8 @@ namespace VectorDrawing
             this.label2 = new System.Windows.Forms.Label();
             this.clearButton = new System.Windows.Forms.Button();
             this.moveModeButton = new System.Windows.Forms.Button();
+            this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
+            this.saveButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.thickness)).BeginInit();
             this.anglesForPolygonGroupBox.SuspendLayout();
@@ -215,13 +217,18 @@ namespace VectorDrawing
             // 
             // pictureBox
             // 
+            this.pictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox.BackColor = System.Drawing.Color.White;
             this.pictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox.Location = new System.Drawing.Point(188, 67);
+            this.pictureBox.MinimumSize = new System.Drawing.Size(746, 459);
             this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(755, 480);
+            this.pictureBox.Size = new System.Drawing.Size(746, 459);
             this.pictureBox.TabIndex = 13;
             this.pictureBox.TabStop = false;
+            this.pictureBox.SizeChanged += new System.EventHandler(this.OnPictureBoxSizeChanged);
             this.pictureBox.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.OnPictureBoxMouseDoubleClick);
             this.pictureBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.OnPictureBoxMouseDown);
             this.pictureBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.OnPictureBoxMouseMove);
@@ -326,11 +333,23 @@ namespace VectorDrawing
             this.moveModeButton.UseVisualStyleBackColor = true;
             this.moveModeButton.Click += new System.EventHandler(this.OnMoveModeButtonClick);
             // 
+            // saveButton
+            // 
+            this.saveButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.saveButton.Location = new System.Drawing.Point(808, 17);
+            this.saveButton.Name = "saveButton";
+            this.saveButton.Size = new System.Drawing.Size(112, 23);
+            this.saveButton.TabIndex = 19;
+            this.saveButton.Text = "Сохранить";
+            this.saveButton.UseVisualStyleBackColor = true;
+            this.saveButton.Click += new System.EventHandler(this.OnSaveButtonClick);
+            // 
             // VectorDrawingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(955, 572);
+            this.ClientSize = new System.Drawing.Size(946, 551);
+            this.Controls.Add(this.saveButton);
             this.Controls.Add(this.moveModeButton);
             this.Controls.Add(this.clearButton);
             this.Controls.Add(this.anglesForPolygonGroupBox);
@@ -351,6 +370,7 @@ namespace VectorDrawing
             this.Controls.Add(this.nlineButton);
             this.Controls.Add(this.lineButton);
             this.Controls.Add(this.brushButton);
+            this.MinimumSize = new System.Drawing.Size(962, 590);
             this.Name = "VectorDrawingForm";
             this.Text = "VectorDrawing2D";
             this.Load += new System.EventHandler(this.OnVectorDrawingFormLoad);
@@ -389,6 +409,8 @@ namespace VectorDrawing
         private System.Windows.Forms.Button clearButton;
         private System.Windows.Forms.GroupBox anglesForPolygonGroupBox;
         private System.Windows.Forms.Button moveModeButton;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog;
+        private System.Windows.Forms.Button saveButton;
     }
 }
 
