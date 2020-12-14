@@ -131,7 +131,7 @@ namespace VectorDrawing.Canvases
             return _tools;
         }
 
-        public void DrawAll()
+        public void DrawAll()    
         {
             Graphics graphics = Graphics.FromImage(_mainBitmap);
             foreach(KeyValuePair<string, AbstractTool> keyValuePair in _tools)

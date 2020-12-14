@@ -263,22 +263,22 @@ namespace VectorDrawing
             }
         }
 
-        private void saveButton_Click(object sender, EventArgs e)
+        private void OnSaveButtonClick(object sender, EventArgs e)
         {
             if (pictureBox.Image!=null)
             {
-                SaveFileDialog sfd = new SaveFileDialog();
-                sfd.Title = "Сохранить картинку как...";
-                sfd.OverwritePrompt = true;
-                sfd.CheckPathExists = true;
-                sfd.Filter = "Image Files(*.BMP)|*.BMP|Image Files(*.JPG)|*.JPG| Image Files(*.PNG)|*.PNG|" +
+                SaveFileDialog fileDialog = new SaveFileDialog();
+                fileDialog.Title = "Сохранить картинку как...";
+                fileDialog.OverwritePrompt = true;
+                fileDialog.CheckPathExists = true;
+                fileDialog.Filter = "Image Files(*.BMP)|*.BMP|Image Files(*.JPG)|*.JPG| Image Files(*.PNG)|*.PNG|" +
                     "Image Files(*.SVG)|*.SVG|All Files(*.*)|*.*";
-                sfd.ShowHelp = true;
-                if(sfd.ShowDialog()==DialogResult.OK)
+                fileDialog.ShowHelp = true;
+                if(fileDialog.ShowDialog()==DialogResult.OK)
                 {
                     try
                     {
-                        pictureBox.Image.Save(sfd.FileName);
+                        pictureBox.Image.Save(fileDialog.FileName);
                     }
                     catch
                     {
@@ -288,27 +288,9 @@ namespace VectorDrawing
             }
         }
 
-        private void openButton_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog ofd = new OpenFileDialog();
-            ofd.Filter = "Image Files(*.BMP;*.JPG;*.PNG;*.SVG;| *.BMP; *.JPG; *.PNG; *.SVG;|All Files(*.*)| *.*";
-            if (ofd.ShowDialog() == DialogResult.OK)
-            {
-                try
-                {
-                    pictureBox.Image = new Bitmap(ofd.FileName);
-                    _canvas.LoadBitMap((Bitmap)pictureBox.Image);
-                }
-                catch
-                {
-                    MessageBox.Show("Невозможно открыть выбранный файл", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
+        
 
-
-        }
-
-        private void pictureBox_SizeChanged(object sender, EventArgs e)
+        private void OnPictureBoxSizeChanged(object sender, EventArgs e)
         {
             _canvas.Create(pictureBox.Width, pictureBox.Height);
             _canvas.DrawAll();
