@@ -54,6 +54,7 @@ namespace VectorDrawing
             this.moveModeButton = new System.Windows.Forms.Button();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.saveButton = new System.Windows.Forms.Button();
+            this.openButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.thickness)).BeginInit();
             this.anglesForPolygonGroupBox.SuspendLayout();
@@ -222,6 +223,7 @@ namespace VectorDrawing
             this.pictureBox.Location = new System.Drawing.Point(188, 67);
             this.pictureBox.Name = "pictureBox";
             this.pictureBox.Size = new System.Drawing.Size(755, 480);
+            this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox.TabIndex = 13;
             this.pictureBox.TabStop = false;
             this.pictureBox.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.OnPictureBoxMouseDoubleClick);
@@ -330,7 +332,7 @@ namespace VectorDrawing
             // 
             // saveButton
             // 
-            this.saveButton.Location = new System.Drawing.Point(821, 12);
+            this.saveButton.Location = new System.Drawing.Point(822, 36);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(112, 23);
             this.saveButton.TabIndex = 19;
@@ -338,11 +340,22 @@ namespace VectorDrawing
             this.saveButton.UseVisualStyleBackColor = true;
             this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
+            // openButton
+            // 
+            this.openButton.Location = new System.Drawing.Point(822, 7);
+            this.openButton.Name = "openButton";
+            this.openButton.Size = new System.Drawing.Size(112, 23);
+            this.openButton.TabIndex = 20;
+            this.openButton.Text = "Открыть";
+            this.openButton.UseVisualStyleBackColor = true;
+            this.openButton.Click += new System.EventHandler(this.openButton_Click);
+            // 
             // VectorDrawingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(955, 572);
+            this.Controls.Add(this.openButton);
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.moveModeButton);
             this.Controls.Add(this.clearButton);
@@ -404,6 +417,7 @@ namespace VectorDrawing
         private System.Windows.Forms.Button moveModeButton;
         private System.Windows.Forms.SaveFileDialog saveFileDialog;
         private System.Windows.Forms.Button saveButton;
+        private System.Windows.Forms.Button openButton;
     }
 }
 
