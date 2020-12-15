@@ -75,31 +75,23 @@ namespace VectorDrawing.Canvases
             }
 
             _tool = tool;
+            if(_tool.EndShapePoints.Length!=0)
+            {
+
+            }
             _tmpBitmap = (Bitmap)_mainBitmap.Clone();
             Graphics graphics = Graphics.FromImage(_tmpBitmap);
             tool.Paint(graphics);
 
             _render?.Invoke(_tmpBitmap, _backColor);
         }
-        public void Update(AbstractTool tool, PointF[] points)
+       
+        public void DrawByEndPoints(AbstractTool tool)
         {
-            if (tool == null)
-            {
-                throw new NullReferenceException("Tool cannot be null.");
-            }
-
-            if (_tools.Count == 100)
-            {
-                return;
-            }
-            _tool = tool;
-            _tmpBitmap = (Bitmap)_mainBitmap.Clone();
             Graphics graphics = Graphics.FromImage(_tmpBitmap);
-            tool.Paint(graphics, points);
+            tool.Paint(graphics);
 
-            _render?.Invoke(_tmpBitmap, _backColor);
         }
-
        
         public void FinishFigure()
         {
@@ -190,5 +182,9 @@ namespace VectorDrawing.Canvases
             }
         }
         
+        private void ReplaceTool(AbstractTool tool)
+        {
+
+        }
     }
 }

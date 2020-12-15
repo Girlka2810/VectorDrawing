@@ -22,6 +22,9 @@ namespace VectorDrawing.Tools
         
         public override void Paint(Graphics graphics)
         {
+            if (EndShapePoints.Length == 0)
+            {
+            }
             graphics.DrawLines(Pen, ((CommonReturn)Figure.Get(GenerateParametrs())).Points);
 
         }

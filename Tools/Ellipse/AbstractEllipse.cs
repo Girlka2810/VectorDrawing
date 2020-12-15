@@ -29,17 +29,17 @@ namespace VectorDrawing.Tools.Ellipse
             PointF[] points = Points.ToArray();
             Center = points.Length != 0 ? points[0]: new PointF();
         }
+        public sealed override void AddPoint(PointF point)
+                {
+                    base.AddPoint(point);
+                    Center = Points[0];
+                }
 
         protected void Paint(Graphics graphics, RectangleF rectangle)
         {
             graphics.DrawEllipse(Pen, rectangle);
         }
-        public sealed override void AddPoint(PointF point)
-        {
-            base.AddPoint(point);
-            Center = Points[0];
-        }
-
+      
         public override void SavePoints()
         {
             throw new NotImplementedException();
