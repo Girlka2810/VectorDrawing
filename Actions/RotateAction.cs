@@ -11,7 +11,10 @@ namespace VectorDrawing.Actions
     {
         public PointF[] GetRotate(PointF[] points, PointF center, PointF startPoint, PointF endPoint)
         {
-            throw new NotImplementedException();
+            PointF[] rotatedPoints = new PointF[points.Length];
+            PointF startDelta = new PointF(startPoint.X - center.X, startPoint.Y - center.Y);
+            PointF endDelta = new PointF(endPoint.X - center.X, endPoint.Y - center.Y);
+            return rotatedPoints;
         }
     }
 }
