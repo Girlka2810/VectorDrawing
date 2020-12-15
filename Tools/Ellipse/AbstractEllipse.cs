@@ -13,7 +13,6 @@ namespace VectorDrawing.Tools.Ellipse
         public float Height { get; set; }
 
 
-
         public AbsractEllipse(List<PointF> points, Pen pen) : base(pen)
         {
             for (int i = 0; i < points.Count; i++)
@@ -32,16 +31,16 @@ namespace VectorDrawing.Tools.Ellipse
             Center = points.Length != 0 ? points[0]: new PointF();
         }
 
+        protected void Paint(Graphics graphics, RectangleF rectangle)
+        {
+            graphics.DrawEllipse(Pen, rectangle);
+        }
         public sealed override void AddPoint(PointF point)
         {
             base.AddPoint(point);
             Center = Points[0];
         }
 
-        public void Update(Graphics graphics)
-        {
-            //graphics.DrawEllipse(Pen, ConvertFromPointsToRectangle(EndShapePoints));
-        }
         public override void SavePoints()
         {
             throw new NotImplementedException();

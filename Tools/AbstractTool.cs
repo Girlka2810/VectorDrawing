@@ -40,7 +40,10 @@ namespace VectorDrawing.Tools
 
         public abstract void Paint(Graphics graphics);
 
-        public abstract void Paint(Graphics graphics, PointF[] points);
+        public virtual void Paint(Graphics graphics, PointF[] points)
+        {
+            graphics.DrawPolygon(Pen, points);
+        }
 
 
 
