@@ -8,7 +8,6 @@ namespace VectorDrawing.Tools.Ellipse
 {
     public abstract class AbsractEllipse : AbstractTool
     {
-        public PointF Center { get; private set; }
         public float Width { get; set; }
         public float Height { get; set; }
 

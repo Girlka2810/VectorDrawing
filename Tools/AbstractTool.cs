@@ -16,8 +16,9 @@ namespace VectorDrawing.Tools
         public string ID { get; protected set; }
         public abstract int MaxCount { get; }
         public PointF TemporaryPoint { get; set; }
+        public PointF Center { get; set; }
         public Pen Pen { get; private set; }
-        
+
         protected List<PointF> Points;
         protected PointF[] EndShapePoints;
         protected IFigure Figure;
@@ -92,6 +93,7 @@ namespace VectorDrawing.Tools
         {
             EndShapePoints = ((CommonReturn)Figure.Get(GenerateParametrs())).Points;
             Points = null;
+            CalculateCenter();
         }
         protected virtual FigureParameter GenerateParametrs()
         {
@@ -136,7 +138,20 @@ namespace VectorDrawing.Tools
             return false;
         }
 
-        
+        protected void CalculateCenter()
+        {
+            PointF[] points = EndShapePoints;
+            float middleX = 0;
+            float middleY = 0;
+            for (int i = 0; i < points.Length; i++)
+            {
+                middleX += points[i].X;
+                middleY += points[i].Y;
+            }
+            middleX /= points.Length;
+            middleY /= points.Length;
+            Center = new PointF(middleX, middleY);
+        }
         protected void SetPen(Pen pen)
         {
             if (pen.Width >= 1 && pen.Width <= 100)
