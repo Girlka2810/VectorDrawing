@@ -7,7 +7,11 @@ using System.Drawing;
 
 namespace VectorDrawing.Actions
 {
-    interface IAction
+    public interface IAction
     {
+        PointF[] GetMove(PointF[] points, PointF startPoint, PointF endPoint);
+
+        PointF[] GetRotate(PointF[] points, PointF center, PointF startPoint, PointF endPoint);
+
     }
 }

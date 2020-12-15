@@ -7,13 +7,24 @@ using System.Threading.Tasks;
 
 namespace VectorDrawing.Actions
 {
-    class RotateAction : IAction
+    public class RotateAction : IAction
     {
+        public PointF[] GetMove(PointF[] points, PointF startPoint, PointF endPoint)
+        {
+            throw new NotImplementedException();
+        }
+
         public PointF[] GetRotate(PointF[] points, PointF center, PointF startPoint, PointF endPoint)
         {
             PointF[] rotatedPoints = new PointF[points.Length];
-            PointF startDelta = new PointF(startPoint.X - center.X, startPoint.Y - center.Y);
-            PointF endDelta = new PointF(endPoint.X - center.X, endPoint.Y - center.Y);
+            float deltaX = startPoint.X - center.X;
+            float deltaY = startPoint.Y - center.Y;
+            double radius = Math.Sqrt(deltaX*deltaX + deltaY*deltaY);
+            deltaX = endPoint.X - center.X;
+            deltaY = endPoint.Y - center.Y;
+            double endRadius = Math.Sqrt(deltaX*deltaX + deltaY*deltaY);
+
+
             return rotatedPoints;
         }
     }

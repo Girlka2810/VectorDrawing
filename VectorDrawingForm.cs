@@ -8,6 +8,7 @@ using VectorDrawing.Tools.Brushes;
 using VectorDrawing.Tools.Polygons;
 using VectorDrawing.Enums;
 using System.Collections.Generic;
+using VectorDrawing.Actions;
 
 namespace VectorDrawing
 {
@@ -64,17 +65,12 @@ namespace VectorDrawing
                     }
                     break;
                 case Mode.Move:
-                    
-                //    if (_tool != null)
-                //    {
-                //        PointF point = e.Location;
-                //         PointF delta = new PointF(point.X - _tool.TmpMovePoint.X,
-                //            point.Y - _tool.TmpMovePoint.Y );
-                //        _tool.Move(delta);
-                //       _tool.TemporaryPoint = e.Location;
-                //        _canvas.Update();
-                //        //_canvas.Draw(_tool);
-                //    }
+                    if (_tool == null) return;
+
+                    IAction action = new MoveAction();
+                    PointF[] temp = action.GetMove(_tool.EndShapePoints, _tool.TemporaryPoint, e.Location);
+                    _tool.EndShapePoints = temp;
+                    _canvas.Update(_tool, temp);
                     break;
             }
         }
@@ -105,13 +101,14 @@ namespace VectorDrawing
                             if (tool.IsItYou(e.Location))
                             {
                                 _tool = tool;
+                                _canvas.
                                 _tools.Remove(tool);
                                 _canvas.UpdateDictionary(_tools);
                                 _canvas.DrawAll();
 
                                 _pen.Color = tool.Pen.Color;
                                 _pen.Width = tool.Pen.Width;
-
+                                _tool.TemporaryPoint = e.Location;
                                 break;
                             }
                         }

@@ -81,6 +81,24 @@ namespace VectorDrawing.Canvases
 
             _render?.Invoke(_tmpBitmap, _backColor);
         }
+        public void Update(AbstractTool tool, PointF[] points)
+        {
+            if (tool == null)
+            {
+                throw new NullReferenceException("Tool cannot be null.");
+            }
+
+            if (_tools.Count == 100)
+            {
+                return;
+            }
+            _tool = tool;
+            _tmpBitmap = (Bitmap)_mainBitmap.Clone();
+            Graphics graphics = Graphics.FromImage(_tmpBitmap);
+            tool.Paint(graphics, points);
+
+            _render?.Invoke(_tmpBitmap, _backColor);
+        }
 
        
         public void FinishFigure()
