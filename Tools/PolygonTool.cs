@@ -29,6 +29,16 @@ namespace VectorDrawing.Tools
             Points.Add(point);
         }
 
-       
+        public override void SavePoints()
+        {
+            PointF[] tempPoints = ((CommonReturn)Figure.Get(GenerateParametrs())).Points;
+            EndShapePoints = new PointF[tempPoints.Length - 3];
+            for (int i = 0; i < EndShapePoints.Length; i++)
+            {
+                EndShapePoints[i] = tempPoints[i];
+            }
+            Points = null;
+            CalculateCenter();
+        }
     }
 }
