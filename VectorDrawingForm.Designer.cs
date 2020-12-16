@@ -66,6 +66,7 @@ namespace VectorDrawing
             this.panelTools = new System.Windows.Forms.Panel();
             this.ToolsButton = new System.Windows.Forms.Button();
             this.panelLogo = new System.Windows.Forms.Panel();
+            this.Coordinates = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.thickness)).BeginInit();
             this.anglesForPolygonGroupBox.SuspendLayout();
@@ -82,7 +83,7 @@ namespace VectorDrawing
             this.brushButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Teal;
             this.brushButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.brushButton.Font = new System.Drawing.Font("Monotype Corsiva", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.brushButton.Image = ((System.Drawing.Image)(resources.GetObject("brushButton.Image")));
+            this.brushButton.Image = global::VectorDrawing.Properties.Resources.BrushButton2;
             this.brushButton.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.brushButton.Location = new System.Drawing.Point(0, 0);
             this.brushButton.Name = "brushButton";
@@ -101,12 +102,12 @@ namespace VectorDrawing
             this.lineButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Teal;
             this.lineButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lineButton.Font = new System.Drawing.Font("Monotype Corsiva", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lineButton.Image = ((System.Drawing.Image)(resources.GetObject("lineButton.Image")));
+            this.lineButton.Image = global::VectorDrawing.Properties.Resources.LineButton;
             this.lineButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lineButton.Location = new System.Drawing.Point(0, 33);
+            this.lineButton.Location = new System.Drawing.Point(-1, 33);
             this.lineButton.Name = "lineButton";
             this.lineButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.lineButton.Size = new System.Drawing.Size(211, 33);
+            this.lineButton.Size = new System.Drawing.Size(212, 33);
             this.lineButton.TabIndex = 1;
             this.lineButton.TabStop = false;
             this.lineButton.Text = "Линия";
@@ -604,6 +605,13 @@ namespace VectorDrawing
             this.panelLogo.Size = new System.Drawing.Size(211, 63);
             this.panelLogo.TabIndex = 12;
             // 
+            // Coordinates
+            // 
+            this.Coordinates.Location = new System.Drawing.Point(800, 529);
+            this.Coordinates.Name = "Coordinates";
+            this.Coordinates.Size = new System.Drawing.Size(108, 20);
+            this.Coordinates.TabIndex = 21;
+            // 
             // VectorDrawingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -611,6 +619,7 @@ namespace VectorDrawing
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.LightBlue;
             this.ClientSize = new System.Drawing.Size(1046, 551);
+            this.Controls.Add(this.Coordinates);
             this.Controls.Add(this.panelSideMenu);
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.anglesForPolygonGroupBox);
@@ -618,6 +627,7 @@ namespace VectorDrawing
             this.Controls.Add(this.label1);
             this.Controls.Add(this.thickness);
             this.Controls.Add(this.pictureBox);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(962, 590);
             this.Name = "VectorDrawingForm";
             this.Text = "VectorDrawing2D";
@@ -673,6 +683,7 @@ namespace VectorDrawing
         private System.Windows.Forms.Button ChangeScaleModeButton;
         private System.Windows.Forms.Button ChangeRadiusModeButton;
         private System.Windows.Forms.Button RotateModeButton;
+        private System.Windows.Forms.TextBox Coordinates;
     }
 }
 

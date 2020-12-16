@@ -48,6 +48,7 @@ namespace VectorDrawing
 
         private void OnPictureBoxMouseMove(object sender, MouseEventArgs e)
         {
+            Coordinates.Text = $"X = {e.Location.X}, Y = {e.Location.Y}";
             switch (_mode)
             {
                 case Mode.Draw:
