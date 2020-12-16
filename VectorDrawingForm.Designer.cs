@@ -171,7 +171,7 @@ namespace VectorDrawing
             // saveButton
             // 
             this.saveButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.saveButton.Location = new System.Drawing.Point(908, 17);
+            this.saveButton.Location = new System.Drawing.Point(904, 17);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(112, 23);
             this.saveButton.TabIndex = 19;
@@ -191,7 +191,7 @@ namespace VectorDrawing
             this.panelSideMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelSideMenu.Location = new System.Drawing.Point(0, 0);
             this.panelSideMenu.Name = "panelSideMenu";
-            this.panelSideMenu.Size = new System.Drawing.Size(228, 551);
+            this.panelSideMenu.Size = new System.Drawing.Size(228, 562);
             this.panelSideMenu.TabIndex = 20;
             // 
             // panelVectorChanges
@@ -589,7 +589,7 @@ namespace VectorDrawing
             // Coordinates
             // 
             this.Coordinates.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.Coordinates.Location = new System.Drawing.Point(926, 532);
+            this.Coordinates.Location = new System.Drawing.Point(922, 532);
             this.Coordinates.Name = "Coordinates";
             this.Coordinates.Size = new System.Drawing.Size(108, 20);
             this.Coordinates.TabIndex = 21;
@@ -604,12 +604,13 @@ namespace VectorDrawing
             this.pictureBox.Location = new System.Drawing.Point(246, 67);
             this.pictureBox.MinimumSize = new System.Drawing.Size(746, 459);
             this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(788, 459);
+            this.pictureBox.Size = new System.Drawing.Size(784, 459);
             this.pictureBox.TabIndex = 13;
             this.pictureBox.TabStop = false;
             this.pictureBox.SizeChanged += new System.EventHandler(this.OnPictureBoxSizeChanged);
             this.pictureBox.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.OnPictureBoxMouseDoubleClick);
             this.pictureBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.OnPictureBoxMouseDown);
+            this.pictureBox.MouseLeave += new System.EventHandler(this.OnPictureBox_MouseLeave);
             this.pictureBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.OnPictureBoxMouseMove);
             this.pictureBox.MouseUp += new System.Windows.Forms.MouseEventHandler(this.OnPictureBoxMouseUp);
             // 
@@ -619,7 +620,7 @@ namespace VectorDrawing
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.LightBlue;
-            this.ClientSize = new System.Drawing.Size(1046, 551);
+            this.ClientSize = new System.Drawing.Size(1042, 562);
             this.Controls.Add(this.Coordinates);
             this.Controls.Add(this.panelSideMenu);
             this.Controls.Add(this.saveButton);
