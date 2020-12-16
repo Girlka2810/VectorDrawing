@@ -16,7 +16,7 @@ namespace VectorDrawing
     {
 
         private AbstractTool _tool;
-        private List<AbstractTool> _tools;
+
         private IFactoryTool _factoryTool;
         private Pen _pen;
         private ICanvas _canvas;
@@ -69,8 +69,8 @@ namespace VectorDrawing
 
                     IAction action = new MoveAction();
                     PointF[] temp = action.GetMove(_tool.EndShapePoints, _tool.TemporaryPoint, e.Location);
-                    _tool.EndShapePoints = temp;
-                    _canvas.Update(_tool, temp);
+
+
                     break;
             }
         }
@@ -94,24 +94,7 @@ namespace VectorDrawing
                 switch (_mode)
                 {
                     case Mode.Move:
-                        _tool = null;
-                        _tools = _canvas.GetTools();
-                        foreach (AbstractTool tool in _tools)
-                        {
-                            if (tool.IsItYou(e.Location))
-                            {
-                                _tool = tool;
-                                _canvas.
-                                _tools.Remove(tool);
-                                _canvas.UpdateDictionary(_tools);
-                                _canvas.DrawAll();
-
-                                _pen.Color = tool.Pen.Color;
-                                _pen.Width = tool.Pen.Width;
-                                _tool.TemporaryPoint = e.Location;
-                                break;
-                            }
-                        }
+                       
                         break;
                     case Mode.Rotate:
                         break;
@@ -141,7 +124,7 @@ namespace VectorDrawing
 
         private void OnClearClick(object sender, EventArgs e)
         {
-            _canvas.Clear();
+            _canvas.Create(pictureBox.Width, pictureBox.Height);
             GC.Collect();
         }
 
