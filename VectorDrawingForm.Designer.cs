@@ -47,13 +47,10 @@ namespace VectorDrawing
             this.SideMoveModeButon = new System.Windows.Forms.Button();
             this.ChangeScaleModeButton = new System.Windows.Forms.Button();
             this.ChangeRadiusModeButton = new System.Windows.Forms.Button();
-            this.ChangeFigureButton = new System.Windows.Forms.Button();
-            this.panelTools = new System.Windows.Forms.Panel();
-            this.ToolsButton = new System.Windows.Forms.Button();
-            this.panelLogo = new System.Windows.Forms.Panel();
-            this.Coordinates = new System.Windows.Forms.TextBox();
             this.RotateModeButton = new System.Windows.Forms.Button();
+            this.ChangeFigureButton = new System.Windows.Forms.Button();
             this.clearButton = new System.Windows.Forms.Button();
+            this.panelTools = new System.Windows.Forms.Panel();
             this.brushButton = new System.Windows.Forms.Button();
             this.lineButton = new System.Windows.Forms.Button();
             this.nlineButton = new System.Windows.Forms.Button();
@@ -66,6 +63,9 @@ namespace VectorDrawing
             this.isoscelesTriangleButton = new System.Windows.Forms.Button();
             this.regularPolygonButton = new System.Windows.Forms.Button();
             this.polygonButton = new System.Windows.Forms.Button();
+            this.ToolsButton = new System.Windows.Forms.Button();
+            this.panelLogo = new System.Windows.Forms.Panel();
+            this.Coordinates = new System.Windows.Forms.TextBox();
             this.pictureBox = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.thickness)).BeginInit();
             this.anglesForPolygonGroupBox.SuspendLayout();
@@ -279,6 +279,21 @@ namespace VectorDrawing
             this.ChangeRadiusModeButton.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.ChangeRadiusModeButton.UseVisualStyleBackColor = true;
             // 
+            // RotateModeButton
+            // 
+            this.RotateModeButton.FlatAppearance.BorderSize = 0;
+            this.RotateModeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RotateModeButton.Font = new System.Drawing.Font("Monotype Corsiva", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.RotateModeButton.Image = global::VectorDrawing.Properties.Resources.RotateButton;
+            this.RotateModeButton.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.RotateModeButton.Location = new System.Drawing.Point(0, 33);
+            this.RotateModeButton.Name = "RotateModeButton";
+            this.RotateModeButton.Size = new System.Drawing.Size(211, 33);
+            this.RotateModeButton.TabIndex = 19;
+            this.RotateModeButton.TabStop = false;
+            this.RotateModeButton.Text = "Поверни";
+            this.RotateModeButton.UseVisualStyleBackColor = true;
+            // 
             // ChangeFigureButton
             // 
             this.ChangeFigureButton.Dock = System.Windows.Forms.DockStyle.Top;
@@ -292,6 +307,23 @@ namespace VectorDrawing
             this.ChangeFigureButton.Text = "Изменение фигур";
             this.ChangeFigureButton.UseVisualStyleBackColor = true;
             this.ChangeFigureButton.Click += new System.EventHandler(this.ChangeFigureButton_Click);
+            // 
+            // clearButton
+            // 
+            this.clearButton.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.clearButton.FlatAppearance.BorderSize = 0;
+            this.clearButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.clearButton.Font = new System.Drawing.Font("Monotype Corsiva", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.clearButton.Image = ((System.Drawing.Image)(resources.GetObject("clearButton.Image")));
+            this.clearButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.clearButton.Location = new System.Drawing.Point(0, 832);
+            this.clearButton.Name = "clearButton";
+            this.clearButton.Size = new System.Drawing.Size(211, 33);
+            this.clearButton.TabIndex = 17;
+            this.clearButton.TabStop = false;
+            this.clearButton.Text = "Очистить";
+            this.clearButton.UseVisualStyleBackColor = true;
+            this.clearButton.Click += new System.EventHandler(this.OnClearClick);
             // 
             // panelTools
             // 
@@ -312,67 +344,6 @@ namespace VectorDrawing
             this.panelTools.Name = "panelTools";
             this.panelTools.Size = new System.Drawing.Size(211, 447);
             this.panelTools.TabIndex = 13;
-            // 
-            // ToolsButton
-            // 
-            this.ToolsButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.ToolsButton.FlatAppearance.BorderSize = 0;
-            this.ToolsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ToolsButton.Font = new System.Drawing.Font("Monotype Corsiva", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ToolsButton.Location = new System.Drawing.Point(0, 63);
-            this.ToolsButton.Name = "ToolsButton";
-            this.ToolsButton.Size = new System.Drawing.Size(211, 33);
-            this.ToolsButton.TabIndex = 0;
-            this.ToolsButton.Text = "Инструменты";
-            this.ToolsButton.UseVisualStyleBackColor = true;
-            this.ToolsButton.Click += new System.EventHandler(this.ToolsButton_Click);
-            // 
-            // panelLogo
-            // 
-            this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelLogo.Location = new System.Drawing.Point(0, 0);
-            this.panelLogo.Name = "panelLogo";
-            this.panelLogo.Size = new System.Drawing.Size(211, 63);
-            this.panelLogo.TabIndex = 12;
-            // 
-            // Coordinates
-            // 
-            this.Coordinates.Location = new System.Drawing.Point(800, 529);
-            this.Coordinates.Name = "Coordinates";
-            this.Coordinates.Size = new System.Drawing.Size(108, 20);
-            this.Coordinates.TabIndex = 21;
-            // 
-            // RotateModeButton
-            // 
-            this.RotateModeButton.FlatAppearance.BorderSize = 0;
-            this.RotateModeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RotateModeButton.Font = new System.Drawing.Font("Monotype Corsiva", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.RotateModeButton.Image = global::VectorDrawing.Properties.Resources.RotateButton;
-            this.RotateModeButton.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.RotateModeButton.Location = new System.Drawing.Point(0, 33);
-            this.RotateModeButton.Name = "RotateModeButton";
-            this.RotateModeButton.Size = new System.Drawing.Size(211, 33);
-            this.RotateModeButton.TabIndex = 19;
-            this.RotateModeButton.TabStop = false;
-            this.RotateModeButton.Text = "Поверни";
-            this.RotateModeButton.UseVisualStyleBackColor = true;
-            // 
-            // clearButton
-            // 
-            this.clearButton.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.clearButton.FlatAppearance.BorderSize = 0;
-            this.clearButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.clearButton.Font = new System.Drawing.Font("Monotype Corsiva", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.clearButton.Image = ((System.Drawing.Image)(resources.GetObject("clearButton.Image")));
-            this.clearButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.clearButton.Location = new System.Drawing.Point(0, 832);
-            this.clearButton.Name = "clearButton";
-            this.clearButton.Size = new System.Drawing.Size(211, 33);
-            this.clearButton.TabIndex = 17;
-            this.clearButton.TabStop = false;
-            this.clearButton.Text = "Очистить";
-            this.clearButton.UseVisualStyleBackColor = true;
-            this.clearButton.Click += new System.EventHandler(this.OnClearClick);
             // 
             // brushButton
             // 
@@ -592,6 +563,36 @@ namespace VectorDrawing
             this.polygonButton.Text = "Многоугольник";
             this.polygonButton.UseVisualStyleBackColor = true;
             this.polygonButton.Click += new System.EventHandler(this.OnPolygonButtonClick);
+            // 
+            // ToolsButton
+            // 
+            this.ToolsButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ToolsButton.FlatAppearance.BorderSize = 0;
+            this.ToolsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ToolsButton.Font = new System.Drawing.Font("Monotype Corsiva", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ToolsButton.Location = new System.Drawing.Point(0, 63);
+            this.ToolsButton.Name = "ToolsButton";
+            this.ToolsButton.Size = new System.Drawing.Size(211, 33);
+            this.ToolsButton.TabIndex = 0;
+            this.ToolsButton.Text = "Инструменты";
+            this.ToolsButton.UseVisualStyleBackColor = true;
+            this.ToolsButton.Click += new System.EventHandler(this.ToolsButton_Click);
+            // 
+            // panelLogo
+            // 
+            this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelLogo.Location = new System.Drawing.Point(0, 0);
+            this.panelLogo.Name = "panelLogo";
+            this.panelLogo.Size = new System.Drawing.Size(211, 63);
+            this.panelLogo.TabIndex = 12;
+            // 
+            // Coordinates
+            // 
+            this.Coordinates.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.Coordinates.Location = new System.Drawing.Point(926, 532);
+            this.Coordinates.Name = "Coordinates";
+            this.Coordinates.Size = new System.Drawing.Size(108, 20);
+            this.Coordinates.TabIndex = 21;
             // 
             // pictureBox
             // 
