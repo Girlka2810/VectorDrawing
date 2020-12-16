@@ -41,10 +41,7 @@ namespace VectorDrawing.Tools
 
         public abstract void Paint(Graphics graphics);
 
-        public virtual void Paint(Graphics graphics, PointF[] points)
-        {
-            graphics.DrawPolygon(Pen, points);
-        }
+        
 
 
 
@@ -124,21 +121,8 @@ namespace VectorDrawing.Tools
         
         
         
-        public bool IsItYou(PointF point)
-        {
-            PointF prevP = EndShapePoints[3];
-            foreach (PointF p in EndShapePoints)
-            {
-                if (Contain(prevP, p, point, Pen.Width))
-                {
-                    return true;
-                }
-                prevP = p;
-            }
-            return false;
-        }
 
-        protected void CalculateCenter()
+        protected virtual void CalculateCenter()
         {
             PointF[] points = EndShapePoints;
             float middleX = 0;
@@ -152,6 +136,8 @@ namespace VectorDrawing.Tools
             middleY /= points.Length;
             Center = new PointF(middleX, middleY);
         }
+        
+        
         protected void SetPen(Pen pen)
         {
             if (pen.Width >= 1 && pen.Width <= 100)
@@ -163,7 +149,7 @@ namespace VectorDrawing.Tools
                 throw new ArgumentException("Pen cannot have width less than 1 and greater than 100");
             }
         }
-        protected bool Contain(PointF start, PointF end, PointF checkPoint, double accuracy)
+        private bool Contain(PointF start, PointF end, PointF checkPoint, double accuracy)
         {
             double x1 = start.X;
             double y1 = start.Y;
@@ -177,7 +163,7 @@ namespace VectorDrawing.Tools
             else return false;
         }
 
-        protected bool CheckInside(double x, double a, double b, double accuracy)
+        private bool CheckInside(double x, double a, double b, double accuracy)
         {
             if ((x > a - accuracy && x < b + accuracy) || (x > b - accuracy && x < a + accuracy))
                 return true;
