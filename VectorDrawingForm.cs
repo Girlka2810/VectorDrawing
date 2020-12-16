@@ -28,6 +28,7 @@ namespace VectorDrawing
         public VectorDrawingForm()
         {
             InitializeComponent();
+            customizeDesing();
         }
 
         private void OnVectorDrawingFormLoad(object sender, EventArgs e)
@@ -274,5 +275,20 @@ namespace VectorDrawing
             _canvas.Create(pictureBox.Width, pictureBox.Height);
             _canvas.DrawAll();
         }
+        private void customizeDesing()
+        {
+            panelSideMenu.Visible = true;
+        }
+        private void hideSubMenu()
+        {
+            if (panelSideMenu.Visible == true)
+                panelSideMenu.Visible = false;
+        }
+        private void showSubMenu(Panel subMenu)
+        { 
+        
+        }
+
+      
     }
 }
