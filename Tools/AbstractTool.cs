@@ -18,7 +18,7 @@ namespace VectorDrawing.Tools
         public PointF TemporaryPoint { get; set; }
         public PointF Center { get; set; }
         public Pen Pen { get; private set; }
-        public PointF[] EndShapePoints { get; private set; }
+        public PointF[] EndShapePoints { get; set; }
 
         protected List<PointF> Points;
         protected IFigure Figure;

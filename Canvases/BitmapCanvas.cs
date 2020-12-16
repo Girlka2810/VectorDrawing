@@ -186,5 +186,10 @@ namespace VectorDrawing.Canvases
         {
 
         }
+
+        public void Update(AbstractTool tool, PointF[] points)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

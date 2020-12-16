@@ -68,7 +68,7 @@ namespace VectorDrawing
                     if (_tool == null) return;
 
                     IAction action = new MoveAction();
-                    PointF[] temp = action.GetMove(_tool.EndShapePoints, _tool.TemporaryPoint, e.Location);
+                    action.UpdateToolPoints(_tool, _tool.TemporaryPoint, e.Location);
 
 
                     break;
