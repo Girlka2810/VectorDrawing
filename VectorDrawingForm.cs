@@ -22,7 +22,8 @@ namespace VectorDrawing
         private ICanvas _canvas;
         private bool _isMouseDown;
         private Mode _mode;
-        
+        private int _counter;
+
 
 
         public VectorDrawingForm()
@@ -37,7 +38,7 @@ namespace VectorDrawing
             _canvas.SetRender(OnRender);
             _canvas.Create(pictureBox.Width, pictureBox.Height);
             _pen = new Pen(Color.Black, 1);
-            
+            _counter = 0;
         }
 
         private void OnRender(Bitmap bitmap, Color color)
@@ -48,11 +49,11 @@ namespace VectorDrawing
 
         private void OnPictureBoxMouseMove(object sender, MouseEventArgs e)
         {
+            if (_tool == null) return;
             switch (_mode)
             {
                 case Mode.Draw:
                     {
-                        if (_tool == null) return;
                         if (_tool is IBrush && _isMouseDown)
                         {
                             _tool.AddPoint(e.Location);
@@ -66,21 +67,31 @@ namespace VectorDrawing
                     }
                     break;
                 case Mode.Move:
-                    if (_tool == null) return;
-
-                    IAction action = new MoveAction();
-                    action.UpdateToolPoints(_tool, _tool.TemporaryPoint, e.Location);
-
-
+                    if (_isMouseDown)
+                    {
+                        IAction action = new MoveAction();
+                        action.UpdateToolPoints(_tool, _tool.TemporaryPoint, e.Location);
+                        _canvas.Draw(_tool);
+                        _counter++;
+                    }
+                    break;
+                case Mode.Rotate:
+                    if (_isMouseDown)
+                    {
+                        IAction action = new RotateAction();
+                        action.UpdateToolPoints(_tool, _tool.TemporaryPoint, e.Location);
+                        _canvas.Draw(_tool);
+                        _counter++;
+                    }
                     break;
             }
-        }
+    }
 
         private void OnPictureBoxMouseDown(object sender, MouseEventArgs e)
         {
+            _isMouseDown = true;
             if (_mode == Mode.Draw)
             {
-                _isMouseDown = true;
                 _tool?.AddPoint(e.Location);
 
                 if (_tool != null && _tool.CheckMaxQuantityPoints())
@@ -92,14 +103,8 @@ namespace VectorDrawing
             }
             else
             {
-                switch (_mode)
-                {
-                    case Mode.Move:
-                       
-                        break;
-                    case Mode.Rotate:
-                        break;
-                }
+                _tool = _canvas.SetToolOnMouse(e.Location);
+                _canvas.UpdateBitmap();
             }
         }
 
@@ -325,6 +330,11 @@ namespace VectorDrawing
         private void ChangeFigureButton_Click(object sender, EventArgs e)
         {
             showSubMenu(panelVectorChanges);
+        }
+
+        private void RotateModeButton_Click(object sender, EventArgs e)
+        {
+            _mode = Mode.Rotate;
         }
     }
 }

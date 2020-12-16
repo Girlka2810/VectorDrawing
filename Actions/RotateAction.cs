@@ -22,7 +22,6 @@ namespace VectorDrawing.Actions
                 }
                 PointF[] rotatedPoints = gp.PathPoints;
                 tool.EndShapePoints = rotatedPoints;
-                tool.TemporaryPoint = endPoint;
             }
         }
 

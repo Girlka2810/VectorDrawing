@@ -24,11 +24,6 @@ namespace VectorDrawing.Tools.Polygons
             }
         }
 
-        public override void Paint(Graphics graphics)
-        {
-            graphics.DrawPolygon(Pen, ((CommonReturn)Figure.Get(GenerateParametrs())).Points);
-        }
-
         protected override FigureParameter GenerateParametrs()
         {
             RegularPolygonParameter figureParameter = new RegularPolygonParameter

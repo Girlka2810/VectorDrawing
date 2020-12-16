@@ -41,9 +41,16 @@ namespace VectorDrawing.Tools
             EndShapePoints = new PointF[] { };
         }
 
-        public abstract void Paint(Graphics graphics);
+        public virtual void Paint(Graphics graphics)
+        {
+            if (EndShapePoints.Length != 0)
+            {
+                graphics.DrawPolygon(Pen, EndShapePoints);
+            }
+            else
+                graphics.DrawPolygon(Pen, ((CommonReturn)Figure.Get(GenerateParametrs())).Points);
+        }
 
-        
 
 
 
@@ -98,7 +105,7 @@ namespace VectorDrawing.Tools
         {
             return new CommonParameter
             {
-                Points = Points.ToArray(),
+                Points = Points!=null ? Points.ToArray(): EndShapePoints,
                 TemporaryPoint = TemporaryPoint
             };
         }
@@ -153,6 +160,20 @@ namespace VectorDrawing.Tools
             {
                 throw new ArgumentException("Pen cannot have width less than 1 and greater than 100");
             }
+        }
+
+        public bool IsItYou(PointF point)
+        {
+            PointF prevP = EndShapePoints[3];
+            foreach (PointF p in EndShapePoints)
+            {
+                if (Contain(prevP, p, point, Pen.Width+2))
+                {
+                    return true;
+                }
+                prevP = p;
+            }
+            return false;
         }
         private bool Contain(PointF start, PointF end, PointF checkPoint, double accuracy)
         {

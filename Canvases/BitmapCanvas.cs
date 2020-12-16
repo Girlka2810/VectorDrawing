@@ -75,10 +75,7 @@ namespace VectorDrawing.Canvases
             }
 
             _tool = tool;
-            if (_tool.EndShapePoints.Length != 0)
-            {
-
-            }
+           
             _tmpBitmap = (Bitmap)_mainBitmap.Clone();
             Graphics graphics = Graphics.FromImage(_tmpBitmap);
             tool.Paint(graphics);
@@ -173,6 +170,22 @@ namespace VectorDrawing.Canvases
         {
             _mainBitmap = bitmap;
         }
+
+        public AbstractTool SetToolOnMouse(PointF point)
+        {
+            bool find = false;
+            foreach (KeyValuePair<string, AbstractTool> keyValuePair in _tools)
+            {
+                if (keyValuePair.Value.IsItYou(point))
+                {
+                    _tool = keyValuePair.Value;
+                    _tool.TemporaryPoint = point;
+                    find = true;
+                }
+            }
+            if (find) ReplaceTool(_tool);
+            return _tool;
+        }
         
         private void AddBuffer(AbstractTool tool)
         {
@@ -184,7 +197,18 @@ namespace VectorDrawing.Canvases
         
         private void ReplaceTool(AbstractTool tool)
         {
+            _tools.Remove(tool.ID);
+        }
 
+        public void UpdateBitmap()
+        {
+            _mainBitmap = new Bitmap(_mainBitmap.Width, _mainBitmap.Height);
+            Graphics graphics = Graphics.FromImage(_mainBitmap);
+            foreach(KeyValuePair<string, AbstractTool> keyValuePair in _tools)
+            {
+                keyValuePair.Value.Paint(graphics);
+            }
+            _render?.Invoke(_tmpBitmap, _backColor);
         }
 
         public void Update(AbstractTool tool, PointF[] points)

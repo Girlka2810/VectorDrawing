@@ -543,6 +543,7 @@ namespace VectorDrawing
             this.RotateModeButton.TabStop = false;
             this.RotateModeButton.Text = "Поверни";
             this.RotateModeButton.UseVisualStyleBackColor = true;
+            this.RotateModeButton.Click += new System.EventHandler(this.RotateModeButton_Click);
             // 
             // ChangeFigureButton
             // 

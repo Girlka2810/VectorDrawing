@@ -17,6 +17,9 @@ namespace VectorDrawing.Canvases
         void UpdateDictionary(List<Tools.AbstractTool> list);
         void LoadBitMap(Bitmap bitmap);
         void Update(AbstractTool tool, PointF[] points);
+        void UpdateBitmap();
+        AbstractTool SetToolOnMouse(PointF point);
+
 
         List<Tools.AbstractTool> GetTools();
        // Dictionary<string, Tools.AbstractTool> GetDictionary();
