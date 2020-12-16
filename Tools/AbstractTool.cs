@@ -43,7 +43,6 @@ namespace VectorDrawing.Tools
 
         public abstract void Paint(Graphics graphics);
 
-        
 
 
 

@@ -25,10 +25,10 @@ namespace VectorDrawing.Figures
                 float height = Module(prev.Y - crnt.Y);
                 if (width >= height)
                 {
-                    crnt.X = crnt.X >= prev.X ? prev.X + height : prev.X - height;
+                    crnt.Y = crnt.Y >= prev.Y ? prev.Y + width : prev.Y - width;
                 }
                 else
-                    crnt.Y = crnt.Y >= prev.Y ? prev.Y + width : prev.Y - width;
+                    crnt.X = crnt.X >= prev.X ? prev.X + height : prev.X - height;
 
                 points = new []
                 {
@@ -41,11 +41,6 @@ namespace VectorDrawing.Figures
             }
 
             return new CommonReturn();
-        }
-        private float Equalization(float dx, float dy)
-        {
-            float radius = (float)Math.Sqrt(dx * dx + dy * dy);
-            return radius;
         }
     }
 }
