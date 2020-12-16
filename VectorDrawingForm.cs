@@ -278,11 +278,14 @@ namespace VectorDrawing
         private void customizeDesing()
         {
           panelTools.Visible = false;
+            panelVectorChanges.Visible = false;
         }
         private void hideSubMenu()
         {
             if (panelTools.Visible == true)
-                panelTools.Visible = false;
+             panelTools.Visible = false; 
+            if (panelVectorChanges.Visible == true)
+             panelVectorChanges.Visible = false; 
         }
         private void showSubMenu(Panel subMenu)
         {
@@ -291,17 +294,25 @@ namespace VectorDrawing
                 hideSubMenu();
                 subMenu.Visible = true;
             }
+            else if (panelVectorChanges.Visible == false)
+            {
+                hideSubMenu();
+                subMenu.Visible = true;
+            }
             else
             {
                 subMenu.Visible = false;
             }
-
-
         }
 
         private void ToolsButton_Click(object sender, EventArgs e)
         {
             showSubMenu(panelTools);
+        }
+
+        private void ChangeFigureButton_Click(object sender, EventArgs e)
+        {
+            showSubMenu(panelVectorChanges);
         }
     }
 }
