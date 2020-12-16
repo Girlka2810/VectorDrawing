@@ -28,6 +28,7 @@ namespace VectorDrawing
         public VectorDrawingForm()
         {
             InitializeComponent();
+            customizeDesing();
         }
 
         private void OnVectorDrawingFormLoad(object sender, EventArgs e)
@@ -124,7 +125,7 @@ namespace VectorDrawing
 
         private void OnClearClick(object sender, EventArgs e)
         {
-            _canvas.Create(pictureBox.Width, pictureBox.Height);
+            _canvas.Clear();
             GC.Collect();
         }
 
@@ -142,6 +143,7 @@ namespace VectorDrawing
         {
             _mode = Mode.Move;
             _tool = null;
+            hideSubMenu();
         }
 
         private void CreateFigure()
@@ -160,66 +162,77 @@ namespace VectorDrawing
         {
             _factoryTool = new LineFactoryTool();
             CreateFigure();
+            hideSubMenu();
         }
         
         private void OnBrushButtonClick(object sender, EventArgs e)
         {
             _factoryTool = new BrushFactoryTool();
             CreateFigure();
+            hideSubMenu();
         }
         
         private void OnNlineButtonClick(object sender, EventArgs e)
         {
             _factoryTool = new NLineFactoryTool();
             CreateFigure();
+            hideSubMenu();
         }
         
         private void OnRectangleButtonClick(object sender, EventArgs e)
         {
             _factoryTool = new RectangleFactoryTool();
             CreateFigure();
+            hideSubMenu();
         }
         
         private void OnSquareButtonClick(object sender, EventArgs e)
         {
             _factoryTool = new SquareFactoryTool();
             CreateFigure();
+            hideSubMenu();
         }
         
         private void OnCircleButtonClick(object sender, EventArgs e)
         {
             _factoryTool = new CircleFactoryTool();
             CreateFigure();
+            hideSubMenu();
         }
         
         private void OnEllipseButtonClick(object sender, EventArgs e)
         {
             _factoryTool = new EllipseFactoryTool();
             CreateFigure();
+            hideSubMenu();
         }
         
         private void OnRectangularTriangleButtonClick(object sender, EventArgs e)
         {
             _factoryTool = new RectangularTriangleFactoryTool();
             CreateFigure();
+            hideSubMenu();
         }
         
         private void OnTriangleButtonClick(object sender, EventArgs e)
         {
             _factoryTool = new TriangleFactoryTool();
             CreateFigure();
+            hideSubMenu();
         }
         
         private void OnIsoscelesTriangleButtonClick(object sender, EventArgs e)
         {
             _factoryTool = new IsoscelesTriangleFactoryTool();
             CreateFigure();
+            hideSubMenu();
         }
 
         private void OnPolygonButtonClick(object sender, EventArgs e)
         {
             _factoryTool = new PolygonFactoryTool();
             CreateFigure();
+            hideSubMenu();
         }
         
         private void OnRegularPolygonButtonClick(object sender, EventArgs e)
@@ -228,7 +241,7 @@ namespace VectorDrawing
             CreateFigure();
             anglesForPolygonGroupBox.Visible = true;
             ((RegularPolygonTool)_tool).QuantityOfCorners = (int)cornerNumericUpDown.Value;
-            
+            hideSubMenu();
         }
         
         private void OnPictureBoxMouseDoubleClick(object sender, MouseEventArgs e)
@@ -273,6 +286,45 @@ namespace VectorDrawing
         {
             _canvas.Create(pictureBox.Width, pictureBox.Height);
             _canvas.DrawAll();
+        }
+        private void customizeDesing()
+        {
+          panelTools.Visible = false;
+            panelVectorChanges.Visible = false;
+        }
+        private void hideSubMenu()
+        {
+            if (panelTools.Visible == true)
+             panelTools.Visible = false; 
+            if (panelVectorChanges.Visible == true)
+             panelVectorChanges.Visible = false; 
+        }
+        private void showSubMenu(Panel subMenu)
+        {
+            if (panelTools.Visible == false)
+            {
+                hideSubMenu();
+                subMenu.Visible = true;
+            }
+            else if (panelVectorChanges.Visible == false)
+            {
+                hideSubMenu();
+                subMenu.Visible = true;
+            }
+            else
+            {
+                subMenu.Visible = false;
+            }
+        }
+
+        private void ToolsButton_Click(object sender, EventArgs e)
+        {
+            showSubMenu(panelTools);
+        }
+
+        private void ChangeFigureButton_Click(object sender, EventArgs e)
+        {
+            showSubMenu(panelVectorChanges);
         }
     }
 }

@@ -30,6 +30,7 @@ namespace VectorDrawing.Tools
             ID = Guid.NewGuid().ToString(); 
             Points = points;
             SetPen(pen);
+            EndShapePoints = new PointF[] { };
         }
 
         protected AbstractTool(Pen pen)
@@ -37,6 +38,7 @@ namespace VectorDrawing.Tools
             ID = Guid.NewGuid().ToString(); 
             Points = new List<PointF>( );
             SetPen(pen);
+            EndShapePoints = new PointF[] { };
         }
 
         public abstract void Paint(Graphics graphics);
