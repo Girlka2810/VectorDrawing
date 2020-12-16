@@ -277,18 +277,31 @@ namespace VectorDrawing
         }
         private void customizeDesing()
         {
-            panelSideMenu.Visible = true;
+          panelTools.Visible = false;
         }
         private void hideSubMenu()
         {
-            if (panelSideMenu.Visible == true)
-                panelSideMenu.Visible = false;
+            if (panelTools.Visible == true)
+                panelTools.Visible = false;
         }
         private void showSubMenu(Panel subMenu)
-        { 
-        
+        {
+            if (panelTools.Visible == false)
+            {
+                hideSubMenu();
+                subMenu.Visible = true;
+            }
+            else
+            {
+                subMenu.Visible = false;
+            }
+
+
         }
 
-      
+        private void ToolsButton_Click(object sender, EventArgs e)
+        {
+            showSubMenu(panelTools);
+        }
     }
 }

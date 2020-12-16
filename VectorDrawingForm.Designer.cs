@@ -78,11 +78,11 @@ namespace VectorDrawing
             this.brushButton.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.brushButton.Location = new System.Drawing.Point(0, 0);
             this.brushButton.Name = "brushButton";
+            this.brushButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.brushButton.Size = new System.Drawing.Size(228, 33);
             this.brushButton.TabIndex = 0;
             this.brushButton.TabStop = false;
             this.brushButton.Text = "Кисть";
-            this.brushButton.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.brushButton.UseVisualStyleBackColor = true;
             this.brushButton.Click += new System.EventHandler(this.OnBrushButtonClick);
             // 
@@ -96,6 +96,7 @@ namespace VectorDrawing
             this.lineButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lineButton.Location = new System.Drawing.Point(0, 33);
             this.lineButton.Name = "lineButton";
+            this.lineButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.lineButton.Size = new System.Drawing.Size(228, 33);
             this.lineButton.TabIndex = 1;
             this.lineButton.TabStop = false;
@@ -114,11 +115,11 @@ namespace VectorDrawing
             this.nlineButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.nlineButton.Location = new System.Drawing.Point(0, 66);
             this.nlineButton.Name = "nlineButton";
+            this.nlineButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.nlineButton.Size = new System.Drawing.Size(228, 33);
             this.nlineButton.TabIndex = 2;
             this.nlineButton.TabStop = false;
             this.nlineButton.Text = "Кривая линия";
-            this.nlineButton.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.nlineButton.UseVisualStyleBackColor = false;
             this.nlineButton.Click += new System.EventHandler(this.OnNlineButtonClick);
             // 
@@ -132,6 +133,7 @@ namespace VectorDrawing
             this.rectangleButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.rectangleButton.Location = new System.Drawing.Point(0, 99);
             this.rectangleButton.Name = "rectangleButton";
+            this.rectangleButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.rectangleButton.Size = new System.Drawing.Size(228, 33);
             this.rectangleButton.TabIndex = 3;
             this.rectangleButton.TabStop = false;
@@ -149,6 +151,7 @@ namespace VectorDrawing
             this.squareButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.squareButton.Location = new System.Drawing.Point(0, 132);
             this.squareButton.Name = "squareButton";
+            this.squareButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.squareButton.Size = new System.Drawing.Size(228, 33);
             this.squareButton.TabIndex = 4;
             this.squareButton.TabStop = false;
@@ -166,6 +169,7 @@ namespace VectorDrawing
             this.circleButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.circleButton.Location = new System.Drawing.Point(0, 165);
             this.circleButton.Name = "circleButton";
+            this.circleButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.circleButton.Size = new System.Drawing.Size(228, 33);
             this.circleButton.TabIndex = 5;
             this.circleButton.TabStop = false;
@@ -183,6 +187,7 @@ namespace VectorDrawing
             this.ellipseButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.ellipseButton.Location = new System.Drawing.Point(0, 198);
             this.ellipseButton.Name = "ellipseButton";
+            this.ellipseButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.ellipseButton.Size = new System.Drawing.Size(228, 33);
             this.ellipseButton.TabIndex = 6;
             this.ellipseButton.TabStop = false;
@@ -200,11 +205,11 @@ namespace VectorDrawing
             this.rectangularTriangleButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.rectangularTriangleButton.Location = new System.Drawing.Point(0, 231);
             this.rectangularTriangleButton.Name = "rectangularTriangleButton";
+            this.rectangularTriangleButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.rectangularTriangleButton.Size = new System.Drawing.Size(228, 47);
             this.rectangularTriangleButton.TabIndex = 7;
             this.rectangularTriangleButton.TabStop = false;
             this.rectangularTriangleButton.Text = "Прямоугольный \r\nтреугольник";
-            this.rectangularTriangleButton.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.rectangularTriangleButton.UseVisualStyleBackColor = true;
             this.rectangularTriangleButton.Click += new System.EventHandler(this.OnRectangularTriangleButtonClick);
             // 
@@ -218,6 +223,7 @@ namespace VectorDrawing
             this.triangleButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.triangleButton.Location = new System.Drawing.Point(0, 278);
             this.triangleButton.Name = "triangleButton";
+            this.triangleButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.triangleButton.Size = new System.Drawing.Size(228, 33);
             this.triangleButton.TabIndex = 8;
             this.triangleButton.TabStop = false;
@@ -235,11 +241,11 @@ namespace VectorDrawing
             this.isoscelesTriangleButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.isoscelesTriangleButton.Location = new System.Drawing.Point(0, 311);
             this.isoscelesTriangleButton.Name = "isoscelesTriangleButton";
+            this.isoscelesTriangleButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.isoscelesTriangleButton.Size = new System.Drawing.Size(228, 46);
             this.isoscelesTriangleButton.TabIndex = 9;
             this.isoscelesTriangleButton.TabStop = false;
             this.isoscelesTriangleButton.Text = "Равнобедренный \r\nтрегольник";
-            this.isoscelesTriangleButton.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.isoscelesTriangleButton.UseVisualStyleBackColor = true;
             this.isoscelesTriangleButton.Click += new System.EventHandler(this.OnIsoscelesTriangleButtonClick);
             // 
@@ -253,6 +259,7 @@ namespace VectorDrawing
             this.polygonButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.polygonButton.Location = new System.Drawing.Point(0, 357);
             this.polygonButton.Name = "polygonButton";
+            this.polygonButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.polygonButton.Size = new System.Drawing.Size(228, 33);
             this.polygonButton.TabIndex = 10;
             this.polygonButton.TabStop = false;
@@ -270,6 +277,7 @@ namespace VectorDrawing
             this.regularPolygonButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.regularPolygonButton.Location = new System.Drawing.Point(0, 390);
             this.regularPolygonButton.Name = "regularPolygonButton";
+            this.regularPolygonButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.regularPolygonButton.Size = new System.Drawing.Size(228, 50);
             this.regularPolygonButton.TabIndex = 11;
             this.regularPolygonButton.TabStop = false;
@@ -463,6 +471,7 @@ namespace VectorDrawing
             this.ToolsButton.TabIndex = 0;
             this.ToolsButton.Text = "Инструменты";
             this.ToolsButton.UseVisualStyleBackColor = true;
+            this.ToolsButton.Click += new System.EventHandler(this.ToolsButton_Click);
             // 
             // panelLogo
             // 
