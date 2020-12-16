@@ -148,5 +148,38 @@
   <ItemGroup>
     <None Include="Icons\LineButton.bmp" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\NLineButton.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\RectangleButton.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\SquareButton.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\CircleButton.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\EllipseButton.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\RegularTriangleButton.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\TriangleButton.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\IsoscealeTriangleButton.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\PolygonButton1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\RegularPoligonButton.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\RotateButton.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -30,19 +30,6 @@ namespace VectorDrawing
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VectorDrawingForm));
-            this.brushButton = new System.Windows.Forms.Button();
-            this.lineButton = new System.Windows.Forms.Button();
-            this.nlineButton = new System.Windows.Forms.Button();
-            this.rectangleButton = new System.Windows.Forms.Button();
-            this.squareButton = new System.Windows.Forms.Button();
-            this.circleButton = new System.Windows.Forms.Button();
-            this.ellipseButton = new System.Windows.Forms.Button();
-            this.rectangularTriangleButton = new System.Windows.Forms.Button();
-            this.triangleButton = new System.Windows.Forms.Button();
-            this.isoscelesTriangleButton = new System.Windows.Forms.Button();
-            this.polygonButton = new System.Windows.Forms.Button();
-            this.regularPolygonButton = new System.Windows.Forms.Button();
-            this.pictureBox = new System.Windows.Forms.PictureBox();
             this.thickness = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
             this.colorDialog = new System.Windows.Forms.ColorDialog();
@@ -50,7 +37,6 @@ namespace VectorDrawing
             this.anglesForPolygonGroupBox = new System.Windows.Forms.GroupBox();
             this.cornerNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
-            this.clearButton = new System.Windows.Forms.Button();
             this.moveModeButton = new System.Windows.Forms.Button();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.saveButton = new System.Windows.Forms.Button();
@@ -61,258 +47,34 @@ namespace VectorDrawing
             this.SideMoveModeButon = new System.Windows.Forms.Button();
             this.ChangeScaleModeButton = new System.Windows.Forms.Button();
             this.ChangeRadiusModeButton = new System.Windows.Forms.Button();
-            this.RotateModeButton = new System.Windows.Forms.Button();
             this.ChangeFigureButton = new System.Windows.Forms.Button();
             this.panelTools = new System.Windows.Forms.Panel();
             this.ToolsButton = new System.Windows.Forms.Button();
             this.panelLogo = new System.Windows.Forms.Panel();
             this.Coordinates = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
+            this.RotateModeButton = new System.Windows.Forms.Button();
+            this.clearButton = new System.Windows.Forms.Button();
+            this.brushButton = new System.Windows.Forms.Button();
+            this.lineButton = new System.Windows.Forms.Button();
+            this.nlineButton = new System.Windows.Forms.Button();
+            this.rectangleButton = new System.Windows.Forms.Button();
+            this.squareButton = new System.Windows.Forms.Button();
+            this.circleButton = new System.Windows.Forms.Button();
+            this.ellipseButton = new System.Windows.Forms.Button();
+            this.rectangularTriangleButton = new System.Windows.Forms.Button();
+            this.triangleButton = new System.Windows.Forms.Button();
+            this.isoscelesTriangleButton = new System.Windows.Forms.Button();
+            this.regularPolygonButton = new System.Windows.Forms.Button();
+            this.polygonButton = new System.Windows.Forms.Button();
+            this.pictureBox = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.thickness)).BeginInit();
             this.anglesForPolygonGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cornerNumericUpDown)).BeginInit();
             this.panelSideMenu.SuspendLayout();
             this.panelVectorChanges.SuspendLayout();
             this.panelTools.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.SuspendLayout();
-            // 
-            // brushButton
-            // 
-            this.brushButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.brushButton.FlatAppearance.BorderSize = 0;
-            this.brushButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Teal;
-            this.brushButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.brushButton.Font = new System.Drawing.Font("Monotype Corsiva", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.brushButton.Image = global::VectorDrawing.Properties.Resources.BrushButton2;
-            this.brushButton.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.brushButton.Location = new System.Drawing.Point(0, 0);
-            this.brushButton.Name = "brushButton";
-            this.brushButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.brushButton.Size = new System.Drawing.Size(211, 33);
-            this.brushButton.TabIndex = 0;
-            this.brushButton.TabStop = false;
-            this.brushButton.Text = "Кисть";
-            this.brushButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.brushButton.UseVisualStyleBackColor = true;
-            this.brushButton.Click += new System.EventHandler(this.OnBrushButtonClick);
-            // 
-            // lineButton
-            // 
-            this.lineButton.FlatAppearance.BorderSize = 0;
-            this.lineButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Teal;
-            this.lineButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lineButton.Font = new System.Drawing.Font("Monotype Corsiva", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lineButton.Image = global::VectorDrawing.Properties.Resources.LineButton;
-            this.lineButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lineButton.Location = new System.Drawing.Point(-1, 33);
-            this.lineButton.Name = "lineButton";
-            this.lineButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.lineButton.Size = new System.Drawing.Size(212, 33);
-            this.lineButton.TabIndex = 1;
-            this.lineButton.TabStop = false;
-            this.lineButton.Text = "Линия";
-            this.lineButton.UseVisualStyleBackColor = true;
-            this.lineButton.Click += new System.EventHandler(this.OnLineButtonClick);
-            // 
-            // nlineButton
-            // 
-            this.nlineButton.BackColor = System.Drawing.Color.LightBlue;
-            this.nlineButton.FlatAppearance.BorderSize = 0;
-            this.nlineButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Teal;
-            this.nlineButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.nlineButton.Font = new System.Drawing.Font("Monotype Corsiva", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.nlineButton.Image = ((System.Drawing.Image)(resources.GetObject("nlineButton.Image")));
-            this.nlineButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.nlineButton.Location = new System.Drawing.Point(0, 66);
-            this.nlineButton.Name = "nlineButton";
-            this.nlineButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.nlineButton.Size = new System.Drawing.Size(211, 33);
-            this.nlineButton.TabIndex = 2;
-            this.nlineButton.TabStop = false;
-            this.nlineButton.Text = "Кривая линия";
-            this.nlineButton.UseVisualStyleBackColor = false;
-            this.nlineButton.Click += new System.EventHandler(this.OnNlineButtonClick);
-            // 
-            // rectangleButton
-            // 
-            this.rectangleButton.FlatAppearance.BorderSize = 0;
-            this.rectangleButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Teal;
-            this.rectangleButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rectangleButton.Font = new System.Drawing.Font("Monotype Corsiva", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.rectangleButton.Image = ((System.Drawing.Image)(resources.GetObject("rectangleButton.Image")));
-            this.rectangleButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.rectangleButton.Location = new System.Drawing.Point(0, 99);
-            this.rectangleButton.Name = "rectangleButton";
-            this.rectangleButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.rectangleButton.Size = new System.Drawing.Size(211, 33);
-            this.rectangleButton.TabIndex = 3;
-            this.rectangleButton.TabStop = false;
-            this.rectangleButton.Text = "Прямоугольник";
-            this.rectangleButton.UseVisualStyleBackColor = true;
-            this.rectangleButton.Click += new System.EventHandler(this.OnRectangleButtonClick);
-            // 
-            // squareButton
-            // 
-            this.squareButton.FlatAppearance.BorderSize = 0;
-            this.squareButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Teal;
-            this.squareButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.squareButton.Font = new System.Drawing.Font("Monotype Corsiva", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.squareButton.Image = ((System.Drawing.Image)(resources.GetObject("squareButton.Image")));
-            this.squareButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.squareButton.Location = new System.Drawing.Point(0, 132);
-            this.squareButton.Name = "squareButton";
-            this.squareButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.squareButton.Size = new System.Drawing.Size(211, 33);
-            this.squareButton.TabIndex = 4;
-            this.squareButton.TabStop = false;
-            this.squareButton.Text = "Квадрат";
-            this.squareButton.UseVisualStyleBackColor = true;
-            this.squareButton.Click += new System.EventHandler(this.OnSquareButtonClick);
-            // 
-            // circleButton
-            // 
-            this.circleButton.FlatAppearance.BorderSize = 0;
-            this.circleButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Teal;
-            this.circleButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.circleButton.Font = new System.Drawing.Font("Monotype Corsiva", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.circleButton.Image = ((System.Drawing.Image)(resources.GetObject("circleButton.Image")));
-            this.circleButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.circleButton.Location = new System.Drawing.Point(0, 165);
-            this.circleButton.Name = "circleButton";
-            this.circleButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.circleButton.Size = new System.Drawing.Size(211, 33);
-            this.circleButton.TabIndex = 5;
-            this.circleButton.TabStop = false;
-            this.circleButton.Text = "Круг";
-            this.circleButton.UseVisualStyleBackColor = true;
-            this.circleButton.Click += new System.EventHandler(this.OnCircleButtonClick);
-            // 
-            // ellipseButton
-            // 
-            this.ellipseButton.FlatAppearance.BorderSize = 0;
-            this.ellipseButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Teal;
-            this.ellipseButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ellipseButton.Font = new System.Drawing.Font("Monotype Corsiva", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ellipseButton.Image = ((System.Drawing.Image)(resources.GetObject("ellipseButton.Image")));
-            this.ellipseButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ellipseButton.Location = new System.Drawing.Point(0, 198);
-            this.ellipseButton.Name = "ellipseButton";
-            this.ellipseButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.ellipseButton.Size = new System.Drawing.Size(211, 33);
-            this.ellipseButton.TabIndex = 6;
-            this.ellipseButton.TabStop = false;
-            this.ellipseButton.Text = "Эллипс";
-            this.ellipseButton.UseVisualStyleBackColor = true;
-            this.ellipseButton.Click += new System.EventHandler(this.OnEllipseButtonClick);
-            // 
-            // rectangularTriangleButton
-            // 
-            this.rectangularTriangleButton.FlatAppearance.BorderSize = 0;
-            this.rectangularTriangleButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Teal;
-            this.rectangularTriangleButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rectangularTriangleButton.Font = new System.Drawing.Font("Monotype Corsiva", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.rectangularTriangleButton.Image = ((System.Drawing.Image)(resources.GetObject("rectangularTriangleButton.Image")));
-            this.rectangularTriangleButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.rectangularTriangleButton.Location = new System.Drawing.Point(0, 231);
-            this.rectangularTriangleButton.Name = "rectangularTriangleButton";
-            this.rectangularTriangleButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.rectangularTriangleButton.Size = new System.Drawing.Size(211, 47);
-            this.rectangularTriangleButton.TabIndex = 7;
-            this.rectangularTriangleButton.TabStop = false;
-            this.rectangularTriangleButton.Text = "Прямоугольный \r\nтреугольник";
-            this.rectangularTriangleButton.UseVisualStyleBackColor = true;
-            this.rectangularTriangleButton.Click += new System.EventHandler(this.OnRectangularTriangleButtonClick);
-            // 
-            // triangleButton
-            // 
-            this.triangleButton.FlatAppearance.BorderSize = 0;
-            this.triangleButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Teal;
-            this.triangleButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.triangleButton.Font = new System.Drawing.Font("Monotype Corsiva", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.triangleButton.Image = ((System.Drawing.Image)(resources.GetObject("triangleButton.Image")));
-            this.triangleButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.triangleButton.Location = new System.Drawing.Point(0, 278);
-            this.triangleButton.Name = "triangleButton";
-            this.triangleButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.triangleButton.Size = new System.Drawing.Size(211, 33);
-            this.triangleButton.TabIndex = 8;
-            this.triangleButton.TabStop = false;
-            this.triangleButton.Text = "Треугольник";
-            this.triangleButton.UseVisualStyleBackColor = true;
-            this.triangleButton.Click += new System.EventHandler(this.OnTriangleButtonClick);
-            // 
-            // isoscelesTriangleButton
-            // 
-            this.isoscelesTriangleButton.FlatAppearance.BorderSize = 0;
-            this.isoscelesTriangleButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Teal;
-            this.isoscelesTriangleButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.isoscelesTriangleButton.Font = new System.Drawing.Font("Monotype Corsiva", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.isoscelesTriangleButton.Image = ((System.Drawing.Image)(resources.GetObject("isoscelesTriangleButton.Image")));
-            this.isoscelesTriangleButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.isoscelesTriangleButton.Location = new System.Drawing.Point(0, 311);
-            this.isoscelesTriangleButton.Name = "isoscelesTriangleButton";
-            this.isoscelesTriangleButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.isoscelesTriangleButton.Size = new System.Drawing.Size(211, 46);
-            this.isoscelesTriangleButton.TabIndex = 9;
-            this.isoscelesTriangleButton.TabStop = false;
-            this.isoscelesTriangleButton.Text = "Равнобедренный \r\nтрегольник";
-            this.isoscelesTriangleButton.UseVisualStyleBackColor = true;
-            this.isoscelesTriangleButton.Click += new System.EventHandler(this.OnIsoscelesTriangleButtonClick);
-            // 
-            // polygonButton
-            // 
-            this.polygonButton.FlatAppearance.BorderSize = 0;
-            this.polygonButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Teal;
-            this.polygonButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.polygonButton.Font = new System.Drawing.Font("Monotype Corsiva", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.polygonButton.Image = ((System.Drawing.Image)(resources.GetObject("polygonButton.Image")));
-            this.polygonButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.polygonButton.Location = new System.Drawing.Point(0, 357);
-            this.polygonButton.Name = "polygonButton";
-            this.polygonButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.polygonButton.Size = new System.Drawing.Size(211, 33);
-            this.polygonButton.TabIndex = 10;
-            this.polygonButton.TabStop = false;
-            this.polygonButton.Text = "Многоугольник";
-            this.polygonButton.UseVisualStyleBackColor = true;
-            this.polygonButton.Click += new System.EventHandler(this.OnPolygonButtonClick);
-            // 
-            // regularPolygonButton
-            // 
-            this.regularPolygonButton.FlatAppearance.BorderSize = 0;
-            this.regularPolygonButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Teal;
-            this.regularPolygonButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.regularPolygonButton.Font = new System.Drawing.Font("Monotype Corsiva", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.regularPolygonButton.Image = ((System.Drawing.Image)(resources.GetObject("regularPolygonButton.Image")));
-            this.regularPolygonButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.regularPolygonButton.Location = new System.Drawing.Point(0, 390);
-            this.regularPolygonButton.Name = "regularPolygonButton";
-            this.regularPolygonButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.regularPolygonButton.Size = new System.Drawing.Size(211, 50);
-            this.regularPolygonButton.TabIndex = 11;
-            this.regularPolygonButton.TabStop = false;
-            this.regularPolygonButton.Text = "Правильный \r\nмногоугольник";
-            this.regularPolygonButton.UseVisualStyleBackColor = true;
-            this.regularPolygonButton.Click += new System.EventHandler(this.OnRegularPolygonButtonClick);
-            // 
-            // pictureBox
-            // 
-            this.pictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox.BackColor = System.Drawing.Color.White;
-            this.pictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox.Location = new System.Drawing.Point(246, 67);
-            this.pictureBox.MinimumSize = new System.Drawing.Size(746, 459);
-            this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(788, 459);
-            this.pictureBox.TabIndex = 13;
-            this.pictureBox.TabStop = false;
-            this.pictureBox.SizeChanged += new System.EventHandler(this.OnPictureBoxSizeChanged);
-            this.pictureBox.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.OnPictureBoxMouseDoubleClick);
-            this.pictureBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.OnPictureBoxMouseDown);
-            this.pictureBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.OnPictureBoxMouseMove);
-            this.pictureBox.MouseUp += new System.Windows.Forms.MouseEventHandler(this.OnPictureBoxMouseUp);
             // 
             // thickness
             // 
@@ -390,23 +152,6 @@ namespace VectorDrawing
             this.label2.Size = new System.Drawing.Size(97, 13);
             this.label2.TabIndex = 0;
             this.label2.Text = "Количество углов";
-            // 
-            // clearButton
-            // 
-            this.clearButton.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.clearButton.FlatAppearance.BorderSize = 0;
-            this.clearButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.clearButton.Font = new System.Drawing.Font("Monotype Corsiva", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.clearButton.Image = ((System.Drawing.Image)(resources.GetObject("clearButton.Image")));
-            this.clearButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.clearButton.Location = new System.Drawing.Point(0, 832);
-            this.clearButton.Name = "clearButton";
-            this.clearButton.Size = new System.Drawing.Size(211, 33);
-            this.clearButton.TabIndex = 17;
-            this.clearButton.TabStop = false;
-            this.clearButton.Text = "Очистить";
-            this.clearButton.UseVisualStyleBackColor = true;
-            this.clearButton.Click += new System.EventHandler(this.OnClearClick);
             // 
             // moveModeButton
             // 
@@ -534,21 +279,6 @@ namespace VectorDrawing
             this.ChangeRadiusModeButton.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.ChangeRadiusModeButton.UseVisualStyleBackColor = true;
             // 
-            // RotateModeButton
-            // 
-            this.RotateModeButton.FlatAppearance.BorderSize = 0;
-            this.RotateModeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RotateModeButton.Font = new System.Drawing.Font("Monotype Corsiva", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.RotateModeButton.Image = ((System.Drawing.Image)(resources.GetObject("RotateModeButton.Image")));
-            this.RotateModeButton.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.RotateModeButton.Location = new System.Drawing.Point(0, 33);
-            this.RotateModeButton.Name = "RotateModeButton";
-            this.RotateModeButton.Size = new System.Drawing.Size(211, 33);
-            this.RotateModeButton.TabIndex = 19;
-            this.RotateModeButton.TabStop = false;
-            this.RotateModeButton.Text = "Поверни";
-            this.RotateModeButton.UseVisualStyleBackColor = true;
-            // 
             // ChangeFigureButton
             // 
             this.ChangeFigureButton.Dock = System.Windows.Forms.DockStyle.Top;
@@ -612,6 +342,276 @@ namespace VectorDrawing
             this.Coordinates.Size = new System.Drawing.Size(108, 20);
             this.Coordinates.TabIndex = 21;
             // 
+            // RotateModeButton
+            // 
+            this.RotateModeButton.FlatAppearance.BorderSize = 0;
+            this.RotateModeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RotateModeButton.Font = new System.Drawing.Font("Monotype Corsiva", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.RotateModeButton.Image = global::VectorDrawing.Properties.Resources.RotateButton;
+            this.RotateModeButton.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.RotateModeButton.Location = new System.Drawing.Point(0, 33);
+            this.RotateModeButton.Name = "RotateModeButton";
+            this.RotateModeButton.Size = new System.Drawing.Size(211, 33);
+            this.RotateModeButton.TabIndex = 19;
+            this.RotateModeButton.TabStop = false;
+            this.RotateModeButton.Text = "Поверни";
+            this.RotateModeButton.UseVisualStyleBackColor = true;
+            // 
+            // clearButton
+            // 
+            this.clearButton.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.clearButton.FlatAppearance.BorderSize = 0;
+            this.clearButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.clearButton.Font = new System.Drawing.Font("Monotype Corsiva", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.clearButton.Image = ((System.Drawing.Image)(resources.GetObject("clearButton.Image")));
+            this.clearButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.clearButton.Location = new System.Drawing.Point(0, 832);
+            this.clearButton.Name = "clearButton";
+            this.clearButton.Size = new System.Drawing.Size(211, 33);
+            this.clearButton.TabIndex = 17;
+            this.clearButton.TabStop = false;
+            this.clearButton.Text = "Очистить";
+            this.clearButton.UseVisualStyleBackColor = true;
+            this.clearButton.Click += new System.EventHandler(this.OnClearClick);
+            // 
+            // brushButton
+            // 
+            this.brushButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.brushButton.FlatAppearance.BorderSize = 0;
+            this.brushButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Teal;
+            this.brushButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.brushButton.Font = new System.Drawing.Font("Monotype Corsiva", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.brushButton.Image = global::VectorDrawing.Properties.Resources.BrushButton2;
+            this.brushButton.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.brushButton.Location = new System.Drawing.Point(0, 0);
+            this.brushButton.Name = "brushButton";
+            this.brushButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.brushButton.Size = new System.Drawing.Size(211, 33);
+            this.brushButton.TabIndex = 0;
+            this.brushButton.TabStop = false;
+            this.brushButton.Text = "Кисть";
+            this.brushButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.brushButton.UseVisualStyleBackColor = true;
+            this.brushButton.Click += new System.EventHandler(this.OnBrushButtonClick);
+            // 
+            // lineButton
+            // 
+            this.lineButton.FlatAppearance.BorderSize = 0;
+            this.lineButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Teal;
+            this.lineButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lineButton.Font = new System.Drawing.Font("Monotype Corsiva", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lineButton.Image = global::VectorDrawing.Properties.Resources.LineButton;
+            this.lineButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lineButton.Location = new System.Drawing.Point(-1, 33);
+            this.lineButton.Name = "lineButton";
+            this.lineButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.lineButton.Size = new System.Drawing.Size(212, 33);
+            this.lineButton.TabIndex = 1;
+            this.lineButton.TabStop = false;
+            this.lineButton.Text = "Линия";
+            this.lineButton.UseVisualStyleBackColor = true;
+            this.lineButton.Click += new System.EventHandler(this.OnLineButtonClick);
+            // 
+            // nlineButton
+            // 
+            this.nlineButton.BackColor = System.Drawing.Color.LightBlue;
+            this.nlineButton.FlatAppearance.BorderSize = 0;
+            this.nlineButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Teal;
+            this.nlineButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.nlineButton.Font = new System.Drawing.Font("Monotype Corsiva", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.nlineButton.Image = global::VectorDrawing.Properties.Resources.NLineButton;
+            this.nlineButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.nlineButton.Location = new System.Drawing.Point(0, 66);
+            this.nlineButton.Name = "nlineButton";
+            this.nlineButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.nlineButton.Size = new System.Drawing.Size(211, 33);
+            this.nlineButton.TabIndex = 2;
+            this.nlineButton.TabStop = false;
+            this.nlineButton.Text = "Кривая линия";
+            this.nlineButton.UseVisualStyleBackColor = false;
+            this.nlineButton.Click += new System.EventHandler(this.OnNlineButtonClick);
+            // 
+            // rectangleButton
+            // 
+            this.rectangleButton.FlatAppearance.BorderSize = 0;
+            this.rectangleButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Teal;
+            this.rectangleButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rectangleButton.Font = new System.Drawing.Font("Monotype Corsiva", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.rectangleButton.Image = global::VectorDrawing.Properties.Resources.RectangleButton;
+            this.rectangleButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.rectangleButton.Location = new System.Drawing.Point(0, 99);
+            this.rectangleButton.Name = "rectangleButton";
+            this.rectangleButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.rectangleButton.Size = new System.Drawing.Size(211, 33);
+            this.rectangleButton.TabIndex = 3;
+            this.rectangleButton.TabStop = false;
+            this.rectangleButton.Text = "Прямоугольник";
+            this.rectangleButton.UseVisualStyleBackColor = true;
+            this.rectangleButton.Click += new System.EventHandler(this.OnRectangleButtonClick);
+            // 
+            // squareButton
+            // 
+            this.squareButton.FlatAppearance.BorderSize = 0;
+            this.squareButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Teal;
+            this.squareButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.squareButton.Font = new System.Drawing.Font("Monotype Corsiva", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.squareButton.Image = global::VectorDrawing.Properties.Resources.SquareButton;
+            this.squareButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.squareButton.Location = new System.Drawing.Point(0, 132);
+            this.squareButton.Name = "squareButton";
+            this.squareButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.squareButton.Size = new System.Drawing.Size(211, 33);
+            this.squareButton.TabIndex = 4;
+            this.squareButton.TabStop = false;
+            this.squareButton.Text = "Квадрат";
+            this.squareButton.UseVisualStyleBackColor = true;
+            this.squareButton.Click += new System.EventHandler(this.OnSquareButtonClick);
+            // 
+            // circleButton
+            // 
+            this.circleButton.FlatAppearance.BorderSize = 0;
+            this.circleButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Teal;
+            this.circleButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.circleButton.Font = new System.Drawing.Font("Monotype Corsiva", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.circleButton.Image = global::VectorDrawing.Properties.Resources.CircleButton;
+            this.circleButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.circleButton.Location = new System.Drawing.Point(0, 165);
+            this.circleButton.Name = "circleButton";
+            this.circleButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.circleButton.Size = new System.Drawing.Size(211, 33);
+            this.circleButton.TabIndex = 5;
+            this.circleButton.TabStop = false;
+            this.circleButton.Text = "Круг";
+            this.circleButton.UseVisualStyleBackColor = true;
+            this.circleButton.Click += new System.EventHandler(this.OnCircleButtonClick);
+            // 
+            // ellipseButton
+            // 
+            this.ellipseButton.FlatAppearance.BorderSize = 0;
+            this.ellipseButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Teal;
+            this.ellipseButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ellipseButton.Font = new System.Drawing.Font("Monotype Corsiva", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ellipseButton.Image = global::VectorDrawing.Properties.Resources.EllipseButton;
+            this.ellipseButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ellipseButton.Location = new System.Drawing.Point(0, 198);
+            this.ellipseButton.Name = "ellipseButton";
+            this.ellipseButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.ellipseButton.Size = new System.Drawing.Size(211, 33);
+            this.ellipseButton.TabIndex = 6;
+            this.ellipseButton.TabStop = false;
+            this.ellipseButton.Text = "Эллипс";
+            this.ellipseButton.UseVisualStyleBackColor = true;
+            this.ellipseButton.Click += new System.EventHandler(this.OnEllipseButtonClick);
+            // 
+            // rectangularTriangleButton
+            // 
+            this.rectangularTriangleButton.FlatAppearance.BorderSize = 0;
+            this.rectangularTriangleButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Teal;
+            this.rectangularTriangleButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rectangularTriangleButton.Font = new System.Drawing.Font("Monotype Corsiva", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.rectangularTriangleButton.Image = global::VectorDrawing.Properties.Resources.RegularTriangleButton;
+            this.rectangularTriangleButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.rectangularTriangleButton.Location = new System.Drawing.Point(0, 231);
+            this.rectangularTriangleButton.Name = "rectangularTriangleButton";
+            this.rectangularTriangleButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.rectangularTriangleButton.Size = new System.Drawing.Size(211, 47);
+            this.rectangularTriangleButton.TabIndex = 7;
+            this.rectangularTriangleButton.TabStop = false;
+            this.rectangularTriangleButton.Text = "Прямоугольный \r\nтреугольник";
+            this.rectangularTriangleButton.UseVisualStyleBackColor = true;
+            this.rectangularTriangleButton.Click += new System.EventHandler(this.OnRectangularTriangleButtonClick);
+            // 
+            // triangleButton
+            // 
+            this.triangleButton.FlatAppearance.BorderSize = 0;
+            this.triangleButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Teal;
+            this.triangleButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.triangleButton.Font = new System.Drawing.Font("Monotype Corsiva", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.triangleButton.Image = global::VectorDrawing.Properties.Resources.TriangleButton;
+            this.triangleButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.triangleButton.Location = new System.Drawing.Point(0, 278);
+            this.triangleButton.Name = "triangleButton";
+            this.triangleButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.triangleButton.Size = new System.Drawing.Size(211, 33);
+            this.triangleButton.TabIndex = 8;
+            this.triangleButton.TabStop = false;
+            this.triangleButton.Text = "Треугольник";
+            this.triangleButton.UseVisualStyleBackColor = true;
+            this.triangleButton.Click += new System.EventHandler(this.OnTriangleButtonClick);
+            // 
+            // isoscelesTriangleButton
+            // 
+            this.isoscelesTriangleButton.FlatAppearance.BorderSize = 0;
+            this.isoscelesTriangleButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Teal;
+            this.isoscelesTriangleButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.isoscelesTriangleButton.Font = new System.Drawing.Font("Monotype Corsiva", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.isoscelesTriangleButton.Image = global::VectorDrawing.Properties.Resources.IsoscealeTriangleButton;
+            this.isoscelesTriangleButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.isoscelesTriangleButton.Location = new System.Drawing.Point(0, 311);
+            this.isoscelesTriangleButton.Name = "isoscelesTriangleButton";
+            this.isoscelesTriangleButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.isoscelesTriangleButton.Size = new System.Drawing.Size(211, 46);
+            this.isoscelesTriangleButton.TabIndex = 9;
+            this.isoscelesTriangleButton.TabStop = false;
+            this.isoscelesTriangleButton.Text = "Равнобедренный \r\nтрегольник";
+            this.isoscelesTriangleButton.UseVisualStyleBackColor = true;
+            this.isoscelesTriangleButton.Click += new System.EventHandler(this.OnIsoscelesTriangleButtonClick);
+            // 
+            // regularPolygonButton
+            // 
+            this.regularPolygonButton.FlatAppearance.BorderSize = 0;
+            this.regularPolygonButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Teal;
+            this.regularPolygonButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.regularPolygonButton.Font = new System.Drawing.Font("Monotype Corsiva", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.regularPolygonButton.Image = global::VectorDrawing.Properties.Resources.RegularPoligonButton;
+            this.regularPolygonButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.regularPolygonButton.Location = new System.Drawing.Point(0, 390);
+            this.regularPolygonButton.Name = "regularPolygonButton";
+            this.regularPolygonButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.regularPolygonButton.Size = new System.Drawing.Size(211, 50);
+            this.regularPolygonButton.TabIndex = 11;
+            this.regularPolygonButton.TabStop = false;
+            this.regularPolygonButton.Text = "Правильный \r\nмногоугольник";
+            this.regularPolygonButton.UseVisualStyleBackColor = true;
+            this.regularPolygonButton.Click += new System.EventHandler(this.OnRegularPolygonButtonClick);
+            // 
+            // polygonButton
+            // 
+            this.polygonButton.FlatAppearance.BorderSize = 0;
+            this.polygonButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Teal;
+            this.polygonButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.polygonButton.Font = new System.Drawing.Font("Monotype Corsiva", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.polygonButton.Image = global::VectorDrawing.Properties.Resources.PolygonButton1;
+            this.polygonButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.polygonButton.Location = new System.Drawing.Point(0, 357);
+            this.polygonButton.Name = "polygonButton";
+            this.polygonButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.polygonButton.Size = new System.Drawing.Size(211, 33);
+            this.polygonButton.TabIndex = 10;
+            this.polygonButton.TabStop = false;
+            this.polygonButton.Text = "Многоугольник";
+            this.polygonButton.UseVisualStyleBackColor = true;
+            this.polygonButton.Click += new System.EventHandler(this.OnPolygonButtonClick);
+            // 
+            // pictureBox
+            // 
+            this.pictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox.BackColor = System.Drawing.Color.White;
+            this.pictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox.Location = new System.Drawing.Point(246, 67);
+            this.pictureBox.MinimumSize = new System.Drawing.Size(746, 459);
+            this.pictureBox.Name = "pictureBox";
+            this.pictureBox.Size = new System.Drawing.Size(788, 459);
+            this.pictureBox.TabIndex = 13;
+            this.pictureBox.TabStop = false;
+            this.pictureBox.SizeChanged += new System.EventHandler(this.OnPictureBoxSizeChanged);
+            this.pictureBox.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.OnPictureBoxMouseDoubleClick);
+            this.pictureBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.OnPictureBoxMouseDown);
+            this.pictureBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.OnPictureBoxMouseMove);
+            this.pictureBox.MouseUp += new System.Windows.Forms.MouseEventHandler(this.OnPictureBoxMouseUp);
+            // 
             // VectorDrawingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -632,7 +632,6 @@ namespace VectorDrawing
             this.Name = "VectorDrawingForm";
             this.Text = "VectorDrawing2D";
             this.Load += new System.EventHandler(this.OnVectorDrawingFormLoad);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.thickness)).EndInit();
             this.anglesForPolygonGroupBox.ResumeLayout(false);
             this.anglesForPolygonGroupBox.PerformLayout();
@@ -640,6 +639,7 @@ namespace VectorDrawing
             this.panelSideMenu.ResumeLayout(false);
             this.panelVectorChanges.ResumeLayout(false);
             this.panelTools.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
