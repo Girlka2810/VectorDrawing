@@ -75,7 +75,7 @@ namespace VectorDrawing.Canvases
             }
 
             _tool = tool;
-            if(_tool.EndShapePoints.Length!=0)
+            if (_tool.EndShapePoints.Length != 0)
             {
 
             }

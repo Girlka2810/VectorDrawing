@@ -125,7 +125,7 @@ namespace VectorDrawing
 
         private void OnClearClick(object sender, EventArgs e)
         {
-            _canvas.Create(pictureBox.Width, pictureBox.Height);
+            _canvas.Clear();
             GC.Collect();
         }
 
