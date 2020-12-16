@@ -34,7 +34,7 @@ namespace VectorDrawing.Actions
             float multiplyVectors = startVector.X * endVector.X + startVector.Y * endVector.Y;
             double moduleStartVector = Math.Sqrt(startVector.X * startVector.X + startVector.Y * startVector.Y);
             double moduleEndVector = Math.Sqrt(endVector.X * endVector.X + endVector.Y * endVector.Y);
-            float angle = (float) Math.Acos(multiplyVectors / moduleStartVector * moduleEndVector);
+            float angle = (float) Math.Acos(multiplyVectors / (moduleStartVector * moduleEndVector));
             return angle;
         }
     }

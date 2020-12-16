@@ -120,7 +120,10 @@ namespace VectorDrawing.Tools
         
         
         
-        
+        public void CenterForTests()
+        {
+            CalculateCenter();
+        }
 
         protected virtual void CalculateCenter()
         {
