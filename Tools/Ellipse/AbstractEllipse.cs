@@ -8,10 +8,8 @@ namespace VectorDrawing.Tools.Ellipse
 {
     public abstract class AbsractEllipse : AbstractTool
     {
-        public PointF Center { get; private set; }
         public float Width { get; set; }
         public float Height { get; set; }
-
 
 
         public AbsractEllipse(List<PointF> points, Pen pen) : base(pen)
@@ -31,17 +29,17 @@ namespace VectorDrawing.Tools.Ellipse
             PointF[] points = Points.ToArray();
             Center = points.Length != 0 ? points[0]: new PointF();
         }
-
         public sealed override void AddPoint(PointF point)
-        {
-            base.AddPoint(point);
-            Center = Points[0];
-        }
+                {
+                    base.AddPoint(point);
+                    Center = Points[0];
+                }
 
-        public void Update(Graphics graphics)
+        protected void Paint(Graphics graphics, RectangleF rectangle)
         {
-            //graphics.DrawEllipse(Pen, ConvertFromPointsToRectangle(EndShapePoints));
+            graphics.DrawEllipse(Pen, rectangle);
         }
+      
         public override void SavePoints()
         {
             throw new NotImplementedException();

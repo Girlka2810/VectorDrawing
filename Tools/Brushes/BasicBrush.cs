@@ -36,6 +36,7 @@ namespace VectorDrawing.Tools.Brushes
         {
             EndShapePoints = Points.ToArray();
             Points = null;
+            CalculateCenter();
         }
     }
 }

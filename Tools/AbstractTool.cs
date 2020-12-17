@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using VectorDrawing.FactoriesTools;
 using VectorDrawing.Figures;
 using VectorDrawing.Figures.Parameters;
@@ -15,10 +16,11 @@ namespace VectorDrawing.Tools
         public string ID { get; protected set; }
         public abstract int MaxCount { get; }
         public PointF TemporaryPoint { get; set; }
+        public PointF Center { get; set; }
         public Pen Pen { get; private set; }
-        
+        public PointF[] EndShapePoints { get; set; }
+
         protected List<PointF> Points;
-        protected PointF[] EndShapePoints;
         protected IFigure Figure;
         
         
@@ -28,6 +30,7 @@ namespace VectorDrawing.Tools
             ID = Guid.NewGuid().ToString(); 
             Points = points;
             SetPen(pen);
+            EndShapePoints = new PointF[] { };
         }
 
         protected AbstractTool(Pen pen)
@@ -35,9 +38,13 @@ namespace VectorDrawing.Tools
             ID = Guid.NewGuid().ToString(); 
             Points = new List<PointF>( );
             SetPen(pen);
+            EndShapePoints = new PointF[] { };
         }
 
         public abstract void Paint(Graphics graphics);
+
+        
+
 
 
         public virtual void AddPoint(PointF point)
@@ -85,6 +92,7 @@ namespace VectorDrawing.Tools
         {
             EndShapePoints = ((CommonReturn)Figure.Get(GenerateParametrs())).Points;
             Points = null;
+            CalculateCenter();
         }
         protected virtual FigureParameter GenerateParametrs()
         {
@@ -115,20 +123,22 @@ namespace VectorDrawing.Tools
         
         
         
-        public bool IsItYou(PointF point)
-        {
-            PointF prevP = EndShapePoints[3];
-            foreach (PointF p in EndShapePoints)
-            {
-                if (Contain(prevP, p, point, Pen.Width))
-                {
-                    return true;
-                }
-                prevP = p;
-            }
-            return false;
-        }
 
+        protected virtual void CalculateCenter()
+        {
+            PointF[] points = EndShapePoints;
+            float middleX = 0;
+            float middleY = 0;
+            for (int i = 0; i < points.Length; i++)
+            {
+                middleX += points[i].X;
+                middleY += points[i].Y;
+            }
+            middleX /= points.Length;
+            middleY /= points.Length;
+            Center = new PointF(middleX, middleY);
+        }
+        
         
         protected void SetPen(Pen pen)
         {
@@ -141,7 +151,7 @@ namespace VectorDrawing.Tools
                 throw new ArgumentException("Pen cannot have width less than 1 and greater than 100");
             }
         }
-        protected bool Contain(PointF start, PointF end, PointF checkPoint, double accuracy)
+        private bool Contain(PointF start, PointF end, PointF checkPoint, double accuracy)
         {
             double x1 = start.X;
             double y1 = start.Y;
@@ -155,7 +165,7 @@ namespace VectorDrawing.Tools
             else return false;
         }
 
-        protected bool CheckInside(double x, double a, double b, double accuracy)
+        private bool CheckInside(double x, double a, double b, double accuracy)
         {
             if ((x > a - accuracy && x < b + accuracy) || (x > b - accuracy && x < a + accuracy))
                 return true;

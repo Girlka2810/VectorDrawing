@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using VectorDrawing.Tools;
 
 namespace VectorDrawing.Canvases
 {
@@ -15,6 +16,8 @@ namespace VectorDrawing.Canvases
         void DrawAll();
         void UpdateDictionary(List<Tools.AbstractTool> list);
         void LoadBitMap(Bitmap bitmap);
+        void Update(AbstractTool tool, PointF[] points);
+
         List<Tools.AbstractTool> GetTools();
        // Dictionary<string, Tools.AbstractTool> GetDictionary();
 

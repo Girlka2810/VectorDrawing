@@ -8,6 +8,7 @@ using VectorDrawing.Tools.Brushes;
 using VectorDrawing.Tools.Polygons;
 using VectorDrawing.Enums;
 using System.Collections.Generic;
+using VectorDrawing.Actions;
 
 namespace VectorDrawing
 {
@@ -15,7 +16,7 @@ namespace VectorDrawing
     {
 
         private AbstractTool _tool;
-        private List<AbstractTool> _tools;
+
         private IFactoryTool _factoryTool;
         private Pen _pen;
         private ICanvas _canvas;
@@ -27,6 +28,7 @@ namespace VectorDrawing
         public VectorDrawingForm()
         {
             InitializeComponent();
+            customizeDesing();
         }
 
         private void OnVectorDrawingFormLoad(object sender, EventArgs e)
@@ -35,7 +37,7 @@ namespace VectorDrawing
             _canvas.SetRender(OnRender);
             _canvas.Create(pictureBox.Width, pictureBox.Height);
             _pen = new Pen(Color.Black, 1);
-            _mode = Mode.Draw;
+            
         }
 
         private void OnRender(Bitmap bitmap, Color color)
@@ -46,6 +48,7 @@ namespace VectorDrawing
 
         private void OnPictureBoxMouseMove(object sender, MouseEventArgs e)
         {
+            Coordinates.Text = $"X = {e.Location.X} Y = {e.Location.Y}";
             switch (_mode)
             {
                 case Mode.Draw:
@@ -64,17 +67,12 @@ namespace VectorDrawing
                     }
                     break;
                 case Mode.Move:
-                    
-                //    if (_tool != null)
-                //    {
-                //        PointF point = e.Location;
-                //         PointF delta = new PointF(point.X - _tool.TmpMovePoint.X,
-                //            point.Y - _tool.TmpMovePoint.Y );
-                //        _tool.Move(delta);
-                //       _tool.TemporaryPoint = e.Location;
-                //        _canvas.Update();
-                //        //_canvas.Draw(_tool);
-                //    }
+                    if (_tool == null) return;
+
+                    IAction action = new MoveAction();
+                    action.UpdateToolPoints(_tool, _tool.TemporaryPoint, e.Location);
+
+
                     break;
             }
         }
@@ -98,34 +96,12 @@ namespace VectorDrawing
                 switch (_mode)
                 {
                     case Mode.Move:
-                        _tool = null;
-                        _tools = _canvas.GetTools();
-                        foreach (AbstractTool tool in _tools)
-                        {
-                            if (tool.IsItYou(e.Location))
-                            {
-                                _tool = tool;
-                                _tools.Remove(tool);
-                                _canvas.UpdateDictionary(_tools);
-                                _canvas.DrawAll();
-
-                                _pen.Color = tool.Pen.Color;
-                                _pen.Width = tool.Pen.Width;
-
-                                break;
-                            }
-                        }
+                       
                         break;
                     case Mode.Rotate:
                         break;
                 }
             }
-        }
-
-        private void OnThicknessValueChanged(object sender, EventArgs e)
-        {
-            _pen.Width = (int) ((NumericUpDown) sender).Value;
-          
         }
 
         private void OnColorFrontButtonClick(object sender, EventArgs e)
@@ -162,10 +138,12 @@ namespace VectorDrawing
         {
             _mode = Mode.Move;
             _tool = null;
+            hideSubMenu();
         }
 
         private void CreateFigure()
         {
+            _mode = Mode.Draw;
             _pen = new Pen(_pen.Color, _pen.Width);
             _tool = _factoryTool.Create(_pen);
             if (_tool is RegularPolygonTool regularPolygonTool)
@@ -179,68 +157,77 @@ namespace VectorDrawing
         {
             _factoryTool = new LineFactoryTool();
             CreateFigure();
+            hideSubMenu();
         }
         
         private void OnBrushButtonClick(object sender, EventArgs e)
         {
             _factoryTool = new BrushFactoryTool();
             CreateFigure();
+            hideSubMenu();
         }
         
         private void OnNlineButtonClick(object sender, EventArgs e)
         {
             _factoryTool = new NLineFactoryTool();
             CreateFigure();
+            hideSubMenu();
         }
         
         private void OnRectangleButtonClick(object sender, EventArgs e)
         {
             _factoryTool = new RectangleFactoryTool();
             CreateFigure();
+            hideSubMenu();
         }
         
         private void OnSquareButtonClick(object sender, EventArgs e)
         {
             _factoryTool = new SquareFactoryTool();
             CreateFigure();
+            hideSubMenu();
         }
         
         private void OnCircleButtonClick(object sender, EventArgs e)
         {
             _factoryTool = new CircleFactoryTool();
             CreateFigure();
+            hideSubMenu();
         }
         
         private void OnEllipseButtonClick(object sender, EventArgs e)
         {
             _factoryTool = new EllipseFactoryTool();
             CreateFigure();
+            hideSubMenu();
         }
         
         private void OnRectangularTriangleButtonClick(object sender, EventArgs e)
         {
             _factoryTool = new RectangularTriangleFactoryTool();
             CreateFigure();
+            hideSubMenu();
         }
         
         private void OnTriangleButtonClick(object sender, EventArgs e)
         {
             _factoryTool = new TriangleFactoryTool();
             CreateFigure();
+            hideSubMenu();
         }
         
         private void OnIsoscelesTriangleButtonClick(object sender, EventArgs e)
         {
             _factoryTool = new IsoscelesTriangleFactoryTool();
             CreateFigure();
+            hideSubMenu();
         }
-        
-        
-        
+
         private void OnPolygonButtonClick(object sender, EventArgs e)
         {
             _factoryTool = new PolygonFactoryTool();
             CreateFigure();
+            hideSubMenu();
         }
         
         private void OnRegularPolygonButtonClick(object sender, EventArgs e)
@@ -249,7 +236,7 @@ namespace VectorDrawing
             CreateFigure();
             anglesForPolygonGroupBox.Visible = true;
             ((RegularPolygonTool)_tool).QuantityOfCorners = (int)cornerNumericUpDown.Value;
-            
+            hideSubMenu();
         }
         
         private void OnPictureBoxMouseDoubleClick(object sender, MouseEventArgs e)
@@ -294,6 +281,58 @@ namespace VectorDrawing
         {
             _canvas.Create(pictureBox.Width, pictureBox.Height);
             _canvas.DrawAll();
+        }
+        private void customizeDesing()
+        {
+          panelTools.Visible = false;
+            panelVectorChanges.Visible = false;
+        }
+        private void hideSubMenu()
+        {
+            if (panelTools.Visible == true)
+             panelTools.Visible = false; 
+            if (panelVectorChanges.Visible == true)
+             panelVectorChanges.Visible = false; 
+        }
+        private void showSubMenu(Panel subMenu)
+        {
+            if (panelTools.Visible == false)
+            {
+                hideSubMenu();
+                subMenu.Visible = true;
+            }
+            else if (panelVectorChanges.Visible == false)
+            {
+                hideSubMenu();
+                subMenu.Visible = true;
+            }
+            else
+            {
+                subMenu.Visible = false;
+            }
+        }
+
+        private void ToolsButton_Click(object sender, EventArgs e)
+        {
+            showSubMenu(panelTools);
+        }
+
+        private void ChangeFigureButton_Click(object sender, EventArgs e)
+        {
+            showSubMenu(panelVectorChanges);
+        }
+
+        private void OnPictureBox_MouseLeave(object sender, EventArgs e)
+        {
+            Coordinates.Text = "";
+        }
+
+        
+
+        private void OnThicknessBar_Scroll(object sender, EventArgs e)
+        {
+            ThicknessValue.Text = thicknessBar.Value.ToString();
+            _pen.Width = thicknessBar.Value;
         }
     }
 }

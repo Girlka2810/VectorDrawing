@@ -1,4 +1,5 @@
 ﻿
+using System;
 using System.Drawing;
 using VectorDrawing.Figures.Parameters;
 using VectorDrawing.Figures.Returns;
@@ -18,7 +19,7 @@ namespace VectorDrawing.Figures
             {
                 PointF prev = figureParameter.Points[0];
                 PointF crnt = figureParameter.TemporaryPoint;
-                PointF[] points;
+                PointF[] points = new PointF[4];
 
                 float width = Module(prev.X - crnt.X);
                 float height = Module(prev.Y - crnt.Y);
@@ -40,6 +41,11 @@ namespace VectorDrawing.Figures
             }
 
             return new CommonReturn();
+        }
+        private float Equalization(float dx, float dy)
+        {
+            float radius = (float)Math.Sqrt(dx * dx + dy * dy);
+            return radius;
         }
     }
 }
