@@ -3,6 +3,7 @@ using System.Drawing;
 using VectorDrawing.Tools;
 using VectorDrawing.Tools.Brushes;
 using VectorDrawing.Tools.Ellipse;
+using VectorDrawing.Tools.Lines;
 using VectorDrawing.Tools.Polygons;
 
 namespace VectorDrawin.Tests
@@ -29,7 +30,7 @@ namespace VectorDrawin.Tests
         
         public static AbstractTool Line(List<PointF> points, Pen pen)
         {
-            return new LineTool(points, pen);
+            return new SingleLine(points, pen);
         }
         
         public static AbstractTool Brush(List<PointF> points, Pen pen)
@@ -39,7 +40,7 @@ namespace VectorDrawin.Tests
         
         public static AbstractTool NLine(List<PointF> points, Pen pen)
         {
-            return new NLineTool(points, pen);
+            return new NLine(points, pen);
         }
         
         public static AbstractTool Rectangle(List<PointF> points, Pen pen)

@@ -25,11 +25,6 @@ namespace VectorDrawing.Tools.Ellipse
             }
         }
 
-        public override void Paint(Graphics graphics)
-        {
-            graphics.DrawEllipse(Pen, ((EllipseReturn)Figure.Get(GenerateParametrs())).Rectangle);
-        }
-
         protected override FigureParameter GenerateParametrs()
         {
             EllipseParameter figureParameter = new EllipseParameter

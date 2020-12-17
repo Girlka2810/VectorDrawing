@@ -108,7 +108,22 @@ namespace VectorDrawing.Canvases
             }
             _render?.Invoke(_tmpBitmap, _backColor);
         }
+        
 
+        public AbstractTool SetToolOnMouse(PointF point)
+        {
+            foreach (KeyValuePair<string, AbstractTool> keyValuePair in _tools)
+            {
+                if (keyValuePair.Value.ContainPoint(point))
+                {
+                    _tool = keyValuePair.Value;
+                    _tool.TemporaryPoint = point;
+                }
+            }
+            ReplaceTool(_tool);
+            return _tool;
+        }
+        
         public override bool Equals(object obj)
         {
             if (obj is BitmapCanvas canvas)
@@ -126,20 +141,6 @@ namespace VectorDrawing.Canvases
                 }
             }
             return false;
-        }
-
-        public AbstractTool SetToolOnMouse(PointF point)
-        {
-            foreach (KeyValuePair<string, AbstractTool> keyValuePair in _tools)
-            {
-                if (keyValuePair.Value.IsItYou(point))
-                {
-                    _tool = keyValuePair.Value;
-                    _tool.TemporaryPoint = point;
-                }
-            }
-            ReplaceTool(_tool);
-            return _tool;
         }
         
         private void AddBuffer(AbstractTool tool)

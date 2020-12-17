@@ -26,12 +26,13 @@ namespace VectorDrawing.Tools.Ellipse
                 throw new IndexOutOfRangeException();
             }
         }
-         public override void SavePoints()
+        public override void SavePoints()
         {
             base.SavePoints();
             CalculateRadius();
         }
-        public override bool IsItYou(PointF point)
+         
+        public override bool ContainPoint(PointF point)
         {
             PointF vector = new PointF(point.X - Center.X, point.Y - Center.Y);
             float delta = (float)Math.Sqrt(vector.X * vector.X + vector.Y * vector.Y);
@@ -41,6 +42,7 @@ namespace VectorDrawing.Tools.Ellipse
             }
             return false;
         }
+        
         protected override FigureParameter GenerateParametrs()
         {
             EllipseParameter figureParameter = new EllipseParameter

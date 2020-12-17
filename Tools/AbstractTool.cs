@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using VectorDrawing.FactoriesTools;
 using VectorDrawing.Figures;
 using VectorDrawing.Figures.Parameters;
 using VectorDrawing.Figures.Returns;
-using VectorDrawing.Tools.Ellipse;
 
 namespace VectorDrawing.Tools
 {
@@ -48,7 +45,9 @@ namespace VectorDrawing.Tools
                 graphics.DrawPolygon(Pen, EndShapePoints);
             }
             else
+            {
                 graphics.DrawPolygon(Pen, ((CommonReturn)Figure.Get(GenerateParametrs())).Points);
+            }
         }
 
 
@@ -102,14 +101,7 @@ namespace VectorDrawing.Tools
             Points = null;
             CalculateCenter();
         }
-        protected virtual FigureParameter GenerateParametrs()
-        {
-            return new CommonParameter
-            {
-                Points = Points!=null ? Points.ToArray(): EndShapePoints,
-                TemporaryPoint = TemporaryPoint
-            };
-        }
+        
         public override bool Equals(object obj)
         {
             if (obj is AbstractTool tool)
@@ -129,12 +121,7 @@ namespace VectorDrawing.Tools
         }
         
         
-        public void CenterForTests()
-        {
-            CalculateCenter();
-        }
-
-        protected virtual void CalculateCenter()
+        public virtual void CalculateCenter()
         {
             PointF[] points = EndShapePoints;
             float middleX = 0;
@@ -149,6 +136,14 @@ namespace VectorDrawing.Tools
             Center = new PointF(middleX, middleY);
         }
         
+        protected virtual FigureParameter GenerateParametrs()
+        {
+            return new CommonParameter
+            {
+                Points = Points!=null ? Points.ToArray(): EndShapePoints,
+                TemporaryPoint = TemporaryPoint
+            };
+        }
         
         protected void SetPen(Pen pen)
         {
@@ -162,16 +157,16 @@ namespace VectorDrawing.Tools
             }
         }
 
-        public virtual bool IsItYou(PointF point)
+        public virtual bool ContainPoint(PointF point)
         {
-            PointF prevP = EndShapePoints[1];
-            foreach (PointF p in EndShapePoints)
+            PointF prevPoint = EndShapePoints[1];
+            foreach (PointF endPoint in EndShapePoints)
             {
-                if (Contain(prevP, p, point, Pen.Width + 2))
+                if (Contain(prevPoint, endPoint, point, Pen.Width + 2))
                 {
                     return true;
                 }
-                prevP = p;
+                prevPoint = endPoint;
             }
             return false;
         }

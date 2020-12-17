@@ -56,13 +56,10 @@ namespace VectorDrawing.Tools.Ellipse
                Figure.Get(GenerateParametrs())).Rectangle);
             Points = null;
         }
+        
+        
 
-        //public void SavePoints(IConvert convert)
-        //{
-        //    EndShapePoints = convert.ToPoints(((EllipseReturn)
-        //        Figure.Get(GenerateParametrs())).Rectangle);
-        //    Points = null;
-        //}
+        
         
     }
 }

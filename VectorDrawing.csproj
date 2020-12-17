@@ -54,8 +54,6 @@
     <Compile Include="Actions\MoveAction.cs" />
     <Compile Include="Actions\RotateAction.cs" />
     <Compile Include="Canvases\BitmapCanvas.cs" />
-    <Compile Include="Enums\Mode.cs" />
-    <Compile Include="Enums\ToolsName.cs" />
     <Compile Include="FactoriesTools\BrushFactoryTool.cs" />
     <Compile Include="FactoriesTools\CircleFactoryTool.cs" />
     <Compile Include="FactoriesTools\EllipseFactoryTool.cs" />
@@ -98,8 +96,9 @@
     <Compile Include="Tools\Ellipse\EllipseTool.cs" />
     <Compile Include="Tools\Ellipse\CircleTool.cs" />
     <Compile Include="Tools\IsoscelesTriangleTool.cs" />
-    <Compile Include="Tools\LineTool.cs" />
-    <Compile Include="Tools\NLineTool.cs" />
+    <Compile Include="Tools\Lines\AbstractLine.cs" />
+    <Compile Include="Tools\Lines\SingleLine.cs" />
+    <Compile Include="Tools\Lines\NLine.cs" />
     <Compile Include="Tools\PolygonTool.cs" />
     <Compile Include="Tools\Polygons\AbstractPolygon.cs" />
     <Compile Include="Tools\Polygons\RegularPolygonTool.cs" />

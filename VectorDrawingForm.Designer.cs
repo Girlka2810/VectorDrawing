@@ -543,7 +543,7 @@ namespace VectorDrawing
             this.RotateModeButton.TabStop = false;
             this.RotateModeButton.Text = "Поверни";
             this.RotateModeButton.UseVisualStyleBackColor = true;
-            this.RotateModeButton.Click += new System.EventHandler(this.RotateModeButton_Click);
+            this.RotateModeButton.Click += new System.EventHandler(this.OnRotateModeButtonClick);
             // 
             // ChangeFigureButton
             // 
@@ -557,7 +557,7 @@ namespace VectorDrawing
             this.ChangeFigureButton.TabIndex = 14;
             this.ChangeFigureButton.Text = "Изменение фигур";
             this.ChangeFigureButton.UseVisualStyleBackColor = true;
-            this.ChangeFigureButton.Click += new System.EventHandler(this.ChangeFigureButton_Click);
+            this.ChangeFigureButton.Click += new System.EventHandler(this.OnChangeFigureButtonClick);
             // 
             // panelTools
             // 
@@ -591,7 +591,7 @@ namespace VectorDrawing
             this.ToolsButton.TabIndex = 0;
             this.ToolsButton.Text = "Инструменты";
             this.ToolsButton.UseVisualStyleBackColor = true;
-            this.ToolsButton.Click += new System.EventHandler(this.ToolsButton_Click);
+            this.ToolsButton.Click += new System.EventHandler(this.OnToolsButtonClick);
             // 
             // panelLogo
             // 

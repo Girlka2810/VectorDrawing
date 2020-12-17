@@ -14,7 +14,7 @@ namespace VectorDrawin.Tests.ActionsTests
             IAction action = new RotateAction();
             AbstractTool tool = new PolygonTool(new Pen(Color.Black));
             tool.EndShapePoints = toolPoints;
-            tool.CenterForTests();
+            tool.CalculateCenter();
             action.UpdateToolPoints(tool, start, end);
             PointF[] actual = tool.EndShapePoints;
             Assert.AreEqual(expected, actual);
