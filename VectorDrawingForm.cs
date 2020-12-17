@@ -139,7 +139,7 @@ namespace VectorDrawing
 
         private void OnClearClick(object sender, EventArgs e)
         {
-            _canvas.Clear();
+            _canvas.Create(pictureBox.Width, pictureBox.Height);
             GC.Collect();
         }
 
@@ -279,15 +279,20 @@ namespace VectorDrawing
         
         private void CustomizeDesing()
         {
-          panelTools.Visible = false;
+            panelTools.Visible = false;
             panelVectorChanges.Visible = false;
         }
         private void HideSubMenu()
         {
             if (panelTools.Visible)
-             panelTools.Visible = false; 
+            {
+                panelTools.Visible = false; 
+            }
+
             if (panelVectorChanges.Visible)
-             panelVectorChanges.Visible = false; 
+            {
+                panelVectorChanges.Visible = false; 
+            }
         }
         private void ShowSubMenu(Panel subMenu)
         {

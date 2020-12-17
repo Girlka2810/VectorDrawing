@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using VectorDrawing.RectangleConverts;
 using VectorDrawing.Tools;
-using VectorDrawing.Tools.Ellipse;
 
 namespace VectorDrawing.Canvases
 {
@@ -42,13 +40,7 @@ namespace VectorDrawing.Canvases
             _render?.Invoke(_tmpBitmap, backcolor);
             _backColor = backcolor;
         }
-        public void Clear()
-        {
-            _tools = new Dictionary<string, AbstractTool>();
-            _mainBitmap = new Bitmap(_mainBitmap.Width, _mainBitmap.Height);
-            _backColor = Color.White;
-            _render?.Invoke(_mainBitmap, _backColor);
-        }
+
         public void SetRender(Action<Bitmap, Color> render)
         {
             if (render == null)
@@ -112,11 +104,11 @@ namespace VectorDrawing.Canvases
 
         public AbstractTool SetToolOnMouse(PointF point)
         {
-            foreach (KeyValuePair<string, AbstractTool> keyValuePair in _tools)
+            foreach (var tool in _tools)
             {
-                if (keyValuePair.Value.ContainPoint(point))
+                if (tool.Value.ContainPoint(point))
                 {
-                    _tool = keyValuePair.Value;
+                    _tool = tool.Value;
                     _tool.TemporaryPoint = point;
                 }
             }
