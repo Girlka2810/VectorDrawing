@@ -37,7 +37,7 @@ namespace VectorDrawing.Canvases
         {
             _tools = new Dictionary<string, AbstractTool>();
             _mainBitmap = new Bitmap(width, height);
-            _render?.Invoke(_tmpBitmap, backcolor);
+            _render?.Invoke(_mainBitmap, backcolor);
             _backColor = backcolor;
         }
 
