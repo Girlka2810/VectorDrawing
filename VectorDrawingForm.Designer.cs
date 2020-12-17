@@ -31,15 +31,12 @@ namespace VectorDrawing
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VectorDrawingForm));
             this.thickness = new System.Windows.Forms.NumericUpDown();
-            this.label1 = new System.Windows.Forms.Label();
             this.colorDialog = new System.Windows.Forms.ColorDialog();
             this.colorFrontButton = new System.Windows.Forms.Button();
             this.anglesForPolygonGroupBox = new System.Windows.Forms.GroupBox();
             this.cornerNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
-            this.moveModeButton = new System.Windows.Forms.Button();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
-            this.saveButton = new System.Windows.Forms.Button();
             this.panelSideMenu = new System.Windows.Forms.Panel();
             this.panelVectorChanges = new System.Windows.Forms.Panel();
             this.AddTopModeButton = new System.Windows.Forms.Button();
@@ -48,6 +45,7 @@ namespace VectorDrawing
             this.ChangeScaleModeButton = new System.Windows.Forms.Button();
             this.ChangeRadiusModeButton = new System.Windows.Forms.Button();
             this.RotateModeButton = new System.Windows.Forms.Button();
+            this.moveModeButton = new System.Windows.Forms.Button();
             this.ChangeFigureButton = new System.Windows.Forms.Button();
             this.clearButton = new System.Windows.Forms.Button();
             this.panelTools = new System.Windows.Forms.Panel();
@@ -66,7 +64,13 @@ namespace VectorDrawing
             this.ToolsButton = new System.Windows.Forms.Button();
             this.panelLogo = new System.Windows.Forms.Panel();
             this.Coordinates = new System.Windows.Forms.TextBox();
+            this.saveButton = new System.Windows.Forms.Button();
             this.pictureBox = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.ThicknessValue = new System.Windows.Forms.Label();
+            this.thicknessBar = new System.Windows.Forms.TrackBar();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.thickness)).BeginInit();
             this.anglesForPolygonGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cornerNumericUpDown)).BeginInit();
@@ -74,6 +78,7 @@ namespace VectorDrawing
             this.panelVectorChanges.SuspendLayout();
             this.panelTools.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.thicknessBar)).BeginInit();
             this.SuspendLayout();
             // 
             // thickness
@@ -95,15 +100,6 @@ namespace VectorDrawing
             0});
             this.thickness.ValueChanged += new System.EventHandler(this.OnThicknessValueChanged);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(391, 17);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(137, 13);
-            this.label1.TabIndex = 15;
-            this.label1.Text = "Толщина линии (пиксели)";
-            // 
             // colorFrontButton
             // 
             this.colorFrontButton.Location = new System.Drawing.Point(251, 12);
@@ -118,7 +114,7 @@ namespace VectorDrawing
             // 
             this.anglesForPolygonGroupBox.Controls.Add(this.cornerNumericUpDown);
             this.anglesForPolygonGroupBox.Controls.Add(this.label2);
-            this.anglesForPolygonGroupBox.Location = new System.Drawing.Point(631, 9);
+            this.anglesForPolygonGroupBox.Location = new System.Drawing.Point(800, 14);
             this.anglesForPolygonGroupBox.Name = "anglesForPolygonGroupBox";
             this.anglesForPolygonGroupBox.Size = new System.Drawing.Size(171, 40);
             this.anglesForPolygonGroupBox.TabIndex = 16;
@@ -152,32 +148,6 @@ namespace VectorDrawing
             this.label2.Size = new System.Drawing.Size(97, 13);
             this.label2.TabIndex = 0;
             this.label2.Text = "Количество углов";
-            // 
-            // moveModeButton
-            // 
-            this.moveModeButton.FlatAppearance.BorderSize = 0;
-            this.moveModeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.moveModeButton.Font = new System.Drawing.Font("Monotype Corsiva", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.moveModeButton.Location = new System.Drawing.Point(-1, 3);
-            this.moveModeButton.Name = "moveModeButton";
-            this.moveModeButton.Size = new System.Drawing.Size(211, 33);
-            this.moveModeButton.TabIndex = 18;
-            this.moveModeButton.TabStop = false;
-            this.moveModeButton.Text = "Перемести";
-            this.moveModeButton.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.moveModeButton.UseVisualStyleBackColor = true;
-            this.moveModeButton.Click += new System.EventHandler(this.OnMoveModeButtonClick);
-            // 
-            // saveButton
-            // 
-            this.saveButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.saveButton.Location = new System.Drawing.Point(904, 17);
-            this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(112, 23);
-            this.saveButton.TabIndex = 19;
-            this.saveButton.Text = "Сохранить";
-            this.saveButton.UseVisualStyleBackColor = true;
-            this.saveButton.Click += new System.EventHandler(this.OnSaveButtonClick);
             // 
             // panelSideMenu
             // 
@@ -214,13 +184,15 @@ namespace VectorDrawing
             this.AddTopModeButton.FlatAppearance.BorderSize = 0;
             this.AddTopModeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddTopModeButton.Font = new System.Drawing.Font("Monotype Corsiva", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.AddTopModeButton.ForeColor = System.Drawing.Color.Red;
+            this.AddTopModeButton.Image = global::VectorDrawing.Properties.Resources.AddTop;
+            this.AddTopModeButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.AddTopModeButton.Location = new System.Drawing.Point(0, 198);
             this.AddTopModeButton.Name = "AddTopModeButton";
             this.AddTopModeButton.Size = new System.Drawing.Size(216, 33);
             this.AddTopModeButton.TabIndex = 24;
             this.AddTopModeButton.TabStop = false;
             this.AddTopModeButton.Text = "Добавь вершину";
-            this.AddTopModeButton.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.AddTopModeButton.UseVisualStyleBackColor = true;
             // 
             // TopMoveModeButton
@@ -228,6 +200,9 @@ namespace VectorDrawing
             this.TopMoveModeButton.FlatAppearance.BorderSize = 0;
             this.TopMoveModeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.TopMoveModeButton.Font = new System.Drawing.Font("Monotype Corsiva", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.TopMoveModeButton.ForeColor = System.Drawing.Color.Red;
+            this.TopMoveModeButton.Image = global::VectorDrawing.Properties.Resources.ChangeTop;
+            this.TopMoveModeButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.TopMoveModeButton.Location = new System.Drawing.Point(0, 165);
             this.TopMoveModeButton.Name = "TopMoveModeButton";
             this.TopMoveModeButton.Size = new System.Drawing.Size(211, 33);
@@ -242,13 +217,15 @@ namespace VectorDrawing
             this.SideMoveModeButon.FlatAppearance.BorderSize = 0;
             this.SideMoveModeButon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SideMoveModeButon.Font = new System.Drawing.Font("Monotype Corsiva", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.SideMoveModeButon.ForeColor = System.Drawing.Color.Red;
+            this.SideMoveModeButon.Image = global::VectorDrawing.Properties.Resources.ChangeSide;
+            this.SideMoveModeButon.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.SideMoveModeButon.Location = new System.Drawing.Point(0, 132);
             this.SideMoveModeButon.Name = "SideMoveModeButon";
             this.SideMoveModeButon.Size = new System.Drawing.Size(211, 33);
             this.SideMoveModeButon.TabIndex = 22;
             this.SideMoveModeButon.TabStop = false;
             this.SideMoveModeButon.Text = "Перемести грань";
-            this.SideMoveModeButon.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.SideMoveModeButon.UseVisualStyleBackColor = true;
             // 
             // ChangeScaleModeButton
@@ -256,13 +233,15 @@ namespace VectorDrawing
             this.ChangeScaleModeButton.FlatAppearance.BorderSize = 0;
             this.ChangeScaleModeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ChangeScaleModeButton.Font = new System.Drawing.Font("Monotype Corsiva", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ChangeScaleModeButton.ForeColor = System.Drawing.Color.Red;
+            this.ChangeScaleModeButton.Image = global::VectorDrawing.Properties.Resources.ChangeSize;
+            this.ChangeScaleModeButton.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.ChangeScaleModeButton.Location = new System.Drawing.Point(-1, 94);
             this.ChangeScaleModeButton.Name = "ChangeScaleModeButton";
             this.ChangeScaleModeButton.Size = new System.Drawing.Size(211, 33);
             this.ChangeScaleModeButton.TabIndex = 21;
             this.ChangeScaleModeButton.TabStop = false;
             this.ChangeScaleModeButton.Text = "Измени масштаб";
-            this.ChangeScaleModeButton.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.ChangeScaleModeButton.UseVisualStyleBackColor = true;
             // 
             // ChangeRadiusModeButton
@@ -270,9 +249,12 @@ namespace VectorDrawing
             this.ChangeRadiusModeButton.FlatAppearance.BorderSize = 0;
             this.ChangeRadiusModeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ChangeRadiusModeButton.Font = new System.Drawing.Font("Monotype Corsiva", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ChangeRadiusModeButton.ForeColor = System.Drawing.Color.Red;
+            this.ChangeRadiusModeButton.Image = global::VectorDrawing.Properties.Resources.ChangeRadius1;
+            this.ChangeRadiusModeButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.ChangeRadiusModeButton.Location = new System.Drawing.Point(0, 66);
             this.ChangeRadiusModeButton.Name = "ChangeRadiusModeButton";
-            this.ChangeRadiusModeButton.Size = new System.Drawing.Size(211, 33);
+            this.ChangeRadiusModeButton.Size = new System.Drawing.Size(211, 36);
             this.ChangeRadiusModeButton.TabIndex = 20;
             this.ChangeRadiusModeButton.TabStop = false;
             this.ChangeRadiusModeButton.Text = "Измени радиус";
@@ -284,7 +266,8 @@ namespace VectorDrawing
             this.RotateModeButton.FlatAppearance.BorderSize = 0;
             this.RotateModeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.RotateModeButton.Font = new System.Drawing.Font("Monotype Corsiva", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.RotateModeButton.Image = global::VectorDrawing.Properties.Resources.RotateButton;
+            this.RotateModeButton.ForeColor = System.Drawing.Color.Red;
+            this.RotateModeButton.Image = global::VectorDrawing.Properties.Resources.Rotate;
             this.RotateModeButton.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.RotateModeButton.Location = new System.Drawing.Point(0, 33);
             this.RotateModeButton.Name = "RotateModeButton";
@@ -294,12 +277,31 @@ namespace VectorDrawing
             this.RotateModeButton.Text = "Поверни";
             this.RotateModeButton.UseVisualStyleBackColor = true;
             // 
+            // moveModeButton
+            // 
+            this.moveModeButton.FlatAppearance.BorderSize = 0;
+            this.moveModeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.moveModeButton.Font = new System.Drawing.Font("Monotype Corsiva", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.moveModeButton.ForeColor = System.Drawing.Color.Red;
+            this.moveModeButton.Image = global::VectorDrawing.Properties.Resources.Move;
+            this.moveModeButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.moveModeButton.Location = new System.Drawing.Point(-1, 3);
+            this.moveModeButton.Name = "moveModeButton";
+            this.moveModeButton.Size = new System.Drawing.Size(211, 33);
+            this.moveModeButton.TabIndex = 18;
+            this.moveModeButton.TabStop = false;
+            this.moveModeButton.Text = "Перемести";
+            this.moveModeButton.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.moveModeButton.UseVisualStyleBackColor = true;
+            this.moveModeButton.Click += new System.EventHandler(this.OnMoveModeButtonClick);
+            // 
             // ChangeFigureButton
             // 
             this.ChangeFigureButton.Dock = System.Windows.Forms.DockStyle.Top;
             this.ChangeFigureButton.FlatAppearance.BorderSize = 0;
             this.ChangeFigureButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ChangeFigureButton.Font = new System.Drawing.Font("Monotype Corsiva", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ChangeFigureButton.ForeColor = System.Drawing.Color.Red;
             this.ChangeFigureButton.Location = new System.Drawing.Point(0, 543);
             this.ChangeFigureButton.Name = "ChangeFigureButton";
             this.ChangeFigureButton.Size = new System.Drawing.Size(211, 33);
@@ -314,7 +316,7 @@ namespace VectorDrawing
             this.clearButton.FlatAppearance.BorderSize = 0;
             this.clearButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.clearButton.Font = new System.Drawing.Font("Monotype Corsiva", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.clearButton.Image = ((System.Drawing.Image)(resources.GetObject("clearButton.Image")));
+            this.clearButton.Image = global::VectorDrawing.Properties.Resources.Clear;
             this.clearButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.clearButton.Location = new System.Drawing.Point(0, 832);
             this.clearButton.Name = "clearButton";
@@ -352,7 +354,8 @@ namespace VectorDrawing
             this.brushButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Teal;
             this.brushButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.brushButton.Font = new System.Drawing.Font("Monotype Corsiva", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.brushButton.Image = global::VectorDrawing.Properties.Resources.BrushButton2;
+            this.brushButton.ForeColor = System.Drawing.Color.Red;
+            this.brushButton.Image = global::VectorDrawing.Properties.Resources.Brush;
             this.brushButton.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.brushButton.Location = new System.Drawing.Point(0, 0);
             this.brushButton.Name = "brushButton";
@@ -371,7 +374,8 @@ namespace VectorDrawing
             this.lineButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Teal;
             this.lineButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lineButton.Font = new System.Drawing.Font("Monotype Corsiva", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lineButton.Image = global::VectorDrawing.Properties.Resources.LineButton;
+            this.lineButton.ForeColor = System.Drawing.Color.Red;
+            this.lineButton.Image = global::VectorDrawing.Properties.Resources.Line;
             this.lineButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lineButton.Location = new System.Drawing.Point(-1, 33);
             this.lineButton.Name = "lineButton";
@@ -385,12 +389,13 @@ namespace VectorDrawing
             // 
             // nlineButton
             // 
-            this.nlineButton.BackColor = System.Drawing.Color.LightBlue;
+            this.nlineButton.BackColor = System.Drawing.Color.LightCyan;
             this.nlineButton.FlatAppearance.BorderSize = 0;
             this.nlineButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Teal;
             this.nlineButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.nlineButton.Font = new System.Drawing.Font("Monotype Corsiva", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.nlineButton.Image = global::VectorDrawing.Properties.Resources.NLineButton;
+            this.nlineButton.ForeColor = System.Drawing.Color.Red;
+            this.nlineButton.Image = global::VectorDrawing.Properties.Resources.Nline;
             this.nlineButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.nlineButton.Location = new System.Drawing.Point(0, 66);
             this.nlineButton.Name = "nlineButton";
@@ -408,7 +413,8 @@ namespace VectorDrawing
             this.rectangleButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Teal;
             this.rectangleButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rectangleButton.Font = new System.Drawing.Font("Monotype Corsiva", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.rectangleButton.Image = global::VectorDrawing.Properties.Resources.RectangleButton;
+            this.rectangleButton.ForeColor = System.Drawing.Color.Red;
+            this.rectangleButton.Image = global::VectorDrawing.Properties.Resources.Rectangle;
             this.rectangleButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.rectangleButton.Location = new System.Drawing.Point(0, 99);
             this.rectangleButton.Name = "rectangleButton";
@@ -426,7 +432,8 @@ namespace VectorDrawing
             this.squareButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Teal;
             this.squareButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.squareButton.Font = new System.Drawing.Font("Monotype Corsiva", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.squareButton.Image = global::VectorDrawing.Properties.Resources.SquareButton;
+            this.squareButton.ForeColor = System.Drawing.Color.Red;
+            this.squareButton.Image = global::VectorDrawing.Properties.Resources.Square;
             this.squareButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.squareButton.Location = new System.Drawing.Point(0, 132);
             this.squareButton.Name = "squareButton";
@@ -444,7 +451,8 @@ namespace VectorDrawing
             this.circleButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Teal;
             this.circleButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.circleButton.Font = new System.Drawing.Font("Monotype Corsiva", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.circleButton.Image = global::VectorDrawing.Properties.Resources.CircleButton;
+            this.circleButton.ForeColor = System.Drawing.Color.Red;
+            this.circleButton.Image = global::VectorDrawing.Properties.Resources.Circle;
             this.circleButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.circleButton.Location = new System.Drawing.Point(0, 165);
             this.circleButton.Name = "circleButton";
@@ -462,7 +470,8 @@ namespace VectorDrawing
             this.ellipseButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Teal;
             this.ellipseButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ellipseButton.Font = new System.Drawing.Font("Monotype Corsiva", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ellipseButton.Image = global::VectorDrawing.Properties.Resources.EllipseButton;
+            this.ellipseButton.ForeColor = System.Drawing.Color.Red;
+            this.ellipseButton.Image = global::VectorDrawing.Properties.Resources.Ellipse;
             this.ellipseButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.ellipseButton.Location = new System.Drawing.Point(0, 198);
             this.ellipseButton.Name = "ellipseButton";
@@ -480,7 +489,8 @@ namespace VectorDrawing
             this.rectangularTriangleButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Teal;
             this.rectangularTriangleButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rectangularTriangleButton.Font = new System.Drawing.Font("Monotype Corsiva", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.rectangularTriangleButton.Image = global::VectorDrawing.Properties.Resources.RegularTriangleButton;
+            this.rectangularTriangleButton.ForeColor = System.Drawing.Color.Red;
+            this.rectangularTriangleButton.Image = global::VectorDrawing.Properties.Resources.RectangleTriangle;
             this.rectangularTriangleButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.rectangularTriangleButton.Location = new System.Drawing.Point(0, 231);
             this.rectangularTriangleButton.Name = "rectangularTriangleButton";
@@ -498,7 +508,8 @@ namespace VectorDrawing
             this.triangleButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Teal;
             this.triangleButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.triangleButton.Font = new System.Drawing.Font("Monotype Corsiva", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.triangleButton.Image = global::VectorDrawing.Properties.Resources.TriangleButton;
+            this.triangleButton.ForeColor = System.Drawing.Color.Red;
+            this.triangleButton.Image = global::VectorDrawing.Properties.Resources.Triangle;
             this.triangleButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.triangleButton.Location = new System.Drawing.Point(0, 278);
             this.triangleButton.Name = "triangleButton";
@@ -516,7 +527,8 @@ namespace VectorDrawing
             this.isoscelesTriangleButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Teal;
             this.isoscelesTriangleButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.isoscelesTriangleButton.Font = new System.Drawing.Font("Monotype Corsiva", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.isoscelesTriangleButton.Image = global::VectorDrawing.Properties.Resources.IsoscealeTriangleButton;
+            this.isoscelesTriangleButton.ForeColor = System.Drawing.Color.Red;
+            this.isoscelesTriangleButton.Image = global::VectorDrawing.Properties.Resources.IsoscaleTriangle;
             this.isoscelesTriangleButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.isoscelesTriangleButton.Location = new System.Drawing.Point(0, 311);
             this.isoscelesTriangleButton.Name = "isoscelesTriangleButton";
@@ -534,7 +546,8 @@ namespace VectorDrawing
             this.regularPolygonButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Teal;
             this.regularPolygonButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.regularPolygonButton.Font = new System.Drawing.Font("Monotype Corsiva", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.regularPolygonButton.Image = global::VectorDrawing.Properties.Resources.RegularPoligonButton;
+            this.regularPolygonButton.ForeColor = System.Drawing.Color.Red;
+            this.regularPolygonButton.Image = global::VectorDrawing.Properties.Resources.RectanglePolygone;
             this.regularPolygonButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.regularPolygonButton.Location = new System.Drawing.Point(0, 390);
             this.regularPolygonButton.Name = "regularPolygonButton";
@@ -552,7 +565,8 @@ namespace VectorDrawing
             this.polygonButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Teal;
             this.polygonButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.polygonButton.Font = new System.Drawing.Font("Monotype Corsiva", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.polygonButton.Image = global::VectorDrawing.Properties.Resources.PolygonButton1;
+            this.polygonButton.ForeColor = System.Drawing.Color.Red;
+            this.polygonButton.Image = global::VectorDrawing.Properties.Resources.Polygone;
             this.polygonButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.polygonButton.Location = new System.Drawing.Point(0, 357);
             this.polygonButton.Name = "polygonButton";
@@ -570,6 +584,7 @@ namespace VectorDrawing
             this.ToolsButton.FlatAppearance.BorderSize = 0;
             this.ToolsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ToolsButton.Font = new System.Drawing.Font("Monotype Corsiva", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ToolsButton.ForeColor = System.Drawing.Color.Red;
             this.ToolsButton.Location = new System.Drawing.Point(0, 63);
             this.ToolsButton.Name = "ToolsButton";
             this.ToolsButton.Size = new System.Drawing.Size(211, 33);
@@ -594,6 +609,19 @@ namespace VectorDrawing
             this.Coordinates.Size = new System.Drawing.Size(108, 20);
             this.Coordinates.TabIndex = 21;
             // 
+            // saveButton
+            // 
+            this.saveButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.saveButton.FlatAppearance.BorderSize = 0;
+            this.saveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.saveButton.Image = global::VectorDrawing.Properties.Resources.Save2;
+            this.saveButton.Location = new System.Drawing.Point(977, 17);
+            this.saveButton.Name = "saveButton";
+            this.saveButton.Size = new System.Drawing.Size(39, 32);
+            this.saveButton.TabIndex = 19;
+            this.saveButton.UseVisualStyleBackColor = true;
+            this.saveButton.Click += new System.EventHandler(this.OnSaveButtonClick);
+            // 
             // pictureBox
             // 
             this.pictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -601,6 +629,7 @@ namespace VectorDrawing
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox.BackColor = System.Drawing.Color.White;
             this.pictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox.Cursor = System.Windows.Forms.Cursors.Cross;
             this.pictureBox.Location = new System.Drawing.Point(246, 67);
             this.pictureBox.MinimumSize = new System.Drawing.Size(746, 459);
             this.pictureBox.Name = "pictureBox";
@@ -614,13 +643,69 @@ namespace VectorDrawing
             this.pictureBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.OnPictureBoxMouseMove);
             this.pictureBox.MouseUp += new System.Windows.Forms.MouseEventHandler(this.OnPictureBoxMouseUp);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(391, 17);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(137, 13);
+            this.label1.TabIndex = 15;
+            this.label1.Text = "Толщина линии (пиксели)";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Monotype Corsiva", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label3.Location = new System.Drawing.Point(624, 41);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(109, 18);
+            this.label3.TabIndex = 23;
+            this.label3.Text = "Толщина линии";
+            // 
+            // ThicknessValue
+            // 
+            this.ThicknessValue.AutoSize = true;
+            this.ThicknessValue.Font = new System.Drawing.Font("Monotype Corsiva", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ThicknessValue.Location = new System.Drawing.Point(739, 41);
+            this.ThicknessValue.Name = "ThicknessValue";
+            this.ThicknessValue.Size = new System.Drawing.Size(15, 18);
+            this.ThicknessValue.TabIndex = 24;
+            this.ThicknessValue.Text = "1";
+            // 
+            // thicknessBar
+            // 
+            this.thicknessBar.LargeChange = 1;
+            this.thicknessBar.Location = new System.Drawing.Point(619, 9);
+            this.thicknessBar.Maximum = 25;
+            this.thicknessBar.Minimum = 1;
+            this.thicknessBar.Name = "thicknessBar";
+            this.thicknessBar.Size = new System.Drawing.Size(165, 45);
+            this.thicknessBar.TabIndex = 22;
+            this.thicknessBar.TickStyle = System.Windows.Forms.TickStyle.TopLeft;
+            this.thicknessBar.Value = 1;
+            this.thicknessBar.Scroll += new System.EventHandler(this.thicknessBar_Scroll);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Monotype Corsiva", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label4.Location = new System.Drawing.Point(760, 41);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(22, 18);
+            this.label4.TabIndex = 25;
+            this.label4.Text = "px";
+            // 
             // VectorDrawingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.BackColor = System.Drawing.Color.LightBlue;
+            this.BackColor = System.Drawing.Color.LightCyan;
             this.ClientSize = new System.Drawing.Size(1042, 562);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.ThicknessValue);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.thicknessBar);
             this.Controls.Add(this.Coordinates);
             this.Controls.Add(this.panelSideMenu);
             this.Controls.Add(this.saveButton);
@@ -642,6 +727,7 @@ namespace VectorDrawing
             this.panelVectorChanges.ResumeLayout(false);
             this.panelTools.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.thicknessBar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -663,7 +749,6 @@ namespace VectorDrawing
         private System.Windows.Forms.Button regularPolygonButton;
         private System.Windows.Forms.PictureBox pictureBox;
         private System.Windows.Forms.NumericUpDown thickness;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ColorDialog colorDialog;
         private System.Windows.Forms.Button colorFrontButton;
         private System.Windows.Forms.NumericUpDown cornerNumericUpDown;
@@ -686,6 +771,11 @@ namespace VectorDrawing
         private System.Windows.Forms.Button ChangeRadiusModeButton;
         private System.Windows.Forms.Button RotateModeButton;
         private System.Windows.Forms.TextBox Coordinates;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label ThicknessValue;
+        private System.Windows.Forms.TrackBar thicknessBar;
+        private System.Windows.Forms.Label label4;
     }
 }
 

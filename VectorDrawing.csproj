@@ -181,5 +181,58 @@
   <ItemGroup>
     <None Include="Icons\RotateButton.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Icons\AddTop.png" />
+    <Content Include="Icons\angle.png" />
+    <Content Include="Icons\Brush.png" />
+    <Content Include="Icons\ChangeRadius.png" />
+    <Content Include="Icons\ChangeRadius2.png" />
+    <Content Include="Icons\ChangeSide.png" />
+    <Content Include="Icons\ChangeSize.png" />
+    <Content Include="Icons\ChangeTop.png" />
+    <Content Include="Icons\Circle.png" />
+    <Content Include="Icons\Clear.png" />
+    <Content Include="Icons\Download.png" />
+    <Content Include="Icons\Ellipse.png" />
+    <Content Include="Icons\icons8-settings3.png" />
+    <Content Include="Icons\IsoscaleTriangle.png" />
+    <Content Include="Icons\Line.png" />
+    <Content Include="Icons\Move.png" />
+    <Content Include="Icons\Nline.png" />
+    <Content Include="Icons\Polygone.png" />
+    <Content Include="Icons\Rectangle.png" />
+    <Content Include="Icons\RectanglePolygone.png" />
+    <Content Include="Icons\RectangleTriangle.png" />
+    <Content Include="Icons\Rotate.png" />
+    <Content Include="Icons\Save.png" />
+    <Content Include="Icons\Save2.png" />
+    <Content Include="Icons\Square.png" />
+    <Content Include="Icons\Triangle.png" />
+    <None Include="Resources\Clear.png" />
+    <None Include="Resources\Save2.png" />
+    <None Include="Resources\Save1.png" />
+    <None Include="Resources\Save.png" />
+    <None Include="Resources\ChangeRadius1.png" />
+    <None Include="Resources\ChangeRadius2.png" />
+    <None Include="Resources\AddTop.png" />
+    <None Include="Resources\ChangeTop.png" />
+    <None Include="Resources\ChangeSide.png" />
+    <None Include="Resources\ChangeSize.png" />
+    <None Include="Resources\ChangeRadius.png" />
+    <None Include="Resources\Rotate.png" />
+    <None Include="Resources\Move.png" />
+    <None Include="Resources\RectanglePolygone.png" />
+    <None Include="Resources\Polygone.png" />
+    <None Include="Resources\IsoscaleTriangle.png" />
+    <None Include="Resources\Triangle.png" />
+    <None Include="Resources\RectangleTriangle.png" />
+    <None Include="Resources\Ellipse.png" />
+    <None Include="Resources\Circle.png" />
+    <None Include="Resources\Square.png" />
+    <None Include="Resources\Rectangle.png" />
+    <None Include="Resources\Nline.png" />
+    <None Include="Resources\Line.png" />
+    <None Include="Resources\Brush.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

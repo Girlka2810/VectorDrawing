@@ -332,5 +332,13 @@ namespace VectorDrawing
         {
             Coordinates.Text = "";
         }
+
+        
+
+        private void thicknessBar_Scroll(object sender, EventArgs e)
+        {
+            ThicknessValue.Text = thicknessBar.Value.ToString();
+            _pen.Width = (int)ThicknessValue.Text;
+        }
     }
 }
