@@ -507,7 +507,7 @@ namespace VectorDrawing
             // 
             // nlineButton
             // 
-            this.nlineButton.BackColor = System.Drawing.Color.Transparent;
+            this.nlineButton.BackColor = System.Drawing.Color.LightBlue;
             this.nlineButton.FlatAppearance.BorderSize = 0;
             this.nlineButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Teal;
             this.nlineButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -764,6 +764,266 @@ namespace VectorDrawing
             this.label1.Size = new System.Drawing.Size(128, 18);
             this.label1.TabIndex = 31;
             this.label1.Text = "Положение курсора:";
+            // 
+            // colorFrontButton
+            // 
+            this.colorFrontButton.Location = new System.Drawing.Point(251, 12);
+            this.colorFrontButton.Name = "colorFrontButton";
+            this.colorFrontButton.Size = new System.Drawing.Size(112, 23);
+            this.colorFrontButton.TabIndex = 12;
+            this.colorFrontButton.Text = "Цвет линий";
+            this.colorFrontButton.UseVisualStyleBackColor = true;
+            this.colorFrontButton.Click += new System.EventHandler(this.OnColorFrontButtonClick);
+            // 
+            // anglesForPolygonGroupBox
+            // 
+            this.anglesForPolygonGroupBox.Controls.Add(this.cornerNumericUpDown);
+            this.anglesForPolygonGroupBox.Controls.Add(this.label2);
+            this.anglesForPolygonGroupBox.Location = new System.Drawing.Point(631, 9);
+            this.anglesForPolygonGroupBox.Name = "anglesForPolygonGroupBox";
+            this.anglesForPolygonGroupBox.Size = new System.Drawing.Size(171, 40);
+            this.anglesForPolygonGroupBox.TabIndex = 16;
+            this.anglesForPolygonGroupBox.TabStop = false;
+            this.anglesForPolygonGroupBox.Text = "Многоугольник";
+            this.anglesForPolygonGroupBox.Visible = false;
+            // 
+            // cornerNumericUpDown
+            // 
+            this.cornerNumericUpDown.Location = new System.Drawing.Point(114, 14);
+            this.cornerNumericUpDown.Minimum = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
+            this.cornerNumericUpDown.Name = "cornerNumericUpDown";
+            this.cornerNumericUpDown.Size = new System.Drawing.Size(47, 20);
+            this.cornerNumericUpDown.TabIndex = 1;
+            this.cornerNumericUpDown.Value = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
+            this.cornerNumericUpDown.ValueChanged += new System.EventHandler(this.OnCornersNumericUpDownValueChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(11, 19);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(97, 13);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Количество углов";
+            // 
+            // clearButton
+            // 
+            this.clearButton.Font = new System.Drawing.Font("Monotype Corsiva", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.clearButton.Image = ((System.Drawing.Image)(resources.GetObject("clearButton.Image")));
+            this.clearButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.clearButton.Location = new System.Drawing.Point(822, 17);
+            this.clearButton.Name = "clearButton";
+            this.clearButton.Size = new System.Drawing.Size(147, 33);
+            this.clearButton.TabIndex = 17;
+            this.clearButton.TabStop = false;
+            this.clearButton.Text = "Очистить";
+            this.clearButton.UseVisualStyleBackColor = true;
+            this.clearButton.Click += new System.EventHandler(this.OnClearClick);
+            // 
+            // moveModeButton
+            // 
+            this.moveModeButton.FlatAppearance.BorderSize = 0;
+            this.moveModeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.moveModeButton.Font = new System.Drawing.Font("Monotype Corsiva", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.moveModeButton.Location = new System.Drawing.Point(-1, 3);
+            this.moveModeButton.Name = "moveModeButton";
+            this.moveModeButton.Size = new System.Drawing.Size(211, 33);
+            this.moveModeButton.TabIndex = 18;
+            this.moveModeButton.TabStop = false;
+            this.moveModeButton.Text = "Перемести";
+            this.moveModeButton.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.moveModeButton.UseVisualStyleBackColor = true;
+            this.moveModeButton.Click += new System.EventHandler(this.OnMoveModeButtonClick);
+            // 
+            // saveButton
+            // 
+            this.saveButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.saveButton.Location = new System.Drawing.Point(880, 17);
+            this.saveButton.Name = "saveButton";
+            this.saveButton.Size = new System.Drawing.Size(112, 23);
+            this.saveButton.TabIndex = 19;
+            this.saveButton.Text = "Сохранить";
+            this.saveButton.UseVisualStyleBackColor = true;
+            this.saveButton.Click += new System.EventHandler(this.OnSaveButtonClick);
+            // 
+            // panelSideMenu
+            // 
+            this.panelSideMenu.AutoScroll = true;
+            this.panelSideMenu.Controls.Add(this.panelVectorChanges);
+            this.panelSideMenu.Controls.Add(this.ChangeFigureButton);
+            this.panelSideMenu.Controls.Add(this.panelTools);
+            this.panelSideMenu.Controls.Add(this.ToolsButton);
+            this.panelSideMenu.Controls.Add(this.panelLogo);
+            this.panelSideMenu.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panelSideMenu.Location = new System.Drawing.Point(0, 0);
+            this.panelSideMenu.Name = "panelSideMenu";
+            this.panelSideMenu.Size = new System.Drawing.Size(228, 551);
+            this.panelSideMenu.TabIndex = 20;
+            // 
+            // panelVectorChanges
+            // 
+            this.panelVectorChanges.Controls.Add(this.AddTopModeButton);
+            this.panelVectorChanges.Controls.Add(this.TopMoveModeButton);
+            this.panelVectorChanges.Controls.Add(this.SideMoveModeButon);
+            this.panelVectorChanges.Controls.Add(this.ChangeScaleModeButton);
+            this.panelVectorChanges.Controls.Add(this.ChangeRadiusModeButton);
+            this.panelVectorChanges.Controls.Add(this.RotateModeButton);
+            this.panelVectorChanges.Controls.Add(this.moveModeButton);
+            this.panelVectorChanges.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelVectorChanges.Location = new System.Drawing.Point(0, 576);
+            this.panelVectorChanges.Name = "panelVectorChanges";
+            this.panelVectorChanges.Size = new System.Drawing.Size(211, 256);
+            this.panelVectorChanges.TabIndex = 15;
+            // 
+            // AddTopModeButton
+            // 
+            this.AddTopModeButton.FlatAppearance.BorderSize = 0;
+            this.AddTopModeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddTopModeButton.Font = new System.Drawing.Font("Monotype Corsiva", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.AddTopModeButton.Location = new System.Drawing.Point(0, 198);
+            this.AddTopModeButton.Name = "AddTopModeButton";
+            this.AddTopModeButton.Size = new System.Drawing.Size(216, 33);
+            this.AddTopModeButton.TabIndex = 24;
+            this.AddTopModeButton.TabStop = false;
+            this.AddTopModeButton.Text = "Добавь вершину";
+            this.AddTopModeButton.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.AddTopModeButton.UseVisualStyleBackColor = true;
+            // 
+            // TopMoveModeButton
+            // 
+            this.TopMoveModeButton.FlatAppearance.BorderSize = 0;
+            this.TopMoveModeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.TopMoveModeButton.Font = new System.Drawing.Font("Monotype Corsiva", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.TopMoveModeButton.Location = new System.Drawing.Point(0, 165);
+            this.TopMoveModeButton.Name = "TopMoveModeButton";
+            this.TopMoveModeButton.Size = new System.Drawing.Size(211, 33);
+            this.TopMoveModeButton.TabIndex = 23;
+            this.TopMoveModeButton.TabStop = false;
+            this.TopMoveModeButton.Text = "Перемести вершину";
+            this.TopMoveModeButton.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.TopMoveModeButton.UseVisualStyleBackColor = true;
+            // 
+            // SideMoveModeButon
+            // 
+            this.SideMoveModeButon.FlatAppearance.BorderSize = 0;
+            this.SideMoveModeButon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SideMoveModeButon.Font = new System.Drawing.Font("Monotype Corsiva", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.SideMoveModeButon.Location = new System.Drawing.Point(0, 132);
+            this.SideMoveModeButon.Name = "SideMoveModeButon";
+            this.SideMoveModeButon.Size = new System.Drawing.Size(211, 33);
+            this.SideMoveModeButon.TabIndex = 22;
+            this.SideMoveModeButon.TabStop = false;
+            this.SideMoveModeButon.Text = "Перемести грань";
+            this.SideMoveModeButon.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.SideMoveModeButon.UseVisualStyleBackColor = true;
+            // 
+            // ChangeScaleModeButton
+            // 
+            this.ChangeScaleModeButton.FlatAppearance.BorderSize = 0;
+            this.ChangeScaleModeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ChangeScaleModeButton.Font = new System.Drawing.Font("Monotype Corsiva", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ChangeScaleModeButton.Location = new System.Drawing.Point(-1, 94);
+            this.ChangeScaleModeButton.Name = "ChangeScaleModeButton";
+            this.ChangeScaleModeButton.Size = new System.Drawing.Size(211, 33);
+            this.ChangeScaleModeButton.TabIndex = 21;
+            this.ChangeScaleModeButton.TabStop = false;
+            this.ChangeScaleModeButton.Text = "Измени масштаб";
+            this.ChangeScaleModeButton.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.ChangeScaleModeButton.UseVisualStyleBackColor = true;
+            // 
+            // ChangeRadiusModeButton
+            // 
+            this.ChangeRadiusModeButton.FlatAppearance.BorderSize = 0;
+            this.ChangeRadiusModeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ChangeRadiusModeButton.Font = new System.Drawing.Font("Monotype Corsiva", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ChangeRadiusModeButton.Location = new System.Drawing.Point(0, 66);
+            this.ChangeRadiusModeButton.Name = "ChangeRadiusModeButton";
+            this.ChangeRadiusModeButton.Size = new System.Drawing.Size(211, 33);
+            this.ChangeRadiusModeButton.TabIndex = 20;
+            this.ChangeRadiusModeButton.TabStop = false;
+            this.ChangeRadiusModeButton.Text = "Измени радиус";
+            this.ChangeRadiusModeButton.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.ChangeRadiusModeButton.UseVisualStyleBackColor = true;
+            // 
+            // RotateModeButton
+            // 
+            this.RotateModeButton.FlatAppearance.BorderSize = 0;
+            this.RotateModeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RotateModeButton.Font = new System.Drawing.Font("Monotype Corsiva", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.RotateModeButton.Image = ((System.Drawing.Image)(resources.GetObject("RotateModeButton.Image")));
+            this.RotateModeButton.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.RotateModeButton.Location = new System.Drawing.Point(0, 33);
+            this.RotateModeButton.Name = "RotateModeButton";
+            this.RotateModeButton.Size = new System.Drawing.Size(211, 33);
+            this.RotateModeButton.TabIndex = 19;
+            this.RotateModeButton.TabStop = false;
+            this.RotateModeButton.Text = "Поверни";
+            this.RotateModeButton.UseVisualStyleBackColor = true;
+            this.RotateModeButton.Click += new System.EventHandler(this.OnRotateModeButtonClick);
+            // 
+            // ChangeFigureButton
+            // 
+            this.ChangeFigureButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ChangeFigureButton.FlatAppearance.BorderSize = 0;
+            this.ChangeFigureButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ChangeFigureButton.Font = new System.Drawing.Font("Monotype Corsiva", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ChangeFigureButton.Location = new System.Drawing.Point(0, 543);
+            this.ChangeFigureButton.Name = "ChangeFigureButton";
+            this.ChangeFigureButton.Size = new System.Drawing.Size(211, 33);
+            this.ChangeFigureButton.TabIndex = 14;
+            this.ChangeFigureButton.Text = "Изменение фигур";
+            this.ChangeFigureButton.UseVisualStyleBackColor = true;
+            this.ChangeFigureButton.Click += new System.EventHandler(this.OnChangeFigureButtonClick);
+            // 
+            // panelTools
+            // 
+            this.panelTools.Controls.Add(this.brushButton);
+            this.panelTools.Controls.Add(this.lineButton);
+            this.panelTools.Controls.Add(this.nlineButton);
+            this.panelTools.Controls.Add(this.rectangleButton);
+            this.panelTools.Controls.Add(this.squareButton);
+            this.panelTools.Controls.Add(this.circleButton);
+            this.panelTools.Controls.Add(this.ellipseButton);
+            this.panelTools.Controls.Add(this.rectangularTriangleButton);
+            this.panelTools.Controls.Add(this.triangleButton);
+            this.panelTools.Controls.Add(this.isoscelesTriangleButton);
+            this.panelTools.Controls.Add(this.regularPolygonButton);
+            this.panelTools.Controls.Add(this.polygonButton);
+            this.panelTools.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelTools.Location = new System.Drawing.Point(0, 96);
+            this.panelTools.Name = "panelTools";
+            this.panelTools.Size = new System.Drawing.Size(211, 447);
+            this.panelTools.TabIndex = 13;
+            // 
+            // ToolsButton
+            // 
+            this.ToolsButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ToolsButton.FlatAppearance.BorderSize = 0;
+            this.ToolsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ToolsButton.Font = new System.Drawing.Font("Monotype Corsiva", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ToolsButton.Location = new System.Drawing.Point(0, 63);
+            this.ToolsButton.Name = "ToolsButton";
+            this.ToolsButton.Size = new System.Drawing.Size(211, 33);
+            this.ToolsButton.TabIndex = 0;
+            this.ToolsButton.Text = "Инструменты";
+            this.ToolsButton.UseVisualStyleBackColor = true;
+            this.ToolsButton.Click += new System.EventHandler(this.OnToolsButtonClick);
+            // 
+            // panelLogo
+            // 
+            this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelLogo.Location = new System.Drawing.Point(0, 0);
+            this.panelLogo.Name = "panelLogo";
+            this.panelLogo.Size = new System.Drawing.Size(211, 63);
+            this.panelLogo.TabIndex = 12;
             // 
             // VectorDrawingForm
             // 

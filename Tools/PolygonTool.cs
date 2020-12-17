@@ -20,10 +20,7 @@ namespace VectorDrawing.Tools
         {
             Figure = new Figures.PolygonFigure();
         }
-        public override void Paint(Graphics graphics)
-        {
-            graphics.DrawPolygon(Pen, ((CommonReturn)Figure.Get(GenerateParametrs())).Points);
-        }
+       
         public override void AddPoint(PointF point)
         {
             Points.Add(point);

@@ -21,7 +21,11 @@ namespace VectorDrawing.Tools.Brushes
        
         public override void Paint(Graphics graphics)
         {
-            if (Points.Count != 1)
+            if (EndShapePoints.Length != 0)
+            {
+                graphics.DrawLines(Pen, EndShapePoints);
+            }
+            else
             {
                 graphics.DrawLines(Pen, Points.ToArray());
             }
@@ -35,7 +39,6 @@ namespace VectorDrawing.Tools.Brushes
         public override void SavePoints()
         {
             EndShapePoints = Points.ToArray();
-            Points = null;
             CalculateCenter();
         }
     }

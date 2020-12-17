@@ -36,11 +36,5 @@ namespace VectorDrawing.Tools
             }
         }
 
-        public override void Paint(Graphics graphics)
-        {
-            PointF[] pointsArr = ((CommonReturn)Figure.Get(GenerateParametrs())).Points;
-            graphics.DrawPolygon(Pen, pointsArr);
-        }
-
     }
 }

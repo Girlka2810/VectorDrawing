@@ -25,13 +25,6 @@ namespace VectorDrawing.Tools
             }
         }
         
-        public override void Paint(Graphics graphics)
-        {
-            graphics.DrawPolygon(Pen, ((CommonReturn)Figure.Get(GenerateParametrs())).Points);
-        }
-        
-        
-        
         public override void AddPoint(PointF point)
         {
             if (Points.Count > 2)

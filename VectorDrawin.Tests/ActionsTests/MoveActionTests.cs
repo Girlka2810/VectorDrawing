@@ -9,13 +9,13 @@ namespace VectorDrawin.Tests.ActionsTests
         [TestCase(1, 1, 1, 1)]
         public void MoveActionTest(int caseOfStartArr, int caseOfStartP, int caseOfEndP, int caseOfEndArr)
         {
-            IAction action = new MoveAction();
-            PointF[] actual = action.GetMove(
-                MoveActionStartPointsArrayMock(caseOfStartArr), 
-                MoveActionStartPointMock(caseOfStartP),
-                MoveActionEndPointMock(caseOfEndP)
-                );
-            Assert.AreEqual(MoveActionEndPointsArrayMock(caseOfEndArr), actual);
+            //IAction action = new MoveAction();
+            //PointF[] actual = action.UpdateToolPoints(
+            //    MoveActionStartPointsArrayMock(caseOfStartArr), 
+            //    MoveActionStartPointMock(caseOfStartP),
+            //    MoveActionEndPointMock(caseOfEndP)
+            //    );
+            //Assert.AreEqual(MoveActionEndPointsArrayMock(caseOfEndArr), actual);
         }
         public PointF[] MoveActionStartPointsArrayMock(int a)
         {

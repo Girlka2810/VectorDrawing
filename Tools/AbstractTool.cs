@@ -1,16 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using VectorDrawing.FactoriesTools;
 using VectorDrawing.Figures;
 using VectorDrawing.Figures.Parameters;
 using VectorDrawing.Figures.Returns;
-
+using VectorDrawing.PointContainsInEdge;
 
 namespace VectorDrawing.Tools
 {
-
     public abstract class AbstractTool
     {
         public string ID { get; protected set; }
@@ -22,12 +19,11 @@ namespace VectorDrawing.Tools
 
         protected List<PointF> Points;
         protected IFigure Figure;
-        
-        
+
 
         public AbstractTool(List<PointF> points, Pen pen)
         {
-            ID = Guid.NewGuid().ToString(); 
+            ID = Guid.NewGuid().ToString();
             Points = points;
             SetPen(pen);
             EndShapePoints = new PointF[] { };
@@ -35,16 +31,23 @@ namespace VectorDrawing.Tools
 
         protected AbstractTool(Pen pen)
         {
-            ID = Guid.NewGuid().ToString(); 
-            Points = new List<PointF>( );
+            ID = Guid.NewGuid().ToString();
+            Points = new List<PointF>();
             SetPen(pen);
             EndShapePoints = new PointF[] { };
         }
 
-        public abstract void Paint(Graphics graphics);
-
-        
-
+        public virtual void Paint(Graphics graphics)
+        {
+            if (EndShapePoints.Length != 0)
+            {
+                graphics.DrawPolygon(Pen, EndShapePoints);
+            }
+            else
+            {
+                graphics.DrawPolygon(Pen, ((CommonReturn) Figure.Get(GenerateParametrs())).Points);
+            }
+        }
 
 
         public virtual void AddPoint(PointF point)
@@ -63,9 +66,9 @@ namespace VectorDrawing.Tools
             {
                 return false;
             }
-            
 
-            if (Points.Count==MaxCount)
+
+            if (Points.Count == MaxCount)
             {
                 return true;
             }
@@ -90,41 +93,37 @@ namespace VectorDrawing.Tools
 
         public virtual void SavePoints()
         {
-            EndShapePoints = ((CommonReturn)Figure.Get(GenerateParametrs())).Points;
+            if (EndShapePoints.Length == 0)
+            {
+                EndShapePoints = ((CommonReturn) Figure.Get(GenerateParametrs())).Points;
+            }
+
             Points = null;
             CalculateCenter();
         }
-        protected virtual FigureParameter GenerateParametrs()
-        {
-            return new CommonParameter
-            {
-                Points = Points.ToArray(),
-                TemporaryPoint = TemporaryPoint
-            };
-        }
+
         public override bool Equals(object obj)
         {
             if (obj is AbstractTool tool)
             {
                 if (tool.Points.Count == Points.Count)
                 {
-                    if (!Points.Equals(tool.Points) 
-                        && TemporaryPoint!=tool.TemporaryPoint
+                    if (!Points.Equals(tool.Points)
+                        && TemporaryPoint != tool.TemporaryPoint
                         && !Pen.Equals(tool.Pen))
                     {
                         return false;
                     }
+
                     return true;
                 }
             }
+
             return false;
         }
-        
-        
-        
-        
 
-        protected virtual void CalculateCenter()
+
+        public virtual void CalculateCenter()
         {
             PointF[] points = EndShapePoints;
             float middleX = 0;
@@ -134,12 +133,21 @@ namespace VectorDrawing.Tools
                 middleX += points[i].X;
                 middleY += points[i].Y;
             }
+
             middleX /= points.Length;
             middleY /= points.Length;
             Center = new PointF(middleX, middleY);
         }
-        
-        
+
+        protected virtual FigureParameter GenerateParametrs()
+        {
+            return new CommonParameter
+            {
+                Points = Points != null ? Points.ToArray() : EndShapePoints,
+                TemporaryPoint = TemporaryPoint
+            };
+        }
+
         protected void SetPen(Pen pen)
         {
             if (pen.Width >= 1 && pen.Width <= 100)
@@ -151,25 +159,21 @@ namespace VectorDrawing.Tools
                 throw new ArgumentException("Pen cannot have width less than 1 and greater than 100");
             }
         }
-        private bool Contain(PointF start, PointF end, PointF checkPoint, double accuracy)
-        {
-            double x1 = start.X;
-            double y1 = start.Y;
-            double x2 = end.X;
-            double y2 = end.Y;
-            double x = checkPoint.X;
-            double y = checkPoint.Y;
 
-            if (CheckInside(x, x1, x2, accuracy) && CheckInside(y, y1, y2, accuracy))
-                return Math.Abs((x - x1) * (y2 - y1) - (y - y1) * (x2 - x1)) < accuracy / 2 * Math.Sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));
-            else return false;
-        }
-
-        private bool CheckInside(double x, double a, double b, double accuracy)
+        public virtual bool ContainPoint(PointF point, IPointContainsInEdge pointContainsInEdge)
         {
-            if ((x > a - accuracy && x < b + accuracy) || (x > b - accuracy && x < a + accuracy))
-                return true;
-            else return false;
+            PointF prevPoint = EndShapePoints[1];
+            foreach (PointF endPoint in EndShapePoints)
+            {
+                if (pointContainsInEdge.Contain(prevPoint, endPoint, point, Pen.Width + 10))
+                {
+                    return true;
+                }
+
+                prevPoint = endPoint;
+            }
+
+            return false;
         }
     }
 }

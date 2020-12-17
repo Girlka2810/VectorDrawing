@@ -1,6 +1,7 @@
 ﻿
 using System.Drawing;
 using VectorDrawing.Tools;
+using VectorDrawing.Tools.Lines;
 
 namespace VectorDrawing.FactoriesTools
 {
@@ -8,7 +9,7 @@ namespace VectorDrawing.FactoriesTools
     {
         public AbstractTool Create(Pen pen)
         {
-            return new LineTool(pen);
+            return new SingleLine(pen);
         }
     }
 }

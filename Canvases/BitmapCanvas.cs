@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using VectorDrawing.RectangleConverts;
+using VectorDrawing.PointContainsInEdge;
 using VectorDrawing.Tools;
-using VectorDrawing.Tools.Ellipse;
 
 namespace VectorDrawing.Canvases
 {
@@ -39,16 +38,10 @@ namespace VectorDrawing.Canvases
         {
             _tools = new Dictionary<string, AbstractTool>();
             _mainBitmap = new Bitmap(width, height);
-            _render?.Invoke(_tmpBitmap, backcolor);
+            _render?.Invoke(_mainBitmap, backcolor);
             _backColor = backcolor;
         }
-        public void Clear()
-        {
-            _tools = new Dictionary<string, AbstractTool>();
-            _mainBitmap = new Bitmap(_mainBitmap.Width, _mainBitmap.Height);
-            _backColor = Color.White;
-            _render?.Invoke(_mainBitmap, _backColor);
-        }
+
         public void SetRender(Action<Bitmap, Color> render)
         {
             if (render == null)
@@ -75,10 +68,7 @@ namespace VectorDrawing.Canvases
             }
 
             _tool = tool;
-            if (_tool.EndShapePoints.Length != 0)
-            {
-
-            }
+           
             _tmpBitmap = (Bitmap)_mainBitmap.Clone();
             Graphics graphics = Graphics.FromImage(_tmpBitmap);
             tool.Paint(graphics);
@@ -86,50 +76,46 @@ namespace VectorDrawing.Canvases
             _render?.Invoke(_tmpBitmap, _backColor);
         }
        
-        public void DrawByEndPoints(AbstractTool tool)
-        {
-            Graphics graphics = Graphics.FromImage(_tmpBitmap);
-            tool.Paint(graphics);
-
-        }
        
         public void FinishFigure()
         {
             if (_tool != null)
             {
                 AddBuffer(_tool);
-                if (_tool is AbsractEllipse ellipse)
-                {
-                    ellipse.SavePoints(new BasicConvert());
-                }
-                else
-                {
-                    _tool.SavePoints();
-                }
-
-               
+                _tool.SavePoints();
                 _mainBitmap = _tmpBitmap;
                 _render?.Invoke(_tmpBitmap, _backColor);
                 _tool = null;
             }
         }
-        
-        public List<AbstractTool> GetTools()
-        {
-            List<AbstractTool> abstractTools = new List<AbstractTool>();
-            foreach(KeyValuePair<string, AbstractTool> keyValuePair in _tools)
-            {
-                abstractTools.Add(keyValuePair.Value);
-            }
-            return abstractTools;
-        }
-        
-        public void Clear(int width, int height)
-        {
-            _tmpBitmap = new Bitmap(width, height);
-            FinishFigure();
-        }
 
+        public void UpdateBitmap()
+        {
+            _mainBitmap = new Bitmap(_mainBitmap.Width, _mainBitmap.Height);
+            Graphics graphics = Graphics.FromImage(_mainBitmap);
+            foreach (KeyValuePair<string, AbstractTool> keyValuePair in _tools)
+            {
+                keyValuePair.Value.Paint(graphics);
+            }
+            _render?.Invoke(_tmpBitmap, _backColor);
+        }
+        
+
+        public AbstractTool SetToolOnMouse(PointF point)
+        {
+            IPointContainsInEdge pointContainsInEdge = new CommonPointContainsInEdge();
+            foreach (var tool in _tools)
+            {
+                if (tool.Value.ContainPoint(point, pointContainsInEdge))
+                {
+                    _tool = tool.Value;
+                    _tool.TemporaryPoint = point;
+                }
+            }
+            ReplaceTool(_tool);
+            return _tool;
+        }
+        
         public override bool Equals(object obj)
         {
             if (obj is BitmapCanvas canvas)
@@ -148,31 +134,6 @@ namespace VectorDrawing.Canvases
             }
             return false;
         }
-        public Dictionary<string, AbstractTool> GetDictionary()
-        {
-            return _tools;
-        }
-
-        public void DrawAll()    
-        {
-            Graphics graphics = Graphics.FromImage(_mainBitmap);
-            foreach(KeyValuePair<string, AbstractTool> keyValuePair in _tools)
-            {
-                keyValuePair.Value.Paint(graphics);
-            }
-        }
-        public void UpdateDictionary(List<AbstractTool> abstractTools)
-        {
-            _tools = new Dictionary<string, AbstractTool>();
-            for (int i = 0; i < abstractTools.Count; i++)
-            {
-                _tools.Add(abstractTools[i].ID, abstractTools[i]);
-            }
-        }
-        public void LoadBitMap(Bitmap bitmap)
-        {
-            _mainBitmap = bitmap;
-        }
         
         private void AddBuffer(AbstractTool tool)
         {
@@ -184,12 +145,13 @@ namespace VectorDrawing.Canvases
         
         private void ReplaceTool(AbstractTool tool)
         {
-
+            if (tool != null && _tools.ContainsKey(tool.ID))
+            {
+                _tools.Remove(tool.ID);
+            }
         }
 
-        public void Update(AbstractTool tool, PointF[] points)
-        {
-            throw new NotImplementedException();
-        }
+      
+
     }
 }
