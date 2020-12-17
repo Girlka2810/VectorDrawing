@@ -11,7 +11,7 @@ namespace VectorDrawing.Actions
         {
             PointF[] points = tool.EndShapePoints;
             PointF center = tool.Center;
-            float angle = AngleCalculate(center, startPoint, endPoint);
+            float angle = (float) AngleCalculate(center, startPoint, endPoint);
             using (GraphicsPath gp = new GraphicsPath())
             {
                 gp.AddPolygon(points);
@@ -25,7 +25,7 @@ namespace VectorDrawing.Actions
             }
         }
 
-        private float AngleCalculate(PointF center, PointF start, PointF end)
+        private double AngleCalculate(PointF center, PointF start, PointF end)
         {
             PointF startVector = new PointF(start.X - center.X, start.Y - center.Y);
             PointF endVector = new PointF(end.X - center.X, end.Y - center.Y);
@@ -33,8 +33,11 @@ namespace VectorDrawing.Actions
             float multiplyVectors = startVector.X * endVector.X + startVector.Y * endVector.Y;
             double moduleStartVector = Math.Sqrt(startVector.X * startVector.X + startVector.Y * startVector.Y);
             double moduleEndVector = Math.Sqrt(endVector.X * endVector.X + endVector.Y * endVector.Y);
-            float angle = (float) Math.Acos(multiplyVectors / (moduleStartVector * moduleEndVector));
-            return angle;
+            double alpha = Math.Acos(startVector.X / moduleStartVector);
+            double beta = Math.Acos(endVector.X / moduleEndVector);
+            double angle = beta - alpha;
+            
+            return angle*-1;
         }
     }
 }
