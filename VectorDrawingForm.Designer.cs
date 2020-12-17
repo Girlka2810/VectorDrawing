@@ -703,7 +703,7 @@ namespace VectorDrawing
             this.Controls.Add(this.thickness);
             this.Controls.Add(this.pictureBox);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(962, 590);
+            this.MinimumSize = new System.Drawing.Size(1058, 601);
             this.Name = "VectorDrawingForm";
             this.Text = "VectorDrawing2D";
             this.Load += new System.EventHandler(this.OnVectorDrawingFormLoad);
