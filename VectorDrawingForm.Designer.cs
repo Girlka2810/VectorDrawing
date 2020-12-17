@@ -115,7 +115,7 @@ namespace VectorDrawing
             // 
             // nlineButton
             // 
-            this.nlineButton.BackColor = System.Drawing.Color.Lavender;
+            this.nlineButton.BackColor = System.Drawing.Color.LightBlue;
             this.nlineButton.FlatAppearance.BorderSize = 0;
             this.nlineButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Teal;
             this.nlineButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;

@@ -13,16 +13,8 @@ namespace VectorDrawing.Canvases
         void Draw(Tools.AbstractTool tool);
         void Clear();
         void FinishFigure();
-        void DrawAll();
-        void UpdateDictionary(List<Tools.AbstractTool> list);
-        void LoadBitMap(Bitmap bitmap);
-        void Update(AbstractTool tool, PointF[] points);
         void UpdateBitmap();
         AbstractTool SetToolOnMouse(PointF point);
-
-
-        List<Tools.AbstractTool> GetTools();
-       // Dictionary<string, Tools.AbstractTool> GetDictionary();
 
     }
 }

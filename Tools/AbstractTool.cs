@@ -97,7 +97,10 @@ namespace VectorDrawing.Tools
 
         public virtual void SavePoints()
         {
-            EndShapePoints = ((CommonReturn)Figure.Get(GenerateParametrs())).Points;
+            if (EndShapePoints.Length == 0)
+            {
+                EndShapePoints = ((CommonReturn)Figure.Get(GenerateParametrs())).Points;
+            }
             Points = null;
             CalculateCenter();
         }

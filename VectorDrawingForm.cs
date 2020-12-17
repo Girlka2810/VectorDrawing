@@ -23,6 +23,7 @@ namespace VectorDrawing
         private bool _isMouseDown;
         private Mode _mode;
         private int _counter;
+        private IAction _action;
 
 
 
@@ -47,50 +48,37 @@ namespace VectorDrawing
             pictureBox.BackColor = color;
         }
 
+
+        // Действия с мышкой на puctureBox'е
         private void OnPictureBoxMouseMove(object sender, MouseEventArgs e)
         {
             if (_tool == null) return;
-            switch (_mode)
-            {
-                case Mode.Draw:
-                    {
-                        if (_tool is IBrush && _isMouseDown)
-                        {
-                            _tool.AddPoint(e.Location);
-                            _canvas.Draw(_tool);
-                            return;
-                        }
 
-                        if (!_tool.CheckPointsExist()) return;
-                        _tool.TemporaryPoint = e.Location;
-                        _canvas.Draw(_tool);
-                    }
-                    break;
-                case Mode.Move:
-                    if (_isMouseDown)
-                    {
-                        IAction action = new MoveAction();
-                        action.UpdateToolPoints(_tool, _tool.TemporaryPoint, e.Location);
-                        _canvas.Draw(_tool);
-                        _counter++;
-                    }
-                    break;
-                case Mode.Rotate:
-                    if (_isMouseDown)
-                    {
-                        IAction action = new RotateAction();
-                        action.UpdateToolPoints(_tool, _tool.TemporaryPoint, e.Location);
-                        _canvas.Draw(_tool);
-                        _counter++;
-                    }
-                    break;
+            if (_action == null)
+            {
+                if (_tool is IBrush && _isMouseDown)
+                {
+                    _tool.AddPoint(e.Location);
+                    _canvas.Draw(_tool);
+                    return;
+                }
+
+                if (!_tool.CheckPointsExist()) return;
+                _tool.TemporaryPoint = e.Location;
+                _canvas.Draw(_tool);
             }
-    }
+            else if (_isMouseDown)
+            {
+                _action.UpdateToolPoints(_tool, _tool.TemporaryPoint, e.Location);
+                _canvas.Draw(_tool);
+                _counter++;
+            }
+        }
 
         private void OnPictureBoxMouseDown(object sender, MouseEventArgs e)
         {
             _isMouseDown = true;
-            if (_mode == Mode.Draw)
+            if (_action == null)
             {
                 _tool?.AddPoint(e.Location);
 
@@ -107,13 +95,31 @@ namespace VectorDrawing
                 _canvas.UpdateBitmap();
             }
         }
+        private void OnPictureBoxMouseUp(object sender, MouseEventArgs e)
+        {
+            _isMouseDown = false;
+            if (_action!=null)
+            {
+                _canvas.FinishFigure();
+                return;
+            }
+            if (_tool is IBrush)
+            {
+                _canvas.FinishFigure();
+                CreateFigure();
+                return;
+            }
+        }
 
+
+        // Толщина линий
         private void OnThicknessValueChanged(object sender, EventArgs e)
         {
             _pen.Width = (int) ((NumericUpDown) sender).Value;
           
         }
 
+        // Выбор цвета
         private void OnColorFrontButtonClick(object sender, EventArgs e)
         {
             if (colorDialog.ShowDialog() == DialogResult.OK)
@@ -134,26 +140,22 @@ namespace VectorDrawing
             GC.Collect();
         }
 
-        private void OnPictureBoxMouseUp(object sender, MouseEventArgs e)
-        {
-            _isMouseDown = false;
-            if (_tool is IBrush)
-            {
-                _canvas.FinishFigure();
-                CreateFigure();
-            }
-        }
-
         private void OnMoveModeButtonClick(object sender, EventArgs e)
         {
-            _mode = Mode.Move;
+            _action = new MoveAction();
+            _tool = null;
+            hideSubMenu();
+        }
+        private void RotateModeButton_Click(object sender, EventArgs e)
+        {
+            _action = new RotateAction();
             _tool = null;
             hideSubMenu();
         }
 
         private void CreateFigure()
         {
-            _mode = Mode.Draw;
+            _action = null;
             _pen = new Pen(_pen.Color, _pen.Width);
             _tool = _factoryTool.Create(_pen);
             if (_tool is RegularPolygonTool regularPolygonTool)
@@ -290,7 +292,7 @@ namespace VectorDrawing
         private void OnPictureBoxSizeChanged(object sender, EventArgs e)
         {
             _canvas.Create(pictureBox.Width, pictureBox.Height);
-            _canvas.DrawAll();
+            _canvas.UpdateBitmap();
         }
         private void customizeDesing()
         {
@@ -332,9 +334,6 @@ namespace VectorDrawing
             showSubMenu(panelVectorChanges);
         }
 
-        private void RotateModeButton_Click(object sender, EventArgs e)
-        {
-            _mode = Mode.Rotate;
-        }
+       
     }
 }
