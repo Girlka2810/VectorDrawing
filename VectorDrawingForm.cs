@@ -94,7 +94,6 @@ namespace VectorDrawing
             if (_action!=null)
             {
                 _canvas.FinishFigure();
-                return;
             }
             if (_tool is IBrush)
             {

@@ -8,7 +8,6 @@ using VectorDrawing.PointContainsInEdge;
 
 namespace VectorDrawing.Tools
 {
-
     public abstract class AbstractTool
     {
         public string ID { get; protected set; }
@@ -20,12 +19,11 @@ namespace VectorDrawing.Tools
 
         protected List<PointF> Points;
         protected IFigure Figure;
-        
-        
+
 
         public AbstractTool(List<PointF> points, Pen pen)
         {
-            ID = Guid.NewGuid().ToString(); 
+            ID = Guid.NewGuid().ToString();
             Points = points;
             SetPen(pen);
             EndShapePoints = new PointF[] { };
@@ -33,8 +31,8 @@ namespace VectorDrawing.Tools
 
         protected AbstractTool(Pen pen)
         {
-            ID = Guid.NewGuid().ToString(); 
-            Points = new List<PointF>( );
+            ID = Guid.NewGuid().ToString();
+            Points = new List<PointF>();
             SetPen(pen);
             EndShapePoints = new PointF[] { };
         }
@@ -47,7 +45,7 @@ namespace VectorDrawing.Tools
             }
             else
             {
-                graphics.DrawPolygon(Pen, ((CommonReturn)Figure.Get(GenerateParametrs())).Points);
+                graphics.DrawPolygon(Pen, ((CommonReturn) Figure.Get(GenerateParametrs())).Points);
             }
         }
 
@@ -68,9 +66,9 @@ namespace VectorDrawing.Tools
             {
                 return false;
             }
-            
 
-            if (Points.Count==MaxCount)
+
+            if (Points.Count == MaxCount)
             {
                 return true;
             }
@@ -97,31 +95,34 @@ namespace VectorDrawing.Tools
         {
             if (EndShapePoints.Length == 0)
             {
-                EndShapePoints = ((CommonReturn)Figure.Get(GenerateParametrs())).Points;
+                EndShapePoints = ((CommonReturn) Figure.Get(GenerateParametrs())).Points;
             }
+
             Points = null;
             CalculateCenter();
         }
-        
+
         public override bool Equals(object obj)
         {
             if (obj is AbstractTool tool)
             {
                 if (tool.Points.Count == Points.Count)
                 {
-                    if (!Points.Equals(tool.Points) 
-                        && TemporaryPoint!=tool.TemporaryPoint
+                    if (!Points.Equals(tool.Points)
+                        && TemporaryPoint != tool.TemporaryPoint
                         && !Pen.Equals(tool.Pen))
                     {
                         return false;
                     }
+
                     return true;
                 }
             }
+
             return false;
         }
-        
-        
+
+
         public virtual void CalculateCenter()
         {
             PointF[] points = EndShapePoints;
@@ -132,20 +133,21 @@ namespace VectorDrawing.Tools
                 middleX += points[i].X;
                 middleY += points[i].Y;
             }
+
             middleX /= points.Length;
             middleY /= points.Length;
             Center = new PointF(middleX, middleY);
         }
-        
+
         protected virtual FigureParameter GenerateParametrs()
         {
             return new CommonParameter
             {
-                Points = Points!=null ? Points.ToArray(): EndShapePoints,
+                Points = Points != null ? Points.ToArray() : EndShapePoints,
                 TemporaryPoint = TemporaryPoint
             };
         }
-        
+
         protected void SetPen(Pen pen)
         {
             if (pen.Width >= 1 && pen.Width <= 100)
@@ -167,10 +169,11 @@ namespace VectorDrawing.Tools
                 {
                     return true;
                 }
+
                 prevPoint = endPoint;
             }
+
             return false;
         }
-        
     }
 }
