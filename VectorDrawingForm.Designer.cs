@@ -611,9 +611,10 @@ namespace VectorDrawing
             // 
             this.Coordinates.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.Coordinates.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Coordinates.Font = new System.Drawing.Font("Monotype Corsiva", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Coordinates.Location = new System.Drawing.Point(922, 535);
             this.Coordinates.Name = "Coordinates";
-            this.Coordinates.Size = new System.Drawing.Size(108, 13);
+            this.Coordinates.Size = new System.Drawing.Size(108, 18);
             this.Coordinates.TabIndex = 21;
             // 
             // label3
