@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using VectorDrawing.PointContainsInEdge;
 using VectorDrawing.Tools;
 
 namespace VectorDrawing.Canvases
@@ -102,9 +103,10 @@ namespace VectorDrawing.Canvases
 
         public AbstractTool SetToolOnMouse(PointF point)
         {
+            IPointContainsInEdge pointContainsInEdge = new CommonPointContainsInEdge();
             foreach (var tool in _tools)
             {
-                if (tool.Value.ContainPoint(point))
+                if (tool.Value.ContainPoint(point, pointContainsInEdge))
                 {
                     _tool = tool.Value;
                     _tool.TemporaryPoint = point;
