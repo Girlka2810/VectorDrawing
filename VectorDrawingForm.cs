@@ -104,12 +104,6 @@ namespace VectorDrawing
             }
         }
 
-        private void OnThicknessValueChanged(object sender, EventArgs e)
-        {
-            _pen.Width = (int) ((NumericUpDown) sender).Value;
-          
-        }
-
         private void OnColorFrontButtonClick(object sender, EventArgs e)
         {
             if (colorDialog.ShowDialog() == DialogResult.OK)
@@ -335,10 +329,10 @@ namespace VectorDrawing
 
         
 
-        private void thicknessBar_Scroll(object sender, EventArgs e)
+        private void OnThicknessBar_Scroll(object sender, EventArgs e)
         {
             ThicknessValue.Text = thicknessBar.Value.ToString();
-            _pen.Width = (int)ThicknessValue.Text;
+            _pen.Width = thicknessBar.Value;
         }
     }
 }

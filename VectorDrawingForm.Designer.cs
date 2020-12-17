@@ -83,22 +83,10 @@ namespace VectorDrawing
             // 
             // thickness
             // 
-            this.thickness.DecimalPlaces = 2;
-            this.thickness.Location = new System.Drawing.Point(543, 14);
-            this.thickness.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
+            this.thickness.Location = new System.Drawing.Point(0, 0);
             this.thickness.Name = "thickness";
-            this.thickness.Size = new System.Drawing.Size(70, 20);
-            this.thickness.TabIndex = 13;
-            this.thickness.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.thickness.ValueChanged += new System.EventHandler(this.OnThicknessValueChanged);
+            this.thickness.Size = new System.Drawing.Size(120, 20);
+            this.thickness.TabIndex = 26;
             // 
             // colorFrontButton
             // 
@@ -656,7 +644,7 @@ namespace VectorDrawing
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Monotype Corsiva", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(624, 41);
+            this.label3.Location = new System.Drawing.Point(547, 41);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(109, 18);
             this.label3.TabIndex = 23;
@@ -666,7 +654,7 @@ namespace VectorDrawing
             // 
             this.ThicknessValue.AutoSize = true;
             this.ThicknessValue.Font = new System.Drawing.Font("Monotype Corsiva", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ThicknessValue.Location = new System.Drawing.Point(739, 41);
+            this.ThicknessValue.Location = new System.Drawing.Point(662, 41);
             this.ThicknessValue.Name = "ThicknessValue";
             this.ThicknessValue.Size = new System.Drawing.Size(15, 18);
             this.ThicknessValue.TabIndex = 24;
@@ -675,7 +663,7 @@ namespace VectorDrawing
             // thicknessBar
             // 
             this.thicknessBar.LargeChange = 1;
-            this.thicknessBar.Location = new System.Drawing.Point(619, 9);
+            this.thicknessBar.Location = new System.Drawing.Point(550, 4);
             this.thicknessBar.Maximum = 25;
             this.thicknessBar.Minimum = 1;
             this.thicknessBar.Name = "thicknessBar";
@@ -683,13 +671,13 @@ namespace VectorDrawing
             this.thicknessBar.TabIndex = 22;
             this.thicknessBar.TickStyle = System.Windows.Forms.TickStyle.TopLeft;
             this.thicknessBar.Value = 1;
-            this.thicknessBar.Scroll += new System.EventHandler(this.thicknessBar_Scroll);
+            this.thicknessBar.Scroll += new System.EventHandler(this.OnThicknessBar_Scroll);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Monotype Corsiva", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.Location = new System.Drawing.Point(760, 41);
+            this.label4.Location = new System.Drawing.Point(683, 41);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(22, 18);
             this.label4.TabIndex = 25;
