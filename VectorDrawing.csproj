@@ -217,6 +217,8 @@
     <Content Include="Icons\Save2.png" />
     <Content Include="Icons\Square.png" />
     <Content Include="Icons\Triangle.png" />
+    <None Include="Resources\Rotate1.png" />
+    <None Include="Resources\Clear1.png" />
     <None Include="Resources\Logo2.1.png" />
     <None Include="Resources\Logo2.2.bmp" />
     <None Include="Resources\Logo2.11.bmp" />
