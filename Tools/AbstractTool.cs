@@ -6,7 +6,7 @@ using VectorDrawing.FactoriesTools;
 using VectorDrawing.Figures;
 using VectorDrawing.Figures.Parameters;
 using VectorDrawing.Figures.Returns;
-
+using VectorDrawing.Tools.Ellipse;
 
 namespace VectorDrawing.Tools
 {
@@ -50,8 +50,6 @@ namespace VectorDrawing.Tools
             else
                 graphics.DrawPolygon(Pen, ((CommonReturn)Figure.Get(GenerateParametrs())).Points);
         }
-
-
 
 
         public virtual void AddPoint(PointF point)
@@ -131,7 +129,6 @@ namespace VectorDrawing.Tools
         }
         
         
-        
         public void CenterForTests()
         {
             CalculateCenter();
@@ -165,12 +162,12 @@ namespace VectorDrawing.Tools
             }
         }
 
-        public bool IsItYou(PointF point)
+        public virtual bool IsItYou(PointF point)
         {
-            PointF prevP = EndShapePoints[3];
+            PointF prevP = EndShapePoints[1];
             foreach (PointF p in EndShapePoints)
             {
-                if (Contain(prevP, p, point, Pen.Width+2))
+                if (Contain(prevP, p, point, Pen.Width + 2))
                 {
                     return true;
                 }

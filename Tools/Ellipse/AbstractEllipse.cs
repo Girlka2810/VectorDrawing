@@ -29,31 +29,40 @@ namespace VectorDrawing.Tools.Ellipse
             PointF[] points = Points.ToArray();
             Center = points.Length != 0 ? points[0]: new PointF();
         }
-        public sealed override void AddPoint(PointF point)
-                {
-                    base.AddPoint(point);
-                    Center = Points[0];
-                }
-
-        protected void Paint(Graphics graphics, RectangleF rectangle)
+        public override void Paint(Graphics graphics)
         {
-            graphics.DrawEllipse(Pen, rectangle);
+            if (EndShapePoints.Length != 0)
+            {
+                IConvert convert = new BasicConvert();
+                graphics.DrawEllipse(Pen, convert.ToRectangle(EndShapePoints));
+            }
+            else
+            {
+                graphics.DrawEllipse(Pen, ((EllipseReturn)Figure.Get(GenerateParametrs())).Rectangle);
+            }
         }
-      
+
+       
+        public sealed override void AddPoint(PointF point)
+        {
+            base.AddPoint(point);
+            Center = Points[0];
+        }
+
         public override void SavePoints()
         {
-            throw new NotImplementedException();
-        }
-        
-        public void SavePoints(IConvert convert)
-        {
+            IConvert convert = new BasicConvert();
             EndShapePoints = convert.ToPoints(((EllipseReturn)
-                Figure.Get(GenerateParametrs())).Rectangle);
+               Figure.Get(GenerateParametrs())).Rectangle);
             Points = null;
         }
-        
-        
-        
+
+        //public void SavePoints(IConvert convert)
+        //{
+        //    EndShapePoints = convert.ToPoints(((EllipseReturn)
+        //        Figure.Get(GenerateParametrs())).Rectangle);
+        //    Points = null;
+        //}
         
     }
 }

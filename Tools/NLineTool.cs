@@ -22,11 +22,12 @@ namespace VectorDrawing.Tools
         
         public override void Paint(Graphics graphics)
         {
-            if (EndShapePoints.Length == 0)
+            if (EndShapePoints.Length != 0)
             {
+                graphics.DrawLines(Pen, EndShapePoints);
             }
-            graphics.DrawLines(Pen, ((CommonReturn)Figure.Get(GenerateParametrs())).Points);
-
+            else
+                graphics.DrawLines(Pen, ((CommonReturn)Figure.Get(GenerateParametrs())).Points);
         }
         public override void AddPoint(PointF point)
         {

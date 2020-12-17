@@ -89,14 +89,7 @@ namespace VectorDrawing.Canvases
             if (_tool != null)
             {
                 AddBuffer(_tool);
-                if (_tool is AbsractEllipse ellipse)
-                {
-                    ellipse.SavePoints(new BasicConvert());
-                }
-                else
-                {
-                    _tool.SavePoints();
-                }
+                _tool.SavePoints();
 
                
                 _mainBitmap = _tmpBitmap;

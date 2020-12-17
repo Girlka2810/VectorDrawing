@@ -25,10 +25,5 @@ namespace VectorDrawing.Tools
             }
         }
         
-        public override void Paint(Graphics graphics)
-        {
-            graphics.DrawPolygon(Pen, ((CommonReturn)Figure.Get(GenerateParametrs())).Points);
-        }
-        
     }
 }

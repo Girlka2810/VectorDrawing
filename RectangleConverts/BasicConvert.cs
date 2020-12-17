@@ -8,7 +8,7 @@ namespace VectorDrawing.RectangleConverts
         public RectangleF ToRectangle(PointF[] points)
         {
             float width = Math.Abs(points[0].X - points[1].X);
-            float height = Math.Abs(points[0].Y - points[4].Y);
+            float height = Math.Abs(points[0].Y - points[3].Y);
             SizeF size = new SizeF(width, height);
             RectangleF rect = new RectangleF(points[0], size);
             return rect;

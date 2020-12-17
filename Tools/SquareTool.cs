@@ -36,6 +36,5 @@ namespace VectorDrawing.Tools
             }
         }
 
-      
     }
 }
