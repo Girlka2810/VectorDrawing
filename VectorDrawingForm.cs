@@ -321,6 +321,9 @@ namespace VectorDrawing
             ShowSubMenu(panelVectorChanges);
         }
 
-       
+        private void OnPictureBox_MouseLeave(object sender, EventArgs e)
+        {
+            Coordinates.Text = "";
+        }
     }
 }
