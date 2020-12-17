@@ -27,13 +27,16 @@ namespace VectorDrawing.Actions
 
         private float AngleCalculate(PointF center, PointF start, PointF end)
         {
+            int flag = 1;
             PointF startVector = new PointF(start.X - center.X, start.Y - center.Y);
             PointF endVector = new PointF(end.X - center.X, end.Y - center.Y);
-            
+            if (end.X - start.X < 0 && end.Y - end.Y >= 0 || end.X - start.X >= 0 && end.Y - end.Y < 0)
+                flag = -1;
+
             float multiplyVectors = startVector.X * endVector.X + startVector.Y * endVector.Y;
             double moduleStartVector = Math.Sqrt(startVector.X * startVector.X + startVector.Y * startVector.Y);
             double moduleEndVector = Math.Sqrt(endVector.X * endVector.X + endVector.Y * endVector.Y);
-            float angle = (float) Math.Acos(multiplyVectors / (moduleStartVector * moduleEndVector));
+            float angle = (float) Math.Acos(multiplyVectors / (moduleStartVector * moduleEndVector))*flag;
             return angle;
         }
     }
