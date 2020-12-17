@@ -37,6 +37,7 @@ namespace VectorDrawing
             this.label2 = new System.Windows.Forms.Label();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.panelSideMenu = new System.Windows.Forms.Panel();
+            this.clearButton = new System.Windows.Forms.Button();
             this.panelVectorChanges = new System.Windows.Forms.Panel();
             this.AddTopModeButton = new System.Windows.Forms.Button();
             this.TopMoveModeButton = new System.Windows.Forms.Button();
@@ -46,7 +47,6 @@ namespace VectorDrawing
             this.RotateModeButton = new System.Windows.Forms.Button();
             this.moveModeButton = new System.Windows.Forms.Button();
             this.ChangeFigureButton = new System.Windows.Forms.Button();
-            this.clearButton = new System.Windows.Forms.Button();
             this.panelTools = new System.Windows.Forms.Panel();
             this.brushButton = new System.Windows.Forms.Button();
             this.lineButton = new System.Windows.Forms.Button();
@@ -100,9 +100,9 @@ namespace VectorDrawing
             this.anglesForPolygonGroupBox.Controls.Add(this.label2);
             this.anglesForPolygonGroupBox.Font = new System.Drawing.Font("Monotype Corsiva", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.anglesForPolygonGroupBox.ForeColor = System.Drawing.Color.Navy;
-            this.anglesForPolygonGroupBox.Location = new System.Drawing.Point(631, 9);
+            this.anglesForPolygonGroupBox.Location = new System.Drawing.Point(667, 9);
             this.anglesForPolygonGroupBox.Name = "anglesForPolygonGroupBox";
-            this.anglesForPolygonGroupBox.Size = new System.Drawing.Size(171, 40);
+            this.anglesForPolygonGroupBox.Size = new System.Drawing.Size(207, 40);
             this.anglesForPolygonGroupBox.TabIndex = 16;
             this.anglesForPolygonGroupBox.TabStop = false;
             this.anglesForPolygonGroupBox.Text = "Многоугольник";
@@ -110,7 +110,7 @@ namespace VectorDrawing
             // 
             // cornerNumericUpDown
             // 
-            this.cornerNumericUpDown.Location = new System.Drawing.Point(114, 14);
+            this.cornerNumericUpDown.Location = new System.Drawing.Point(128, 14);
             this.cornerNumericUpDown.Minimum = new decimal(new int[] {
             3,
             0,
@@ -151,6 +151,23 @@ namespace VectorDrawing
             this.panelSideMenu.Name = "panelSideMenu";
             this.panelSideMenu.Size = new System.Drawing.Size(228, 562);
             this.panelSideMenu.TabIndex = 20;
+            // 
+            // clearButton
+            // 
+            this.clearButton.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.clearButton.FlatAppearance.BorderSize = 0;
+            this.clearButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.clearButton.Font = new System.Drawing.Font("Monotype Corsiva", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.clearButton.ForeColor = System.Drawing.Color.Navy;
+            this.clearButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.clearButton.Location = new System.Drawing.Point(0, 832);
+            this.clearButton.Name = "clearButton";
+            this.clearButton.Size = new System.Drawing.Size(211, 33);
+            this.clearButton.TabIndex = 17;
+            this.clearButton.TabStop = false;
+            this.clearButton.Text = "Очистить";
+            this.clearButton.UseVisualStyleBackColor = true;
+            this.clearButton.Click += new System.EventHandler(this.OnClearClick);
             // 
             // panelVectorChanges
             // 
@@ -300,23 +317,6 @@ namespace VectorDrawing
             this.ChangeFigureButton.Text = "Изменение фигур";
             this.ChangeFigureButton.UseVisualStyleBackColor = true;
             this.ChangeFigureButton.Click += new System.EventHandler(this.OnChangeFigureButtonClick);
-            // 
-            // clearButton
-            // 
-            this.clearButton.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.clearButton.FlatAppearance.BorderSize = 0;
-            this.clearButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.clearButton.Font = new System.Drawing.Font("Monotype Corsiva", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.clearButton.ForeColor = System.Drawing.Color.Navy;
-            this.clearButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.clearButton.Location = new System.Drawing.Point(0, 832);
-            this.clearButton.Name = "clearButton";
-            this.clearButton.Size = new System.Drawing.Size(211, 33);
-            this.clearButton.TabIndex = 17;
-            this.clearButton.TabStop = false;
-            this.clearButton.Text = "Очистить";
-            this.clearButton.UseVisualStyleBackColor = true;
-            this.clearButton.Click += new System.EventHandler(this.OnClearClick);
             // 
             // panelTools
             // 
@@ -620,7 +620,7 @@ namespace VectorDrawing
             this.label3.BackColor = System.Drawing.Color.LightCyan;
             this.label3.Font = new System.Drawing.Font("Monotype Corsiva", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label3.ForeColor = System.Drawing.Color.Navy;
-            this.label3.Location = new System.Drawing.Point(547, 41);
+            this.label3.Location = new System.Drawing.Point(457, 41);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(109, 18);
             this.label3.TabIndex = 23;
@@ -632,7 +632,7 @@ namespace VectorDrawing
             this.ThicknessValue.BackColor = System.Drawing.Color.LightCyan;
             this.ThicknessValue.Font = new System.Drawing.Font("Monotype Corsiva", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ThicknessValue.ForeColor = System.Drawing.Color.Navy;
-            this.ThicknessValue.Location = new System.Drawing.Point(662, 41);
+            this.ThicknessValue.Location = new System.Drawing.Point(572, 41);
             this.ThicknessValue.Name = "ThicknessValue";
             this.ThicknessValue.Size = new System.Drawing.Size(15, 18);
             this.ThicknessValue.TabIndex = 24;
@@ -643,7 +643,7 @@ namespace VectorDrawing
             this.thicknessBar.BackColor = System.Drawing.Color.LightCyan;
             this.thicknessBar.Cursor = System.Windows.Forms.Cursors.SizeWE;
             this.thicknessBar.LargeChange = 1;
-            this.thicknessBar.Location = new System.Drawing.Point(550, 4);
+            this.thicknessBar.Location = new System.Drawing.Point(460, 4);
             this.thicknessBar.Maximum = 25;
             this.thicknessBar.Minimum = 1;
             this.thicknessBar.Name = "thicknessBar";
@@ -659,7 +659,7 @@ namespace VectorDrawing
             this.label4.BackColor = System.Drawing.Color.LightCyan;
             this.label4.Font = new System.Drawing.Font("Monotype Corsiva", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label4.ForeColor = System.Drawing.Color.Navy;
-            this.label4.Location = new System.Drawing.Point(683, 41);
+            this.label4.Location = new System.Drawing.Point(593, 41);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(22, 18);
             this.label4.TabIndex = 25;
@@ -671,7 +671,7 @@ namespace VectorDrawing
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Image = global::VectorDrawing.Properties.Resources.Download;
-            this.button1.Location = new System.Drawing.Point(935, 17);
+            this.button1.Location = new System.Drawing.Point(967, 17);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(39, 32);
             this.button1.TabIndex = 30;
@@ -716,7 +716,7 @@ namespace VectorDrawing
             this.saveButton.FlatAppearance.BorderSize = 0;
             this.saveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.saveButton.Image = global::VectorDrawing.Properties.Resources.Save2;
-            this.saveButton.Location = new System.Drawing.Point(880, 17);
+            this.saveButton.Location = new System.Drawing.Point(880, 22);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(112, 23);
             this.saveButton.TabIndex = 19;

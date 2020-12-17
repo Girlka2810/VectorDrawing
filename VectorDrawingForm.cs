@@ -46,6 +46,7 @@ namespace VectorDrawing
         // Действия с мышкой на puctureBox'е
         private void OnPictureBoxMouseMove(object sender, MouseEventArgs e)
         {
+            Coordinates.Text = $"X = {e.Location.X} Y = {e.Location.Y}";
             if (_tool == null) return;
 
             if (_action == null)
@@ -104,6 +105,10 @@ namespace VectorDrawing
 
         private void CreateFigure()
         {
+            if (!(_factoryTool is RegularPolygonFactoryTool))
+            {
+                anglesForPolygonGroupBox.Visible = false;
+            }
             HideSubMenu();
             _action = null;
             _pen = new Pen(_pen.Color, _pen.Width);
@@ -117,7 +122,8 @@ namespace VectorDrawing
         // Толщина линий
         private void OnThicknessValueChanged(object sender, EventArgs e)
         {
-            _pen.Width = (int) ((NumericUpDown) sender).Value;
+            _pen.Width = thicknessBar.Value;
+            ThicknessValue.Text = $"{_pen.Width}";
           
         }
 
