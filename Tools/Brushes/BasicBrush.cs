@@ -21,14 +21,12 @@ namespace VectorDrawing.Tools.Brushes
        
         public override void Paint(Graphics graphics)
         {
-            if (EndShapePoints.Length != 0)
-            {
-                graphics.DrawPath(Pen, Path);
-            }
-            else
-            {
-                graphics.DrawLines(Pen, Points.ToArray());
-            }
+            Pen p;
+            p.EndCap = System.Drawing.Drawing2D.LineCap.Round;
+            p.StartCap= System.Drawing.Drawing2D.LineCap.Round;
+            Graphics g;
+            g.DrawLine(p,PointF,);
+
         }
 
         public override void AddPoint(PointF point)

@@ -99,6 +99,7 @@ namespace VectorDrawing
             // 
             // anglesForPolygonGroupBox
             // 
+            this.anglesForPolygonGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.anglesForPolygonGroupBox.Controls.Add(this.cornerNumericUpDown);
             this.anglesForPolygonGroupBox.Controls.Add(this.label2);
             this.anglesForPolygonGroupBox.Font = new System.Drawing.Font("Footlight MT Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -652,7 +653,7 @@ namespace VectorDrawing
             this.Coordinates.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.Coordinates.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Coordinates.Font = new System.Drawing.Font("Footlight MT Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Coordinates.Location = new System.Drawing.Point(1076, 576);
+            this.Coordinates.Location = new System.Drawing.Point(1054, 576);
             this.Coordinates.Name = "Coordinates";
             this.Coordinates.Size = new System.Drawing.Size(126, 14);
             this.Coordinates.TabIndex = 21;
@@ -714,7 +715,7 @@ namespace VectorDrawing
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Footlight MT Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Navy;
-            this.label1.Location = new System.Drawing.Point(924, 573);
+            this.label1.Location = new System.Drawing.Point(902, 573);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(128, 18);
             this.label1.TabIndex = 31;
@@ -767,7 +768,7 @@ namespace VectorDrawing
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Image = global::VectorDrawing.Properties.Resources.Download;
-            this.button1.Location = new System.Drawing.Point(1100, 22);
+            this.button1.Location = new System.Drawing.Point(1078, 22);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(45, 34);
             this.button1.TabIndex = 30;
@@ -794,6 +795,7 @@ namespace VectorDrawing
             this.PipetteButton.Size = new System.Drawing.Size(47, 43);
             this.PipetteButton.TabIndex = 28;
             this.PipetteButton.UseVisualStyleBackColor = true;
+            this.PipetteButton.Click += new System.EventHandler(this.PipetteButton_Click);
             // 
             // FillButton
             // 
@@ -812,7 +814,7 @@ namespace VectorDrawing
             this.saveButton.FlatAppearance.BorderSize = 0;
             this.saveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.saveButton.Image = global::VectorDrawing.Properties.Resources.Save2;
-            this.saveButton.Location = new System.Drawing.Point(1153, 27);
+            this.saveButton.Location = new System.Drawing.Point(1131, 27);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(37, 25);
             this.saveButton.TabIndex = 19;
@@ -830,7 +832,7 @@ namespace VectorDrawing
             this.pictureBox.Location = new System.Drawing.Point(287, 72);
             this.pictureBox.MinimumSize = new System.Drawing.Size(870, 494);
             this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(914, 494);
+            this.pictureBox.Size = new System.Drawing.Size(892, 494);
             this.pictureBox.TabIndex = 13;
             this.pictureBox.TabStop = false;
             this.pictureBox.SizeChanged += new System.EventHandler(this.OnPictureBoxSizeChanged);
@@ -846,7 +848,7 @@ namespace VectorDrawing
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.LightCyan;
-            this.ClientSize = new System.Drawing.Size(1216, 605);
+            this.ClientSize = new System.Drawing.Size(1194, 605);
             this.Controls.Add(this.ChangeColorButton);
             this.Controls.Add(this.PaletteButton1);
             this.Controls.Add(this.PaletteButton2);
@@ -868,7 +870,7 @@ namespace VectorDrawing
             this.Controls.Add(this.pictureBox);
             this.Font = new System.Drawing.Font("Footlight MT Light", 10F);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(1232, 644);
+            this.MinimumSize = new System.Drawing.Size(1210, 644);
             this.Name = "VectorDrawingForm";
             this.Text = "VectorDrawing2D";
             this.Load += new System.EventHandler(this.OnVectorDrawingFormLoad);

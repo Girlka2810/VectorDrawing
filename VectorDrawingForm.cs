@@ -371,5 +371,10 @@ namespace VectorDrawing
             PaletteButton2.BackColor = tmpColor;
             _pen.Color = PaletteButton1.BackColor;
         }
+
+        private void PipetteButton_Click(object sender, EventArgs e)
+        {
+            PaletteButton1.BackColor =;
+        }
     }
 }
