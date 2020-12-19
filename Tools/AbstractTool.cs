@@ -5,7 +5,6 @@ using System.Drawing.Drawing2D;
 using VectorDrawing.Figures;
 using VectorDrawing.Figures.Parameters;
 using VectorDrawing.Figures.Returns;
-using VectorDrawing.PointContainsInEdge;
 
 namespace VectorDrawing.Tools
 {
@@ -21,7 +20,7 @@ namespace VectorDrawing.Tools
 
         protected List<PointF> Points;
         protected IFigure Figure;
-        protected Pen _penForSearching;
+        protected Pen PenForSearching;
 
 
         public AbstractTool(List<PointF> points, Pen pen)
@@ -109,7 +108,7 @@ namespace VectorDrawing.Tools
 
             Points = null;
             CalculateCenter();
-            _penForSearching = new Pen(Pen.Color, Pen.Width + 10);
+            PenForSearching = new Pen(Pen.Color, Pen.Width + 10);
         }
 
         public override bool Equals(object obj)

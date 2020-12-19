@@ -26,15 +26,6 @@ namespace VectorDrawing.Tools
             Points.Add(point);
         }
 
-        public override void SavePoints()
-        {
-            PointF[] points = ((CommonReturn)Figure.Get(GenerateParametrs())).Points;
-            EndShapePoints = points;
-            Path.AddPolygon(points);
-           
-            Points = null;
-            CalculateCenter();
-            _penForSearching = new Pen(Pen.Color, Pen.Width + 10);
-        }
+       
     }
 }

@@ -26,7 +26,9 @@ namespace VectorDrawing.Tools.Lines
                 graphics.DrawPath(Pen, Path);
             }
             else
+            {
                 graphics.DrawLines(Pen, ((CommonReturn)Figure.Get(GenerateParametrs())).Points);
+            }
         }
         public override void AddPoint(PointF point)
         {

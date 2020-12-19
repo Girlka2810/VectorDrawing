@@ -36,12 +36,12 @@ namespace VectorDrawing.Tools
             }
             if (Path.PointCount == 0)
             {
-                Path.AddLine(points[0], points[1]);
+                Path.AddLines(points);
             }
 
             Points = null;
             CalculateCenter();
-            _penForSearching = new Pen(Pen.Color, Pen.Width + 10);
+            PenForSearching = new Pen(Pen.Color, Pen.Width + 10);
         }
     }
 }

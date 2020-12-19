@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using VectorDrawing.PointContainsInEdge;
 using VectorDrawing.Tools;
 using VectorDrawing.Actions.ContainCalculater;
 
@@ -18,7 +17,7 @@ namespace VectorDrawing.Canvases
 
         public BitmapCanvas()
         {
-            IContaneCalculator contaneCalculator;
+ 
         }
         
         public BitmapCanvas(AbstractTool[] tools)

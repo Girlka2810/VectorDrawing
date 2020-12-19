@@ -22,7 +22,6 @@ namespace VectorDrawing
         private bool _isMouseDown;
         private IAction _action;
         private IContaneCalculator _contaneCalculator;
-        private int _counter;
 
 
         public VectorDrawingForm()
@@ -37,7 +36,6 @@ namespace VectorDrawing
             _canvas.SetRender(OnRender);
             _canvas.Create(pictureBox.Width, pictureBox.Height);
             _pen = new Pen(Color.Black, 1);
-            _counter = 0;
             _contaneCalculator = new OnInside();        //тут выбор фигур - по граням или по всей фигуре
         }
 
@@ -69,7 +67,6 @@ namespace VectorDrawing
             }
             else if (_isMouseDown)
             {
-                _counter++;
                 _action.UpdateToolPoints(_tool, _tool.TemporaryPoint, e.Location);
                 _canvas.Draw(_tool);
             }
