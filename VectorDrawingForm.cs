@@ -19,7 +19,7 @@ namespace VectorDrawing
         private ICanvas _canvas;
         private bool _isMouseDown;
         private IAction _action;
-
+        private int _counter;
 
 
         public VectorDrawingForm()
@@ -34,6 +34,7 @@ namespace VectorDrawing
             _canvas.SetRender(OnRender);
             _canvas.Create(pictureBox.Width, pictureBox.Height);
             _pen = new Pen(Color.Black, 1);
+            _counter = 0;
         }
 
         private void OnRender(Bitmap bitmap, Color color)
@@ -64,6 +65,7 @@ namespace VectorDrawing
             }
             else if (_isMouseDown)
             {
+                _counter++;
                 _action.UpdateToolPoints(_tool, _tool.TemporaryPoint, e.Location);
                 _canvas.Draw(_tool);
             }
@@ -160,8 +162,14 @@ namespace VectorDrawing
             _tool = null;
             HideSubMenu();
         }
-        
-        
+
+        private void OnChangeScaleModeButton_Click(object sender, EventArgs e)
+        {
+            _action = new ScaleAction();
+            _tool = null;
+            HideSubMenu();
+        }
+
         private void OnLineButtonClick(object sender, EventArgs e)
         {
             _factoryTool = new LineFactoryTool();
@@ -331,5 +339,7 @@ namespace VectorDrawing
         {
             Coordinates.Text = "";
         }
+
+      
     }
 }

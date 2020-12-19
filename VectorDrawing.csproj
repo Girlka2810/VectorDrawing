@@ -53,6 +53,7 @@
     <Compile Include="Actions\IAction.cs" />
     <Compile Include="Actions\MoveAction.cs" />
     <Compile Include="Actions\RotateAction.cs" />
+    <Compile Include="Actions\ScaleAction.cs" />
     <Compile Include="Canvases\BitmapCanvas.cs" />
     <Compile Include="FactoriesTools\BrushFactoryTool.cs" />
     <Compile Include="FactoriesTools\CircleFactoryTool.cs" />

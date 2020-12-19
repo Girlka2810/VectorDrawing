@@ -46,7 +46,7 @@ namespace VectorDrawing.Tools
         {
             if (EndShapePoints.Length != 0)
             {
-                graphics.DrawPolygon(Pen, EndShapePoints);
+                graphics.DrawPath(Pen, Path);
             }
             else
             {
