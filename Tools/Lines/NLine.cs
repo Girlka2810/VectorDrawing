@@ -23,7 +23,7 @@ namespace VectorDrawing.Tools.Lines
         {
             if (EndShapePoints.Length != 0)
             {
-                graphics.DrawLines(Pen, EndShapePoints);
+                graphics.DrawPath(Pen, Path);
             }
             else
                 graphics.DrawLines(Pen, ((CommonReturn)Figure.Get(GenerateParametrs())).Points);

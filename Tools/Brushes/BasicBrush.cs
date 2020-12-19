@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Drawing;
+using VectorDrawing.Actions.ContainCalculater;
 using VectorDrawing.Figures.Parameters;
 
 namespace VectorDrawing.Tools.Brushes
@@ -23,7 +24,7 @@ namespace VectorDrawing.Tools.Brushes
         {
             if (EndShapePoints.Length != 0)
             {
-                graphics.DrawLines(Pen, EndShapePoints);
+                graphics.DrawPath(Pen, Path);
             }
             else
             {
@@ -39,7 +40,10 @@ namespace VectorDrawing.Tools.Brushes
         public override void SavePoints()
         {
             EndShapePoints = Points.ToArray();
+            Path.AddLines(EndShapePoints);
             CalculateCenter();
+            _penForSearching = new Pen(Pen.Color, Pen.Width + 10);
         }
+
     }
 }

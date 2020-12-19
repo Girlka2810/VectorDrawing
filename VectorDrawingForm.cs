@@ -7,6 +7,8 @@ using VectorDrawing.Tools;
 using VectorDrawing.Tools.Brushes;
 using VectorDrawing.Tools.Polygons;
 using VectorDrawing.Actions;
+using VectorDrawing.Actions.ContainCalculater;
+
 
 namespace VectorDrawing
 {
@@ -19,7 +21,8 @@ namespace VectorDrawing
         private ICanvas _canvas;
         private bool _isMouseDown;
         private IAction _action;
-
+        private IContaneCalculator _contaneCalculator;
+        private int _counter;
 
 
         public VectorDrawingForm()
@@ -34,6 +37,8 @@ namespace VectorDrawing
             _canvas.SetRender(OnRender);
             _canvas.Create(pictureBox.Width, pictureBox.Height);
             _pen = new Pen(Color.Black, 1);
+            _counter = 0;
+            _contaneCalculator = new OnInside();        //тут выбор фигур - по граням или по всей фигуре
         }
 
         private void OnRender(Bitmap bitmap, Color color)
@@ -64,6 +69,7 @@ namespace VectorDrawing
             }
             else if (_isMouseDown)
             {
+                _counter++;
                 _action.UpdateToolPoints(_tool, _tool.TemporaryPoint, e.Location);
                 _canvas.Draw(_tool);
             }
@@ -85,7 +91,7 @@ namespace VectorDrawing
             }
             else
             {
-                _tool = _canvas.SetToolOnMouse(e.Location);
+                _tool = _canvas.SetToolOnMouse(_contaneCalculator, e.Location);
                 _canvas.UpdateBitmap();
             }
         }
@@ -96,7 +102,7 @@ namespace VectorDrawing
             {
                 _canvas.FinishFigure();
             }
-            if (_tool is IBrush)
+            else if (_tool is IBrush)
             {
                 _canvas.FinishFigure();
                 CreateFigure();
@@ -160,8 +166,14 @@ namespace VectorDrawing
             _tool = null;
             HideSubMenu();
         }
-        
-        
+
+        private void OnChangeScaleModeButton_Click(object sender, EventArgs e)
+        {
+            _action = new ScaleAction();
+            _tool = null;
+            HideSubMenu();
+        }
+
         private void OnLineButtonClick(object sender, EventArgs e)
         {
             _factoryTool = new LineFactoryTool();
@@ -331,5 +343,7 @@ namespace VectorDrawing
         {
             Coordinates.Text = "";
         }
+
+      
     }
 }
