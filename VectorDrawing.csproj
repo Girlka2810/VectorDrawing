@@ -199,6 +199,7 @@
     <Content Include="Icons\Ellipse.png" />
     <Content Include="Icons\Erase.png" />
     <Content Include="Icons\FillColor.png" />
+    <Content Include="Icons\icons8-left_up2_filled1.png" />
     <Content Include="Icons\icons8-settings3.png" />
     <Content Include="Icons\IsoscaleTriangle.png" />
     <Content Include="Icons\Line.png" />
@@ -219,6 +220,7 @@
     <Content Include="Icons\Save2.png" />
     <Content Include="Icons\Square.png" />
     <Content Include="Icons\Triangle.png" />
+    <None Include="Resources\icons8-left_up2_filled1.png" />
     <None Include="Resources\Rotate1.png" />
     <None Include="Resources\Clear1.png" />
     <None Include="Resources\Logo2.1.png" />

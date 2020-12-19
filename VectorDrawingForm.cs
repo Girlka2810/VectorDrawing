@@ -8,6 +8,7 @@ using VectorDrawing.Tools.Brushes;
 using VectorDrawing.Tools.Polygons;
 using VectorDrawing.Actions;
 using VectorDrawing.Actions.ContainCalculater;
+using System.Threading;
 
 
 namespace VectorDrawing
@@ -127,17 +128,11 @@ namespace VectorDrawing
         {
             _pen.Width = thicknessBar.Value;
             ThicknessValue.Text = $"{_pen.Width}";
-          
+
         }
 
-        // Выбор цвета
-        private void OnColorFrontButtonClick(object sender, EventArgs e)
-        {
-            if (colorDialog.ShowDialog() == DialogResult.OK)
-            {
-                _pen.Color = colorDialog.Color;
-            }
-        }
+        //Выбор цвета
+       
 
         private void OnCornersNumericUpDownValueChanged(object sender, EventArgs e)
         {
@@ -300,11 +295,13 @@ namespace VectorDrawing
         {
             if (panelTools.Visible)
             {
+                Thread.Sleep(150);
                 panelTools.Visible = false; 
             }
 
             if (panelVectorChanges.Visible)
             {
+                Thread.Sleep(150);
                 panelVectorChanges.Visible = false; 
             }
         }
@@ -312,6 +309,7 @@ namespace VectorDrawing
         {
             if (panelTools.Visible == false)
             {
+               
                 HideSubMenu();
                 subMenu.Visible = true;
             }
@@ -328,6 +326,13 @@ namespace VectorDrawing
 
         private void OnToolsButtonClick(object sender, EventArgs e)
         {
+            if(panelTools.Visible==true)
+            {
+                
+                HideSubMenu();
+                
+                return;
+            }
             ShowSubMenu(panelTools);
         }
 
@@ -341,6 +346,30 @@ namespace VectorDrawing
             Coordinates.Text = "";
         }
 
-      
+        private void OnPaletteButton1_Click(object sender, EventArgs e)
+        {
+            if (colorDialog.ShowDialog() == DialogResult.OK)
+            {
+                _pen.Color = colorDialog.Color;
+                PaletteButton1.BackColor = colorDialog.Color;
+            }
+        }
+
+        private void OnPaletteButton2_Click(object sender, EventArgs e)
+        {
+            if (colorDialog.ShowDialog() == DialogResult.OK)
+            {
+                //_pen.Color = colorDialog.Color;
+                PaletteButton2.BackColor = colorDialog.Color;
+            }
+        }
+
+        private void OnChangeColorButton_Click(object sender, EventArgs e)
+        {
+            Color tmpColor = PaletteButton1.BackColor;
+            PaletteButton1.BackColor = PaletteButton2.BackColor;
+            PaletteButton2.BackColor = tmpColor;
+            _pen.Color = PaletteButton1.BackColor;
+        }
     }
 }

@@ -243,6 +243,16 @@ namespace VectorDrawing.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_left_up2_filled1 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-left_up2_filled1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap IsoscaleTriangle {
             get {
                 object obj = ResourceManager.GetObject("IsoscaleTriangle", resourceCulture);
