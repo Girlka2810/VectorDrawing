@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using VectorDrawing.Tools;
+using VectorDrawing.Actions.ContainCalculater;
 
 namespace VectorDrawing.Canvases
 {
@@ -13,7 +14,7 @@ namespace VectorDrawing.Canvases
         void Draw(Tools.AbstractTool tool);
         void FinishFigure();
         void UpdateBitmap();
-        AbstractTool SetToolOnMouse(PointF point);
+        AbstractTool SetToolOnMouse(IContaneCalculator contaneCalculator, PointF point);
 
     }
 }

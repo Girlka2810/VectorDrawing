@@ -7,6 +7,8 @@ using VectorDrawing.Tools;
 using VectorDrawing.Tools.Brushes;
 using VectorDrawing.Tools.Polygons;
 using VectorDrawing.Actions;
+using VectorDrawing.Actions.ContainCalculater;
+
 
 namespace VectorDrawing
 {
@@ -19,6 +21,7 @@ namespace VectorDrawing
         private ICanvas _canvas;
         private bool _isMouseDown;
         private IAction _action;
+        private IContaneCalculator _contaneCalculator;
         private int _counter;
 
 
@@ -35,6 +38,7 @@ namespace VectorDrawing
             _canvas.Create(pictureBox.Width, pictureBox.Height);
             _pen = new Pen(Color.Black, 1);
             _counter = 0;
+            _contaneCalculator = new OnInside();        //тут выбор фигур - по граням или по всей фигуре
         }
 
         private void OnRender(Bitmap bitmap, Color color)
@@ -87,7 +91,7 @@ namespace VectorDrawing
             }
             else
             {
-                _tool = _canvas.SetToolOnMouse(e.Location);
+                _tool = _canvas.SetToolOnMouse(_contaneCalculator, e.Location);
                 _canvas.UpdateBitmap();
             }
         }
@@ -98,7 +102,7 @@ namespace VectorDrawing
             {
                 _canvas.FinishFigure();
             }
-            if (_tool is IBrush)
+            else if (_tool is IBrush)
             {
                 _canvas.FinishFigure();
                 CreateFigure();

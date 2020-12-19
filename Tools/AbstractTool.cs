@@ -170,24 +170,5 @@ namespace VectorDrawing.Tools
             }
         }
 
-        //public virtual bool ContainPoint(PointF point, IPointContainsInEdge pointContainsInEdge)
-        //{
-        //    PointF prevPoint = EndShapePoints[1];
-        //    foreach (PointF endPoint in EndShapePoints)
-        //    {
-        //        if (pointContainsInEdge.Contain(prevPoint, endPoint, point, Pen.Width + 10))
-        //        {
-        //            return true;
-        //        }
-
-        //        prevPoint = endPoint;
-        //    }
-
-        //    return false;
-        //}
-        public virtual bool ContainPoint(PointF point)
-        {
-            return Path.IsOutlineVisible(point, _penForSearching);
-        }
     }
 }
