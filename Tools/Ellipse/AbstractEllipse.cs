@@ -63,7 +63,7 @@ namespace VectorDrawing.Tools.Ellipse
             }
             CalculateCenter();
             Points = null;
-            _penForSearching = new Pen(Pen.Color, Pen.Width + 10);
+            PenForSearching = new Pen(Pen.Color, Pen.Width + 10);
         }
 
     }

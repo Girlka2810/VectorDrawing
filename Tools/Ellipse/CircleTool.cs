@@ -3,9 +3,6 @@ using System.Collections.Generic;
 using System.Drawing;
 using VectorDrawing.Figures;
 using VectorDrawing.Figures.Parameters;
-using VectorDrawing.Figures.Returns;
-using VectorDrawing.PointContainsInEdge;
-using VectorDrawing.RectangleConverts;
 
 namespace VectorDrawing.Tools.Ellipse
 {
@@ -33,16 +30,7 @@ namespace VectorDrawing.Tools.Ellipse
             CalculateRadius();
         }
          
-        //public override bool ContainPoint(PointF point, IPointContainsInEdge containsInEdge)
-        //{
-        //    PointF vector = new PointF(point.X - Center.X, point.Y - Center.Y);
-        //    float delta = (float)Math.Sqrt(vector.X * vector.X + vector.Y * vector.Y);
-        //    if (delta >= Radius + 2 || delta <= Radius - 2)
-        //    {
-        //        return true;
-        //    }
-        //    return false;
-        //}
+    
         
         protected override FigureParameter GenerateParametrs()
         {
