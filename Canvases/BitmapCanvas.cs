@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using VectorDrawing.PointContainsInEdge;
 using VectorDrawing.Tools;
+using VectorDrawing.Actions.ContainCalculater;
 
 namespace VectorDrawing.Canvases
 {
@@ -17,7 +18,7 @@ namespace VectorDrawing.Canvases
 
         public BitmapCanvas()
         {
-            
+            IContaneCalculator contaneCalculator;
         }
         
         public BitmapCanvas(AbstractTool[] tools)
@@ -101,12 +102,11 @@ namespace VectorDrawing.Canvases
         }
         
 
-        public AbstractTool SetToolOnMouse(PointF point)
+        public AbstractTool SetToolOnMouse(IContaneCalculator contaneCalculator, PointF point)
         {
-            IPointContainsInEdge pointContainsInEdge = new CommonPointContainsInEdge();
             foreach (var tool in _tools)
             {
-                if (tool.Value.ContainPoint(point, pointContainsInEdge))
+                if (contaneCalculator.IsContain(tool.Value, point))
                 {
                     _tool = tool.Value;
                     _tool.TemporaryPoint = point;

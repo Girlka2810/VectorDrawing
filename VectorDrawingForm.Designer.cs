@@ -252,6 +252,7 @@ namespace VectorDrawing
             this.ChangeScaleModeButton.Text = "Измени масштаб";
             this.ChangeScaleModeButton.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.ChangeScaleModeButton.UseVisualStyleBackColor = true;
+            this.ChangeScaleModeButton.Click += new System.EventHandler(this.OnChangeScaleModeButton_Click);
             // 
             // ChangeRadiusModeButton
             // 
@@ -382,7 +383,7 @@ namespace VectorDrawing
             // 
             // nlineButton
             // 
-            this.nlineButton.BackColor = System.Drawing.Color.LightBlue;
+            this.nlineButton.BackColor = System.Drawing.Color.LightCyan;
             this.nlineButton.FlatAppearance.BorderSize = 0;
             this.nlineButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Teal;
             this.nlineButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;

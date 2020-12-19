@@ -33,8 +33,7 @@ namespace VectorDrawing.Tools.Ellipse
         {
             if (EndShapePoints.Length != 0)
             {
-                IConvert convert = new BasicConvert();
-                graphics.DrawEllipse(Pen, convert.ToRectangle(EndShapePoints));
+                graphics.DrawPath(Pen, Path);
             }
             else
             {
@@ -51,15 +50,21 @@ namespace VectorDrawing.Tools.Ellipse
 
         public override void SavePoints()
         {
-            IConvert convert = new BasicConvert();
-            EndShapePoints = convert.ToPoints(((EllipseReturn)
-               Figure.Get(GenerateParametrs())).Rectangle);
+            if (EndShapePoints.Length == 0)
+            {
+                IConvert convert = new BasicConvert();
+                EndShapePoints = convert.ToPoints(((EllipseReturn)
+                   Figure.Get(GenerateParametrs())).Rectangle);
+            }
+            if (Path.PointCount == 0)
+            {
+                Path.AddEllipse(((EllipseReturn)
+                   Figure.Get(GenerateParametrs())).Rectangle);
+            }
+            CalculateCenter();
             Points = null;
+            _penForSearching = new Pen(Pen.Color, Pen.Width + 10);
         }
-        
-        
 
-        
-        
     }
 }

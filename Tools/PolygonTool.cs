@@ -28,14 +28,13 @@ namespace VectorDrawing.Tools
 
         public override void SavePoints()
         {
-            PointF[] tempPoints = ((CommonReturn)Figure.Get(GenerateParametrs())).Points;
-            EndShapePoints = new PointF[tempPoints.Length - 3];
-            for (int i = 0; i < EndShapePoints.Length; i++)
-            {
-                EndShapePoints[i] = tempPoints[i];
-            }
+            PointF[] points = ((CommonReturn)Figure.Get(GenerateParametrs())).Points;
+            EndShapePoints = points;
+            Path.AddPolygon(points);
+           
             Points = null;
             CalculateCenter();
+            _penForSearching = new Pen(Pen.Color, Pen.Width + 10);
         }
     }
 }
