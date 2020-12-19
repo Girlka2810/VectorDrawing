@@ -9,20 +9,17 @@ namespace VectorDrawing.Actions
     {
         public void UpdateToolPoints(AbstractTool tool, PointF startPoint, PointF endPoint)
         {
-            PointF[] points = tool.EndShapePoints;
             PointF center = tool.Center;
-            float angle = (float) AngleCalculate(center, startPoint, endPoint);
-            using (GraphicsPath gp = new GraphicsPath())
+            float angle = (float)AngleCalculate(center, startPoint, endPoint);
+            GraphicsPath path = tool.Path;
+            using (Matrix matrix= new Matrix())
             {
-                gp.AddPolygon(points);
-                using (var m = new Matrix())
-                {
-                    m.RotateAt(angle, center);
-                    gp.Transform(m);
-                }
-                PointF[] rotatedPoints = gp.PathPoints;
-                tool.EndShapePoints = rotatedPoints;
+                matrix.RotateAt(angle, center);
+                path.Transform(matrix);
             }
+            PointF[] rotatedPoints = path.PathPoints;
+            tool.EndShapePoints = rotatedPoints;
+            tool.TemporaryPoint = endPoint;
         }
 
         private double AngleCalculate(PointF center, PointF start, PointF end)
@@ -30,14 +27,11 @@ namespace VectorDrawing.Actions
             PointF startVector = new PointF(start.X - center.X, start.Y - center.Y);
             PointF endVector = new PointF(end.X - center.X, end.Y - center.Y);
             
-            float multiplyVectors = startVector.X * endVector.X + startVector.Y * endVector.Y;
-            double moduleStartVector = Math.Sqrt(startVector.X * startVector.X + startVector.Y * startVector.Y);
-            double moduleEndVector = Math.Sqrt(endVector.X * endVector.X + endVector.Y * endVector.Y);
-            double alpha = Math.Acos(startVector.X / moduleStartVector);
-            double beta = Math.Acos(endVector.X / moduleEndVector);
+            double alpha = Math.Atan(startVector.Y / startVector.X);
+            double beta = Math.Atan(endVector.Y / endVector.X);
             double angle = beta - alpha;
             
-            return angle*-1;
+            return angle*(180/Math.PI);
         }
     }
 }

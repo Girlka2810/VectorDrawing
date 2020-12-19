@@ -33,16 +33,16 @@ namespace VectorDrawing.Tools.Ellipse
             CalculateRadius();
         }
          
-        public override bool ContainPoint(PointF point, IPointContainsInEdge containsInEdge)
-        {
-            PointF vector = new PointF(point.X - Center.X, point.Y - Center.Y);
-            float delta = (float)Math.Sqrt(vector.X * vector.X + vector.Y * vector.Y);
-            if (delta >= Radius + 2 || delta <= Radius - 2)
-            {
-                return true;
-            }
-            return false;
-        }
+        //public override bool ContainPoint(PointF point, IPointContainsInEdge containsInEdge)
+        //{
+        //    PointF vector = new PointF(point.X - Center.X, point.Y - Center.Y);
+        //    float delta = (float)Math.Sqrt(vector.X * vector.X + vector.Y * vector.Y);
+        //    if (delta >= Radius + 2 || delta <= Radius - 2)
+        //    {
+        //        return true;
+        //    }
+        //    return false;
+        //}
         
         protected override FigureParameter GenerateParametrs()
         {

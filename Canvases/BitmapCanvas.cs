@@ -103,10 +103,10 @@ namespace VectorDrawing.Canvases
 
         public AbstractTool SetToolOnMouse(PointF point)
         {
-            IPointContainsInEdge pointContainsInEdge = new CommonPointContainsInEdge();
+            //IPointContainsInEdge pointContainsInEdge = new CommonPointContainsInEdge();
             foreach (var tool in _tools)
             {
-                if (tool.Value.ContainPoint(point, pointContainsInEdge))
+                if (tool.Value.ContainPoint(point))
                 {
                     _tool = tool.Value;
                     _tool.TemporaryPoint = point;

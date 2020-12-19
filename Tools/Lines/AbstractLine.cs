@@ -27,5 +27,21 @@ namespace VectorDrawing.Tools
                 graphics.DrawLines(Pen, ((CommonReturn)Figure.Get(GenerateParametrs())).Points);
             }
         }
+        public override void SavePoints()
+        {
+            PointF[] points = ((CommonReturn)Figure.Get(GenerateParametrs())).Points;
+            if (EndShapePoints.Length == 0)
+            {
+                EndShapePoints = points;
+            }
+            if (Path.PointCount == 0)
+            {
+                Path.AddLine(points[0], points[1]);
+            }
+
+            Points = null;
+            CalculateCenter();
+            _penForSearching = new Pen(Pen.Color, Pen.Width + 10);
+        }
     }
 }

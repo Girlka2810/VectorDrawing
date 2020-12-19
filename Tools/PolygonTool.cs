@@ -36,6 +36,7 @@ namespace VectorDrawing.Tools
             }
             Points = null;
             CalculateCenter();
+            _penForSearching = new Pen(Pen.Color, Pen.Width + 10);
         }
     }
 }

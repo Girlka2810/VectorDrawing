@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using VectorDrawing.Figures;
 using VectorDrawing.Figures.Parameters;
 using VectorDrawing.Figures.Returns;
@@ -16,9 +17,11 @@ namespace VectorDrawing.Tools
         public PointF Center { get; set; }
         public Pen Pen { get; private set; }
         public PointF[] EndShapePoints { get; set; }
+        public GraphicsPath Path { get; set; }
 
         protected List<PointF> Points;
         protected IFigure Figure;
+        protected Pen _penForSearching;
 
 
         public AbstractTool(List<PointF> points, Pen pen)
@@ -27,6 +30,7 @@ namespace VectorDrawing.Tools
             Points = points;
             SetPen(pen);
             EndShapePoints = new PointF[] { };
+            Path = new GraphicsPath();
         }
 
         protected AbstractTool(Pen pen)
@@ -35,6 +39,7 @@ namespace VectorDrawing.Tools
             Points = new List<PointF>();
             SetPen(pen);
             EndShapePoints = new PointF[] { };
+            Path = new GraphicsPath();
         }
 
         public virtual void Paint(Graphics graphics)
@@ -97,9 +102,14 @@ namespace VectorDrawing.Tools
             {
                 EndShapePoints = ((CommonReturn) Figure.Get(GenerateParametrs())).Points;
             }
+            if (Path.PointCount == 0)
+            {
+                Path.AddPolygon(((CommonReturn)Figure.Get(GenerateParametrs())).Points);
+            }
 
             Points = null;
             CalculateCenter();
+            _penForSearching = new Pen(Pen.Color, Pen.Width + 10);
         }
 
         public override bool Equals(object obj)
@@ -160,20 +170,24 @@ namespace VectorDrawing.Tools
             }
         }
 
-        public virtual bool ContainPoint(PointF point, IPointContainsInEdge pointContainsInEdge)
+        //public virtual bool ContainPoint(PointF point, IPointContainsInEdge pointContainsInEdge)
+        //{
+        //    PointF prevPoint = EndShapePoints[1];
+        //    foreach (PointF endPoint in EndShapePoints)
+        //    {
+        //        if (pointContainsInEdge.Contain(prevPoint, endPoint, point, Pen.Width + 10))
+        //        {
+        //            return true;
+        //        }
+
+        //        prevPoint = endPoint;
+        //    }
+
+        //    return false;
+        //}
+        public virtual bool ContainPoint(PointF point)
         {
-            PointF prevPoint = EndShapePoints[1];
-            foreach (PointF endPoint in EndShapePoints)
-            {
-                if (pointContainsInEdge.Contain(prevPoint, endPoint, point, Pen.Width + 10))
-                {
-                    return true;
-                }
-
-                prevPoint = endPoint;
-            }
-
-            return false;
+            return Path.IsOutlineVisible(point, _penForSearching);
         }
     }
 }
