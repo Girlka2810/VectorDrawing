@@ -18,9 +18,11 @@ namespace VectorDrawing.Tools.Brushes
 
         }
 
-       
+
         public override void Paint(Graphics graphics)
         {
+            Pen.EndCap = System.Drawing.Drawing2D.LineCap.Round;
+            Pen.StartCap = System.Drawing.Drawing2D.LineCap.Round;
             if (EndShapePoints.Length != 0)
             {
                 graphics.DrawPath(Pen, Path);

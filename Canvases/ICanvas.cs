@@ -15,6 +15,6 @@ namespace VectorDrawing.Canvases
         void FinishFigure();
         void UpdateBitmap();
         AbstractTool SetToolOnMouse(IContaneCalculator contaneCalculator, PointF point);
-
+        Color GetColor(PointF pointF);
     }
 }

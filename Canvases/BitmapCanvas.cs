@@ -149,7 +149,11 @@ namespace VectorDrawing.Canvases
                 _tools.Remove(tool.ID);
             }
         }
-
+        public Color GetColor(PointF pointF)
+        {
+            return
+            _mainBitmap.GetPixel((int)pointF.X,(int)pointF.Y);
+        }
       
 
     }
