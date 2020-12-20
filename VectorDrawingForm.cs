@@ -23,7 +23,7 @@ namespace VectorDrawing
         private bool _isMouseDown;
         private IAction _action;
         private IContaneCalculator _contaneCalculator;
-
+        private bool pipetteButton;
 
         public VectorDrawingForm()
         {
@@ -55,7 +55,7 @@ namespace VectorDrawing
 
             if (_action == null)
             {
-                if (_tool is IBrush && _isMouseDown)
+                if (_tool is IBrush && _isMouseDown && !pipetteButton)
                 {
                     _tool.AddPoint(e.Location);
                     _canvas.Draw(_tool);
@@ -76,7 +76,12 @@ namespace VectorDrawing
         private void OnPictureBoxMouseDown(object sender, MouseEventArgs e)
         {
             _isMouseDown = true;
-            if (_action == null)
+            if (pipetteButton)
+            {
+                PaletteButton1.BackColor = _canvas.GetColor(e.Location);
+                _tool.Pen.Color = PaletteButton1.BackColor;
+            }
+            else if (_action == null)
             {
                 _tool?.AddPoint(e.Location);
 
@@ -109,6 +114,7 @@ namespace VectorDrawing
 
         private void CreateFigure()
         {
+            pipetteButton = false;
             if (!(_factoryTool is RegularPolygonFactoryTool))
             {
                 anglesForPolygonGroupBox.Visible = false;
@@ -130,22 +136,17 @@ namespace VectorDrawing
             ThicknessValue.Text = $"{_pen.Width}";
 
         }
-
         //Выбор цвета
-       
-
         private void OnCornersNumericUpDownValueChanged(object sender, EventArgs e)
         {
             RegularPolygonTool regularPolygonTool = (RegularPolygonTool)_tool;
             regularPolygonTool.QuantityOfCorners = (int)((NumericUpDown)sender).Value;
         }
-
         private void OnClearClick(object sender, EventArgs e)
         {
             _canvas.Create(pictureBox.Width, pictureBox.Height);
             GC.Collect();
         }
-
         private void OnMoveModeButtonClick(object sender, EventArgs e)
         {
             _action = new MoveAction();
@@ -158,80 +159,67 @@ namespace VectorDrawing
             _tool = null;
             HideSubMenu();
         }
-
         private void OnChangeScaleModeButton_Click(object sender, EventArgs e)
         {
             _action = new ScaleAction();
             _tool = null;
             HideSubMenu();
         }
-
         private void OnLineButtonClick(object sender, EventArgs e)
         {
             _factoryTool = new LineFactoryTool();
             CreateFigure();
         }
-        
         private void OnBrushButtonClick(object sender, EventArgs e)
         {
             _factoryTool = new BrushFactoryTool();
             CreateFigure();
         }
-        
         private void OnNlineButtonClick(object sender, EventArgs e)
         {
             _factoryTool = new NLineFactoryTool();
             CreateFigure();
         }
-        
         private void OnRectangleButtonClick(object sender, EventArgs e)
         {
             _factoryTool = new RectangleFactoryTool();
             CreateFigure();
         }
-        
         private void OnSquareButtonClick(object sender, EventArgs e)
         {
             _factoryTool = new SquareFactoryTool();
             CreateFigure();
         }
-        
         private void OnCircleButtonClick(object sender, EventArgs e)
         {
             _factoryTool = new CircleFactoryTool();
             CreateFigure();
         }
-        
         private void OnEllipseButtonClick(object sender, EventArgs e)
         {
             _factoryTool = new EllipseFactoryTool();
             CreateFigure();
         }
-        
         private void OnRectangularTriangleButtonClick(object sender, EventArgs e)
         {
             _factoryTool = new RectangularTriangleFactoryTool();
             CreateFigure();
         }
-        
         private void OnTriangleButtonClick(object sender, EventArgs e)
         {
             _factoryTool = new TriangleFactoryTool();
             CreateFigure();
         }
-        
         private void OnIsoscelesTriangleButtonClick(object sender, EventArgs e)
         {
             _factoryTool = new IsoscelesTriangleFactoryTool();
             CreateFigure();
         }
-
         private void OnPolygonButtonClick(object sender, EventArgs e)
         {
             _factoryTool = new PolygonFactoryTool();
             CreateFigure();
         }
-        
         private void OnRegularPolygonButtonClick(object sender, EventArgs e)
         {
             _factoryTool = new RegularPolygonFactoryTool();
@@ -239,7 +227,6 @@ namespace VectorDrawing
             anglesForPolygonGroupBox.Visible = true;
             ((RegularPolygonTool)_tool).QuantityOfCorners = (int)cornerNumericUpDown.Value;
         }
-        
         private void OnPictureBoxMouseDoubleClick(object sender, MouseEventArgs e)
         {
             if (_action == null)
@@ -250,7 +237,6 @@ namespace VectorDrawing
                 CreateFigure();
             }
         }
-
         private void OnSaveButtonClick(object sender, EventArgs e)
         {
             if (pictureBox.Image!=null)
@@ -275,17 +261,11 @@ namespace VectorDrawing
                 }
             }
         }
-
-        
-
         private void OnPictureBoxSizeChanged(object sender, EventArgs e)
         {
             _canvas.Create(pictureBox.Width, pictureBox.Height);
             _canvas.UpdateBitmap();
         }
-        
-        
-        
         private void CustomizeDesing()
         {
             panelTools.Visible = false;
@@ -309,7 +289,6 @@ namespace VectorDrawing
         {
             if (panelTools.Visible == false)
             {
-               
                 HideSubMenu();
                 subMenu.Visible = true;
             }
@@ -328,9 +307,7 @@ namespace VectorDrawing
         {
             if(panelTools.Visible==true)
             {
-                
                 HideSubMenu();
-                
                 return;
             }
             ShowSubMenu(panelTools);
@@ -359,7 +336,6 @@ namespace VectorDrawing
         {
             if (colorDialog.ShowDialog() == DialogResult.OK)
             {
-                //_pen.Color = colorDialog.Color;
                 PaletteButton2.BackColor = colorDialog.Color;
             }
         }
@@ -374,7 +350,7 @@ namespace VectorDrawing
 
         private void PipetteButton_Click(object sender, EventArgs e)
         {
-            PaletteButton1.BackColor =;
+            pipetteButton = true;
         }
     }
 }
