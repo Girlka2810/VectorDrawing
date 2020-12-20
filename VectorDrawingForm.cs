@@ -9,6 +9,7 @@ using VectorDrawing.Tools.Polygons;
 using VectorDrawing.Actions;
 using VectorDrawing.Actions.ContainCalculater;
 using System.Threading;
+using System.Threading.Tasks;
 
 
 namespace VectorDrawing
@@ -275,13 +276,11 @@ namespace VectorDrawing
         {
             if (panelTools.Visible)
             {
-                Thread.Sleep(150);
-                panelTools.Visible = false; 
+                panelTools.Visible = false;
             }
 
             if (panelVectorChanges.Visible)
             {
-                Thread.Sleep(150);
                 panelVectorChanges.Visible = false; 
             }
         }
