@@ -103,7 +103,6 @@
     <Compile Include="Tools\Lines\AbstractLine.cs" />
     <Compile Include="Tools\Lines\SingleLine.cs" />
     <Compile Include="Tools\Lines\NLine.cs" />
-    <Compile Include="Actions\ColorTools\PipetteTool.cs" />
     <Compile Include="Tools\PolygonTool.cs" />
     <Compile Include="Tools\Polygons\AbstractPolygon.cs" />
     <Compile Include="Tools\Polygons\RegularPolygonTool.cs" />
