@@ -651,10 +651,14 @@ namespace VectorDrawing
             // Coordinates
             // 
             this.Coordinates.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.Coordinates.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Coordinates.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Coordinates.Enabled = false;
             this.Coordinates.Font = new System.Drawing.Font("Footlight MT Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Coordinates.ForeColor = System.Drawing.SystemColors.MenuText;
             this.Coordinates.Location = new System.Drawing.Point(1054, 576);
             this.Coordinates.Name = "Coordinates";
+            this.Coordinates.ReadOnly = true;
             this.Coordinates.Size = new System.Drawing.Size(126, 14);
             this.Coordinates.TabIndex = 21;
             // 
