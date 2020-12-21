@@ -15,9 +15,7 @@ namespace VectorDrawing.Canvases
         private Dictionary<string, AbstractTool> _tools;
         private Color _backColor;
         private AbstractTool _tool;
-        List<Bitmap> bitmapList;
-        int m;
-        public Bitmap Bmp { get; set; }
+        
         public BitmapCanvas()
         {
  
@@ -163,28 +161,7 @@ namespace VectorDrawing.Canvases
             Graphics graphics = Graphics.FromImage(_mainBitmap);
             graphics.FillPath(brush, tool.Path);
         }
-        public void Undo(PictureBox a)
-        {
-            if (m > 0)
-            {
-                m = m - 2;
-                Bmp = bitmapList[m];
-                WriteToPictureBox(a);
-            }
-        }
-        public void Redo(PictureBox a)
-        {
-            if (m < bitmapList.Count - 1)
-            {
-                m = m + 2;
-                Bmp = bitmapList[m];
-                WriteToPictureBox(a);
-            }
-        }
-        public void WriteToPictureBox(PictureBox pb)
-        {
-            pb.Image = Bmp;
-        }
+       
 
     }
 }

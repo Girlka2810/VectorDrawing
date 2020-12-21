@@ -288,13 +288,11 @@ namespace VectorDrawing
         {
             if (panelTools.Visible)
             {
-                Thread.Sleep(150);
                 panelTools.Visible = false; 
             }
 
             if (panelVectorChanges.Visible)
             {
-                Thread.Sleep(150);
                 panelVectorChanges.Visible = false; 
             }
         }
@@ -328,6 +326,11 @@ namespace VectorDrawing
 
         private void OnChangeFigureButtonClick(object sender, EventArgs e)
         {
+            if (panelVectorChanges.Visible == true)
+            {
+                HideSubMenu();
+                return;
+            }
             ShowSubMenu(panelVectorChanges);
         }
 
@@ -376,10 +379,6 @@ namespace VectorDrawing
             eraseButton = true;
         }
 
-        private void OnUndoButton_Click(object sender, EventArgs e)
-        {
-            if (Bitmap == Canvases.BitmapCanvas)
-                BitmapCanvas.Undo(pictureBox);
-        }
+       
     }
 }

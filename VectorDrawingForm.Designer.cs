@@ -37,11 +37,32 @@ namespace VectorDrawing
             this.label2 = new System.Windows.Forms.Label();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.panelSideMenu = new System.Windows.Forms.Panel();
+            this.clearButton = new System.Windows.Forms.Button();
             this.panelVectorChanges = new System.Windows.Forms.Panel();
+            this.AddTopModeButton = new System.Windows.Forms.Button();
+            this.TopMoveModeButton = new System.Windows.Forms.Button();
+            this.SideMoveModeButon = new System.Windows.Forms.Button();
+            this.ChangeScaleModeButton = new System.Windows.Forms.Button();
+            this.ChangeRadiusModeButton = new System.Windows.Forms.Button();
+            this.RotateModeButton = new System.Windows.Forms.Button();
+            this.moveModeButton = new System.Windows.Forms.Button();
             this.ChangeFigureButton = new System.Windows.Forms.Button();
             this.panelTools = new System.Windows.Forms.Panel();
+            this.brushButton = new System.Windows.Forms.Button();
+            this.lineButton = new System.Windows.Forms.Button();
+            this.nlineButton = new System.Windows.Forms.Button();
+            this.rectangleButton = new System.Windows.Forms.Button();
+            this.squareButton = new System.Windows.Forms.Button();
+            this.circleButton = new System.Windows.Forms.Button();
+            this.ellipseButton = new System.Windows.Forms.Button();
+            this.rectangularTriangleButton = new System.Windows.Forms.Button();
+            this.triangleButton = new System.Windows.Forms.Button();
+            this.isoscelesTriangleButton = new System.Windows.Forms.Button();
+            this.regularPolygonButton = new System.Windows.Forms.Button();
+            this.polygonButton = new System.Windows.Forms.Button();
             this.ToolsButton = new System.Windows.Forms.Button();
             this.panelLogo = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
             this.Coordinates = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.ThicknessValue = new System.Windows.Forms.Label();
@@ -58,27 +79,6 @@ namespace VectorDrawing
             this.ChangeColorButton = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.EraiseButton = new System.Windows.Forms.Button();
-            this.clearButton = new System.Windows.Forms.Button();
-            this.AddTopModeButton = new System.Windows.Forms.Button();
-            this.TopMoveModeButton = new System.Windows.Forms.Button();
-            this.SideMoveModeButon = new System.Windows.Forms.Button();
-            this.ChangeScaleModeButton = new System.Windows.Forms.Button();
-            this.ChangeRadiusModeButton = new System.Windows.Forms.Button();
-            this.RotateModeButton = new System.Windows.Forms.Button();
-            this.moveModeButton = new System.Windows.Forms.Button();
-            this.brushButton = new System.Windows.Forms.Button();
-            this.lineButton = new System.Windows.Forms.Button();
-            this.nlineButton = new System.Windows.Forms.Button();
-            this.rectangleButton = new System.Windows.Forms.Button();
-            this.squareButton = new System.Windows.Forms.Button();
-            this.circleButton = new System.Windows.Forms.Button();
-            this.ellipseButton = new System.Windows.Forms.Button();
-            this.rectangularTriangleButton = new System.Windows.Forms.Button();
-            this.triangleButton = new System.Windows.Forms.Button();
-            this.isoscelesTriangleButton = new System.Windows.Forms.Button();
-            this.regularPolygonButton = new System.Windows.Forms.Button();
-            this.polygonButton = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.saveButton = new System.Windows.Forms.Button();
             this.pictureBox = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.thickness)).BeginInit();
@@ -159,273 +159,6 @@ namespace VectorDrawing
             this.panelSideMenu.Size = new System.Drawing.Size(266, 605);
             this.panelSideMenu.TabIndex = 20;
             // 
-            // panelVectorChanges
-            // 
-            this.panelVectorChanges.Controls.Add(this.AddTopModeButton);
-            this.panelVectorChanges.Controls.Add(this.TopMoveModeButton);
-            this.panelVectorChanges.Controls.Add(this.SideMoveModeButon);
-            this.panelVectorChanges.Controls.Add(this.ChangeScaleModeButton);
-            this.panelVectorChanges.Controls.Add(this.ChangeRadiusModeButton);
-            this.panelVectorChanges.Controls.Add(this.RotateModeButton);
-            this.panelVectorChanges.Controls.Add(this.moveModeButton);
-            this.panelVectorChanges.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelVectorChanges.Location = new System.Drawing.Point(0, 621);
-            this.panelVectorChanges.Name = "panelVectorChanges";
-            this.panelVectorChanges.Size = new System.Drawing.Size(249, 275);
-            this.panelVectorChanges.TabIndex = 15;
-            // 
-            // ChangeFigureButton
-            // 
-            this.ChangeFigureButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.ChangeFigureButton.FlatAppearance.BorderSize = 0;
-            this.ChangeFigureButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ChangeFigureButton.Font = new System.Drawing.Font("Footlight MT Light", 16F, System.Drawing.FontStyle.Bold);
-            this.ChangeFigureButton.ForeColor = System.Drawing.Color.Navy;
-            this.ChangeFigureButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ChangeFigureButton.Location = new System.Drawing.Point(0, 585);
-            this.ChangeFigureButton.Name = "ChangeFigureButton";
-            this.ChangeFigureButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.ChangeFigureButton.Size = new System.Drawing.Size(249, 36);
-            this.ChangeFigureButton.TabIndex = 14;
-            this.ChangeFigureButton.Text = "Изменение фигур";
-            this.ChangeFigureButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.ChangeFigureButton.UseVisualStyleBackColor = true;
-            this.ChangeFigureButton.Click += new System.EventHandler(this.OnChangeFigureButtonClick);
-            // 
-            // panelTools
-            // 
-            this.panelTools.Controls.Add(this.brushButton);
-            this.panelTools.Controls.Add(this.lineButton);
-            this.panelTools.Controls.Add(this.nlineButton);
-            this.panelTools.Controls.Add(this.rectangleButton);
-            this.panelTools.Controls.Add(this.squareButton);
-            this.panelTools.Controls.Add(this.circleButton);
-            this.panelTools.Controls.Add(this.ellipseButton);
-            this.panelTools.Controls.Add(this.rectangularTriangleButton);
-            this.panelTools.Controls.Add(this.triangleButton);
-            this.panelTools.Controls.Add(this.isoscelesTriangleButton);
-            this.panelTools.Controls.Add(this.regularPolygonButton);
-            this.panelTools.Controls.Add(this.polygonButton);
-            this.panelTools.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelTools.Location = new System.Drawing.Point(0, 104);
-            this.panelTools.Name = "panelTools";
-            this.panelTools.Size = new System.Drawing.Size(249, 481);
-            this.panelTools.TabIndex = 13;
-            // 
-            // ToolsButton
-            // 
-            this.ToolsButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.ToolsButton.FlatAppearance.BorderSize = 0;
-            this.ToolsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ToolsButton.Font = new System.Drawing.Font("Footlight MT Light", 16F, System.Drawing.FontStyle.Bold);
-            this.ToolsButton.ForeColor = System.Drawing.Color.Navy;
-            this.ToolsButton.Location = new System.Drawing.Point(0, 68);
-            this.ToolsButton.Name = "ToolsButton";
-            this.ToolsButton.Size = new System.Drawing.Size(249, 36);
-            this.ToolsButton.TabIndex = 0;
-            this.ToolsButton.Text = "Инструменты";
-            this.ToolsButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ToolsButton.UseVisualStyleBackColor = true;
-            this.ToolsButton.Click += new System.EventHandler(this.OnToolsButtonClick);
-            // 
-            // panelLogo
-            // 
-            this.panelLogo.Controls.Add(this.button2);
-            this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelLogo.Location = new System.Drawing.Point(0, 0);
-            this.panelLogo.Name = "panelLogo";
-            this.panelLogo.Size = new System.Drawing.Size(249, 68);
-            this.panelLogo.TabIndex = 12;
-            // 
-            // Coordinates
-            // 
-            this.Coordinates.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.Coordinates.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Coordinates.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.Coordinates.Enabled = false;
-            this.Coordinates.Font = new System.Drawing.Font("Footlight MT Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Coordinates.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.Coordinates.Location = new System.Drawing.Point(1054, 576);
-            this.Coordinates.Name = "Coordinates";
-            this.Coordinates.ReadOnly = true;
-            this.Coordinates.Size = new System.Drawing.Size(126, 14);
-            this.Coordinates.TabIndex = 21;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.LightCyan;
-            this.label3.Font = new System.Drawing.Font("Footlight MT Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Navy;
-            this.label3.Location = new System.Drawing.Point(638, 44);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(98, 18);
-            this.label3.TabIndex = 23;
-            this.label3.Text = "Толщина линии";
-            // 
-            // ThicknessValue
-            // 
-            this.ThicknessValue.AutoSize = true;
-            this.ThicknessValue.BackColor = System.Drawing.Color.LightCyan;
-            this.ThicknessValue.Font = new System.Drawing.Font("Footlight MT Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ThicknessValue.ForeColor = System.Drawing.Color.Navy;
-            this.ThicknessValue.Location = new System.Drawing.Point(772, 44);
-            this.ThicknessValue.Name = "ThicknessValue";
-            this.ThicknessValue.Size = new System.Drawing.Size(17, 18);
-            this.ThicknessValue.TabIndex = 24;
-            this.ThicknessValue.Text = "1";
-            // 
-            // thicknessBar
-            // 
-            this.thicknessBar.BackColor = System.Drawing.Color.LightCyan;
-            this.thicknessBar.Cursor = System.Windows.Forms.Cursors.SizeWE;
-            this.thicknessBar.LargeChange = 1;
-            this.thicknessBar.Location = new System.Drawing.Point(642, 3);
-            this.thicknessBar.Maximum = 25;
-            this.thicknessBar.Minimum = 1;
-            this.thicknessBar.Name = "thicknessBar";
-            this.thicknessBar.Size = new System.Drawing.Size(193, 45);
-            this.thicknessBar.TabIndex = 22;
-            this.thicknessBar.TickStyle = System.Windows.Forms.TickStyle.TopLeft;
-            this.thicknessBar.Value = 1;
-            this.thicknessBar.Scroll += new System.EventHandler(this.OnThicknessValueChanged);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.LightCyan;
-            this.label4.Font = new System.Drawing.Font("Footlight MT Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.Navy;
-            this.label4.Location = new System.Drawing.Point(796, 44);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(25, 18);
-            this.label4.TabIndex = 25;
-            this.label4.Text = "px";
-            // 
-            // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Footlight MT Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Navy;
-            this.label1.Location = new System.Drawing.Point(902, 573);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(128, 18);
-            this.label1.TabIndex = 31;
-            this.label1.Text = "Положение курсора:";
-            // 
-            // colorFrontButton
-            // 
-            this.colorFrontButton.Location = new System.Drawing.Point(0, 0);
-            this.colorFrontButton.Name = "colorFrontButton";
-            this.colorFrontButton.Size = new System.Drawing.Size(87, 25);
-            this.colorFrontButton.TabIndex = 35;
-            // 
-            // PaletteButton2
-            // 
-            this.PaletteButton2.BackColor = System.Drawing.Color.White;
-            this.PaletteButton2.Location = new System.Drawing.Point(314, 27);
-            this.PaletteButton2.Name = "PaletteButton2";
-            this.PaletteButton2.Size = new System.Drawing.Size(44, 41);
-            this.PaletteButton2.TabIndex = 32;
-            this.PaletteButton2.UseVisualStyleBackColor = false;
-            this.PaletteButton2.Click += new System.EventHandler(this.OnPaletteButton2_Click);
-            // 
-            // PaletteButton1
-            // 
-            this.PaletteButton1.BackColor = System.Drawing.Color.Black;
-            this.PaletteButton1.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.PaletteButton1.Location = new System.Drawing.Point(287, 0);
-            this.PaletteButton1.Name = "PaletteButton1";
-            this.PaletteButton1.Size = new System.Drawing.Size(44, 41);
-            this.PaletteButton1.TabIndex = 33;
-            this.PaletteButton1.UseVisualStyleBackColor = false;
-            this.PaletteButton1.Click += new System.EventHandler(this.OnPaletteButton1_Click);
-            // 
-            // redoButton
-            // 
-            this.redoButton.FlatAppearance.BorderSize = 0;
-            this.redoButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.redoButton.Image = global::VectorDrawing.Properties.Resources.redo;
-            this.redoButton.Location = new System.Drawing.Point(552, 18);
-            this.redoButton.Name = "redoButton";
-            this.redoButton.Size = new System.Drawing.Size(47, 43);
-            this.redoButton.TabIndex = 39;
-            this.redoButton.UseVisualStyleBackColor = true;
-            // 
-            // UndoButton
-            // 
-            this.UndoButton.FlatAppearance.BorderSize = 0;
-            this.UndoButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.UndoButton.Image = global::VectorDrawing.Properties.Resources.undo;
-            this.UndoButton.Location = new System.Drawing.Point(505, 18);
-            this.UndoButton.Name = "UndoButton";
-            this.UndoButton.Size = new System.Drawing.Size(47, 43);
-            this.UndoButton.TabIndex = 38;
-            this.UndoButton.UseVisualStyleBackColor = true;
-            this.UndoButton.Click += new System.EventHandler(this.OnUndoButton_Click);
-            // 
-            // FillColorButton
-            // 
-            this.FillColorButton.FlatAppearance.BorderSize = 0;
-            this.FillColorButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.FillColorButton.Image = global::VectorDrawing.Properties.Resources.FillColor;
-            this.FillColorButton.Location = new System.Drawing.Point(411, 18);
-            this.FillColorButton.Name = "FillColorButton";
-            this.FillColorButton.Size = new System.Drawing.Size(47, 43);
-            this.FillColorButton.TabIndex = 37;
-            this.FillColorButton.UseVisualStyleBackColor = true;
-            this.FillColorButton.Click += new System.EventHandler(this.OnFillButton_Click);
-            // 
-            // PipetteButton
-            // 
-            this.PipetteButton.FlatAppearance.BorderSize = 0;
-            this.PipetteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.PipetteButton.Image = global::VectorDrawing.Properties.Resources.Pipette;
-            this.PipetteButton.Location = new System.Drawing.Point(364, 18);
-            this.PipetteButton.Name = "PipetteButton";
-            this.PipetteButton.Size = new System.Drawing.Size(47, 43);
-            this.PipetteButton.TabIndex = 36;
-            this.PipetteButton.UseVisualStyleBackColor = true;
-            this.PipetteButton.Click += new System.EventHandler(this.PipetteButton_Click);
-            // 
-            // ChangeColorButton
-            // 
-            this.ChangeColorButton.BackColor = System.Drawing.Color.Transparent;
-            this.ChangeColorButton.FlatAppearance.BorderSize = 0;
-            this.ChangeColorButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ChangeColorButton.Image = global::VectorDrawing.Properties.Resources.icons8_left_up2_filled1;
-            this.ChangeColorButton.Location = new System.Drawing.Point(287, 41);
-            this.ChangeColorButton.Name = "ChangeColorButton";
-            this.ChangeColorButton.Size = new System.Drawing.Size(28, 26);
-            this.ChangeColorButton.TabIndex = 34;
-            this.ChangeColorButton.UseVisualStyleBackColor = false;
-            this.ChangeColorButton.Click += new System.EventHandler(this.OnChangeColorButton_Click);
-            // 
-            // button1
-            // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Image = global::VectorDrawing.Properties.Resources.Download;
-            this.button1.Location = new System.Drawing.Point(1078, 18);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(47, 43);
-            this.button1.TabIndex = 30;
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // EraiseButton
-            // 
-            this.EraiseButton.FlatAppearance.BorderSize = 0;
-            this.EraiseButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.EraiseButton.Image = global::VectorDrawing.Properties.Resources.Erase;
-            this.EraiseButton.Location = new System.Drawing.Point(458, 18);
-            this.EraiseButton.Name = "EraiseButton";
-            this.EraiseButton.Size = new System.Drawing.Size(47, 43);
-            this.EraiseButton.TabIndex = 29;
-            this.EraiseButton.UseVisualStyleBackColor = true;
-            this.EraiseButton.Click += new System.EventHandler(this.OnEraiseButton_Click);
-            // 
             // clearButton
             // 
             this.clearButton.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -443,6 +176,21 @@ namespace VectorDrawing
             this.clearButton.Text = "Очистить";
             this.clearButton.UseVisualStyleBackColor = true;
             this.clearButton.Click += new System.EventHandler(this.OnClearClick);
+            // 
+            // panelVectorChanges
+            // 
+            this.panelVectorChanges.Controls.Add(this.AddTopModeButton);
+            this.panelVectorChanges.Controls.Add(this.TopMoveModeButton);
+            this.panelVectorChanges.Controls.Add(this.SideMoveModeButon);
+            this.panelVectorChanges.Controls.Add(this.ChangeScaleModeButton);
+            this.panelVectorChanges.Controls.Add(this.ChangeRadiusModeButton);
+            this.panelVectorChanges.Controls.Add(this.RotateModeButton);
+            this.panelVectorChanges.Controls.Add(this.moveModeButton);
+            this.panelVectorChanges.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelVectorChanges.Location = new System.Drawing.Point(0, 621);
+            this.panelVectorChanges.Name = "panelVectorChanges";
+            this.panelVectorChanges.Size = new System.Drawing.Size(249, 275);
+            this.panelVectorChanges.TabIndex = 15;
             // 
             // AddTopModeButton
             // 
@@ -572,6 +320,44 @@ namespace VectorDrawing
             this.moveModeButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.moveModeButton.UseVisualStyleBackColor = true;
             this.moveModeButton.Click += new System.EventHandler(this.OnMoveModeButtonClick);
+            // 
+            // ChangeFigureButton
+            // 
+            this.ChangeFigureButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ChangeFigureButton.FlatAppearance.BorderSize = 0;
+            this.ChangeFigureButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ChangeFigureButton.Font = new System.Drawing.Font("Footlight MT Light", 16F, System.Drawing.FontStyle.Bold);
+            this.ChangeFigureButton.ForeColor = System.Drawing.Color.Navy;
+            this.ChangeFigureButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ChangeFigureButton.Location = new System.Drawing.Point(0, 585);
+            this.ChangeFigureButton.Name = "ChangeFigureButton";
+            this.ChangeFigureButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.ChangeFigureButton.Size = new System.Drawing.Size(249, 36);
+            this.ChangeFigureButton.TabIndex = 14;
+            this.ChangeFigureButton.Text = "Изменение фигур";
+            this.ChangeFigureButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.ChangeFigureButton.UseVisualStyleBackColor = true;
+            this.ChangeFigureButton.Click += new System.EventHandler(this.OnChangeFigureButtonClick);
+            // 
+            // panelTools
+            // 
+            this.panelTools.Controls.Add(this.brushButton);
+            this.panelTools.Controls.Add(this.lineButton);
+            this.panelTools.Controls.Add(this.nlineButton);
+            this.panelTools.Controls.Add(this.rectangleButton);
+            this.panelTools.Controls.Add(this.squareButton);
+            this.panelTools.Controls.Add(this.circleButton);
+            this.panelTools.Controls.Add(this.ellipseButton);
+            this.panelTools.Controls.Add(this.rectangularTriangleButton);
+            this.panelTools.Controls.Add(this.triangleButton);
+            this.panelTools.Controls.Add(this.isoscelesTriangleButton);
+            this.panelTools.Controls.Add(this.regularPolygonButton);
+            this.panelTools.Controls.Add(this.polygonButton);
+            this.panelTools.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelTools.Location = new System.Drawing.Point(0, 104);
+            this.panelTools.Name = "panelTools";
+            this.panelTools.Size = new System.Drawing.Size(249, 481);
+            this.panelTools.TabIndex = 13;
             // 
             // brushButton
             // 
@@ -827,6 +613,31 @@ namespace VectorDrawing
             this.polygonButton.UseVisualStyleBackColor = true;
             this.polygonButton.Click += new System.EventHandler(this.OnPolygonButtonClick);
             // 
+            // ToolsButton
+            // 
+            this.ToolsButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ToolsButton.FlatAppearance.BorderSize = 0;
+            this.ToolsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ToolsButton.Font = new System.Drawing.Font("Footlight MT Light", 16F, System.Drawing.FontStyle.Bold);
+            this.ToolsButton.ForeColor = System.Drawing.Color.Navy;
+            this.ToolsButton.Location = new System.Drawing.Point(0, 68);
+            this.ToolsButton.Name = "ToolsButton";
+            this.ToolsButton.Size = new System.Drawing.Size(249, 36);
+            this.ToolsButton.TabIndex = 0;
+            this.ToolsButton.Text = "Инструменты";
+            this.ToolsButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ToolsButton.UseVisualStyleBackColor = true;
+            this.ToolsButton.Click += new System.EventHandler(this.OnToolsButtonClick);
+            // 
+            // panelLogo
+            // 
+            this.panelLogo.Controls.Add(this.button2);
+            this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelLogo.Location = new System.Drawing.Point(0, 0);
+            this.panelLogo.Name = "panelLogo";
+            this.panelLogo.Size = new System.Drawing.Size(249, 68);
+            this.panelLogo.TabIndex = 12;
+            // 
             // button2
             // 
             this.button2.Dock = System.Windows.Forms.DockStyle.Top;
@@ -838,6 +649,196 @@ namespace VectorDrawing
             this.button2.Size = new System.Drawing.Size(249, 68);
             this.button2.TabIndex = 0;
             this.button2.UseVisualStyleBackColor = true;
+            // 
+            // Coordinates
+            // 
+            this.Coordinates.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.Coordinates.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.Coordinates.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Coordinates.Enabled = false;
+            this.Coordinates.Font = new System.Drawing.Font("Footlight MT Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Coordinates.ForeColor = System.Drawing.SystemColors.MenuText;
+            this.Coordinates.Location = new System.Drawing.Point(1054, 576);
+            this.Coordinates.Name = "Coordinates";
+            this.Coordinates.ReadOnly = true;
+            this.Coordinates.Size = new System.Drawing.Size(126, 14);
+            this.Coordinates.TabIndex = 21;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.LightCyan;
+            this.label3.Font = new System.Drawing.Font("Footlight MT Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Navy;
+            this.label3.Location = new System.Drawing.Point(638, 44);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(98, 18);
+            this.label3.TabIndex = 23;
+            this.label3.Text = "Толщина линии";
+            // 
+            // ThicknessValue
+            // 
+            this.ThicknessValue.AutoSize = true;
+            this.ThicknessValue.BackColor = System.Drawing.Color.LightCyan;
+            this.ThicknessValue.Font = new System.Drawing.Font("Footlight MT Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ThicknessValue.ForeColor = System.Drawing.Color.Navy;
+            this.ThicknessValue.Location = new System.Drawing.Point(772, 44);
+            this.ThicknessValue.Name = "ThicknessValue";
+            this.ThicknessValue.Size = new System.Drawing.Size(17, 18);
+            this.ThicknessValue.TabIndex = 24;
+            this.ThicknessValue.Text = "1";
+            // 
+            // thicknessBar
+            // 
+            this.thicknessBar.BackColor = System.Drawing.Color.LightCyan;
+            this.thicknessBar.Cursor = System.Windows.Forms.Cursors.SizeWE;
+            this.thicknessBar.LargeChange = 1;
+            this.thicknessBar.Location = new System.Drawing.Point(642, 3);
+            this.thicknessBar.Maximum = 25;
+            this.thicknessBar.Minimum = 1;
+            this.thicknessBar.Name = "thicknessBar";
+            this.thicknessBar.Size = new System.Drawing.Size(193, 45);
+            this.thicknessBar.TabIndex = 22;
+            this.thicknessBar.TickStyle = System.Windows.Forms.TickStyle.TopLeft;
+            this.thicknessBar.Value = 1;
+            this.thicknessBar.Scroll += new System.EventHandler(this.OnThicknessValueChanged);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.LightCyan;
+            this.label4.Font = new System.Drawing.Font("Footlight MT Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Navy;
+            this.label4.Location = new System.Drawing.Point(796, 44);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(25, 18);
+            this.label4.TabIndex = 25;
+            this.label4.Text = "px";
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Footlight MT Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Navy;
+            this.label1.Location = new System.Drawing.Point(902, 573);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(128, 18);
+            this.label1.TabIndex = 31;
+            this.label1.Text = "Положение курсора:";
+            // 
+            // colorFrontButton
+            // 
+            this.colorFrontButton.Location = new System.Drawing.Point(0, 0);
+            this.colorFrontButton.Name = "colorFrontButton";
+            this.colorFrontButton.Size = new System.Drawing.Size(87, 25);
+            this.colorFrontButton.TabIndex = 35;
+            // 
+            // PaletteButton2
+            // 
+            this.PaletteButton2.BackColor = System.Drawing.Color.White;
+            this.PaletteButton2.Location = new System.Drawing.Point(314, 27);
+            this.PaletteButton2.Name = "PaletteButton2";
+            this.PaletteButton2.Size = new System.Drawing.Size(44, 41);
+            this.PaletteButton2.TabIndex = 32;
+            this.PaletteButton2.UseVisualStyleBackColor = false;
+            this.PaletteButton2.Click += new System.EventHandler(this.OnPaletteButton2_Click);
+            // 
+            // PaletteButton1
+            // 
+            this.PaletteButton1.BackColor = System.Drawing.Color.Black;
+            this.PaletteButton1.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.PaletteButton1.Location = new System.Drawing.Point(287, 0);
+            this.PaletteButton1.Name = "PaletteButton1";
+            this.PaletteButton1.Size = new System.Drawing.Size(44, 41);
+            this.PaletteButton1.TabIndex = 33;
+            this.PaletteButton1.UseVisualStyleBackColor = false;
+            this.PaletteButton1.Click += new System.EventHandler(this.OnPaletteButton1_Click);
+            // 
+            // redoButton
+            // 
+            this.redoButton.FlatAppearance.BorderSize = 0;
+            this.redoButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.redoButton.Image = global::VectorDrawing.Properties.Resources.redo;
+            this.redoButton.Location = new System.Drawing.Point(552, 18);
+            this.redoButton.Name = "redoButton";
+            this.redoButton.Size = new System.Drawing.Size(47, 43);
+            this.redoButton.TabIndex = 39;
+            this.redoButton.UseVisualStyleBackColor = true;
+            this.redoButton.Visible = false;
+            // 
+            // UndoButton
+            // 
+            this.UndoButton.FlatAppearance.BorderSize = 0;
+            this.UndoButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.UndoButton.Image = global::VectorDrawing.Properties.Resources.undo;
+            this.UndoButton.Location = new System.Drawing.Point(505, 18);
+            this.UndoButton.Name = "UndoButton";
+            this.UndoButton.Size = new System.Drawing.Size(47, 43);
+            this.UndoButton.TabIndex = 38;
+            this.UndoButton.UseVisualStyleBackColor = true;
+            this.UndoButton.Visible = false;
+            // 
+            // FillColorButton
+            // 
+            this.FillColorButton.FlatAppearance.BorderSize = 0;
+            this.FillColorButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.FillColorButton.Image = global::VectorDrawing.Properties.Resources.FillColor;
+            this.FillColorButton.Location = new System.Drawing.Point(411, 18);
+            this.FillColorButton.Name = "FillColorButton";
+            this.FillColorButton.Size = new System.Drawing.Size(47, 43);
+            this.FillColorButton.TabIndex = 37;
+            this.FillColorButton.UseVisualStyleBackColor = true;
+            this.FillColorButton.Click += new System.EventHandler(this.OnFillButton_Click);
+            // 
+            // PipetteButton
+            // 
+            this.PipetteButton.FlatAppearance.BorderSize = 0;
+            this.PipetteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PipetteButton.Image = global::VectorDrawing.Properties.Resources.Pipette;
+            this.PipetteButton.Location = new System.Drawing.Point(364, 18);
+            this.PipetteButton.Name = "PipetteButton";
+            this.PipetteButton.Size = new System.Drawing.Size(47, 43);
+            this.PipetteButton.TabIndex = 36;
+            this.PipetteButton.UseVisualStyleBackColor = true;
+            this.PipetteButton.Click += new System.EventHandler(this.PipetteButton_Click);
+            // 
+            // ChangeColorButton
+            // 
+            this.ChangeColorButton.BackColor = System.Drawing.Color.Transparent;
+            this.ChangeColorButton.FlatAppearance.BorderSize = 0;
+            this.ChangeColorButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ChangeColorButton.Image = global::VectorDrawing.Properties.Resources.icons8_left_up2_filled1;
+            this.ChangeColorButton.Location = new System.Drawing.Point(287, 41);
+            this.ChangeColorButton.Name = "ChangeColorButton";
+            this.ChangeColorButton.Size = new System.Drawing.Size(28, 26);
+            this.ChangeColorButton.TabIndex = 34;
+            this.ChangeColorButton.UseVisualStyleBackColor = false;
+            this.ChangeColorButton.Click += new System.EventHandler(this.OnChangeColorButton_Click);
+            // 
+            // button1
+            // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Image = global::VectorDrawing.Properties.Resources.Download;
+            this.button1.Location = new System.Drawing.Point(1078, 18);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(47, 43);
+            this.button1.TabIndex = 30;
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // EraiseButton
+            // 
+            this.EraiseButton.FlatAppearance.BorderSize = 0;
+            this.EraiseButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.EraiseButton.Image = global::VectorDrawing.Properties.Resources.Erase;
+            this.EraiseButton.Location = new System.Drawing.Point(458, 18);
+            this.EraiseButton.Name = "EraiseButton";
+            this.EraiseButton.Size = new System.Drawing.Size(47, 43);
+            this.EraiseButton.TabIndex = 29;
+            this.EraiseButton.UseVisualStyleBackColor = true;
+            this.EraiseButton.Click += new System.EventHandler(this.OnEraiseButton_Click);
             // 
             // saveButton
             // 
