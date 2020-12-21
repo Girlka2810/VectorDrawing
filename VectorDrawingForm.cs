@@ -375,5 +375,11 @@ namespace VectorDrawing
         {
             eraseButton = true;
         }
+
+        private void OnUndoButton_Click(object sender, EventArgs e)
+        {
+            if (Bitmap == Canvases.BitmapCanvas)
+                BitmapCanvas.Undo(pictureBox);
+        }
     }
 }

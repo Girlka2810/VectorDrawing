@@ -222,6 +222,8 @@
     <Content Include="Icons\Save2.png" />
     <Content Include="Icons\Square.png" />
     <Content Include="Icons\Triangle.png" />
+    <None Include="Resources\redo.png" />
+    <None Include="Resources\undo.png" />
     <None Include="Resources\icons8-left_up2_filled1.png" />
     <None Include="Resources\Rotate1.png" />
     <None Include="Resources\Clear1.png" />
