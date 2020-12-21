@@ -75,10 +75,10 @@ namespace VectorDrawing
             this.ChangeColorButton = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.EraiseButton = new System.Windows.Forms.Button();
-            this.PipetteButton = new System.Windows.Forms.Button();
-            this.FillButton = new System.Windows.Forms.Button();
             this.saveButton = new System.Windows.Forms.Button();
             this.pictureBox = new System.Windows.Forms.PictureBox();
+            this.PipetteButton = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.thickness)).BeginInit();
             this.anglesForPolygonGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cornerNumericUpDown)).BeginInit();
@@ -790,30 +790,6 @@ namespace VectorDrawing
             this.EraiseButton.UseVisualStyleBackColor = true;
             this.EraiseButton.Click += new System.EventHandler(this.OnEraiseButton_Click);
             // 
-            // PipetteButton
-            // 
-            this.PipetteButton.FlatAppearance.BorderSize = 0;
-            this.PipetteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.PipetteButton.Image = global::VectorDrawing.Properties.Resources.Pipette;
-            this.PipetteButton.Location = new System.Drawing.Point(431, 20);
-            this.PipetteButton.Name = "PipetteButton";
-            this.PipetteButton.Size = new System.Drawing.Size(47, 43);
-            this.PipetteButton.TabIndex = 28;
-            this.PipetteButton.UseVisualStyleBackColor = true;
-            this.PipetteButton.Click += new System.EventHandler(this.PipetteButton_Click);
-            // 
-            // FillButton
-            // 
-            this.FillButton.FlatAppearance.BorderSize = 0;
-            this.FillButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.FillButton.Image = global::VectorDrawing.Properties.Resources.FillColor;
-            this.FillButton.Location = new System.Drawing.Point(376, 22);
-            this.FillButton.Name = "FillButton";
-            this.FillButton.Size = new System.Drawing.Size(47, 43);
-            this.FillButton.TabIndex = 27;
-            this.FillButton.UseVisualStyleBackColor = true;
-            this.FillButton.Click += new System.EventHandler(this.OnFillButton_Click);
-            // 
             // saveButton
             // 
             this.saveButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -848,6 +824,29 @@ namespace VectorDrawing
             this.pictureBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.OnPictureBoxMouseMove);
             this.pictureBox.MouseUp += new System.Windows.Forms.MouseEventHandler(this.OnPictureBoxMouseUp);
             // 
+            // PipetteButton
+            // 
+            this.PipetteButton.FlatAppearance.BorderSize = 0;
+            this.PipetteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PipetteButton.Image = global::VectorDrawing.Properties.Resources.Pipette;
+            this.PipetteButton.Location = new System.Drawing.Point(378, 19);
+            this.PipetteButton.Name = "PipetteButton";
+            this.PipetteButton.Size = new System.Drawing.Size(47, 43);
+            this.PipetteButton.TabIndex = 36;
+            this.PipetteButton.UseVisualStyleBackColor = true;
+            this.PipetteButton.Click += new System.EventHandler(this.PipetteButton_Click);
+            // 
+            // button3
+            // 
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Image = global::VectorDrawing.Properties.Resources.Pipette;
+            this.button3.Location = new System.Drawing.Point(431, 17);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(47, 43);
+            this.button3.TabIndex = 37;
+            this.button3.UseVisualStyleBackColor = true;
+            // 
             // VectorDrawingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -855,14 +854,14 @@ namespace VectorDrawing
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.LightCyan;
             this.ClientSize = new System.Drawing.Size(1194, 605);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.PipetteButton);
             this.Controls.Add(this.ChangeColorButton);
             this.Controls.Add(this.PaletteButton1);
             this.Controls.Add(this.PaletteButton2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.EraiseButton);
-            this.Controls.Add(this.PipetteButton);
-            this.Controls.Add(this.FillButton);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.ThicknessValue);
             this.Controls.Add(this.label3);
@@ -938,8 +937,6 @@ namespace VectorDrawing
         private System.Windows.Forms.Label ThicknessValue;
         private System.Windows.Forms.TrackBar thicknessBar;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button FillButton;
-        private System.Windows.Forms.Button PipetteButton;
         private System.Windows.Forms.Button EraiseButton;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
@@ -947,6 +944,8 @@ namespace VectorDrawing
         private System.Windows.Forms.Button PaletteButton2;
         private System.Windows.Forms.Button PaletteButton1;
         private System.Windows.Forms.Button ChangeColorButton;
+        private System.Windows.Forms.Button PipetteButton;
+        private System.Windows.Forms.Button button3;
     }
 }
 

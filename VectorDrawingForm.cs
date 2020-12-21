@@ -23,8 +23,8 @@ namespace VectorDrawing
         private bool _isMouseDown;
         private IAction _action;
         private IContaneCalculator _contaneCalculator;
-        private bool pipetteButton;
-        private bool fillButton;
+        private bool isPipetteButtonClicked;
+        private bool isFillButtonClicked;
         private bool eraseButton;
 
         public VectorDrawingForm()
@@ -57,7 +57,7 @@ namespace VectorDrawing
 
             if (_action == null)
             {
-                if (_tool is IBrush && _isMouseDown && !pipetteButton)
+                if (_tool is IBrush && _isMouseDown && !isPipetteButtonClicked)
                 {
                     _tool.AddPoint(e.Location);
                     _canvas.Draw(_tool);
@@ -78,12 +78,12 @@ namespace VectorDrawing
         private void OnPictureBoxMouseDown(object sender, MouseEventArgs e)
         {
             _isMouseDown = true;
-            if (pipetteButton)
+            if (isPipetteButtonClicked)
             {
                 PaletteButton1.BackColor = _canvas.GetColor(e.Location);
                 _tool.Pen.Color = PaletteButton1.BackColor;
             }
-            else if (fillButton)
+            else if (isFillButtonClicked)
             {
                 _tool = _canvas.SetToolOnMouse(_contaneCalculator, e.Location);
                 if (_tool == null)
@@ -92,7 +92,7 @@ namespace VectorDrawing
                 _canvas.FillFigure(_tool, brush);
                 _canvas.Draw(_tool);
                 _tool = null;
-                fillButton = false;
+                isFillButtonClicked = false;
             }
             else if (_action == null)
             {
@@ -127,7 +127,7 @@ namespace VectorDrawing
 
         private void CreateFigure()
         {
-            pipetteButton = false;
+            isPipetteButtonClicked = false;
             if (!(_factoryTool is RegularPolygonFactoryTool))
             {
                 anglesForPolygonGroupBox.Visible = false;
@@ -363,12 +363,12 @@ namespace VectorDrawing
 
         private void PipetteButton_Click(object sender, EventArgs e)
         {
-            pipetteButton = true;
+            isPipetteButtonClicked = true;
         }
 
         private void OnFillButton_Click(object sender, EventArgs e)
         {
-            fillButton = true;
+            isFillButtonClicked = true;
         }
 
         private void OnEraiseButton_Click(object sender, EventArgs e)
