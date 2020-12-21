@@ -17,7 +17,7 @@ namespace VectorDrawin.Tests.ActionsTests
 
         //[SetUp]
 
-        [Test, TestCaseSource(typeof(ActionMock))]
+        [Test, TestCaseSource(typeof(MoveActionMock))]
         public void MoveActionTest(AbstractTool tool, PointF start, PointF end, PointF[] expected)
         {
             tool.SavePoints();
@@ -28,7 +28,7 @@ namespace VectorDrawin.Tests.ActionsTests
        
         
     }
-    class ActionMock : IEnumerable
+    class MoveActionMock : IEnumerable
     {
         public IEnumerator GetEnumerator()
         {
