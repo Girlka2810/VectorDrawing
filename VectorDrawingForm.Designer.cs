@@ -788,6 +788,7 @@ namespace VectorDrawing
             this.EraiseButton.Size = new System.Drawing.Size(47, 43);
             this.EraiseButton.TabIndex = 29;
             this.EraiseButton.UseVisualStyleBackColor = true;
+            this.EraiseButton.Click += new System.EventHandler(this.OnEraiseButton_Click);
             // 
             // PipetteButton
             // 
@@ -811,6 +812,7 @@ namespace VectorDrawing
             this.FillButton.Size = new System.Drawing.Size(47, 43);
             this.FillButton.TabIndex = 27;
             this.FillButton.UseVisualStyleBackColor = true;
+            this.FillButton.Click += new System.EventHandler(this.OnFillButton_Click);
             // 
             // saveButton
             // 
@@ -876,6 +878,7 @@ namespace VectorDrawing
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(1210, 644);
             this.Name = "VectorDrawingForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "VectorDrawing2D";
             this.Load += new System.EventHandler(this.OnVectorDrawingFormLoad);
             ((System.ComponentModel.ISupportInitialize)(this.thickness)).EndInit();

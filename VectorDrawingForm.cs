@@ -25,6 +25,7 @@ namespace VectorDrawing
         private IContaneCalculator _contaneCalculator;
         private bool pipetteButton;
         private bool fillButton;
+        private bool eraseButton;
 
         public VectorDrawingForm()
         {
@@ -84,9 +85,13 @@ namespace VectorDrawing
             }
             else if (fillButton)
             {
-                _tool.Pen.Color = PaletteButton1.BackColor;
-                _factoryTool = new FillFactoryTool();
-                CreateFigure();
+                _tool = _canvas.SetToolOnMouse(_contaneCalculator, e.Location);
+                if (_tool == null)
+                    return;
+                SolidBrush brush = new SolidBrush(PaletteButton1.BackColor);
+                _canvas.FillFigure(_tool, brush);
+                _canvas.Draw(_tool);
+                _tool = null;
                 fillButton = false;
             }
             else if (_action == null)
@@ -361,10 +366,14 @@ namespace VectorDrawing
             pipetteButton = true;
         }
 
-        private void FillButton_Click(object sender, EventArgs e)
+        private void OnFillButton_Click(object sender, EventArgs e)
         {
             fillButton = true;
-            
+        }
+
+        private void OnEraiseButton_Click(object sender, EventArgs e)
+        {
+            eraseButton = true;
         }
     }
 }

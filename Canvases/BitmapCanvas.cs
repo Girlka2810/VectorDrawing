@@ -142,7 +142,7 @@ namespace VectorDrawing.Canvases
             }
         }
         
-        private void ReplaceTool(AbstractTool tool)
+        public void ReplaceTool(AbstractTool tool)
         {
             if (tool != null && _tools.ContainsKey(tool.ID))
             {
@@ -153,6 +153,12 @@ namespace VectorDrawing.Canvases
         {
             return
             _mainBitmap.GetPixel((int)pointF.X,(int)pointF.Y);
+        }
+        public void FillFigure(AbstractTool tool, Brush brush)
+        {
+            tool.Path.FillMode = System.Drawing.Drawing2D.FillMode.Alternate;
+            Graphics graphics = Graphics.FromImage(_mainBitmap);
+            graphics.FillPath(brush, tool.Path);
         }
       
 
