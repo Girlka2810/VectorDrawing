@@ -351,5 +351,7 @@ namespace VectorDrawing
         {
             pipetteButton = true;
         }
+
+       
     }
 }
