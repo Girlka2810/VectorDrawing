@@ -111,6 +111,7 @@ namespace VectorDrawing.Canvases
                     _tool.TemporaryPoint = point;
                 }
             }
+            MarkVertexes(_tool);
             ReplaceTool(_tool);
             return _tool;
         }
@@ -155,6 +156,19 @@ namespace VectorDrawing.Canvases
             _mainBitmap.GetPixel((int)pointF.X,(int)pointF.Y);
         }
       
-
+        private void MarkVertexes(AbstractTool tool)
+        {
+            if (tool == null) return;
+            Graphics graphics = Graphics.FromImage(_mainBitmap);
+            RectangleF rectangle = new RectangleF();
+            Size size = new Size(4, 4);
+            rectangle.Size = size;
+            for (int i = 0; i < tool.EndShapePoints.Length; i++)
+            {
+                rectangle.X = tool.EndShapePoints[i].X - 2;
+                rectangle.Y = tool.EndShapePoints[i].Y - 2;
+                graphics.DrawEllipse(tool.PenForVertexes, rectangle);
+            }
+        }
     }
 }
