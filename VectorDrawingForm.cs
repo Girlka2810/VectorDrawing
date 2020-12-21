@@ -24,6 +24,7 @@ namespace VectorDrawing
         private IAction _action;
         private IContaneCalculator _contaneCalculator;
         private bool pipetteButton;
+        private bool fillButton;
 
         public VectorDrawingForm()
         {
@@ -80,6 +81,13 @@ namespace VectorDrawing
             {
                 PaletteButton1.BackColor = _canvas.GetColor(e.Location);
                 _tool.Pen.Color = PaletteButton1.BackColor;
+            }
+            else if (fillButton)
+            {
+                _tool.Pen.Color = PaletteButton1.BackColor;
+                _factoryTool = new FillFactoryTool();
+                CreateFigure();
+                fillButton = false;
             }
             else if (_action == null)
             {
@@ -351,6 +359,12 @@ namespace VectorDrawing
         private void PipetteButton_Click(object sender, EventArgs e)
         {
             pipetteButton = true;
+        }
+
+        private void FillButton_Click(object sender, EventArgs e)
+        {
+            fillButton = true;
+            
         }
     }
 }

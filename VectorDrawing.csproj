@@ -61,6 +61,7 @@
     <Compile Include="FactoriesTools\BrushFactoryTool.cs" />
     <Compile Include="FactoriesTools\CircleFactoryTool.cs" />
     <Compile Include="FactoriesTools\EllipseFactoryTool.cs" />
+    <Compile Include="FactoriesTools\FillFactoryTool.cs" />
     <Compile Include="FactoriesTools\IFactoryTool.cs" />
     <Compile Include="FactoriesTools\IsoscelesTriangleFactoryTool.cs" />
     <Compile Include="FactoriesTools\LineFactoryTool.cs" />
@@ -99,6 +100,7 @@
     <Compile Include="Tools\AbstractTool.cs" />
     <Compile Include="Tools\Ellipse\EllipseTool.cs" />
     <Compile Include="Tools\Ellipse\CircleTool.cs" />
+    <Compile Include="Tools\Brushes\FillTool.cs" />
     <Compile Include="Tools\IsoscelesTriangleTool.cs" />
     <Compile Include="Tools\Lines\AbstractLine.cs" />
     <Compile Include="Tools\Lines\SingleLine.cs" />
