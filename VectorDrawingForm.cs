@@ -330,5 +330,22 @@ namespace VectorDrawing
         {
             _mouseHandler = new PipetteMouseHandler();
         }
+
+        private void OnOpenButton1_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog fileDialog = new OpenFileDialog();
+            fileDialog.Filter = "Image Files(*.BMP;*.JPG;*.PNG;*.SVG;| *.BMP; *.JPG; *.PNG; *.SVG;|All Files(*.*)| *.*";
+            if (fileDialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    pictureBox.Image = new Bitmap(fileDialog.FileName);
+                }
+                catch
+                {
+                    MessageBox.Show("Невозможно открыть выбранный файл", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
     }
 }
