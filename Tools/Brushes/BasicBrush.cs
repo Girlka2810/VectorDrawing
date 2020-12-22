@@ -29,7 +29,10 @@ namespace VectorDrawing.Tools.Brushes
             }
             else
             {
-                graphics.DrawLines(Pen, Points.ToArray());
+                if (Points.Count != 1)
+                {
+                    graphics.DrawLines(Pen, Points.ToArray());
+                }
             }
         }
 
