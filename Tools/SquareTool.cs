@@ -30,9 +30,14 @@ namespace VectorDrawing.Tools
         public SquareTool(List<PointF> points, Pen pen) : base(points, pen)
         {
             Figure = new SquareFigure();
-            if (points.Count > 2)
+            if (points.Count > 4)
             {
                 throw new IndexOutOfRangeException();
+            }
+            EndShapePoints = points.ToArray();
+            if (EndShapePoints.Length > 2)
+            {
+                Path.AddPolygon(EndShapePoints);
             }
         }
 

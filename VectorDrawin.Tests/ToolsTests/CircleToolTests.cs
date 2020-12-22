@@ -9,7 +9,7 @@ namespace VectorDrawin.Tests.ToolsTests
     class CircleToolTests
     {
         [Test, TestCaseSource(typeof(GetPointsMock))]
-        public void SquareToolTest(List<PointF> points)
+        public void CircleToolTest(List<PointF> points)
         {
             Pen pen = new Pen(Color.BlueViolet);
             CircleTool actual = new CircleTool(pen);

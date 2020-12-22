@@ -4,6 +4,7 @@ using System.Collections;
 using VectorDrawing.Figures;
 using VectorDrawing.Figures.Parameters;
 using VectorDrawing.Figures.Returns;
+using System;
 
 namespace VectorDrawin.Tests.FiguresTests
 {
@@ -20,6 +21,11 @@ namespace VectorDrawin.Tests.FiguresTests
                 TemporaryPoint = current
             };
             PointF[] actual = ((CommonReturn)regularPolygonFigure.Get(regularPolygonParameter)).Points;
+            for (int i = 0; i< actual.Length; i++)
+            {
+                actual[i].X = (float)Math.Round(actual[i].X);
+                actual[i].Y = (float)Math.Round(actual[i].Y);
+            }
             PointF[] expected = points;
             Assert.AreEqual(expected, actual);
         }
@@ -28,10 +34,10 @@ namespace VectorDrawin.Tests.FiguresTests
     {
          public IEnumerator GetEnumerator()
         {
-            yield return new object[] { 3, new PointF(10, 10), new PointF(20, 20), new [] { new PointF(10, 0),
-            new PointF((float)1.339746, 15), new PointF((float)18.6602535, 15)} };
-            yield return new object[] {4, new PointF(10, 10), new PointF(20, 20), new [] { new PointF(10, 0), new PointF(0, 10),
-            new PointF(10,20), new PointF(20, 10)} };
+            yield return new object[] {3, new PointF(10, 10), new PointF(20, 20), new [] { new PointF(10, -4),
+            new PointF(-2, 17), new PointF(22, 17)} };
+            yield return new object[] {4, new PointF(10, 10), new PointF(20, 20), new [] { new PointF(10, -4), 
+                new PointF(-4, 10), new PointF(10,24), new PointF(24, 10)} };
             //yield return new object[] {5, new PointF(10, 10), new PointF(20, 20), new PointF[] { new PointF(10, 0), new PointF((float)0.4894348, (float)6.90983),
             //new PointF(15, 18), new PointF(4, 18), new PointF(0, 6) } };
         }

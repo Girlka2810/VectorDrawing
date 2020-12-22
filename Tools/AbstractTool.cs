@@ -18,6 +18,7 @@ namespace VectorDrawing.Tools
         public PointF[] EndShapePoints { get; set; }
         public GraphicsPath Path { get; set; }
 
+        public Pen PenForVertexes { get; set; }
         protected List<PointF> Points;
         protected IFigure Figure;
         protected Pen PenForSearching;
@@ -162,6 +163,7 @@ namespace VectorDrawing.Tools
             if (pen.Width >= 1 && pen.Width <= 100)
             {
                 Pen = pen;
+                PenForVertexes = new Pen(Color.Red, 2);
             }
             else
             {
