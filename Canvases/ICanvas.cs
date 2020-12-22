@@ -6,7 +6,7 @@ using VectorDrawing.Actions.ContainCalculater;
 
 namespace VectorDrawing.Canvases
 {
-    interface ICanvas
+    public interface ICanvas
     {
         void Create(int width, int height);
         void Create(int width, int height, Color backcolor);
