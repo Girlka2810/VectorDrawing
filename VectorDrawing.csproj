@@ -91,6 +91,11 @@
     <Compile Include="Figures\Returns\FigureReturn.cs" />
     <Compile Include="Figures\SquareFigure.cs" />
     <Compile Include="Figures\TriangleFigure.cs" />
+    <Compile Include="MouseHandlers\ActionMouseHandler.cs" />
+    <Compile Include="MouseHandlers\BrushMouseHandler.cs" />
+    <Compile Include="MouseHandlers\DrawMouseHandler.cs" />
+    <Compile Include="MouseHandlers\IMouseHandler.cs" />
+    <Compile Include="MouseHandlers\PipetteMouseHandler.cs" />
     <Compile Include="RectangleConverts\BasicConvert.cs" />
     <Compile Include="RectangleConverts\IConvert.cs" />
     <Compile Include="Tools\Brushes\BasicBrush.cs" />

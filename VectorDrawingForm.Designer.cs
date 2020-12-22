@@ -942,7 +942,7 @@ namespace VectorDrawing
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button PaletteButton2;
-        private System.Windows.Forms.Button PaletteButton1;
+        public System.Windows.Forms.Button PaletteButton1;
         private System.Windows.Forms.Button ChangeColorButton;
     }
 }

@@ -8,8 +8,7 @@ using VectorDrawing.Tools.Brushes;
 using VectorDrawing.Tools.Polygons;
 using VectorDrawing.Actions;
 using VectorDrawing.Actions.ContainCalculater;
-using System.Threading;
-using System.Threading.Tasks;
+using VectorDrawing.MouseHandlers;
 
 
 namespace VectorDrawing
@@ -21,11 +20,9 @@ namespace VectorDrawing
         private IFactoryTool _factoryTool;
         private Pen _pen;
         private ICanvas _canvas;
-        private bool _isMouseDown;
         private IAction _action;
-        private IContaneCalculator _contaneCalculator;
-        private bool pipetteButton;
-        private int _counter;
+        public IContaneCalculator ContaneCalculator;
+        private IMouseHandler _mouseHandler;
 
         public VectorDrawingForm()
         {
@@ -33,92 +30,9 @@ namespace VectorDrawing
             CustomizeDesing();
         }
 
-        private void OnVectorDrawingFormLoad(object sender, EventArgs e)
+
+        public void CreateFigure()
         {
-            _canvas = new BitmapCanvas();
-            _canvas.SetRender(OnRender);
-            _canvas.Create(pictureBox.Width, pictureBox.Height);
-            _pen = new Pen(Color.Black, 1);
-            _contaneCalculator = new OnInside();        //тут выбор фигур - по граням или по всей фигуре
-            _counter = 0;
-        }
-
-        private void OnRender(Bitmap bitmap, Color color)
-        {
-            pictureBox.Image = bitmap;
-            pictureBox.BackColor = color;
-        }
-
-
-        // Действия с мышкой на puctureBox'е
-        private void OnPictureBoxMouseMove(object sender, MouseEventArgs e)
-        {
-            Coordinates.Text = $"X = {e.Location.X} Y = {e.Location.Y}";
-            if (_tool == null) return;
-
-            if (_action == null)
-            {
-                if (_tool is IBrush && _isMouseDown && !pipetteButton)
-                {
-                    _tool.AddPoint(e.Location);
-                    _canvas.Draw(_tool);
-                    return;
-                }
-
-                if (!_tool.CheckPointsExist()) return;
-                _tool.TemporaryPoint = e.Location;
-                _canvas.Draw(_tool);
-            }
-            else if (_isMouseDown)
-            {
-                _action.UpdateToolPoints(_tool, _tool.TemporaryPoint, e.Location);
-                _canvas.Draw(_tool);
-                _counter++;
-            }
-        }
-
-        private void OnPictureBoxMouseDown(object sender, MouseEventArgs e)
-        {
-            _isMouseDown = true;
-            if (pipetteButton)
-            {
-                PaletteButton1.BackColor = _canvas.GetColor(e.Location);
-                _tool.Pen.Color = PaletteButton1.BackColor;
-            }
-            else if (_action == null)
-            {
-                _tool?.AddPoint(e.Location);
-
-                if (_tool != null && _tool.CheckMaxQuantityPoints())
-                {
-                    _canvas.Draw(_tool);
-                    _canvas.FinishFigure();
-                    CreateFigure();
-                }
-            }
-            else
-            {
-                _tool = _canvas.SetToolOnMouse(_contaneCalculator, e.Location);
-                _canvas.UpdateBitmap();
-            }
-        }
-        private void OnPictureBoxMouseUp(object sender, MouseEventArgs e)
-        {
-            _isMouseDown = false;
-            if (_action!=null)
-            {
-                _canvas.FinishFigure();
-            }
-            else if (_tool is IBrush)
-            {
-                _canvas.FinishFigure();
-                CreateFigure();
-            }
-        }
-
-        private void CreateFigure()
-        {
-            pipetteButton = false;
             if (!(_factoryTool is RegularPolygonFactoryTool))
             {
                 anglesForPolygonGroupBox.Visible = false;
@@ -132,6 +46,53 @@ namespace VectorDrawing
                 regularPolygonTool.QuantityOfCorners = (int)cornerNumericUpDown.Value;
             }
         }
+
+        public void SetTool(AbstractTool tool)
+        {
+            _tool = tool;
+        }
+        
+
+        private void OnVectorDrawingFormLoad(object sender, EventArgs e)
+        {
+            _canvas = new BitmapCanvas();
+            _canvas.SetRender(OnRender);
+            _canvas.Create(pictureBox.Width, pictureBox.Height);
+            _pen = new Pen(Color.Black, 1);
+            ContaneCalculator = new OnInside();        //тут выбор фигур - по граням или по всей фигуре
+        }
+
+        private void OnRender(Bitmap bitmap, Color color)
+        {
+            pictureBox.Image = bitmap;
+            pictureBox.BackColor = color;
+        }
+
+
+        // Действия с мышкой на puctureBox'е
+        private void OnPictureBoxMouseMove(object sender, MouseEventArgs e)
+        {
+          
+            
+            Coordinates.Text = $"X = {e.Location.X} Y = {e.Location.Y}";
+            if (_tool == null) return;
+
+            _mouseHandler.OnMouseMove(_canvas, e, _action, _tool, this);
+        }
+
+        private void OnPictureBoxMouseDown(object sender, MouseEventArgs e)
+        {
+            _mouseHandler.OnMouseDown(_canvas, e, _action, _tool, this);
+           
+        }
+        private void OnPictureBoxMouseUp(object sender, MouseEventArgs e)
+        {
+
+            _mouseHandler.OnMouseUp(_canvas, e, _action, _tool, this);
+           
+        }
+
+       
 
         // Толщина линий
         private void OnThicknessValueChanged(object sender, EventArgs e)
@@ -155,78 +116,93 @@ namespace VectorDrawing
         {
             _action = new MoveAction();
             _tool = null;
+            _mouseHandler = new ActionMouseHandler();
             HideSubMenu();
         }
         private void OnRotateModeButtonClick(object sender, EventArgs e)
         {
             _action = new RotateAction();
+            _mouseHandler = new ActionMouseHandler();
             _tool = null;
             HideSubMenu();
         }
         private void OnChangeScaleModeButton_Click(object sender, EventArgs e)
         {
             _action = new ScaleAction();
+            _mouseHandler = new ActionMouseHandler();
             _tool = null;
             HideSubMenu();
         }
         private void OnLineButtonClick(object sender, EventArgs e)
         {
             _factoryTool = new LineFactoryTool();
+            _mouseHandler = new DrawMouseHandler();
             CreateFigure();
         }
         private void OnBrushButtonClick(object sender, EventArgs e)
         {
             _factoryTool = new BrushFactoryTool();
             CreateFigure();
+            _mouseHandler = new BrushMouseHandler();
         }
         private void OnNlineButtonClick(object sender, EventArgs e)
         {
             _factoryTool = new NLineFactoryTool();
+            _mouseHandler = new DrawMouseHandler();
             CreateFigure();
         }
         private void OnRectangleButtonClick(object sender, EventArgs e)
         {
             _factoryTool = new RectangleFactoryTool();
+            _mouseHandler = new DrawMouseHandler();
             CreateFigure();
         }
         private void OnSquareButtonClick(object sender, EventArgs e)
         {
             _factoryTool = new SquareFactoryTool();
+            _mouseHandler = new DrawMouseHandler();
             CreateFigure();
         }
         private void OnCircleButtonClick(object sender, EventArgs e)
         {
             _factoryTool = new CircleFactoryTool();
+            _mouseHandler = new DrawMouseHandler();
             CreateFigure();
         }
         private void OnEllipseButtonClick(object sender, EventArgs e)
         {
             _factoryTool = new EllipseFactoryTool();
+            _mouseHandler = new DrawMouseHandler();
             CreateFigure();
         }
         private void OnRectangularTriangleButtonClick(object sender, EventArgs e)
         {
             _factoryTool = new RectangularTriangleFactoryTool();
+            _mouseHandler = new DrawMouseHandler();
             CreateFigure();
         }
         private void OnTriangleButtonClick(object sender, EventArgs e)
         {
             _factoryTool = new TriangleFactoryTool();
+            _mouseHandler = new DrawMouseHandler();
             CreateFigure();
         }
         private void OnIsoscelesTriangleButtonClick(object sender, EventArgs e)
         {
             _factoryTool = new IsoscelesTriangleFactoryTool();
+            _mouseHandler = new DrawMouseHandler();
             CreateFigure();
         }
         private void OnPolygonButtonClick(object sender, EventArgs e)
         {
             _factoryTool = new PolygonFactoryTool();
+            _mouseHandler = new DrawMouseHandler();
             CreateFigure();
         }
         private void OnRegularPolygonButtonClick(object sender, EventArgs e)
         {
             _factoryTool = new RegularPolygonFactoryTool();
+            _mouseHandler = new DrawMouseHandler();
             CreateFigure();
             anglesForPolygonGroupBox.Visible = true;
             ((RegularPolygonTool)_tool).QuantityOfCorners = (int)cornerNumericUpDown.Value;
@@ -307,7 +283,7 @@ namespace VectorDrawing
 
         private void OnToolsButtonClick(object sender, EventArgs e)
         {
-            if(panelTools.Visible==true)
+            if(panelTools.Visible)
             {
                 HideSubMenu();
                 return;
@@ -352,7 +328,7 @@ namespace VectorDrawing
 
         private void PipetteButton_Click(object sender, EventArgs e)
         {
-            pipetteButton = true;
+            _mouseHandler = new PipetteMouseHandler();
         }
     }
 }

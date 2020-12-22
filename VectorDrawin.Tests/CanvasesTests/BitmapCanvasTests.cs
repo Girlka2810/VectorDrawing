@@ -18,6 +18,7 @@ namespace VectorDrawin.Tests.CanvasesTests
             for (int i = 0; i < tools.Length; i++)
             {
                 actual.Draw(tools[i]);
+                actual.FinishFigure();
             }
 
             Assert.AreEqual(expected, actual);
