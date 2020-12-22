@@ -170,5 +170,11 @@ namespace VectorDrawing.Canvases
                 graphics.DrawEllipse(tool.PenForVertexes, rectangle);
             }
         }
+      public void LoadImage (Image image)
+        {
+            _mainBitmap = new Bitmap(image);
+            _render?.Invoke(_mainBitmap, _backColor);
+        }
+
     }
 }
