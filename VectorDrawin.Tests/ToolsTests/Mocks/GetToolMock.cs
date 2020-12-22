@@ -5,6 +5,7 @@ using System.Drawing;
 
 using VectorDrawing.Tools;
 using VectorDrawing.Tools.Ellipse;
+using VectorDrawing.Tools.Lines;
 
 namespace VectorDrawin.Tests.ToolsTests.Mocks
 {
@@ -35,8 +36,18 @@ namespace VectorDrawin.Tests.ToolsTests.Mocks
             };
             yield return new object[]
             {
-                new SquareTool(new List<PointF>{ new PointF(0,0), new PointF(10,10)}, pen),
-                new PointF(5, 5)
+                new TriangleTool(new List<PointF>{ new PointF(0,0), new PointF(10,10), new PointF(20,0)}, pen),
+                new PointF(10, 3)
+            };
+            yield return new object[]
+            {
+                new SingleLine(new List<PointF>{ new PointF(0,0), new PointF(10,0)}, pen),
+                new PointF(5, 0)
+            };
+            yield return new object[]
+            {
+                new NLine(new List<PointF>{ new PointF(0,0), new PointF(10,0), new PointF(20,20)}, pen),
+                new PointF(8, 5)
             };
         }
     }
