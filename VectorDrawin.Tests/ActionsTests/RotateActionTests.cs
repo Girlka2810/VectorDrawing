@@ -64,37 +64,24 @@ namespace VectorDrawin.Tests.ActionsTests
                     new PointF(10, 16), new PointF(10,10)
                 }
             };
+            yield return new object[]
+            {
+                CreateTool.Rectangle(
+                    new List<PointF>()
+                    {
+                        new PointF(10,10),
+                        new PointF(16, 16)
+                    },
+                    pen
+                    ),
+                new PointF(16, 10), new PointF(10, 10),
+                new PointF[] {
+                  new PointF(16, 10), new PointF(10, 10),
+                    new PointF(10, 16), new PointF(16,16)
+                }
+            };
         }
     }
 }
-    //class PointsMock : IEnumerable
-    //{
-    //    public IEnumerator GetEnumerator()
-    //    {
-    //        yield return new object[] { 
-    //            new PointF[] { 
-    //                new PointF(10,10), new PointF(15, 10), 
-    //                new PointF(15, 15), new PointF(10, 15) 
-    //            },
-    //            new PointF(), new PointF(),
-    //            new PointF[] {
-    //                new PointF(10,10), new PointF(15, 10),
-    //                new PointF(15, 15), new PointF(10, 15)
-    //            }
-    //        };
-    //        yield return new object[] {
-    //            new PointF[] {
-    //                new PointF(10,10), new PointF(16, 10),
-    //                new PointF(16, 16), new PointF(10, 16)
-    //            },
-    //            new PointF(16, 10), new PointF(10, 10),
-    //            new PointF[] {
-    //                new PointF(10,10), new PointF(16, 16),
-    //                new PointF(10, 16),  new PointF(16, 10)
-    //            }
-    //        };
-    //    }
-
-    //}
     
 

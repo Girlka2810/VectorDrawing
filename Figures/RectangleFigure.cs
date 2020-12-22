@@ -43,6 +43,13 @@ namespace VectorDrawing.Figures
                         }
                     };
                 }
+                else if (figureParameter.Points.Length == 4)
+                {
+                    return new CommonReturn()
+                    {
+                        Points = figureParameter.Points
+                    };
+                }
             }
             throw new NullReferenceException("Points can't be null!");
         }

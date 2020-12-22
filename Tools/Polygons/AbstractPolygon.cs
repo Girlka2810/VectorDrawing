@@ -17,6 +17,7 @@ namespace VectorDrawing.Tools.Polygons
             {
                 AddPoint(points[i]);
             }
+            EndShapePoints = points.ToArray();
         }
         
         protected AbstractPolygonTool(Pen pen): base(pen)

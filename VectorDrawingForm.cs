@@ -25,6 +25,7 @@ namespace VectorDrawing
         private IAction _action;
         private IContaneCalculator _contaneCalculator;
         private bool pipetteButton;
+        private int _counter;
 
         public VectorDrawingForm()
         {
@@ -39,6 +40,7 @@ namespace VectorDrawing
             _canvas.Create(pictureBox.Width, pictureBox.Height);
             _pen = new Pen(Color.Black, 1);
             _contaneCalculator = new OnInside();        //тут выбор фигур - по граням или по всей фигуре
+            _counter = 0;
         }
 
         private void OnRender(Bitmap bitmap, Color color)
@@ -71,6 +73,7 @@ namespace VectorDrawing
             {
                 _action.UpdateToolPoints(_tool, _tool.TemporaryPoint, e.Location);
                 _canvas.Draw(_tool);
+                _counter++;
             }
         }
 

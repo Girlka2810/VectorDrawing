@@ -20,10 +20,11 @@ namespace VectorDrawing.Tools
         public RectangleTool(List<PointF> points, Pen pen) : base(points, pen)
         {
             Figure = new RectangleFigure();
-            if (points.Count > 2)
+            if (points.Count > 4)
             {
                 throw new IndexOutOfRangeException();
             }
+            EndShapePoints = points.ToArray();
         }
 
     }

@@ -8,6 +8,7 @@ using VectorDrawing.Tools;
 using VectorDrawing.Tools.Brushes;
 using VectorDrawing.Tools;
 using VectorDrawing.Tools.Lines;
+using System;
 
 namespace VectorDrawin.Tests.ActionsTests
 {
@@ -22,7 +23,12 @@ namespace VectorDrawin.Tests.ActionsTests
         {
             tool.SavePoints();
             action.UpdateToolPoints(tool, start, end);
-            PointF[] actual = tool.EndShapePoints;
+            PointF[] actual = new PointF[tool.EndShapePoints.Length];
+            for (int i = 0; i<actual.Length; i++)
+            {
+                actual[i].X = (float)Math.Round(tool.EndShapePoints[i].X);
+                actual[i].Y = (float)Math.Round(tool.EndShapePoints[i].Y);
+            }
             Assert.AreEqual(expected, actual);
         }
        
@@ -45,148 +51,86 @@ namespace VectorDrawin.Tests.ActionsTests
                 new PointF(10, 10), new PointF(10, 20),
                 new PointF[] {new PointF(5, 15), new PointF(10, 15)}
             };
-
-            //yield return new object[]
-            //{
-            //    CreateTool.Square(
-            //        new List<PointF>()
-            //        {
-            //            new PointF(5, 5),
-            //            new PointF(10, 5),
-
-            //        },
-            //        new Pen(Color.Aqua, 11)
-            //        ),
-            //    new PointF(10, 10), new PointF(10, 20),
-            //    new PointF[] {new PointF(5, 15), new PointF(10, 15)}
-            //};
-
-            //yield return new object[]
-            //{
-            //    new[]
-            //    {
-            //        CreateTool.Brush(
-            //            new List<PointF>()
-            //            {
-            //                new PointF(1, 1),
-            //                new PointF(1, 1),
-            //                new PointF(1, 1),
-            //                new PointF(1, 1),
-            //            }, new Pen(Color.Aqua, 12)),
-            //        CreateTool.Line(
-            //            new List<PointF>()
-            //            {
-            //                new PointF(1, 1),
-            //                new PointF(1, 1),
-            //            }, new Pen(Color.Aqua, 11)),
-            //        CreateTool.Rectangle(
-            //            new List<PointF>()
-            //            {
-            //                new PointF(1, 1),
-            //                new PointF(1, 1),
-            //            }, new Pen(Color.Aqua, 11)),
-            //    },
-            //};
-
-            //yield return new object[]
-            //{
-            //    new[]
-            //    {
-            //        CreateTool.Square(
-            //            new List<PointF>()
-            //            {
-            //                new PointF(1, 1),
-            //                new PointF(1, 1),
-            //            }, new Pen(Color.Aqua, 12)),
-            //        CreateTool.Line(
-            //            new List<PointF>()
-            //            {
-            //                new PointF(1, 1),
-            //                new PointF(1, 1),
-            //            }, new Pen(Color.Aqua, 11)),
-            //        CreateTool.NLine(
-            //            new List<PointF>()
-            //            {
-            //                new PointF(1, 1),
-            //                new PointF(1, 1),
-            //            }, new Pen(Color.Aqua, 11)),
-            //        CreateTool.Brush(
-            //            new List<PointF>()
-            //            {
-            //                new PointF(1, 1),
-            //                new PointF(1, 1),
-            //                new PointF(1, 1),
-            //                new PointF(1, 1),
-            //            }, new Pen(Color.Aqua, 12)),
-            //        CreateTool.RectangularTriangle(
-            //            new List<PointF>()
-            //            {
-            //                new PointF(1, 1),
-            //                new PointF(1, 1),
-            //            }, new Pen(Color.Aqua, 11)),
-            //        CreateTool.Rectangle(
-            //            new List<PointF>()
-            //            {
-            //                new PointF(1, 1),
-            //                new PointF(1, 1),
-            //            }, new Pen(Color.Aqua, 11)),
-            //    },
-            //};
-
-            //yield return new object[]
-            //{
-            //    new[]
-            //    {
-            //        CreateTool.Circle(
-            //            new List<PointF>()
-            //            {
-            //                new PointF(1, 1),
-            //                new PointF(1, 1),
-            //            }, new Pen(Color.Aqua, 12)),
-            //        CreateTool.RegularPolygon(
-            //            new List<PointF>()
-            //            {
-            //                new PointF(1, 1),
-            //                new PointF(6, 6),
-            //            }, new Pen(Color.Aqua, 11), 100),
-            //        CreateTool.Ellipse(
-            //            new List<PointF>()
-            //            {
-            //                new PointF(1, 1),
-            //                new PointF(1, 1),
-            //            }, new Pen(Color.Aqua, 11)),
-            //    },
-            //};
-
-            //yield return new object[]
-            //{
-            //    new[]
-            //    {
-            //        CreateTool.Square(
-            //            new List<PointF>()
-            //            {
-            //                new PointF(1, 1),
-            //                new PointF(1, 1),
-            //            }, new Pen(Color.Aqua, 12)),
-            //        CreateTool.Line(
-            //            new List<PointF>()
-            //            {
-            //                new PointF(1, 1),
-            //                new PointF(1, 1),
-            //            }, new Pen(Color.Aqua, 11)),
-            //        CreateTool.Triangle(
-            //            new List<PointF>()
-            //            {
-            //                new PointF(1, 1),
-            //                new PointF(1, 1),
-            //            }, new Pen(Color.Aqua, 11)),
-            //    },
-            //};
-
-            //yield return new object[]
-            //{
-            //    new AbstractTool[] { },
-            //};
+            yield return new object[]
+            {
+                CreateTool.Square(
+                    new List<PointF>()
+                    {
+                        new PointF(5, 5),
+                        new PointF(10, 5),
+                        new PointF(10, 10),
+                        new PointF(5, 10)
+                    },
+                    new Pen(Color.Aqua, 11)
+                    ),
+                new PointF(10, 10), new PointF(10, 20),
+                new PointF[] 
+                {
+                    new PointF(5, 15),
+                    new PointF(10, 15),
+                    new PointF(10, 20),
+                    new PointF(5, 20)
+                }
+            };
+            yield return new object[]
+           {
+                CreateTool.Triangle(
+                    new List<PointF>()
+                    {
+                        new PointF(5, 5),
+                        new PointF(10, 5),
+                        new PointF(10, 10)
+                    },
+                    new Pen(Color.Aqua, 11)
+                    ),
+                new PointF(10, 10), new PointF(10, 20),
+                new PointF[]
+                {
+                    new PointF(5, 15),
+                    new PointF(10, 15),
+                    new PointF(10, 20)
+                }
+           };
+            yield return new object[]
+          {
+                CreateTool.Rectangle(
+                    new List<PointF>()
+                    {
+                        new PointF(5, 5),
+                        new PointF(10, 5),
+                        new PointF(10, 10),
+                        new PointF(5, 10)
+                    },
+                    new Pen(Color.Aqua, 11)
+                    ),
+                new PointF(10, 10), new PointF(10, 20),
+                new PointF[]
+                {
+                    new PointF(5, 15),
+                    new PointF(10, 15),
+                    new PointF(10, 20),
+                    new PointF(5, 20)
+                }
+          };
+            yield return new object[]
+          {
+                CreateTool.RegularPolygon(
+                    new List<PointF>()
+                    {
+                        new PointF(5, 5),
+                        new PointF(10, 5)
+                    },
+                    new Pen(Color.Aqua, 11), 4
+                    ),
+                new PointF(10, 10), new PointF(10, 20),
+                new PointF[]
+                {
+                    new PointF(5, 8),
+                    new PointF(-2, 15),
+                    new PointF(5, 22),
+                    new PointF(12, 15)
+                }
+          };
         }
     }
 }

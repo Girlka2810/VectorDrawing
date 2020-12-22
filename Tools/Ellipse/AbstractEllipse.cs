@@ -18,7 +18,11 @@ namespace VectorDrawing.Tools.Ellipse
             {
                 AddPoint(points[i]);
             }
-            
+            EndShapePoints = points.ToArray();
+            if (EndShapePoints.Length != 2)
+            {
+                throw new ArgumentException();
+            }
         }
         
         public AbsractEllipse(Pen pen) : base(pen)
@@ -28,6 +32,7 @@ namespace VectorDrawing.Tools.Ellipse
             SetPen(pen);
             PointF[] points = Points.ToArray();
             Center = points.Length != 0 ? points[0]: new PointF();
+
         }
         public override void Paint(Graphics graphics)
         {
