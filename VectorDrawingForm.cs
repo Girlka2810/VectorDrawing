@@ -60,7 +60,7 @@ namespace VectorDrawing
             _canvas.Create(pictureBox.Width, pictureBox.Height);
             _pen = new Pen(Color.Black, 1);
             ContaneCalculator = new OnInside();        //тут выбор фигур - по граням или по всей фигуре
-        }
+            _mouseHandler = new DrawMouseHandler();        }
 
         private void OnRender(Bitmap bitmap, Color color)
         {
@@ -339,7 +339,7 @@ namespace VectorDrawing
             {
                 try
                 {
-                    pictureBox.Image = new Bitmap(fileDialog.FileName);
+                    _canvas.LoadImage(new Bitmap(fileDialog.FileName));
                 }
                 catch
                 {

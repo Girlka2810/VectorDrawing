@@ -154,7 +154,11 @@ namespace VectorDrawing.Canvases
             return
             _mainBitmap.GetPixel((int)pointF.X,(int)pointF.Y);
         }
-      
+      public void LoadImage (Image image)
+        {
+            _mainBitmap = new Bitmap(image);
+            _render?.Invoke(_mainBitmap, _backColor);
+        }
 
     }
 }
