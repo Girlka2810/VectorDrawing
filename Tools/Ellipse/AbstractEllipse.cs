@@ -19,7 +19,7 @@ namespace VectorDrawing.Tools.Ellipse
                 AddPoint(points[i]);
             }
             EndShapePoints = points.ToArray();
-            if (EndShapePoints.Length != 2)
+            if (EndShapePoints.Length > 2)
             {
                 throw new ArgumentException();
             }
