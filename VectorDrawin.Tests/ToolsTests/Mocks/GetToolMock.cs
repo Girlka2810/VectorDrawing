@@ -19,16 +19,7 @@ namespace VectorDrawin.Tests.ToolsTests.Mocks
                 new RectangleTool(new List<PointF>{ new PointF(0,0), new PointF(10,10)}, pen),
                 new PointF(5,5)
             };
-            yield return new object[]
-            {
-                new CircleTool(new List<PointF>{ new PointF(0,0), new PointF(10,10)}, pen),
-                new PointF(0,0)
-            };
-            yield return new object[]
-            {
-                new EllipseTool(new List<PointF>{ new PointF(0,0), new PointF(12,12)}, pen),
-                new PointF(0,0)
-            };
+
             yield return new object[]
             {
                 new RectangularTriangleTool(new List<PointF>{ new PointF(0,0), new PointF(10,10)}, pen),
